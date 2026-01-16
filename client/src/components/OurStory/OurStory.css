@@ -1,0 +1,325 @@
+.our-story {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    /* overflow: hidden; Removed to allow sticky behavior */
+}
+
+/* Background Split */
+.our-story::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--primary) 40%, #ffffff 40%);
+    z-index: 1;
+}
+
+.story-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.story-left {
+    padding: 100px 60px;
+    /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    /* Occupy full viewport height */
+    align-self: start;
+    /* Important for sticky in grid */
+}
+
+.story-label {
+    color: #ffffff;
+    font-size: 48px;
+    /* Reduced from 64px */
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    line-height: 1.1;
+}
+
+.story-title {
+    color: #ffffff;
+    font-size: 80px;
+    /* Reduced from 100px */
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.story-right {
+    padding: 150px 100px;
+    background: #ffffff;
+    color: #000000;
+}
+
+.story-heading {
+    font-size: 28px;
+    /* Reduced to ensure single line */
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* Enforce single line */
+}
+
+.story-description {
+    font-size: 16px;
+    /* Reduced from 18px */
+    /* Reduced from 22px */
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    /* Reduced margin */
+    max-width: 95%;
+}
+
+.story-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+    /* Reduced gap */
+    margin-bottom: 50px;
+}
+
+.feature-item h5 {
+    font-size: 20px;
+    /* Reduced from 24px */
+    /* Reduced from 30px */
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+    /* Indent text to make room for bar */
+}
+
+.feature-item h5::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    /* Bar starts exactly at the left alignment line */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    /* Reduced from 6px */
+    height: 25px;
+    /* Reduced from 35px */
+    background: var(--primary);
+}
+
+.feature-item p {
+    font-size: 14px;
+    /* Reduced from 16px */
+    /* Reduced from 20px */
+    color: #555555;
+    line-height: 1.5;
+    padding-left: 25px;
+    /* Match heading indentation */
+}
+
+.brochure-btn {
+    background: #000000;
+    color: #ffffff;
+    padding: 12px 40px;
+    /* Reduced from 16px 50px */
+    font-size: 14px;
+    /* Reduced from 16px */
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    border-radius: 0px;
+    /* Start with sharp corners */
+    transition: all 0.3s ease;
+    /* Smooth transition for all properties */
+    /* Faster transition */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-top: 10px;
+    /* Button stays at the left edge to match main heading */
+}
+
+.brochure-btn:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-radius: 25px;
+    /* Rounded corners on hover */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(139, 0, 0, 0.3);
+}
+
+/* Partners Section */
+.story-right {
+    padding: 100px 60px;
+    /* Reduced padding */
+    background: #ffffff;
+    color: #000000;
+}
+
+.partners-section {
+    margin-top: 100px;
+    /* Ensure space between previous content */
+}
+
+.partners-title {
+    font-size: 28px;
+    /* Matched story-heading size */
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* Enforce single line */
+}
+
+.partners-grid {
+    display: flex;
+    gap: 30px;
+    /* Strategic gap to allow 4 large boxes */
+    margin-bottom: 60px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.partner-item {
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+    /* Important for flex-grow to work properly in narrow containers */
+    max-width: none;
+    /* Let them grow to fill available space */
+}
+
+.partner-logo-box {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    margin-bottom: 25px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 30px;
+    /* Reduced padding from 55px to let images stay large */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.partner-logo-img {
+    width: auto;
+    height: auto;
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    filter: grayscale(1);
+    transition: all 0.4s ease;
+}
+
+.partner-logo-box:hover {
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+}
+
+.partner-logo-box:hover .partner-logo-img {
+    filter: grayscale(0) scale(1.1);
+}
+
+.partner-name {
+    font-size: 16px;
+    /* Smaller */
+    font-weight: 300;
+    /* Light */
+    color: #000000;
+    /* Black */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.view-more-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.view-more-btn {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.view-more-line {
+    height: 2px;
+    width: 40px;
+    background: var(--primary);
+    opacity: 0.5;
+}
+
+@media (max-width: 1400px) {
+    .story-title {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .our-story::before {
+        background: var(--primary);
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-right {
+        padding: 100px 40px;
+    }
+
+    .story-left {
+        padding: 100px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-title {
+        font-size: 60px;
+    }
+
+    .story-label {
+        font-size: 40px;
+    }
+
+    .story-features {
+        grid-template-columns: 1fr;
+    }
+
+    .story-heading {
+        font-size: 32px;
+    }
+}
