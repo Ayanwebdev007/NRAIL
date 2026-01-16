@@ -141,30 +141,21 @@
     background: #000000;
     color: #ffffff;
     padding: 12px 40px;
-    /* Reduced from 16px 50px */
     font-size: 14px;
-    /* Reduced from 16px */
     font-weight: 800;
     border: none;
     cursor: pointer;
     letter-spacing: 1.5px;
     border-radius: 0px;
-    /* Start with sharp corners */
     transition: all 0.3s ease;
-    /* Smooth transition for all properties */
-    /* Faster transition */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     margin-top: 10px;
-    /* Button stays at the left edge to match main heading */
 }
 
 .brochure-btn:hover {
     background: var(--primary);
     color: #ffffff;
     border-radius: 25px;
-    /* Rounded corners on hover */
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(139, 0, 0, 0.3);
 }
 
 /* Partners Section */
