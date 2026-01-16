@@ -31,24 +31,24 @@ const OurStory = () => {
                 {/* Left Column */}
                 <motion.div
                     className="story-left"
-                    initial={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, x: -100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <motion.h3
                         className="story-label"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
                     >
                         Our Story
                     </motion.h3>
                     <motion.h2
                         className="story-title"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.5, duration: 0.8, ease: "circOut" }}
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
                     >
                         NRAIL <br /> LEGACY
                     </motion.h2>
