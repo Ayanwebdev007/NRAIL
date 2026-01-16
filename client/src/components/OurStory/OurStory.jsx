@@ -3,6 +3,27 @@ import { motion } from 'framer-motion';
 import './OurStory.css';
 
 const OurStory = () => {
+    // Animation variants for staggered reveal
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2, // Stagger effect for children
+                delayChildren: 0.3
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { type: "spring", stiffness: 50, damping: 20 }
+        }
+    };
+
     return (
         <section className="our-story" id="our-story">
             <div className="story-grid">
@@ -10,10 +31,10 @@ const OurStory = () => {
                 {/* Left Column */}
                 <motion.div
                     className="story-left"
-                    initial={{ opacity: 0, x: -100 }}
+                    initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1, type: "spring", bounce: 0.3 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <motion.h3
                         className="story-label"
@@ -25,9 +46,9 @@ const OurStory = () => {
                     </motion.h3>
                     <motion.h2
                         className="story-title"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.6 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5, duration: 0.8, ease: "circOut" }}
                     >
                         NRAIL <br /> LEGACY
                     </motion.h2>
@@ -36,25 +57,15 @@ const OurStory = () => {
                 {/* Right Column */}
                 <motion.div
                     className="story-right"
-                    initial={{ opacity: 0, x: 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1, delay: 0.2 }}
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
                 >
-                    <motion.h4
-                        className="story-heading"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4, duration: 0.8 }}
-                    >
+                    <motion.h4 className="story-heading" variants={itemVariants}>
                         A FUTURE-READY DESTINATION FOR THE MODERN ERA
                     </motion.h4>
-                    <motion.p
-                        className="story-description"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                    >
+                    <motion.p className="story-description" variants={itemVariants}>
                         NRAIL Legacy stands as a pinnacle of manufacturing excellence and infrastructure development.
                         Our commitment to quality and innovation has made us a leader in the industry,
                         providing sustainable and high-performance solutions for global markets.
@@ -62,64 +73,35 @@ const OurStory = () => {
                     </motion.p>
 
                     <div className="story-features">
-                        <motion.div
-                            className="feature-item"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4, duration: 0.5 }}
-                        >
-                            <h5>Manufacturing Edge</h5>
-                            <p>State-of-the-art facilities equipped with advanced technology for superior output.</p>
-                        </motion.div>
-                        <motion.div
-                            className="feature-item"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5, duration: 0.5 }}
-                        >
-                            <h5>Process Excellence</h5>
-                            <p>Meticulously designed workflows ensuring efficiency and consistency across all stages.</p>
-                        </motion.div>
-                        <motion.div
-                            className="feature-item"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6, duration: 0.5 }}
-                        >
-                            <h5>Quality Assurance</h5>
-                            <p>Rigorous testing and international standards compliance for every product we deliver.</p>
-                        </motion.div>
-                        <motion.div
-                            className="feature-item"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.7, duration: 0.5 }}
-                        >
-                            <h5>Innovation Leader</h5>
-                            <p>Constant R&D to stay ahead of market trends and provide cutting-edge solutions.</p>
-                        </motion.div>
+                        {[
+                            { title: "Manufacturing Edge", text: "State-of-the-art facilities equipped with advanced technology for superior output." },
+                            { title: "Process Excellence", text: "Meticulously designed workflows ensuring efficiency and consistency across all stages." },
+                            { title: "Quality Assurance", text: "Rigorous testing and international standards compliance for every product we deliver." },
+                            { title: "Innovation Leader", text: "Constant R&D to stay ahead of market trends and provide cutting-edge solutions." }
+                        ].map((feature, index) => (
+                            <motion.div
+                                key={index}
+                                className="feature-item"
+                                variants={itemVariants}
+                            >
+                                <h5>{feature.title}</h5>
+                                <p>{feature.text}</p>
+                            </motion.div>
+                        ))}
                     </div>
 
                     <motion.button
                         className="brochure-btn"
+                        variants={itemVariants}
                         whileHover={{ scale: 1.05, backgroundColor: "#8b0000" }}
                         whileTap={{ scale: 0.95 }}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{
-                            opacity: { delay: 0.9 },
-                            backgroundColor: { duration: 0.1 },
-                            scale: { duration: 0.2 }
-                        }}
                     >
                         DOWNLOAD BOOK
                     </motion.button>
 
                     <motion.div
                         className="partners-section"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1, duration: 0.8 }}
+                        variants={itemVariants}
                     >
                         <h5 className="partners-title">Our Partner In Success</h5>
                         <div className="partners-grid">
@@ -129,7 +111,11 @@ const OurStory = () => {
                                 { name: "Company Name" },
                                 { name: "Company Name" }
                             ].map((partner, index) => (
-                                <div key={index} className="partner-item">
+                                <motion.div
+                                    key={index}
+                                    className="partner-item"
+                                    whileHover={{ y: -5 }} // Subtle lift on hover
+                                >
                                     <div className="partner-logo-box">
                                         <img
                                             src="https://img.freepik.com/free-vector/branding-identity-corporate-logo-vector-design_460848-13936.jpg"
@@ -142,7 +128,7 @@ const OurStory = () => {
                                         />
                                     </div>
                                     <p className="partner-name">{partner.name}</p>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
 
