@@ -3,26 +3,8 @@ import { motion } from 'framer-motion';
 import './OurStory.css';
 
 const OurStory = () => {
-    // Animation variants for staggered reveal
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2, // Stagger effect for children
-                delayChildren: 0.3
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { type: "spring", stiffness: 50, damping: 20 }
-        }
-    };
+    // Individual item transition
+    const springTransition = { type: "spring", stiffness: 50, damping: 20 };
 
     return (
         <section className="our-story" id="our-story">
@@ -55,17 +37,23 @@ const OurStory = () => {
                 </motion.div>
 
                 {/* Right Column */}
-                <motion.div
-                    className="story-right"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
-                >
-                    <motion.h4 className="story-heading" variants={itemVariants}>
+                <div className="story-right">
+                    <motion.h4
+                        className="story-heading"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ delay: 0.2, ...springTransition }}
+                    >
                         A FUTURE-READY DESTINATION FOR THE MODERN ERA
                     </motion.h4>
-                    <motion.p className="story-description" variants={itemVariants}>
+                    <motion.p
+                        className="story-description"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ delay: 0.3, ...springTransition }}
+                    >
                         NRAIL Legacy stands as a pinnacle of manufacturing excellence and infrastructure development.
                         Our commitment to quality and innovation has made us a leader in the industry,
                         providing sustainable and high-performance solutions for global markets.
@@ -82,7 +70,10 @@ const OurStory = () => {
                             <motion.div
                                 key={index}
                                 className="feature-item"
-                                variants={itemVariants}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
+                                transition={{ delay: 0.4 + (index * 0.1), ...springTransition }}
                             >
                                 <h5>{feature.title}</h5>
                                 <p>{feature.text}</p>
@@ -92,18 +83,26 @@ const OurStory = () => {
 
                     <motion.button
                         className="brochure-btn"
-                        variants={itemVariants}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ delay: 0.8, ...springTransition }}
                         whileHover={{ scale: 1.05, backgroundColor: "#8b0000" }}
                         whileTap={{ scale: 0.95 }}
                     >
                         DOWNLOAD BOOK
                     </motion.button>
 
-                    <motion.div
-                        className="partners-section"
-                        variants={itemVariants}
-                    >
-                        <h5 className="partners-title">Our Partner In Success</h5>
+                    <div className="partners-section">
+                        <motion.h5
+                            className="partners-title"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.1 }}
+                            transition={{ delay: 0.9, ...springTransition }}
+                        >
+                            Our Partner In Success
+                        </motion.h5>
                         <div className="partners-grid">
                             {[
                                 { name: "Company Name" },
@@ -114,6 +113,10 @@ const OurStory = () => {
                                 <motion.div
                                     key={index}
                                     className="partner-item"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.1 }}
+                                    transition={{ delay: 1.0 + (index * 0.1), ...springTransition }}
                                     whileHover={{ y: -5 }} // Subtle lift on hover
                                 >
                                     <div className="partner-logo-box">
@@ -134,14 +137,17 @@ const OurStory = () => {
 
                         <motion.div
                             className="view-more-container"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 1.5 }}
                             whileHover={{ x: 10 }}
-                            transition={{ type: "spring", stiffness: 400 }}
                         >
                             <a href="#partners" className="view-more-btn">View More</a>
                             <div className="view-more-line"></div>
                         </motion.div>
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
     );
