@@ -2,9 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './OurStory.css';
 
+// Standard transition
+const springTransition = { type: "spring", stiffness: 50, damping: 20 };
+// Faster transition for buttons
+const fastSpringTransition = { type: "spring", stiffness: 120, damping: 14 };
+
 const OurStory = () => {
-    // Individual item transition
-    const springTransition = { type: "spring", stiffness: 50, damping: 20 };
 
     return (
         <section className="our-story" id="our-story">
@@ -16,14 +19,14 @@ const OurStory = () => {
                     initial={{ opacity: 0, x: -100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }} // Slightly faster duration
                 >
                     <motion.h3
                         className="story-label"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: false }}
-                        transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+                        transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }} // Faster delay & duration
                     >
                         Our Story
                     </motion.h3>
@@ -32,7 +35,7 @@ const OurStory = () => {
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: false }}
-                        transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+                        transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }} // Faster delay & duration
                     >
                         NRAIL <br /> LEGACY
                     </motion.h2>
@@ -45,7 +48,7 @@ const OurStory = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.1 }}
-                        transition={{ delay: 0.2, ...springTransition }}
+                        transition={{ delay: 0.1, ...springTransition }} // Reduced delay
                     >
                         A FUTURE-READY DESTINATION FOR THE MODERN ERA
                     </motion.h4>
@@ -54,7 +57,7 @@ const OurStory = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.1 }}
-                        transition={{ delay: 0.3, ...springTransition }}
+                        transition={{ delay: 0.2, ...springTransition }} // Reduced delay
                     >
                         NRAIL Legacy stands as a pinnacle of manufacturing excellence and infrastructure development.
                         Our commitment to quality and innovation has made us a leader in the industry,
@@ -75,7 +78,7 @@ const OurStory = () => {
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false, amount: 0.1 }}
-                                transition={{ delay: 0.4 + (index * 0.1), ...springTransition }}
+                                transition={{ delay: 0.3 + (index * 0.05), ...springTransition }} // Tighter stagger
                             >
                                 <h5>{feature.title}</h5>
                                 <p>{feature.text}</p>
@@ -88,7 +91,7 @@ const OurStory = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.1 }}
-                        transition={{ delay: 0.8, ...springTransition }}
+                        transition={{ delay: 0.5, ...fastSpringTransition }} // Much faster delay & spring
                         whileHover={{ scale: 1.05, backgroundColor: "#8b0000" }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -101,7 +104,7 @@ const OurStory = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false, amount: 0.1 }}
-                            transition={{ delay: 0.9, ...springTransition }}
+                            transition={{ delay: 0.6, ...springTransition }}
                         >
                             Our Partner In Success
                         </motion.h5>
@@ -118,7 +121,7 @@ const OurStory = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: false, amount: 0.1 }}
-                                    transition={{ delay: 1.0 + (index * 0.1), ...springTransition }}
+                                    transition={{ delay: 0.7 + (index * 0.05), ...springTransition }}
                                     whileHover={{ y: -5 }} // Subtle lift on hover
                                 >
                                     <div className="partner-logo-box">
@@ -142,7 +145,7 @@ const OurStory = () => {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: false }}
-                            transition={{ delay: 1.5 }}
+                            transition={{ delay: 0.9 }} // Reduced from 1.5
                             whileHover={{ x: 10 }}
                         >
                             <a href="#partners" className="view-more-btn">View More</a>
