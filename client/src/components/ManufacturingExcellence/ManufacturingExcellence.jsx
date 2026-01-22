@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const ManufacturingExcellence = () => {
     // Placeholder images
@@ -92,16 +93,34 @@ const ManufacturingExcellence = () => {
             </div>
 
             {/* Gallery Strip */}
-            <div className="flex w-full h-[600px] gap-0 overflow-hidden flex-col md:flex-row group/gallery">
-                {images.map((img) => (
-                    <div
+            <motion.div
+                className="flex w-full h-[600px] gap-0 overflow-hidden flex-col md:flex-row group/gallery perspective-[1000px]"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+            >
+                {images.map((img, index) => (
+                    <motion.div
                         key={img.id}
+                        variants={{
+                            hidden: { opacity: 0, y: 100, rotateX: 15, scale: 0.9 },
+                            visible: {
+                                opacity: 1,
+                                y: 0,
+                                rotateX: 0,
+                                scale: 1,
+                                transition: {
+                                    type: "spring",
+                                    stiffness: 70,
+                                    damping: 15,
+                                    delay: index * 0.15
+                                }
+                            }
+                        }}
                         className="
-              relative flex-1 bg-cover bg-center bg-no-repeat cursor-pointer overflow-hidden group
-              /* Animation: Slow (1.2s) and smooth */
-              transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)]
-              
-              /* Interaction */
+              relative flex-1 bg-cover bg-center bg-no-repeat cursor-pointer overflow-hidden group origin-bottom
+              /* Interaction - Keep hover effect smooth */
+              transition-[flex] duration-[800ms] ease-out
               hover:flex-[3.5] 
               
               /* Dimming Logic */
@@ -120,16 +139,22 @@ const ManufacturingExcellence = () => {
 
                         {/* Content - Always Visible */}
                         <div className="absolute bottom-10 left-0 w-full text-center md:text-left md:left-10 z-10 opacity-100 transition-all duration-[1000ms]">
-                            <div className="inline-block text-left">
+                            <motion.div
+                                className="inline-block text-left"
+                                variants={{
+                                    hidden: { opacity: 0, x: -30 },
+                                    visible: { opacity: 1, x: 0, transition: { delay: 0.4 + (index * 0.1) } }
+                                }}
+                            >
                                 <h3 className="text-xl md:text-2xl font-medium text-white uppercase tracking-widest drop-shadow-xl mb-2">
                                     {img.title}
                                 </h3>
                                 <div className="h-0.5 w-12 bg-white/80 group-hover:bg-red-600 rounded-full md:ml-1 opacity-100 transition-colors duration-300"></div>
-                            </div>
+                            </motion.div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </section>
     );
 };

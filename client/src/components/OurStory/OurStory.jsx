@@ -7,7 +7,7 @@ const springTransition = { type: "spring", stiffness: 50, damping: 20 };
 // Faster transition for buttons
 const fastSpringTransition = { type: "spring", stiffness: 120, damping: 14 };
 
-const OurStory = () => {
+const OurStory = ({ onOpenBook }) => {
 
     return (
         <section className="our-story" id="our-story">
@@ -86,6 +86,20 @@ const OurStory = () => {
                         ))}
                     </div>
 
+
+                    <motion.div
+                        className="view-more-container"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: false }}
+                        transition={{ delay: 0.45 }}
+                        whileHover={{ x: 10, transition: { duration: 0.2 } }}
+                        style={{ marginBottom: '2rem' }}
+                    >
+                        <a href="#our-story" className="view-more-btn">Read More</a>
+                        <div className="view-more-line"></div>
+                    </motion.div>
+
                     <motion.button
                         className="brochure-btn"
                         initial={{ opacity: 0, y: 20 }}
@@ -94,8 +108,10 @@ const OurStory = () => {
                         transition={{ delay: 0.5, ...fastSpringTransition }} // Much faster delay & spring
                         whileHover={{ scale: 1.05, backgroundColor: "#8b0000" }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={onOpenBook}
+                        style={{ marginTop: '1rem' }}
                     >
-                        DOWNLOAD BOOK
+                        VIEW COFFEE TABLE BOOK
                     </motion.button>
 
                     <div className="partners-section">
@@ -146,7 +162,7 @@ const OurStory = () => {
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: false }}
                             transition={{ delay: 0.9 }} // Reduced from 1.5
-                            whileHover={{ x: 10 }}
+                            whileHover={{ x: 10, transition: { duration: 0.2 } }}
                         >
                             <a href="#partners" className="view-more-btn">View More</a>
                             <div className="view-more-line"></div>

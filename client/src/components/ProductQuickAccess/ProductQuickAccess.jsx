@@ -154,9 +154,10 @@ const ProductQuickAccess = () => {
                 {/* Header Section */}
                 <div className="text-center mb-12 px-4">
                     <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: -30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        viewport={{ once: false }}
+                        transition={{ type: "spring", stiffness: 100, damping: 20 }}
                         className="text-black mb-10 uppercase"
                         style={{
                             fontSize: '28px',
@@ -196,8 +197,10 @@ const ProductQuickAccess = () => {
 
                     {/* 'Product Showcase' Text - Accent */}
                     <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-[#8b0000] font-bold uppercase tracking-[0.25em]"
                         style={{ fontSize: '18px', marginBottom: '20px', marginTop: '48px' }} // Reduced gap significantly
                     >
@@ -207,7 +210,13 @@ const ProductQuickAccess = () => {
                 </div>
 
                 {/* Cinematic Slider Stage - Reduced Height */}
-                <div className="relative w-full max-w-[1200px] h-[500px] flex items-center justify-center">
+                <motion.div
+                    className="relative w-full max-w-[1200px] h-[500px] flex items-center justify-center"
+                    initial={{ opacity: 0, scale: 0.8, rotateY: 15 }}
+                    whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ type: "spring", stiffness: 60, damping: 20, delay: 0.2 }}
+                >
 
                     {/* Navigation Buttons - Smaller & Closer */}
                     <button
@@ -284,7 +293,7 @@ const ProductQuickAccess = () => {
                         </AnimatePresence>
                     </div>
 
-                </div>
+                </motion.div>
             </div>
         </section>
     );
