@@ -52,25 +52,26 @@ const OurStory = ({ onOpenBook }) => {
                     >
                         A FUTURE-READY DESTINATION FOR THE MODERN ERA
                     </motion.h4>
-                    <motion.p
-                        className="story-description"
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.1 }}
                         transition={{ delay: 0.2, ...springTransition }} // Reduced delay
                     >
-                        NRAIL Legacy stands as a pinnacle of manufacturing excellence and infrastructure development.
-                        Our commitment to quality and innovation has made us a leader in the industry,
-                        providing sustainable and high-performance solutions for global markets.
-                        Experience the core of our manufacturing prowess and our vision for a better future.
-                    </motion.p>
+                        <p className="story-description" style={{ marginBottom: '15px' }}>
+                            At NRAIL, progress is powered by responsibility—and guided by purpose. Founded in 1983, N R Agarwal Industries Limited has built a legacy rooted in recycling excellence, disciplined manufacturing, and a commitment to creating value beyond products.
+                        </p>
+                        <p className="story-description">
+                            The company’s operations are anchored in wastepaper-based production, where recovered fibre is transformed into reliable, high-performance paper through advanced processing and quality systems. This recycling-led foundation is strengthened by future-ready infrastructure and the introduction of virgin-grade boards, enabling NRAIL to serve both sustainable and premium packaging requirements with equal confidence.
+                        </p>
+                    </motion.div>
 
                     <div className="story-features">
                         {[
-                            { title: "Manufacturing Edge", text: "State-of-the-art facilities equipped with advanced technology for superior output." },
-                            { title: "Process Excellence", text: "Meticulously designed workflows ensuring efficiency and consistency across all stages." },
-                            { title: "Quality Assurance", text: "Rigorous testing and international standards compliance for every product we deliver." },
-                            { title: "Innovation Leader", text: "Constant R&D to stay ahead of market trends and provide cutting-edge solutions." }
+                            { title: "Manufacturing Edge", text: "Redefining Manufacturing Excellence Through Advanced Technology" },
+                            { title: "Process Excellence", text: "Intelligent Process Technology for Responsible Manufacturing." },
+                            { title: "Quality Assurance", text: "Rigorous quality testing and global compliance standards define every product we deliver" },
+                            { title: "Innovation with Purpose", text: "Innovation-led development that stays ahead of industry evolution." }
                         ].map((feature, index) => (
                             <motion.div
                                 key={index}

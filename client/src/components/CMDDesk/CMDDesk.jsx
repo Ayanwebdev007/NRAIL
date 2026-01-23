@@ -62,16 +62,16 @@ const CMDDesk = () => {
                         />
 
                         <motion.div
-                            className="relative z-10 w-full max-w-[320px] lg:max-w-[400px] aspect-[4/5] shadow-2xl overflow-hidden rounded-sm"
+                            className="relative z-10 w-full max-w-[320px] lg:max-w-[400px] aspect-[3/4] shadow-2xl overflow-hidden rounded-sm"
                             variants={imageVariants}
                         >
                             {/* Inner Decorative Red Frame for Mobile */}
                             <div className="absolute inset-0 border-[12px] border-primary translate-x-4 translate-y-4 -z-10 lg:hidden" />
 
                             <img
-                                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
-                                alt="CMD Harsh Pati Singhania"
-                                className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700"
+                                src="/cmd_image.jpg"
+                                alt="CMD Mr R N Agarwal"
+                                className="w-full h-full object-cover object-bottom grayscale-[10%] hover:grayscale-0 transition-all duration-700"
                             />
                         </motion.div>
                     </motion.div>
@@ -91,23 +91,28 @@ const CMDDesk = () => {
                             </motion.div>
 
                             <div className="relative z-10">
-                                <motion.h3
-                                    className="text-2xl lg:text-3xl font-light text-gray-800 leading-relaxed mb-8 italic"
+                                <motion.div
+                                    className="text-base lg:text-lg text-gray-700 leading-relaxed font-light text-justify"
                                     variants={itemVariants}
                                 >
-                                    The year gone by marks the beginning of a <span className="text-primary font-medium">new phase</span> for the company as NRAIL announced a new vision during the year. We are committed to excellence and sustainable growth.
-                                </motion.h3>
+                                    <p className="mb-0">
+                                        <span className="text-primary font-bold italic text-xl lg:text-2xl block mb-2 leading-tight">
+                                            Every transformative step we take today becomes the foundation for India’s next era of paper excellence.
+                                        </span>
+                                        We stand at a powerful threshold of progress — a milestone that showcases our united ambition as we approach the commissioning of our packaging board capacity expansion in next 2 years. This development signals a pivotal chapter for N R Agarwal, bringing fresh momentum and transformative potential. With Unit VI rising as the largest machine of its class in India, we are turning bold vision into action through precision engineering, responsible innovation, and next-generation manufacturing. This investment delivers lasting value while strengthening our resolve to lead with insight, integrity, and bold conviction. As we move steadily toward our aspiration of being among the nation’s top three paper producers, I extend my deepest appreciation for your trust and partnership. Let us step forward together, shaping a future defined by growth, impact, and endless possibility for N R Agarwal.
+                                    </p>
+                                </motion.div>
 
                                 <motion.div className="flex items-center gap-4 mb-2" variants={itemVariants}>
                                     <div className="w-12 h-[2px] bg-primary" />
-                                    <h4 className="text-xl font-bold text-black uppercase tracking-wider">Harsh Pati Singhania</h4>
+                                    <h4 className="text-xl font-bold text-black uppercase tracking-wider">Mr. R N Agarwal</h4>
                                 </motion.div>
 
                                 <motion.p
                                     className="text-sm font-semibold text-gray-500 uppercase tracking-[0.2em] ml-16"
                                     variants={itemVariants}
                                 >
-                                    Chairman and Managing Director
+                                    Chairman & Managing Director
                                 </motion.p>
                             </div>
 

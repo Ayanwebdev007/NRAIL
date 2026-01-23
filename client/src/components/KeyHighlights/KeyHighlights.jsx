@@ -139,7 +139,7 @@ const KeyHighlights = () => {
                     viewport={{ once: false }}
                     transition={{ duration: 0.8 }}
                 >
-                    Key <span style={{ color: "#ffffff" }}>Highlights</span> Strip
+                    <span style={{ color: "var(--primary)" }}>Our</span> <span style={{ color: "#ffffff" }}>Strength</span>
                 </motion.h2>
 
                 <div className="highlights-grid">

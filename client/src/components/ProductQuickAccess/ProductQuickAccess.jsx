@@ -166,7 +166,7 @@ const ProductQuickAccess = () => {
                             lineHeight: 1.1
                         }}
                     >
-                        Product Quick-Access Tiles
+                        Future-Focused Solutions with Impact
                     </motion.h2>
 
                     {/* Magnetic Navigation - Compact */}

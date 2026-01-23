@@ -7,22 +7,22 @@ const ManufacturingExcellence = () => {
         {
             id: 1,
             src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", // Modern Building
-            title: "Commercial Spaces"
+            title: "Unit I"
         },
         {
             id: 2,
             src: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop", // Interior Office
-            title: "Interior Design"
+            title: "Unit V"
         },
         {
             id: 3,
             src: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop", // Retail/Shopping
-            title: "Retails & Shopping"
+            title: "Unit V (PM2)"
         },
         {
             id: 4,
             src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop", // Meeting/Business
-            title: "Strategic Business"
+            title: "Unit VI"
         }
     ];
 
@@ -79,15 +79,21 @@ const ManufacturingExcellence = () => {
                     </div>
 
                     {/* Red Line Separator */}
-                    <div className="w-24 h-[2px] bg-red-600" style={{ marginBottom: '30px' }}></div>
+                    <div className="w-24 h-[2px] bg-red-600" style={{ marginBottom: '20px' }}></div>
+
+                    {/* Subtitle */}
+                    <h3
+                        className="text-lg md:text-xl font-medium text-white tracking-wide mb-6"
+                    >
+                        India’s Largest Green Packaging Plant
+                    </h3>
 
                     {/* Description with BALANCED Gap from Bottom */}
                     <p
                         className="max-w-3xl mx-auto text-base lg:text-lg text-gray-300 font-light leading-relaxed"
-                        style={{ marginBottom: '100px' }} // Balanced gap (was 160px, too huge)
+                        style={{ marginBottom: '100px' }} // Balanced gap
                     >
-                        The floors are meticulously designed to offer you a world-class experience in shopping and food
-                        with brands from around India making their presence felt in this iconic marketplace.
+                        Powered by future-ready infrastructure and rigorous process control, NRAIL manufactures paper and board solutions engineered for reliability and efficiency.
                     </p>
                 </div>
             </div>
