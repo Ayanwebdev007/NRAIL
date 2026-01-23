@@ -50,7 +50,7 @@ const OurStory = ({ onOpenBook }) => {
                         viewport={{ once: false, amount: 0.1 }}
                         transition={{ delay: 0.1, ...springTransition }} // Reduced delay
                     >
-                        A FUTURE-READY DESTINATION FOR THE MODERN ERA
+                        Shaping tomorrow’s solutions through purposeful engineering and strategic excellence
                     </motion.h4>
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
