@@ -49,6 +49,8 @@ const products = [
     },
 ];
 
+import logo from '../../assets/logo.png';
+
 const ProductQuickAccess = () => {
     const [activeTab, setActiveTab] = useState(products[0].id);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,6 +60,10 @@ const ProductQuickAccess = () => {
     const { scrollYProgress } = useScroll();
     const yParallax = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const opacityParallax = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.3, 0]);
+
+    // Logo Watermark Parallax
+    const rotateLogo = useTransform(scrollYProgress, [0, 1], [0, 45]);
+    const scaleLogo = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1.2]);
 
     // Get active product data
     const activeProduct = products.find(p => p.id === activeTab);
@@ -135,7 +141,7 @@ const ProductQuickAccess = () => {
 
     return (
         <section
-            className="relative w-full bg-[#f8f9fa] overflow-hidden pb-24 font-[Outfit]"
+            className="relative w-full bg-[#f8f9fa] overflow-hidden pb-32 font-[Outfit]"
             style={{ paddingTop: '10vh' }}
         >
 
@@ -147,6 +153,30 @@ const ProductQuickAccess = () => {
                 >
                     Portfolio
                 </motion.h1>
+            </div>
+
+            {/* Creative Logo Watermark */}
+            <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none z-0">
+                <motion.img
+                    src={logo}
+                    alt=""
+                    style={{
+                        rotate: rotateLogo,
+                        scale: scaleLogo,
+                        opacity: 0.03
+                    }}
+                    className="absolute -right-20 -top-20 w-[50vw] max-w-[800px] object-contain origin-center grayscale invert-0"
+                />
+                <motion.img
+                    src={logo}
+                    alt=""
+                    style={{
+                        rotate: useTransform(scrollYProgress, [0, 1], [0, -45]),
+                        y: useTransform(scrollYProgress, [0, 1], [0, 200]),
+                        opacity: 0.02
+                    }}
+                    className="absolute -left-40 bottom-0 w-[40vw] max-w-[600px] object-contain origin-center grayscale"
+                />
             </div>
 
             <div className="max-w-[1920px] mx-auto relative z-10 flex flex-col items-center mt-10">
@@ -295,6 +325,9 @@ const ProductQuickAccess = () => {
 
                 </motion.div>
             </div>
+
+            {/* Significant Bottom Spacer */}
+            <div className="h-32 w-full" />
         </section>
     );
 };

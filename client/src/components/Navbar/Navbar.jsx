@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {

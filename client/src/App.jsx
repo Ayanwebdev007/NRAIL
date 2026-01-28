@@ -8,6 +8,10 @@ import CMDDesk from './components/CMDDesk/CMDDesk';
 import VideoSection from './components/VideoSection/VideoSection';
 import ManufacturingExcellence from './components/ManufacturingExcellence/ManufacturingExcellence';
 import ProductQuickAccess from './components/ProductQuickAccess/ProductQuickAccess';
+import GlobalReliability from './components/GlobalReliability/GlobalReliability';
+import EnvironmentalImpact from './components/EnvironmentalImpact/EnvironmentalImpact';
+import EmployeeStories from './components/EmployeeStories/EmployeeStories';
+import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 import BookViewer from './components/BookViewer/BookViewer';
 import CoffeTableBook from './assets/Coffe Table Book_NR Agarwal (1)_compressed.pdf';
@@ -62,6 +66,10 @@ function App() {
             <VideoSection />
             <ManufacturingExcellence />
             <ProductQuickAccess />
+            <GlobalReliability />
+            <EnvironmentalImpact />
+            <EmployeeStories />
+            <Footer />
             {/* Other sections will be added here */}
           </main>
 
