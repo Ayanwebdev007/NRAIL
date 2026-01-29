@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
-<<<<<<< HEAD
-import logo from '../../assets/logo.jpg';
-=======
 import logo from '../../assets/logo.png';
->>>>>>> 111c51edc20587503b51f9fde7fd0c7c3848390d
 import './Navbar.css';
 
 const Navbar = () => {

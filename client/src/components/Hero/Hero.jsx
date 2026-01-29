@@ -9,29 +9,6 @@ import './Hero.css';
 const slides = [
     {
         id: 1,
-<<<<<<< HEAD
-        image: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-        id: 2,
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-        id: 3,
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-        id: 4,
-        image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-        id: 5,
-        image: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-        id: 6,
-        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000&auto=format&fit=crop",
-=======
         image: "/hero/hero_0.jpg",
     },
     {
@@ -53,7 +30,6 @@ const slides = [
     {
         id: 6,
         image: "/hero/hero_5.jpg",
->>>>>>> 111c51edc20587503b51f9fde7fd0c7c3848390d
     },
 ];
 

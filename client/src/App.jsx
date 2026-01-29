@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import OurStory from './components/OurStory/OurStory';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <main>
-        <Hero />
-        <OurStory />
-        {/* Other sections will be added here */}
-      </main>
-=======
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar/Navbar';
@@ -108,7 +91,6 @@ function App() {
           </AnimatePresence>
         </>
       )}
->>>>>>> 111c51edc20587503b51f9fde7fd0c7c3848390d
     </div>
   );
 }
