@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Leaf, Factory, Lightbulb, HeartHandshake } from 'lucide-react';
+import forestVideo from '../../assets/forest_loop.mp4';
 
 const EnvironmentalImpact = () => {
     const steps = [
@@ -65,9 +66,12 @@ const EnvironmentalImpact = () => {
             >
                 <div className="w-[97%] h-[45vh] md:h-[65vh] overflow-hidden relative rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.1)] border border-black/5">
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 via-transparent to-transparent z-10" />
-                    <img
-                        src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=2641&auto=format&fit=crop"
-                        alt="Sustainable Architecture"
+                    <video
+                        src={forestVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="w-full h-full object-cover"
                     />
                 </div>

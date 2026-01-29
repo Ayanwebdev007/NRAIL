@@ -179,7 +179,7 @@ const ProductQuickAccess = () => {
                 />
             </div>
 
-            <div className="max-w-[1920px] mx-auto relative z-10 flex flex-col items-center mt-10">
+            <div className="w-full max-w-[2500px] mx-auto relative z-10 flex flex-col items-center mt-10">
 
                 {/* Header Section */}
                 <div className="text-center mb-12 px-4">
@@ -241,7 +241,7 @@ const ProductQuickAccess = () => {
 
                 {/* Cinematic Slider Stage - Reduced Height */}
                 <motion.div
-                    className="relative w-full max-w-[1200px] h-[500px] flex items-center justify-center"
+                    className="relative w-full max-w-[1800px] h-[500px] xl:h-[600px] 2xl:h-[700px] flex items-center justify-center mx-auto"
                     initial={{ opacity: 0, scale: 0.8, rotateY: 15 }}
                     whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
@@ -273,7 +273,7 @@ const ProductQuickAccess = () => {
                                 return (
                                     <motion.div
                                         key={`${activeTab}-${img.id}`}
-                                        className="absolute top-1/2 left-1/2 w-[260px] h-[360px] md:w-[320px] md:h-[450px] bg-white shadow-2xl overflow-hidden origin-center" // SIGNIFICANTLY SMALLER
+                                        className="absolute top-1/2 left-1/2 w-[70vw] md:w-[45vw] lg:w-[35vw] xl:w-[28vw] 2xl:w-[22vw] h-auto aspect-[0.72] bg-white shadow-2xl overflow-hidden origin-center" // FLUID SIZING
                                         initial={{ opacity: 0, scale: 0.8 }}
                                         animate={{
                                             x: `calc(-50% + ${styles.x})`,

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ArrowRight, ArrowLeft } from 'lucide-react';
+import poojaImage from '../../assets/pooja_daftari.jpg';
 
 const EmployeeStories = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,7 +13,7 @@ const EmployeeStories = () => {
             name: "Pooja Daftari Mehta",
             designation: "Company Secretary & Compliance Officer",
             story: "What stands out for me at NRAIL is the leadership—it listens, guides, and leads with integrity. The workplace here feels collaborative, open, and encouraging. It’s an environment where learning and growth happen naturally.",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop"
+            image: poojaImage
         },
         {
             id: "02",

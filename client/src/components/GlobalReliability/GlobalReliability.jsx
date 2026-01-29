@@ -36,35 +36,39 @@ const GlobalReliability = () => {
             </div>
 
             {/* --- CONTENT --- */}
-            <div className="max-w-[1600px] mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+            <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-12 xl:px-24 2xl:px-32 relative z-10 w-full overflow-visible">
+                <div className="flex flex-col lg:flex-row gap-12 items-center justify-between w-full h-full">
 
                     {/* LEFT COLUMN: Industrial Text */}
-                    <div className="lg:col-span-5 order-2 lg:order-1">
+                    <div
+                        className="w-full lg:w-[38%] min-w-0 shrink order-2 lg:order-1 flex flex-col items-start justify-center text-left pl-6 md:pl-12 lg:pl-8 xl:pl-24"
+                        style={{ paddingLeft: '5vw' }} // Forced inline gap as a failsafe
+                    >
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
+                            className="w-full flex flex-col items-start"
                         >
                             <h2
-                                className="font-bold mb-10 tracking-tighter"
-                                style={{ fontSize: '8vw', lineHeight: 0.85 }}
+                                className="font-bold mb-10 tracking-tighter w-full"
+                                style={{ lineHeight: 0.85 }}
                             >
-                                <span style={{ color: '#ffffff' }}>GLOBAL</span> <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-900 filter drop-shadow-[0_0_15px_rgba(255,0,0,0.5)]">
+                                <span className="text-[12vw] lg:text-[5vw]" style={{ color: '#ffffff' }}>GLOBAL</span> <br />
+                                <span className="text-[12vw] lg:text-[5vw] text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-900 filter drop-shadow-[0_0_15px_rgba(255,0,0,0.5)]">
                                     RELIABILITY
                                 </span>
                             </h2>
 
-                            <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light border-l border-red-900/30 pl-8 max-w-4xl">
+                            <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light max-w-4xl text-left px-0">
                                 NRAIL delivers premium grade paper and board solutions to customers across multiple continents, strengthening global market presence year after year.
                             </p>
                         </motion.div>
                     </div>
 
                     {/* RIGHT COLUMN: Holographic Map */}
-                    <div className="lg:col-span-7 order-1 lg:order-2 relative perspective-[2000px]">
+                    <div className="w-full lg:w-[48%] min-w-0 shrink order-1 lg:order-2 relative perspective-[2000px] flex justify-end">
                         <motion.div
                             className="relative w-full aspect-[16/10] flex items-center justify-center transform-gpu"
                             style={{ opacity: opacityMap, rotateY: -10 }}
@@ -76,12 +80,11 @@ const GlobalReliability = () => {
                                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                             />
 
-                            {/* The Map - Brightened for Dark Mode */}
-                            {/* We invert it or brightness boost to make the grey pop against black */}
+                            {/* The Map */}
                             <motion.img
                                 src={mapImage}
                                 alt="Holographic Map"
-                                className="w-full h-full object-contain filter brightness-[2] contrast-[1.2] drop-shadow-[0_0_30px_rgba(255,0,0,0.2)]"
+                                className="w-full h-full object-contain filter brightness-[2] contrast-[1.2] drop-shadow-[0_0_30px_rgba(255,0,0,0.2)] ml-auto"
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
