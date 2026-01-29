@@ -9,6 +9,7 @@ import './Hero.css';
 const slides = [
     {
         id: 1,
+<<<<<<< HEAD
         image: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2000&auto=format&fit=crop",
     },
     {
@@ -30,6 +31,29 @@ const slides = [
     {
         id: 6,
         image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000&auto=format&fit=crop",
+=======
+        image: "/hero/hero_0.jpg",
+    },
+    {
+        id: 2,
+        image: "/hero/hero_1.jpg",
+    },
+    {
+        id: 3,
+        image: "/hero/hero_2.jpg",
+    },
+    {
+        id: 4,
+        image: "/hero/hero_3.jpg",
+    },
+    {
+        id: 5,
+        image: "/hero/hero_4.jpg",
+    },
+    {
+        id: 6,
+        image: "/hero/hero_5.jpg",
+>>>>>>> 111c51edc20587503b51f9fde7fd0c7c3848390d
     },
 ];
 

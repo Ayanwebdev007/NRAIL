@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: nrail-frontend
+    env: static
+    buildCommand: cd client && npm ci && npm run build
+    staticPublishPath: client/dist
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: nrail-backend
+    env: node
+    plan: free
+    buildCommand: cd server && npm ci
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production

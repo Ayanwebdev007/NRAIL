@@ -25,6 +25,20 @@
     background-size: cover;
     background-position: center;
     z-index: -1;
+<<<<<<< HEAD
+=======
+    animation: kenburns 15s ease-out infinite alternate;
+}
+
+@keyframes kenburns {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+>>>>>>> 111c51edc20587503b51f9fde7fd0c7c3848390d
 }
 
 /* Custom Navigation Arrows Styling */

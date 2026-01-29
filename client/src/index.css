@@ -1,13 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme {
+  --color-primary: #8b0000;
+  --color-secondary: #000000;
+  --color-accent: #600000;
+  --color-brand-blue: #0060ac;
+  --color-brand-gray: #f4f6f8;
+  --color-text-dark: #333333;
+  --font-main: "Outfit", sans-serif;
+}
 
 :root {
   --primary: #8b0000;
-  /* Dark Red from logo */
   --secondary: #000000;
-  /* Black */
   --dark: #000000;
   --light: #f4f4f4;
   --accent: #600000;
+  --brand-blue: #0060ac;
+  --brand-gray: #f4f6f8;
   --text-white: #ffffff;
   --text-gray: #a0a0a0;
   --font-main: 'Outfit', sans-serif;
@@ -19,12 +31,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html {}
 
 body {
-  font-family: var(--font-main);
+  font-family: 'Outfit', sans-serif !important;
   background-color: var(--dark);
   color: var(--text-white);
   overflow-x: hidden;
