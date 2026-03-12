@@ -1,0 +1,126 @@
+.key-highlights {
+    padding: 100px 20px;
+    background: #000000;
+    /* Black background */
+    width: 100%;
+}
+
+.highlights-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.highlights-title {
+    font-size: 48px;
+    color: var(--primary);
+    /* Title base color Red */
+    /* White title */
+    margin-bottom: 80px;
+    font-weight: 300;
+}
+
+.highlights-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px 0;
+    /* Vertical gap only */
+}
+
+/* Base item style */
+.highlight-item {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #333333;
+    /* Darker border for black bg */
+    /* Divider line */
+}
+
+/* Row 1: 4 items -> 25% width */
+.highlight-item:nth-child(-n+4) {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+/* Remove border for the 4th item (end of row 1) */
+.highlight-item:nth-child(4) {
+    border-right: none;
+}
+
+/* Row 2: 1 item -> 100% width */
+.highlight-item:nth-child(5) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 40px;
+    border-right: none;
+}
+
+.highlight-number {
+    font-size: 32px;
+    /* Reduced from 42px */
+    font-weight: 800;
+    color: #ffffff;
+    /* Swapped to White */
+    /* White color */
+    line-height: 1.2;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+.highlight-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary);
+    /* Swapped to Red */
+    /* Red Text */
+    line-height: 1.2;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .highlights-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .highlight-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        border-right: none !important;
+        /* Force remove all desktop borders */
+        border-bottom: 1px solid #333333;
+        /* Darker border for mobile */
+        padding-bottom: 40px;
+    }
+
+    /* Ensure flex basis reset for mobile */
+    .highlight-item:nth-child(n) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .highlight-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .highlights-title {
+        font-size: 32px;
+        margin-bottom: 50px;
+    }
+
+    .highlight-number {
+        font-size: 32px;
+    }
+
+    .highlight-text {
+        font-size: 18px;
+    }
+}
