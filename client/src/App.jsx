@@ -7,6 +7,7 @@ import LeadershipPage from './pages/LeadershipPage';
 import CommitteesPage from './pages/CommitteesPage';
 import ManufacturingEdgePage from './pages/ManufacturingEdgePage';
 import MilestonesPage from './pages/MilestonesPage';
+import QualityInnovationPage from './pages/QualityInnovationPage';
 import Loader from './components/Loader/Loader';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -55,6 +56,7 @@ function App() {
           <Route path="/committees-of-board" element={<CommitteesPage />} />
           <Route path="/manufacturing-edge" element={<ManufacturingEdgePage />} />
           <Route path="/milestones" element={<MilestonesPage />} />
+          <Route path="/quality-innovation" element={<QualityInnovationPage />} />
         </Routes>
       )}
     </div>

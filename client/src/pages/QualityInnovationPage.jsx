@@ -1,0 +1,225 @@
+import React, { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronRight, Check, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
+
+// Asset imports
+import heroImg from '../assets/quality_innovation_hero.png';
+import qualityDetail from '../assets/quality_assurance_detail.png';
+import innovationDetail from '../assets/innovation_detail.png';
+import benefit1 from '../assets/framework_quality.png';
+import benefit2 from '../assets/framework_tech.png';
+import benefit3 from '../assets/framework_sustainability.png';
+import benefit4 from '../assets/framework_efficiency.png';
+
+const QualityInnovationPage = () => {
+  const [activeBenefit, setActiveBenefit] = React.useState(0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const benefits = [
+    {
+      title: "Consistent Performance Standards",
+      description: "Every product undergoes stringent evaluation protocols to ensure reliability, uniformity, and compliance with domestic and international specifications.",
+      image: benefit1
+    },
+    {
+      title: "Flexible Product Capabilities",
+      description: "With diversified grades and coating technologies, NRAIL adapts to specific branding, packaging, and performance requirements.",
+      image: benefit2
+    },
+    {
+      title: "Sustainable Competitive Edge",
+      description: "Recycling-led manufacturing and resource-efficient processes support customers’ environmental commitments without compromising quality.",
+      image: benefit3
+    },
+    {
+      title: "Confidence in Every Delivery",
+      description: "Strong manufacturing scale, digital integration, and structured governance ensure timely supply, transparency, and long-term partnership reliability.",
+      image: benefit4
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroImg} 
+            alt="Quality & Innovation Hero" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+      </section>
+
+      {/* Breadcrumbs Section */}
+      <div className="container mx-auto px-6 md:px-12 lg:px-24" style={{ marginTop: '40px', marginBottom: '40px' }}>
+        <div className="flex items-center text-base text-gray-500 font-['Outfit'] font-light">
+          <Link to="/" className="hover:text-[#8b0000] transition-colors">Home</Link>
+          <ChevronRight size={14} className="mx-2 text-gray-400" />
+          <span>Manufacturing Excellence</span>
+          <ChevronRight size={14} className="mx-2 text-gray-400" />
+          <span className="text-[#8b0000] font-normal">Quality & Innovation</span>
+        </div>
+      </div>
+
+      {/* Quality Assurance Section */}
+      <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+        <div className="container mx-auto px-6 md:px-12 lg:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-block px-4 py-1 bg-[#8b0000]/10 border-l-2 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-lg" style={{ marginBottom: '40px' }}>
+                Quality Assurance
+              </div>
+              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
+                Delivering Confidence Through <span className="font-normal text-[#8b0000]">Quality</span>
+              </h2>
+              <div className="space-y-6 font-['Outfit'] font-light text-gray-700 text-lg leading-relaxed text-justify" style={{ marginTop: '8px' }}>
+                <p>
+                  At NRAIL, quality defines our promise. Every product is manufactured under stringent supervision, supported by advanced laboratory testing and intelligent monitoring systems that ensure uniform performance and reliability.
+                </p>
+                <p>
+                  From raw material validation to final inspection, our structured quality control framework safeguards product integrity at every step. Precision measurement tools and compliance-driven processes ensure accurate specifications, superior surface finish, and dependable strength characteristics.
+                </p>
+                <p>
+                  Aligned with global certifications and supported by disciplined operational controls, NRAIL’s quality assurance systems deliver products that consistently meet customer expectations—ensuring performance without compromise.
+                </p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative aspect-square lg:aspect-square rounded-none overflow-hidden"
+            >
+              <img 
+                src={qualityDetail} 
+                alt="Quality Testing Detail" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Innovation Section */}
+      <section className="bg-gray-50 overflow-hidden" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+        <div className="container mx-auto px-6 md:px-12 lg:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:order-2"
+            >
+              <div className="inline-block px-4 py-1 bg-[#8b0000]/10 border-l-2 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-lg" style={{ marginBottom: '40px' }}>
+                Sustainable Innovation
+              </div>
+              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
+                Shaping Tomorrow’s Packaging with <span className="font-normal text-[#8b0000]">Sustainable Innovation</span>
+              </h2>
+              <div className="space-y-6 font-['Outfit'] font-light text-gray-700 text-lg leading-relaxed text-justify" style={{ marginTop: '8px' }}>
+                <p>
+                  Innovation at NRAIL is guided by market insight and manufacturing expertise. Our product development efforts focus on creating advanced paper and board solutions that deliver strength, smoothness, print fidelity, and consistency—while maintaining environmental responsibility.
+                </p>
+                <p>
+                  From high-quality FBB, SBS, and Duplex boards to Writing & Printing and specialty grades, NRAIL addresses the evolving demands of packaging-intensive industries. Through continuous improvement in coating systems, fibre chemistry, and production efficiency, we enhance both performance and sustainability outcomes.
+                </p>
+                <p>
+                  Our innovation philosophy is simple: develop solutions that empower customers, meet regulatory expectations, and contribute to a more sustainable packaging ecosystem.
+                </p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="lg:order-1 relative aspect-square lg:aspect-square rounded-none overflow-hidden"
+            >
+              <img 
+                src={innovationDetail} 
+                alt="Sustainability Innovation" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Simplified Benefits Section */}
+      <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+        <div className="container mx-auto px-6 md:px-12 lg:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-block px-4 py-1 bg-[#8b0000]/10 border-l-2 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-lg" style={{ marginBottom: '40px' }}>
+                Customer benefits
+              </div>
+              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
+                Delivering Measurable <span className="font-normal text-[#8b0000]">Benefits</span>
+              </h2>
+              <div className="space-y-8 font-['Outfit'] font-light text-gray-700 text-lg leading-relaxed text-justify" style={{ marginTop: '24px' }}>
+                <div>
+                  <h3 className="font-bold text-[#111] mb-2">Consistent Performance Standards</h3>
+                  <p>Every product undergoes stringent evaluation protocols to ensure reliability, uniformity, and compliance with domestic and international specifications.</p>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#111] mb-2">Flexible Product Capabilities</h3>
+                  <p>With diversified grades and coating technologies, NRAIL adapts to specific branding, packaging, and performance requirements.</p>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#111] mb-2">Sustainable Competitive Edge</h3>
+                  <p>Recycling-led manufacturing and resource-efficient processes support customers’ environmental commitments without compromising quality.</p>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#111] mb-2">Confidence in Every Delivery</h3>
+                  <p>Strong manufacturing scale, digital integration, and structured governance ensure timely supply, transparency, and long-term partnership reliability.</p>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative aspect-square lg:aspect-square rounded-none overflow-hidden"
+            >
+              <img 
+                src={benefit1} 
+                alt="NRAIL Customer Benefits" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default QualityInnovationPage;

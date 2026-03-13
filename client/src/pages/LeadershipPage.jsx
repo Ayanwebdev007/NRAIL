@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import legacyHero from '../assets/legacy hero.JPG';
+import legacyHero from '../assets/Leadership Header Pic.JPG';
 import { useLocation, Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import founderImg from '../assets/leadership founder.JPG';
-import poojaDaftari from '../assets/pooja_daftari.jpg';
+import rnaLeadership from '../assets/Mr R N Agarwal leadership.JPG';
 import redTexture from '../assets/red texture.jpg';
 
 const LeadershipPage = () => {
@@ -23,8 +23,11 @@ const LeadershipPage = () => {
             {/* Hero Section - 95vh height */}
             <div className="relative w-full h-[95vh]">
                 <div
-                    className="absolute inset-0 bg-cover bg-top"
-                    style={{ backgroundImage: `url("${legacyHero}")` }}
+                    className="absolute inset-0 bg-cover"
+                    style={{ 
+                        backgroundImage: `url("${legacyHero}")`,
+                        backgroundPosition: 'center 40%'
+                    }}
                 >
                     {/* Overlay gradient */}
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -130,7 +133,7 @@ const LeadershipPage = () => {
                             <div className="flex-shrink-0 w-56 h-56 bg-[#f8f8f8] flex items-center justify-center self-center">
                                 <div className="w-40 h-40 overflow-hidden">
                                     <img
-                                        src={poojaDaftari}
+                                        src={rnaLeadership}
                                         alt="R N Agarwal"
                                         className="w-full h-full object-cover"
                                     />
@@ -143,7 +146,7 @@ const LeadershipPage = () => {
                                 </div>
                                 <div className="h-[1px] w-[90%] bg-gray-300 my-2"></div>
                                 <div style={{ marginTop: '16px' }}>
-                                    <p className="text-[#8b0000] text-xs font-bold uppercase tracking-widest mt-1">Our Chairman & Managing Director</p>
+                                    <p className="text-[#8b0000] text-xs font-bold uppercase tracking-widest mt-1">Chairman & Managing Director</p>
                                 </div>
 
                                 <motion.div

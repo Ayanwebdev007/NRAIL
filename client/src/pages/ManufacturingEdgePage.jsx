@@ -10,6 +10,64 @@ import unitVPm1 from '../assets/unit_v_pm1.png';
 import unitVPm2 from '../assets/unit_v_pm2.png';
 import unitVi from '../assets/unit_vi.png';
 
+// Swiper imports
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, Pagination, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+
+// Framework images
+import techImg from '../assets/framework_tech.png';
+import capacityImg from '../assets/framework_capacity.png';
+import qualityImg from '../assets/framework_quality.png';
+import sustainabilityImg from '../assets/framework_sustainability.png';
+import innovationImg from '../assets/framework_innovation_v2.png';
+import efficiencyImg from '../assets/framework_efficiency.png';
+import talentImg from '../assets/framework_talent.png';
+import blueGrid from '../assets/blue_grid.png';
+import greenPower1 from '../assets/green_power_1.png';
+import greenPower2 from '../assets/green_power_2.png';
+
+const frameworkData = [
+    {
+        title: "Advanced Process Technology",
+        description: "Integration of high-speed machinery, automation systems, and precision controls ensuring consistent output and superior quality.",
+        image: techImg
+    },
+    {
+        title: "Capacity & Scale Leadership",
+        description: "Robust production infrastructure exceeding half a million tonnes annually, enabling dependable large-scale supply.",
+        image: capacityImg
+    },
+    {
+        title: "Quality Assurance & Testing Rigor",
+        description: "Comprehensive testing protocols, international compliance standards, and continuous monitoring to ensure product reliability.",
+        image: qualityImg
+    },
+    {
+        title: "Sustainability & Circular Manufacturing",
+        description: "Recycling-led operations, energy optimization, water stewardship, and environmentally responsible processes.",
+        image: sustainabilityImg
+    },
+    {
+        title: "Research & Product Innovation",
+        description: "Dedicated R&D capabilities focused on performance enhancement, coating technologies, fibre optimization, and market-responsive development.",
+        image: innovationImg
+    },
+    {
+        title: "Operational Discipline & Efficiency",
+        description: "Structured planning, cost optimization, lean execution, and asset utilization excellence driving productivity and profitability.",
+        image: efficiencyImg
+    },
+    {
+        title: "Learning & Talent Development",
+        description: "Continuous skill enhancement, technical training, leadership development, and knowledge-driven growth empowering high-performance teams.",
+        image: talentImg
+    }
+];
+
 const unitsData = [
     {
         id: 'unit-1',
@@ -66,7 +124,7 @@ const UnitsSection = () => {
     const unit = unitsData[activeUnit];
 
     return (
-        <div style={{ background: '#ffffff', padding: '100px 0' }}>
+        <div style={{ background: '#ffffff', padding: '100px 0 0 0' }}>
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 {/* Section Heading */}
                 <motion.div
@@ -220,6 +278,237 @@ const UnitsSection = () => {
     );
 };
 
+const GreenPowerSection = () => {
+    return (
+        <section className="relative w-full h-[650px] flex items-center overflow-hidden">
+            {/* Background Slider */}
+            <div className="absolute inset-0">
+                <Swiper
+                    modules={[Autoplay, EffectFade]}
+                    effect="fade"
+                    loop={true}
+                    speed={2000}
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    }}
+                    className="h-full w-full"
+                >
+                    <SwiperSlide>
+                        <div 
+                            className="w-full h-full bg-cover bg-center" 
+                            style={{ backgroundImage: `url(${greenPower1})` }}
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div 
+                            className="w-full h-full bg-cover bg-center" 
+                            style={{ backgroundImage: `url(${greenPower2})` }}
+                        />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+
+            {/* Dark Overlay for better text legibility */}
+            <div className="absolute inset-0 bg-black/40 z-[1]"></div>
+
+            {/* Content Overlay */}
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 h-full flex items-center justify-start relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="max-w-lg rounded-none"
+                    style={{
+                        background: 'rgba(255, 255, 255, 0.08)',
+                        backdropFilter: 'blur(8px)',
+                        padding: '24px 32px',
+                        width: '100%'
+                    }}
+                >
+                    <h2 className="font-['Outfit'] font-thin text-white tracking-wide" style={{ fontSize: '32px', margin: 0, padding: 0, lineHeight: '1.2', color: 'white', fontWeight: 100 }}>
+                        Green Power
+                    </h2>
+                    <div className="space-y-1" style={{ marginTop: '8px' }}>
+                        <p className="font-['Outfit'] text-white/90 leading-relaxed font-light text-justify" style={{ fontSize: '16px', lineHeight: '1.6' }}>
+                            NRAIL is deeply committed to environmentally responsible manufacturing, integrating green production, resource conservation, and structured waste management into its core operations.
+                        </p>
+                        <p className="font-['Outfit'] text-white/80 leading-relaxed font-light text-justify" style={{ fontSize: '16px', lineHeight: '1.6' }}>
+                            The Company adopts best-in-class process technologies designed to minimize environmental impact, reduce pollution load, and optimize resource utilization across the value chain.
+                        </p>
+                        <p className="font-['Outfit'] text-white/80 leading-relaxed font-light text-justify" style={{ fontSize: '16px', lineHeight: '1.6' }}>
+                            Consistent performance across these dimensions reflects NRAIL’s strong environmental compliance framework and its disciplined approach toward sustainable industrial growth.
+                        </p>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+};
+
+const FrameworkSection = () => {
+    return (
+        <section className="pb-24 bg-white overflow-hidden" style={{ marginTop: '60px' }}>
+            <div className="container mx-auto px-6 md:px-12 lg:px-24" style={{ marginBottom: '40px' }}>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center"
+                >
+                    <h2 className="font-['Outfit']" style={{ fontSize: '32px', fontWeight: 300, color: '#111', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '32px', whiteSpace: 'nowrap' }}>
+                        The <span style={{ color: '#8b0000', fontWeight: 700 }}>Framework</span> Supporting Our Manufacturing Mastery
+                    </h2>
+                </motion.div>
+            </div>
+
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-center relative">
+                {/* Arrow Wrapper - Positioned relative to the 1000px container */}
+                <div style={{ width: '100%', maxWidth: '1000px', position: 'relative' }}>
+                    <Swiper
+                        modules={[Navigation, Autoplay, Pagination]}
+                        spaceBetween={30} // Increased for better separation with effects
+                        slidesPerView={1}
+                        loop={true} // Enable infinite looping
+                        speed={600} // Faster duration for a snappier feel
+                        parallax={true}
+                        grabCursor={true}
+                        touchRatio={1.2} // More sensitive to swipes
+                        resistance={true}
+                        resistanceRatio={0.85}
+                        navigation={{
+                            nextEl: '.framework-next',
+                            prevEl: '.framework-prev',
+                        }}
+                        breakpoints={{
+                            640: { slidesPerView: 1.2, spaceBetween: 20 },
+                            768: { slidesPerView: 2, spaceBetween: 25 },
+                            1024: { slidesPerView: 3, spaceBetween: 30 },
+                        }}
+                        autoplay={{ 
+                            delay: 5000, 
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true 
+                        }}
+                        style={{
+                            paddingBottom: '40px', // Reduced padding since dots are gone
+                        }}
+                    >
+                        {frameworkData.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className="flex flex-col h-full group"
+                                    style={{ height: '480px' }}
+                                >
+                                    {/* Image part */}
+                                    <div className="relative overflow-hidden" style={{ height: '220px' }}>
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                    </div>
+                                    {/* Content part */}
+                                    <div
+                                        className="flex flex-col relative framework-card-bg overflow-hidden"
+                                        style={{
+                                            flexGrow: 1,
+                                            padding: '36px', 
+                                            display: 'flex',
+                                            flexDirection: 'column'
+                                        }}
+                                    >
+                                        {/* Subtle Texture Overlay */}
+                                        <div className="texture-overlay"></div>
+
+                                        <h3
+                                            className="text-white font-['Outfit'] relative z-10"
+                                            style={{
+                                                fontSize: '20px', 
+                                                fontWeight: 600,
+                                                lineHeight: 1.3,
+                                                marginBottom: '20px',
+                                                minHeight: '52px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                textAlign: 'left'
+                                            }}
+                                        >
+                                            {item.title}
+                                        </h3>
+                                        <p
+                                            className="text-gray-100 font-['Outfit'] relative z-10"
+                                            style={{
+                                                fontSize: '14px',
+                                                lineHeight: '1.6',
+                                                fontWeight: 300,
+                                                textAlign: 'left',
+                                                margin: 0
+                                            }}
+                                        >
+                                            {item.description}
+                                        </p>
+
+                                        {/* Yellow Accent line at bottom left */}
+                                        <div
+                                            className="absolute bottom-0 left-0 w-12 h-1 bg-yellow-400 z-10"
+                                            style={{ marginLeft: '1px' }}
+                                        ></div>
+                                    </div>
+                                </motion.div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
+                    {/* Custom Arrows outside the Swiper container */}
+                    <button className="framework-prev absolute top-1/2 -left-16 transform -translate-y-1/2 z-10 hidden xl:flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 text-[#8b0000] hover:bg-[#8b0000] hover:text-white transition-all duration-300">
+                        <ChevronRight className="w-6 h-6 rotate-180" />
+                    </button>
+                    <button className="framework-next absolute top-1/2 -right-16 transform -translate-y-1/2 z-10 hidden xl:flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 text-[#8b0000] hover:bg-[#8b0000] hover:text-white transition-all duration-300">
+                        <ChevronRight className="w-6 h-6" />
+                    </button>
+                </div>
+            </div>
+
+            {/* Pagination and Custom Styles */}
+            <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes meshGradient {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+
+                .framework-card-bg {
+                    background-color: #8b0000;
+                    background-image: 
+                        radial-gradient(at 0% 0%, #b22222 0px, transparent 50%),
+                        radial-gradient(at 100% 0%, #5a0000 0px, transparent 50%),
+                        radial-gradient(at 100% 100%, #b22222 0px, transparent 50%),
+                        radial-gradient(at 0% 100%, #5a0000 0px, transparent 50%),
+                        radial-gradient(at 50% 50%, #8b0000 0px, transparent 50%);
+                    background-size: 150% 150%;
+                    animation: meshGradient 10s ease infinite;
+                }
+
+                .texture-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+                    opacity: 0.15;
+                    pointer-events: none;
+                    mix-blend-mode: overlay;
+                }
+            ` }} />
+        </section>
+    );
+};
+
 const ManufacturingEdgePage = () => {
     const location = useLocation();
     const [showMore, setShowMore] = useState(false);
@@ -369,6 +658,12 @@ const ManufacturingEdgePage = () => {
 
             {/* Manufacturing Units Section */}
             <UnitsSection />
+
+            {/* Framework Section */}
+            <FrameworkSection />
+
+            {/* Green Power Section */}
+            <GreenPowerSection />
 
             {/* Bottom Spacer */}
             <div className="h-20 md:h-32 bg-white"></div>

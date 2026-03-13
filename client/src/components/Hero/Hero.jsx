@@ -6,10 +6,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import './Hero.css';
 import Hero1 from '../../assets/Hero_1.webp';
-import Hero2 from '../../assets/Hero_2.webp';
-import Hero3 from '../../assets/Hero_3.webp';
-import Hero4 from '../../assets/Hero_4.webp';
-import Hero5 from '../../assets/Hero_5.webp';
+import Hero2 from '../../assets/Pic 2.jpg';
+import Hero3 from '../../assets/Pic 3.jpg';
+import Hero4 from '../../assets/Pic 4.JPG';
+import Hero5 from '../../assets/Pic 5.jpg';
 import Hero6 from '../../assets/Hero_6.webp';
 
 const slides = [
@@ -28,10 +28,12 @@ const slides = [
     {
         id: 4,
         image: Hero4,
+        position: 'top',
     },
     {
         id: 5,
         image: Hero5,
+        position: 'top',
     },
     {
         id: 6,
@@ -57,7 +59,10 @@ const Hero = () => {
                         <div className="slide-content">
                             <div
                                 className="slide-bg"
-                                style={{ backgroundImage: `url(${slide.image})` }}
+                                style={{ 
+                                    backgroundImage: `url(${slide.image})`,
+                                    backgroundPosition: slide.position || 'center'
+                                }}
                             ></div>
                         </div>
                     </SwiperSlide>

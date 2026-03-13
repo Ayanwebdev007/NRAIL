@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 import legacyHero from '../assets/legacy hero.JPG';
 import FounderImg from '../assets/founder.png';
 import RoyalFrame from '../assets/frame.png';
-import MissionImg from '../assets/mission vision png.png';
+import MissionImg from '../assets/mission vission.jpg';
 import { useLocation, Link } from 'react-router-dom';
 import { ChevronRight, Shield, Zap, Leaf, ClipboardCheck, Users } from 'lucide-react';
 
@@ -287,7 +287,8 @@ const OurStoryPage = () => {
                                 <img
                                     src={MissionImg}
                                     alt="NRAIL Vision & Mission"
-                                    className="w-full h-auto object-cover scale-[1.05]"
+                                    className="w-full h-auto object-cover scale-[1.1]"
+                                    style={{ objectPosition: '75% 85%' }}
                                 />
                             </div>
 
@@ -325,7 +326,7 @@ const OurStoryPage = () => {
                                 className="text-white space-y-6" style={{ marginTop: '50px' }}
                             >
                                 <h3 className="text-4xl font-extrabold tracking-tight uppercase">
-                                    VISION & AMBITION
+                                    VISION
                                 </h3>
                                 <div className="w-12 h-[2px] bg-white opacity-40"></div>
                                 <p className="text-lg leading-relaxed text-gray-100 font-light max-w-xl">

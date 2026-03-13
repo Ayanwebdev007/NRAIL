@@ -33,8 +33,8 @@ const Navbar = () => {
       links: [
         { label: 'The Manufacturing Edge', path: '/manufacturing-edge' },
         { label: 'Process Excellence', path: '/#process-excellence' },
-        { label: 'Quality Assurance', path: '/#quality-assurance' },
-        { label: 'Innovation', path: '/#innovation' }
+        { label: 'Quality Assurance', path: '/quality-innovation' },
+        { label: 'Innovation', path: '/quality-innovation' }
       ]
     },
     {
