@@ -4,17 +4,143 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import legacyHero from '../assets/Leadership Header Pic.JPG';
 import { useLocation, Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { IoEnterOutline } from "react-icons/io5";
+import { useRef } from 'react';
 import founderImg from '../assets/leadership founder.JPG';
 import rnaLeadership from '../assets/Mr R N Agarwal leadership.JPG';
 import redTexture from '../assets/red texture.jpg';
 
+// Panorama Leadership Assets
+import rajanPng from '../assets/panorama/rajan.webp';
+import navinPng from '../assets/panorama/navin.webp';
+import shivaanPng from '../assets/panorama/shivaan.webp';
+import sidharthPng from '../assets/panorama/Sidharth.webp';
+import amitPng from '../assets/panorama/amit.png';
+import kritiPng from '../assets/panorama/Kriti.png';
+import aprajitaPng from '../assets/panorama/Aparajita.png';
+
+const leadersList = [
+    {
+        id: 1,
+        name: "Mr. R N Agarwal",
+        role: "Chairman & MD",
+        image: rnaLeadership,
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 2,
+        name: "Mr. Raunak Agarwal",
+        role: "Executive Director",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 3,
+        name: "Mrs. Reena Agarwal",
+        role: "Executive Director",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 4,
+        name: "Mr. Rohan Agarwal",
+        role: "Executive Director & CEO",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 5,
+        name: "Mr. P K Mundra",
+        role: "Executive Director & CFO",
+        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 6,
+        name: "Mr. Rajiv Kumar Bakshi",
+        role: "Independent Director",
+        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 7,
+        name: "Mrs. Sunita Nair",
+        role: "Independent Director",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 8,
+        name: "Mr. K L Chandak",
+        role: "Independent Director",
+        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 9,
+        name: "Mr. Sanjay Sinha",
+        role: "Independent Director",
+        image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    },
+    {
+        id: 10,
+        name: "Mr. Mahendra Kumar Gupta",
+        role: "Independent Director",
+        image: "https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=400&fit=crop",
+        bgPos: "center",
+        bgSize: "cover"
+    }
+];
+
 const LeadershipPage = () => {
     const location = useLocation();
+    const gridRef = useRef(null);
+    const extendedLeaders = [...leadersList, ...leadersList, ...leadersList];
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        // Initialize scroll to the middle group
+        if (gridRef.current) {
+            const singleSetWidth = leadersList.length * 350; // 320 card + 30 gap
+            gridRef.current.scrollLeft = singleSetWidth;
+        }
     }, [location]);
+
+    const handleScroll = () => {
+        if (!gridRef.current) return;
+        const { scrollLeft, scrollWidth } = gridRef.current;
+        const singleSetWidth = leadersList.length * 350;
+
+        // If we reach the end of the middle group (going right), jump back to start of middle group
+        if (scrollLeft >= singleSetWidth * 2) {
+            gridRef.current.scrollLeft = scrollLeft - singleSetWidth;
+        } 
+        // If we reach the start of the middle group (going left), jump to end of middle group
+        else if (scrollLeft <= singleSetWidth - 350) { // Small buffer to ensure seamless
+             gridRef.current.scrollLeft = scrollLeft + singleSetWidth;
+        }
+    };
+
+    const scroll = (direction) => {
+        if (gridRef.current) {
+            const scrollAmount = 350; // Card width (320) + gap (30)
+            gridRef.current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
 
     return (
         <div className="bg-white min-h-screen font-main">
@@ -159,11 +285,10 @@ const LeadershipPage = () => {
                             </div>
                         </motion.div>
                     </div>
-                    {/* Explicit physical spacer to force gap */}
-                    <div className="h-24 md:h-48 w-full bg-white block"></div>
+                    <div className="h-4 md:h-8 w-full bg-white block"></div>
                 </div>
             </div>
-            {/* Board of Directors Section */}
+            {/* Old Board of Directors Section - Commented Out
             <div
                 className="w-full relative pt-40 pb-48 md:pt-56 md:pb-64"
                 style={{
@@ -173,11 +298,9 @@ const LeadershipPage = () => {
                     backgroundAttachment: 'fixed'
                 }}
             >
-                {/* Dark Overlay for better contrast */}
                 <div className="absolute inset-0 bg-black/40"></div>
 
                 <div className="container mx-auto px-6 max-w-7xl relative z-10">
-                    {/* Explicit gap from the top of the section */}
                     <div className="h-12 md:h-16 w-full"></div>
 
                     <motion.div
@@ -190,7 +313,6 @@ const LeadershipPage = () => {
                         <h2 className="text-4xl md:text-5xl font-bold text-white !text-white tracking-tight">Board of Directors</h2>
                     </motion.div>
 
-                    {/* Glassmorphism Container */}
                     <div
                         className="bg-black/40 backdrop-blur-md w-full"
                         style={{ paddingTop: '80px', paddingBottom: '80px', paddingLeft: '60px', paddingRight: '60px' }}
@@ -256,7 +378,6 @@ const LeadershipPage = () => {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     className="flex flex-col gap-4 group"
                                 >
-                                    {/* Circle Picture */}
                                     <div
                                         className="w-20 h-20 rounded-full bg-white/20 border border-white/30 flex-shrink-0 group-hover:scale-105 transition-transform duration-300 overflow-hidden"
                                     >
@@ -286,10 +407,108 @@ const LeadershipPage = () => {
                         </div>
                     </div>
 
-                    {/* Explicit gap below the rectangle to show background */}
                     <div className="h-24 md:h-40 w-full"></div>
                 </div>
             </div>
+            */}
+
+            <section className="leadership-outer-container">
+                <div className="leadership-grid-bg relative overflow-hidden pt-16 pb-48 md:pt-24 md:pb-72">
+                    {/* Texture Overlay from Manufacturing Edge */}
+                    <div className="texture-overlay"></div>
+                    
+                    <div className="leadership-navigation-container flex flex-col items-center justify-center gap-12 relative z-10 w-full px-4">
+                        
+                        {/* Title - Now inside the background section */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false }}
+                            transition={{ duration: 0.8 }}
+                            className="text-center mb-6"
+                        >
+                            <h2 className="text-4xl md:text-6xl font-normal !text-white tracking-widest uppercase">
+                                Board of Directors
+                            </h2>
+                        </motion.div>
+
+                        <div className="flex items-center justify-center gap-6 w-full">
+                            {/* Left Arrow */}
+                            <button 
+                                onClick={() => scroll('left')}
+                                className="nav-arrow-static"
+                                aria-label="Scroll Left"
+                            >
+                                <ChevronLeft size={32} />
+                            </button>
+                        
+                        {/* Viewport - Precisely 1370px for 4 cards + gaps */}
+                        <div className="leadership-viewport w-full max-w-[1370px] overflow-hidden">
+                            <div 
+                                className="leadership-grid" 
+                                ref={gridRef}
+                                onScroll={handleScroll}
+                            >
+                                {extendedLeaders.map((leader, index) => (
+                                    <motion.div
+                                        key={`${leader.id}-${index}`}
+                                        className="leadership-glass-card group"
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: false }}
+                                        transition={{ delay: (index % leadersList.length) * 0.1, duration: 0.6 }}
+                                    >
+                                        <div className="glass-card-inner">
+                                            {/* Circle Image Wrapper */}
+                                            <div className="leader-circle-wrapper flex items-center justify-center overflow-hidden">
+                                                <div
+                                                    className="leader-circle-image-bg w-full h-full grayscale transition-all duration-500 group-hover:grayscale-0"
+                                                    style={{
+                                                        backgroundImage: `url(${leader.image})`,
+                                                        backgroundPosition: leader.bgPos,
+                                                        backgroundSize: leader.bgSize,
+                                                        backgroundRepeat: 'no-repeat'
+                                                    }}
+                                                />
+                                            </div>
+
+                                            {/* Name and Designation */}
+                                            <div className="leader-details">
+                                                <h3 className="leader-name">
+                                                    {leader.name}
+                                                </h3>
+                                                <p className="leader-role">
+                                                    {leader.role}
+                                                </p>
+                                                
+                                                <div className="leader-separator" />
+                                                
+                                                <motion.div
+                                                    whileHover={{ x: 5 }}
+                                                    className="leader-view-profile"
+                                                >
+                                                    <span>View Profile</span>
+                                                    <span className="arrow">→</span>
+                                                </motion.div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Right Arrow */}
+                        <button 
+                            onClick={() => scroll('right')}
+                            className="nav-arrow-static"
+                            aria-label="Scroll Right"
+                        >
+                            <ChevronRight size={32} />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
             {/* Senior Management Team Section */}
             <div className="bg-[#fafafa] pt-40 pb-72 md:pt-56 md:pb-96 border-t border-gray-100">
@@ -373,6 +592,290 @@ const LeadershipPage = () => {
             </div>
 
             <Footer />
+
+            <style dangerouslySetInnerHTML={{ __html: `
+                .leadership-outer-container {
+                    width: 100%;
+                    background-color: #fff;
+                    padding-top: 100px;
+                }
+
+                .leadership-grid-bg {
+                    min-height: 700px;
+                    display: flex;
+                    align-items: center;
+                    background-color: #4a0000;
+                    background-image: 
+                        radial-gradient(at 0% 0%, #660000 0px, transparent 50%),
+                        radial-gradient(at 100% 0%, #2a0000 0px, transparent 50%),
+                        radial-gradient(at 100% 100%, #660000 0px, transparent 50%),
+                        radial-gradient(at 0% 100%, #2a0000 0px, transparent 50%),
+                        radial-gradient(at 50% 50%, #4a0000 0px, transparent 50%);
+                    background-size: 150% 150%;
+                    animation: meshGradientLeadership 10s ease infinite;
+                    position: relative;
+                }
+
+                @keyframes meshGradientLeadership {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+
+                .texture-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+                    opacity: 0.15;
+                    pointer-events: none;
+                    mix-blend-mode: overlay;
+                    z-index: 1;
+                }
+
+                .leadership-navigation-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                }
+
+                .leadership-viewport {
+                    flex: 1;
+                    max-width: 1370px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                .leadership-grid {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: flex-start;
+                    gap: 30px;
+                    overflow-x: auto;
+                    padding-bottom: 20px;
+                    padding-top: 20px;
+                    scroll-snap-type: x mandatory;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                .leadership-grid::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .nav-arrow-static {
+                    flex-shrink: 0;
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(8px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    color: #ffffff;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+                }
+
+                .nav-arrow-static:hover {
+                    background: #ffcc00;
+                    color: #8b0000;
+                    border-color: #ffcc00;
+                    box-shadow: 0 0 25px rgba(255, 204, 0, 0.5);
+                    transform: scale(1.1);
+                }
+
+                .leadership-glass-card {
+                    flex: 0 0 320px;
+                    max-width: 320px;
+                    background: rgba(0, 0, 0, 0.4);
+                    backdrop-filter: blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    border: 1px solid rgba(255, 255, 255, 0.08);
+                    border-radius: 24px;
+                    padding: 40px 20px 5px 20px;
+                    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                    position: relative;
+                    overflow: hidden;
+                    scroll-snap-align: start;
+                    box-shadow: none;
+                }
+
+                .leadership-glass-card::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+                    transition: 0.5s;
+                }
+
+                .leadership-glass-card:hover::after {
+                    left: 100%;
+                }
+
+                .leadership-glass-card:hover {
+                    background: rgba(255, 255, 255, 0.05);
+                    border-color: rgba(255, 255, 255, 0.25);
+                    transform: translateY(-15px);
+                    box-shadow: none;
+                }
+
+                .glass-card-inner {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    z-index: 2;
+                    position: relative;
+                }
+
+                .leader-circle-wrapper {
+                    width: 180px;
+                    height: 180px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin-bottom: 30px;
+                    border: 2px solid rgba(255, 255, 255, 0.1);
+                    background: rgba(0, 0, 0, 0.2);
+                    transition: all 0.5s ease;
+                }
+
+                .leadership-glass-card:hover .leader-circle-wrapper {
+                    border-color: #ffcc00;
+                    transform: scale(1.05);
+                    box-shadow: none;
+                }
+
+                .leader-circle-image-bg {
+                    filter: grayscale(100%);
+                    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                }
+
+                .leadership-glass-card:hover .leader-circle-image-bg {
+                    filter: grayscale(0%);
+                    transform: scale(1.1);
+                }
+
+                .leader-details {
+                    text-align: center;
+                }
+
+                .leader-name {
+                    font-family: 'Outfit', sans-serif;
+                    color: #ffffff;
+                    font-size: 20px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    margin-bottom: 8px;
+                    text-transform: uppercase;
+                }
+
+                .leader-role {
+                    font-family: 'Outfit', sans-serif;
+                    color: #ffcc00;
+                    font-size: 13px;
+                    font-weight: 500;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
+                }
+
+                .leader-separator {
+                    height: 1px;
+                    width: 40px;
+                    background: rgba(255, 255, 255, 0.2);
+                    margin: 12px auto;
+                    transition: width 0.3s ease;
+                }
+
+                .leadership-glass-card:hover .leader-separator {
+                    width: 60px;
+                    background: rgba(255, 204, 0, 0.5);
+                }
+
+                .leader-view-profile {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    color: #ffffff;
+                    font-size: 12px;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    opacity: 0.7;
+                    transition: all 0.3s ease;
+                }
+
+                .leader-view-profile:hover {
+                    opacity: 1;
+                    color: #ffcc00;
+                }
+
+                .leader-view-profile .arrow {
+                    transition: transform 0.3s ease;
+                    font-size: 16px;
+                }
+
+                .leader-view-profile:hover .arrow {
+                    transform: translateX(5px);
+                }
+
+                @media (max-width: 1024px) {
+                    .leadership-container {
+                        padding-top: 15px;
+                        padding-bottom: 20px;
+                    }
+
+                    .leadership-glass-card {
+                        flex: 0 0 280px;
+                        max-width: 280px;
+                        padding: 25px 15px 5px 15px;
+                        border-radius: 20px;
+                    }
+
+                    .leader-circle-wrapper {
+                        width: 140px;
+                        height: 140px;
+                        margin-bottom: 15px;
+                    }
+
+                    .leader-name {
+                        font-size: 16px;
+                    }
+
+                    .leader-role {
+                        font-size: 11px;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .leadership-glass-card {
+                        flex: 0 0 240px;
+                        max-width: 240px;
+                        padding: 20px 10px 5px 10px;
+                        border-radius: 16px;
+                    }
+
+                    .leader-circle-wrapper {
+                        width: 110px;
+                        height: 110px;
+                        margin-bottom: 12px;
+                    }
+
+                    .leader-name {
+                        font-size: 14px;
+                    }
+
+                    .leader-role {
+                        font-size: 10px;
+                    }
+                }
+            ` }} />
         </div>
     );
 };

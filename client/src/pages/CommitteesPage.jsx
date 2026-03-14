@@ -115,13 +115,14 @@ const CommitteesPage = () => {
                                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                                 viewport={{ once: false, margin: "-80px" }}
                                 transition={{ duration: 0.5, delay: index * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
-                                className="group relative rounded-2xl border border-[#8b0000]/20 hover:border-[#d4af37]/40 transition-all duration-500 overflow-hidden"
+                                className="group relative rounded-2xl border border-[#8b0000]/20 hover:border-[#d4af37]/40 transition-all duration-500 overflow-hidden framework-card-bg"
                                 style={{
                                     padding: '32px 28px 28px',
-                                    background: 'linear-gradient(145deg, #a01020 0%, #8b0000 40%, #600010 100%)',
                                     boxShadow: '0 4px 20px rgba(139,0,0,0.2), 0 8px 32px rgba(0,0,0,0.12)',
                                 }}
                             >
+                                {/* Subtle Texture Overlay */}
+                                <div className="texture-overlay"></div>
                                 {/* Left Accent Bar - Gold */}
                                 <div
                                     className="absolute top-0 left-0 h-full"
@@ -189,7 +190,39 @@ const CommitteesPage = () => {
             <div className="h-20 md:h-32 bg-white"></div>
 
             <Footer />
-        </div >
+
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                @keyframes meshGradient {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+
+                .framework-card-bg {
+                    background-color: #8b0000;
+                    background-image: 
+                        radial-gradient(at 0% 0%, #b22222 0px, transparent 50%),
+                        radial-gradient(at 100% 0%, #5a0000 0px, transparent 50%),
+                        radial-gradient(at 100% 100%, #b22222 0px, transparent 50%),
+                        radial-gradient(at 0% 100%, #5a0000 0px, transparent 50%),
+                        radial-gradient(at 50% 50%, #8b0000 0px, transparent 50%);
+                    background-size: 150% 150%;
+                    animation: meshGradient 10s ease infinite;
+                    position: relative;
+                }
+
+                .texture-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+                    opacity: 0.15;
+                    pointer-events: none;
+                    mix-blend-mode: overlay;
+                    z-index: 1;
+                }
+            ` }} />
+        </div>
     );
 };
 

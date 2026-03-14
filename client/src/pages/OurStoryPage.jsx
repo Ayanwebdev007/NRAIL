@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import legacyHero from '../assets/legacy hero.JPG';
-import FounderImg from '../assets/founder.png';
+import FounderImg from '../assets/NR FOUNDER FRAME.png';
 import RoyalFrame from '../assets/frame.png';
 import MissionImg from '../assets/mission vission.jpg';
 import { useLocation, Link } from 'react-router-dom';
@@ -153,10 +153,10 @@ const OurStoryPage = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: false, amount: 0.3 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="lg:w-5/12 relative group flex justify-center py-6"
+                            className="lg:w-[48%] relative group flex justify-center py-6"
                         >
                             {/* Frame Container */}
-                            <div className="relative w-full max-w-[500px] drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500">
+                            <div className="relative w-full max-w-[550px] drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500">
                                 <img
                                     src={FounderImg}
                                     alt="Shri N R Agarwal"
@@ -171,7 +171,7 @@ const OurStoryPage = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: false, amount: 0.3 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="lg:w-6/12 text-center lg:text-left"
+                            className="lg:w-[48%] text-center lg:text-left"
                         >
                             {/* Title */}
                             <div className="mb-10">
