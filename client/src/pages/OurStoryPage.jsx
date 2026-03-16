@@ -1,16 +1,102 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import legacyHero from '../assets/legacy hero.JPG';
 import FounderImg from '../assets/NR FOUNDER FRAME.png';
 import RoyalFrame from '../assets/frame.png';
 import MissionImg from '../assets/mission vission.jpg';
+import certifiedLogo from '../assets/certified-logo.png';
+import reachCertificatePdf from '../assets/REACH Certificate IGB.pdf';
+import moshCertificatePdf from '../assets/MOSH IGB.pdf';
+import leadPhthalatesPdf from '../assets/Lead and phthalates - U1.pdf';
+import isoCa3Pdf from '../assets/ISO NR Aggrawal EMS CA (3).pdf';
+import isoCa2Pdf from '../assets/ISO NR Aggrawal EMS CA (2).pdf';
+import isoCa1Pdf from '../assets/ISO NR Aggrawal EMS CA (1).pdf';
+import fdaPm2Pdf from '../assets/IGB FDA - PM2 FG.pdf';
+import heavyMetalPm2Pdf from '../assets/Heavy Metal IGB 08.02.25 -U5 PM2.pdf';
+import fscCertificatePdf from '../assets/FSC Certificate.pdf';
+import coffeeTablePdf from '../assets/Coffe Table Book_NR Agarwal (1)_compressed.pdf';
+import bis1848Pdf from '../assets/BIS 1848 WP Updated on 21.08.2025.pdf';
 import { useLocation, Link } from 'react-router-dom';
-import { ChevronRight, Shield, Zap, Leaf, ClipboardCheck, Users } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Shield, Zap, Leaf, ClipboardCheck, Users } from 'lucide-react';
+
+const certifications = [
+    {
+        displayTitle: 'REACH Certificate IGB',
+        title: 'REACH Certificate IGB',
+        file: reachCertificatePdf,
+        badgeTop: 'Compliance Certification',
+        badgeCode: 'REACH',
+    },
+    {
+        displayTitle: 'MOSH IGB',
+        title: 'MOSH IGB',
+        file: moshCertificatePdf,
+        badgeTop: 'Safety Compliance',
+        badgeCode: 'MOSH',
+    },
+    {
+        displayTitle: 'Lead and phthalates - U1',
+        title: 'Lead and phthalates - U1',
+        file: leadPhthalatesPdf,
+        badgeTop: 'Material Safety',
+        badgeCode: 'LEAD FREE',
+    },
+    {
+        displayTitle: 'ISO NR Aggrawal EMS CA (1)',
+        title: 'ISO NR Aggrawal EMS CA (1)',
+        file: isoCa1Pdf,
+        badgeTop: 'Environmental System',
+        badgeCode: 'ISO 14001',
+    },
+    {
+        displayTitle: 'ISO NR Aggrawal EMS CA (2)',
+        title: 'ISO NR Aggrawal EMS CA (2)',
+        file: isoCa2Pdf,
+        badgeTop: 'Quality System',
+        badgeCode: 'ISO 9001',
+    },
+    {
+        displayTitle: 'ISO NR Aggrawal EMS CA (3)',
+        title: 'ISO NR Aggrawal EMS CA (3)',
+        file: isoCa3Pdf,
+        badgeTop: 'Safety System',
+        badgeCode: 'ISO 45001',
+    },
+    {
+        displayTitle: 'IGB FDA - PM2 FG',
+        title: 'IGB FDA - PM2 FG',
+        file: fdaPm2Pdf,
+        badgeTop: 'Food Contact Safety',
+        badgeCode: 'FDA',
+    },
+    {
+        displayTitle: 'Heavy Metal IGB 08.02.25 -U5 PM2',
+        title: 'Heavy Metal IGB 08.02.25 -U5 PM2',
+        file: heavyMetalPm2Pdf,
+        badgeTop: 'Material Testing',
+        badgeCode: 'HEAVY METAL',
+    },
+    {
+        displayTitle: 'FSC Certificate',
+        title: 'FSC Certificate',
+        file: fscCertificatePdf,
+        badgeTop: 'Forest Stewardship',
+        badgeCode: 'FSC',
+    },
+    {
+        displayTitle: 'BIS 1848 WP Updated on 21.08.2025',
+        title: 'BIS 1848 WP Updated on 21.08.2025',
+        file: bis1848Pdf,
+        badgeTop: 'Indian Standards',
+        badgeCode: 'BIS 1848',
+    },
+];
 
 const OurStoryPage = () => {
     const location = useLocation();
+    const [selectedCertification, setSelectedCertification] = useState(null);
 
     useEffect(() => {
         // Force scroll to top on every navigation/hash change
@@ -279,15 +365,14 @@ const OurStoryPage = () => {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             className="lg:w-1/2 relative"
                         >
-                            <div className="relative z-20 overflow-hidden"
+                            <div className="relative z-20 overflow-hidden rounded-2xl aspect-[16/9] border-2 border-white"
                                 style={{
-                                    borderRadius: '40% 60% 70% 30% / 40% 50% 60% 40%',
                                     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
                                 }}>
                                 <img
                                     src={MissionImg}
                                     alt="NRAIL Vision & Mission"
-                                    className="w-full h-auto object-cover scale-[1.1]"
+                                    className="w-full h-full object-cover scale-[1.05]"
                                     style={{ objectPosition: '75% 85%' }}
                                 />
                             </div>
@@ -465,22 +550,195 @@ const OurStoryPage = () => {
                         </div>
                     </div>
 
-                    {/* Coming Soon Message - Refined Gap */}
-                    <div className="flex flex-col items-center" style={{ marginTop: '100px', marginBottom: '100px' }}>
+                </div>
+            </div>
+
+            {/* Our Certifications Section */}
+            <div className="bg-white pb-32 relative">
+                <div className="container mx-auto px-6 max-w-7xl">
+                    <div className="flex flex-col items-center text-center mb-24">
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ duration: 1.2, delay: 0.5 }}
-                            className="flex flex-col items-center gap-1"
+                            viewport={{ once: false, amount: 0.4 }}
+                            transition={{ duration: 0.6 }}
+                            className="flex items-center justify-center gap-4 w-full"
                         >
-                            <div className="w-16 h-[1px] bg-gray-200"></div>
-                            <p className="font-main text-gray-400 italic tracking-[0.3em] text-[11px] uppercase py-2">Next Part Coming Soon</p>
-                            <div className="w-16 h-[1px] bg-gray-200"></div>
+                            <span className="h-[5px] w-16 md:w-32 bg-[#8b0000]"></span>
+                            <h4 className="font-main text-black font-extrabold tracking-tight uppercase leading-none" style={{ fontSize: '26px' }}>
+                                OUR CERTIFICATIONS
+                            </h4>
+                            <span className="h-[5px] w-16 md:w-32 bg-[#8b0000]"></span>
                         </motion.div>
+
+                    </div>
+
+                    <div className="h-16 w-full"></div>
+
+                    <div className="relative group mt-10 w-full overflow-hidden py-10">
+                        <style>
+                            {`
+                                @keyframes infinite-scroll {
+                                    0% { transform: translateX(0); }
+                                    100% { transform: translateX(-50%); }
+                                }
+                                .animate-infinite-scroll {
+                                    animation: infinite-scroll 35s linear infinite;
+                                }
+                                .animate-infinite-scroll:hover {
+                                    animation-play-state: paused;
+                                }
+                            `}
+                        </style>
+
+                        {/* Edge Gradients for Smoothness */}
+                        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
+                        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
+
+                        <div className="flex animate-infinite-scroll w-max hover:[animation-play-state:paused]">
+                            {/* First Set */}
+                            <div className="flex gap-8 pr-8">
+                                {certifications.map((certification, idx) => (
+                                    <div
+                                        key={`cert-1-${idx}`}
+                                        className="flex-none w-[340px] bg-white rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 hover:border-[#8b0000]/30 transition-all duration-500 h-[340px] p-6 flex flex-col items-center justify-center text-center cursor-pointer group/card relative overflow-hidden"
+                                        onClick={() => setSelectedCertification(certification)}
+                                    >
+                                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#8b0000]/[0.06] opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+
+                                        <div className="w-full flex justify-center shrink-0 mb-6 relative z-10">
+                                            <div className="absolute inset-0 bg-[#8b0000]/20 rounded-full blur-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 scale-125"></div>
+
+                                            <div className="relative w-32 h-32 rounded-full border border-gray-100 bg-white flex items-center justify-center overflow-hidden shadow-sm group-hover/card:shadow-md transition-all duration-500">
+                                                <div className="absolute inset-[8px] rounded-full border border-transparent border-t-[#8b0000]/50 border-r-[#8b0000]/50 group-hover/card:rotate-[180deg] transition-transform duration-[1.5s] ease-in-out"></div>
+                                                <div className="absolute inset-[14px] rounded-full border border-transparent border-b-[#8b0000]/50 border-l-[#8b0000]/50 transition-transform duration-[1.5s] ease-in-out group-hover/card:-rotate-[180deg]"></div>
+
+                                                {certification.badgeImage || certifiedLogo ? (
+                                                    <img
+                                                        src={certification.badgeImage || certifiedLogo}
+                                                        alt={`${certification.displayTitle || certification.title} icon`}
+                                                        className="relative z-10 w-[80%] h-[80%] object-contain group-hover/card:scale-110 transition-transform duration-700"
+                                                    />
+                                                ) : (
+                                                    <div className="relative z-10 flex flex-col items-center text-center px-2 group-hover/card:scale-110 transition-transform duration-700">
+                                                        <p className="text-[10px] uppercase tracking-wide font-semibold text-gray-700 leading-tight mb-1">
+                                                            {certification.badgeTop}
+                                                        </p>
+                                                        <p className="text-xl font-black text-[#0b1f5c] leading-none">NRAIL</p>
+                                                        <p className="text-[14px] font-bold text-[#18b7ea] leading-none mt-1">{certification.badgeCode}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <div className="w-full px-2 mb-6 relative z-10">
+                                            <h3 className="font-main text-[19px] font-bold text-gray-900 leading-snug line-clamp-2 group-hover/card:text-[#8b0000] transition-colors duration-300">
+                                                {certification.displayTitle || certification.title}
+                                            </h3>
+                                        </div>
+
+                                        <div className="mt-auto relative z-10 pointer-events-none">
+                                            <div className="inline-flex items-center gap-2 text-[15px] font-bold text-[#8b0000]">
+                                                <span className="uppercase tracking-widest group-hover/card:tracking-[0.2em] transition-all duration-300">Read More</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            
+                            {/* Second Set (Duplicate for seamless loop) */}
+                            <div className="flex gap-8 pr-8">
+                                {certifications.map((certification, idx) => (
+                                    <div
+                                        key={`cert-2-${idx}`}
+                                        className="flex-none w-[340px] bg-white rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 hover:border-[#8b0000]/30 transition-all duration-500 h-[340px] p-6 flex flex-col items-center justify-center text-center cursor-pointer group/card relative overflow-hidden"
+                                        onClick={() => setSelectedCertification(certification)}
+                                    >
+                                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#8b0000]/[0.06] opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+
+                                        <div className="w-full flex justify-center shrink-0 mb-6 relative z-10">
+                                            <div className="absolute inset-0 bg-[#8b0000]/20 rounded-full blur-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 scale-125"></div>
+
+                                            <div className="relative w-32 h-32 rounded-full border border-gray-100 bg-white flex items-center justify-center overflow-hidden shadow-sm group-hover/card:shadow-md transition-all duration-500">
+                                                <div className="absolute inset-[8px] rounded-full border border-transparent border-t-[#8b0000]/50 border-r-[#8b0000]/50 group-hover/card:rotate-[180deg] transition-transform duration-[1.5s] ease-in-out"></div>
+                                                <div className="absolute inset-[14px] rounded-full border border-transparent border-b-[#8b0000]/50 border-l-[#8b0000]/50 transition-transform duration-[1.5s] ease-in-out group-hover/card:-rotate-[180deg]"></div>
+
+                                                {certification.badgeImage || certifiedLogo ? (
+                                                    <img
+                                                        src={certification.badgeImage || certifiedLogo}
+                                                        alt={`${certification.displayTitle || certification.title} icon`}
+                                                        className="relative z-10 w-[80%] h-[80%] object-contain group-hover/card:scale-110 transition-transform duration-700"
+                                                    />
+                                                ) : (
+                                                    <div className="relative z-10 flex flex-col items-center text-center px-2 group-hover/card:scale-110 transition-transform duration-700">
+                                                        <p className="text-[10px] uppercase tracking-wide font-semibold text-gray-700 leading-tight mb-1">
+                                                            {certification.badgeTop}
+                                                        </p>
+                                                        <p className="text-xl font-black text-[#0b1f5c] leading-none">NRAIL</p>
+                                                        <p className="text-[14px] font-bold text-[#18b7ea] leading-none mt-1">{certification.badgeCode}</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <div className="w-full px-2 mb-6 relative z-10">
+                                            <h3 className="font-main text-[19px] font-bold text-gray-900 leading-snug line-clamp-2 group-hover/card:text-[#8b0000] transition-colors duration-300">
+                                                {certification.displayTitle || certification.title}
+                                            </h3>
+                                        </div>
+
+                                        <div className="mt-auto relative z-10 pointer-events-none">
+                                            <div className="inline-flex items-center gap-2 text-[15px] font-bold text-[#8b0000]">
+                                                <span className="uppercase tracking-widest group-hover/card:tracking-[0.2em] transition-all duration-300">Read More</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <AnimatePresence>
+                {selectedCertification && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[1200] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+                        onClick={() => setSelectedCertification(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                            transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
+                            className="relative w-full max-w-5xl h-[88vh] rounded-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] bg-[#f8f9fa]"
+                            onClick={(event) => event.stopPropagation()}
+                        >
+                            {/* Floating Close Button */}
+                            <button
+                                className="absolute top-4 right-4 z-50 flex items-center justify-center w-10 h-10 bg-white/90 hover:bg-[#8b0000] text-gray-800 hover:text-white rounded-full shadow-lg backdrop-blur-md transition-all duration-300 group"
+                                onClick={() => setSelectedCertification(null)}
+                                aria-label="Close"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform duration-300 group-hover:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+
+                            <iframe
+                                src={`${selectedCertification.file}#view=FitH&toolbar=0`}
+                                title={selectedCertification.title}
+                                className="w-full h-full border-none rounded-2xl"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <div className="h-16 w-full bg-white"></div>
 
             <Footer />
         </div >

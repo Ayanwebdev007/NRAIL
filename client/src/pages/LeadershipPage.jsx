@@ -9,6 +9,14 @@ import { IoEnterOutline } from "react-icons/io5";
 import { useRef } from 'react';
 import founderImg from '../assets/leadership founder.JPG';
 import rnaLeadership from '../assets/Mr R N Agarwal leadership.JPG';
+import raunakLeadership from '../assets/Raunak Agarwal.JPG';
+import reenaLeadership from '../assets/Mrs Reena Agarwal.JPG';
+import rohanALeadership from '../assets/Rohan A.JPG';
+import pkMundraLeadership from '../assets/PK Mundra.jpeg';
+import sanjaySinhaLeadership from '../assets/sanjaysinha.jpg';
+import klChandakLeadership from '../assets/k_l_chandak.jpg';
+import sunitaNairLeadership from '../assets/Sunita Nair.jpg';
+import mahendraGuptaLeadership from '../assets/Mahendra Gupta.jpg';
 import redTexture from '../assets/red texture.jpg';
 
 // Panorama Leadership Assets
@@ -33,7 +41,7 @@ const leadersList = [
         id: 2,
         name: "Mr. Raunak Agarwal",
         role: "Executive Director",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+        image: raunakLeadership,
         bgPos: "center",
         bgSize: "cover"
     },
@@ -41,7 +49,7 @@ const leadersList = [
         id: 3,
         name: "Mrs. Reena Agarwal",
         role: "Executive Director",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+        image: reenaLeadership,
         bgPos: "center",
         bgSize: "cover"
     },
@@ -49,7 +57,7 @@ const leadersList = [
         id: 4,
         name: "Mr. Rohan Agarwal",
         role: "Executive Director & CEO",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+        image: rohanALeadership,
         bgPos: "center",
         bgSize: "cover"
     },
@@ -57,7 +65,7 @@ const leadersList = [
         id: 5,
         name: "Mr. P K Mundra",
         role: "Executive Director & CFO",
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
+        image: pkMundraLeadership,
         bgPos: "center",
         bgSize: "cover"
     },
@@ -73,33 +81,37 @@ const leadersList = [
         id: 7,
         name: "Mrs. Sunita Nair",
         role: "Independent Director",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+        image: sunitaNairLeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "contain",
+        bgColor: "white"
     },
     {
         id: 8,
         name: "Mr. K L Chandak",
         role: "Independent Director",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+        image: klChandakLeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "contain",
+        bgColor: "white"
     },
     {
         id: 9,
         name: "Mr. Sanjay Sinha",
         role: "Independent Director",
-        image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop",
+        image: sanjaySinhaLeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "contain",
+        bgColor: "white"
     },
     {
         id: 10,
         name: "Mr. Mahendra Kumar Gupta",
         role: "Independent Director",
-        image: "https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=400&fit=crop",
+        image: mahendraGuptaLeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "contain",
+        bgColor: "white"
     }
 ];
 
@@ -322,27 +334,27 @@ const LeadershipPage = () => {
                                 {
                                     name: "Mr. R N Agarwal",
                                     title: "Chairman & MD",
-                                    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                                    image: rnaLeadership
                                 },
                                 {
                                     name: "Mr. Raunak Agarwal",
                                     title: "Executive Director",
-                                    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+                                    image: raunakLeadership
                                 },
                                 {
                                     name: "Mrs. Reena Agarwal",
                                     title: "Executive Director",
-                                    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+                                    image: reenaLeadership
                                 },
                                 {
                                     name: "Mr. Rohan Agarwal",
                                     title: "Executive Director & CEO",
-                                    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
+                                    image: rohanALeadership
                                 },
                                 {
                                     name: "Mr. P K Mundra",
                                     title: "Executive Director & CFO",
-                                    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop"
+                                    image: pkMundraLeadership
                                 },
                                 {
                                     name: "Mr. Rajiv Kumar Bakshi",
@@ -352,22 +364,22 @@ const LeadershipPage = () => {
                                 {
                                     name: "Mrs. Sunita Nair",
                                     title: "Independent Director",
-                                    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+                                    image: sunitaNairLeadership
                                 },
                                 {
                                     name: "Mr. K L Chandak",
                                     title: "Independent Director",
-                                    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
+                                    image: klChandakLeadership
                                 },
                                 {
                                     name: "Mr. Sanjay Sinha",
                                     title: "Independent Director",
-                                    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop"
+                                    image: sanjaySinhaLeadership
                                 },
                                 {
                                     name: "Mr. Mahendra Kumar Gupta",
                                     title: "Independent Director",
-                                    image: "https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=400&fit=crop"
+                                    image: mahendraGuptaLeadership
                                 },
                             ].map((director, index) => (
                                 <motion.div
@@ -467,7 +479,8 @@ const LeadershipPage = () => {
                                                         backgroundImage: `url(${leader.image})`,
                                                         backgroundPosition: leader.bgPos,
                                                         backgroundSize: leader.bgSize,
-                                                        backgroundRepeat: 'no-repeat'
+                                                        backgroundRepeat: 'no-repeat',
+                                                        backgroundColor: leader.bgColor || 'transparent'
                                                     }}
                                                 />
                                             </div>

@@ -66,6 +66,9 @@ const MilestonesPage = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
+        // Ensure the page always starts from the top when navigated to
+        window.scrollTo(0, 0);
+
         const el = scrollContainerRef.current;
         if (!el) return;
 

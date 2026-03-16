@@ -193,22 +193,8 @@ const CommitteesPage = () => {
 
             <style dangerouslySetInnerHTML={{
                 __html: `
-                @keyframes meshGradient {
-                    0% { background-position: 0% 50%; }
-                    50% { background-position: 100% 50%; }
-                    100% { background-position: 0% 50%; }
-                }
-
                 .framework-card-bg {
                     background-color: #8b0000;
-                    background-image: 
-                        radial-gradient(at 0% 0%, #b22222 0px, transparent 50%),
-                        radial-gradient(at 100% 0%, #5a0000 0px, transparent 50%),
-                        radial-gradient(at 100% 100%, #b22222 0px, transparent 50%),
-                        radial-gradient(at 0% 100%, #5a0000 0px, transparent 50%),
-                        radial-gradient(at 50% 50%, #8b0000 0px, transparent 50%);
-                    background-size: 150% 150%;
-                    animation: meshGradient 10s ease infinite;
                     position: relative;
                 }
 

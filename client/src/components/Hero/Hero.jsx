@@ -5,39 +5,39 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import './Hero.css';
-import Hero1 from '../../assets/Hero_1.webp';
-import Hero2 from '../../assets/Pic 2.jpg';
-import Hero3 from '../../assets/Pic 3.jpg';
-import Hero4 from '../../assets/Pic 4.JPG';
-import Hero5 from '../../assets/Pic 5.jpg';
-import Hero6 from '../../assets/Hero_6.webp';
+import Slider1 from '../../assets/Hero_2.webp';
+import Slider2 from '../../assets/Pic 2.jpg';
+import Slider3 from '../../assets/Pic 3.jpg';
+import Slider4 from '../../assets/Pic 4.JPG';
+import Slider5 from '../../assets/Pic 5.jpg';
+import Slider6 from '../../assets/Hero_5.webp';
 
 const slides = [
     {
         id: 1,
-        image: Hero1,
+        image: Slider1,
     },
     {
         id: 2,
-        image: Hero2,
+        image: Slider2,
     },
     {
         id: 3,
-        image: Hero3,
+        image: Slider3,
     },
     {
         id: 4,
-        image: Hero4,
+        image: Slider4,
         position: 'top',
     },
     {
         id: 5,
-        image: Hero5,
+        image: Slider5,
         position: 'top',
     },
     {
         id: 6,
-        image: Hero6,
+        image: Slider6,
     },
 ];
 

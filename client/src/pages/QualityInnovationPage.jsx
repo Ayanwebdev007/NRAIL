@@ -61,13 +61,13 @@ const QualityInnovationPage = () => {
       </section>
 
       {/* Breadcrumbs Section */}
-      <div className="container mx-auto px-6 md:px-12 lg:px-24" style={{ marginTop: '40px', marginBottom: '40px' }}>
-        <div className="flex items-center text-base text-gray-500 font-['Outfit'] font-light">
-          <Link to="/" className="hover:text-[#8b0000] transition-colors">Home</Link>
-          <ChevronRight size={14} className="mx-2 text-gray-400" />
-          <span>Manufacturing Excellence</span>
-          <ChevronRight size={14} className="mx-2 text-gray-400" />
-          <span className="text-[#8b0000] font-normal">Quality & Innovation</span>
+      <div className="container mx-auto px-6 md:px-12 lg:px-24" style={{ marginTop: '5px', marginBottom: '50px' }}>
+        <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal">
+          <Link to="/" className="hover:text-[#8b0000] transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Home</Link>
+          <ChevronRight className="w-4 h-4 mx-1 text-gray-400 shrink-0" />
+          <span className="text-gray-500 px-2 py-1">Manufacturing Excellence</span>
+          <ChevronRight className="w-4 h-4 mx-1 text-gray-400 shrink-0" />
+          <span className="text-[#8b0000] font-medium px-2 py-1">Quality & Innovation</span>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ const QualityInnovationPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-block px-4 py-1 bg-[#8b0000]/10 border-l-2 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-lg" style={{ marginBottom: '40px' }}>
+              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide" style={{ marginBottom: '40px' }}>
                 Quality Assurance
               </div>
               <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
@@ -128,7 +128,7 @@ const QualityInnovationPage = () => {
               transition={{ duration: 0.8 }}
               className="lg:order-2"
             >
-              <div className="inline-block px-4 py-1 bg-[#8b0000]/10 border-l-2 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-lg" style={{ marginBottom: '40px' }}>
+              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide" style={{ marginBottom: '40px' }}>
                 Sustainable Innovation
               </div>
               <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
@@ -174,8 +174,8 @@ const QualityInnovationPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-block px-4 py-1 bg-[#8b0000]/10 border-l-2 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-lg" style={{ marginBottom: '40px' }}>
-                Customer benefits
+              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide" style={{ marginBottom: '40px' }}>
+                Customer Benefits
               </div>
               <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
                 Delivering Measurable <span className="font-normal text-[#8b0000]">Benefits</span>
