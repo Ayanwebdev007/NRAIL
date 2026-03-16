@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import legacyHero from '../assets/Leadership Header Pic.JPG';
@@ -35,7 +35,8 @@ const leadersList = [
         role: "Chairman & MD",
         image: rnaLeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "cover",
+        bio: "N R Agarwal Industries Limited is guided by a distinguished Board of Directors under the leadership of Mr. R. N. Agarwal, Chairman & Managing Director. An Electrical Engineer and Management Graduate from the United States, Mr. Agarwal brings over two decades of deep industry expertise. As a promoter-director, he has been instrumental in shaping the company’s growth trajectory, strengthening its presence across domestic and international markets. His strategic foresight, analytical rigor, and decisive leadership continue to drive NRAIL’s sustained excellence and long-term vision."
     },
     {
         id: 2,
@@ -43,7 +44,8 @@ const leadersList = [
         role: "Executive Director",
         image: raunakLeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "cover",
+        bio: "Mr. Raunak Agrawal holds a Business Administration degree from Kingston University, London, and serves as a Promoter and Director of N R Agarwal Industries Limited. Combining international exposure with progressive leadership capabilities, he has been instrumental in strengthening the Company’s market positioning. His strategic oversight of marketing and business expansion initiatives has enhanced NRAIL’s presence across key domestic and international markets. Through structured planning and decisive action, he continues to contribute meaningfully to the Company’s long-term development."
     },
     {
         id: 3,
@@ -51,7 +53,8 @@ const leadersList = [
         role: "Executive Director",
         image: reenaLeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "cover",
+        bio: "Mrs. Reena Agarwal is an Executive Director at N R Agarwal Industries Limited and a respected member of the Agarwal family. With a background in Commerce and more than 17 years of experience in Human Resources and administration, she contributes significantly to building robust systems and fostering a disciplined, performance-driven workplace environment."
     },
     {
         id: 4,
@@ -59,7 +62,8 @@ const leadersList = [
         role: "Executive Director & CEO",
         image: rohanALeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "cover",
+        bio: "Mr. Rohan Agrawal is a Promoter Director at N R Agarwal Industries Limited and a graduate in Business Administration from Kingston University, London. He plays a pivotal role in managing strategic purchasing, project management, and information technology functions. With strong research capabilities and sharp commercial insight, he has enhanced sourcing strategies and operational systems, supporting the Company’s expansion and performance excellence."
     },
     {
         id: 5,
@@ -67,7 +71,8 @@ const leadersList = [
         role: "Executive Director & CFO",
         image: pkMundraLeadership,
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "cover",
+        bio: "Mr. P. K. Mundra, Executive Director & Chief Financial Officer of N R Agarwal Industries Limited, holds qualifications in Company Secretariatship along with an MBA. With over 41 years of extensive professional experience, he brings deep expertise across finance, taxation, legal compliance, labour relations, secretarial practices, costing, insurance, procurement, and corporate governance. His broad strategic insight and operational command strengthen the Company’s financial discipline and governance framework, playing a vital role in sustaining organizational stability and growth."
     },
     {
         id: 6,
@@ -75,7 +80,8 @@ const leadersList = [
         role: "Independent Director",
         image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
         bgPos: "center",
-        bgSize: "cover"
+        bgSize: "cover",
+        bio: "Mr. Rajiv Kumar Bakshi is a postgraduate in Science and a distinguished banking leader with more than 37 years of experience across key areas of finance and banking. His career includes leadership roles in branch management, credit strategy, treasury, international banking, and operational transformation across India and global markets. He held the prestigious position of Executive Director at Bank of Baroda from 2008 to 2012 and has also led overseas operations for Bank of India and IDBI. Presently, he serves as a Member of the Reserve Bank of India Services Board and as Senior Adviser to Centrum Capital Ltd., while contributing his expertise as an Independent Director on multiple corporate boards."
     },
     {
         id: 7,
@@ -84,7 +90,8 @@ const leadersList = [
         image: sunitaNairLeadership,
         bgPos: "center",
         bgSize: "contain",
-        bgColor: "white"
+        bgColor: "white",
+        bio: "Mrs. Sunita Ajay Nair is a practicing advocate enrolled with the Bar Council of Maharashtra & Goa, recognized for her comprehensive legal expertise and multidisciplinary academic credentials. A Commerce graduate from Mumbai University, she further pursued advanced qualifications including a Post Graduate Diploma in Marketing and Administration, a Diploma in Exports, and a Bachelor’s degree in Education. Her professional experience includes a distinguished tenure in education before transitioning fully into legal practice. She specializes in Property Law, Trade and Commercial Legislation, Employment Regulations, and statutes safeguarding women and children’s rights, offering strong advisory and governance support."
     },
     {
         id: 8,
@@ -93,7 +100,8 @@ const leadersList = [
         image: klChandakLeadership,
         bgPos: "center",
         bgSize: "contain",
-        bgColor: "white"
+        bgColor: "white",
+        bio: "Mr. K. L. Chandak brings over 45 years of distinguished experience in the paper industry. He served as Executive Director of West Coast Paper Mills Ltd. for 17 years, where he played a pivotal role in the company’s turnaround and strategic transformation. With comprehensive expertise across corporate management, including finance and accounts, he contributes seasoned leadership and governance insight. He also serves as an Independent Director at Shree Rama Newsprint Limited."
     },
     {
         id: 9,
@@ -102,7 +110,8 @@ const leadersList = [
         image: sanjaySinhaLeadership,
         bgPos: "center",
         bgSize: "contain",
-        bgColor: "white"
+        bgColor: "white",
+        bio: "Mr. Sanjay Sinha is an accomplished finance leader with over four decades of expertise in financial strategy, portfolio management, and corporate planning. As former MD & CEO of Axis Trustee Services Limited, and through his associations with Axis Bank and State Bank of India, he has demonstrated strong institutional leadership. His engagement with regulatory and government bodies reflects his commitment to market development and policy advancement."
     },
     {
         id: 10,
@@ -111,13 +120,15 @@ const leadersList = [
         image: mahendraGuptaLeadership,
         bgPos: "center",
         bgSize: "contain",
-        bgColor: "white"
+        bgColor: "white",
+        bio: "With 30+ years of professional experience, Mr. Gupta specializes in expansion funding, corporate finance strategy, project execution, ERP-SAP deployment, financial control mapping, and regulatory compliance including Income Tax and GST. His expertise strengthens financial governance and supports disciplined organizational growth."
     }
 ];
 
 const LeadershipPage = () => {
     const location = useLocation();
     const gridRef = useRef(null);
+    const [selectedLeader, setSelectedLeader] = useState(null);
     const extendedLeaders = [...leadersList, ...leadersList, ...leadersList];
 
     useEffect(() => {
@@ -498,8 +509,7 @@ const LeadershipPage = () => {
                                                 
                                                 <motion.div
                                                     whileHover={{ x: 5 }}
-                                                    className="leader-view-profile"
-                                                >
+                                                    className="leader-view-profile"                                                      onClick={() => setSelectedLeader(leader)}                                                >
                                                     <span>View Profile</span>
                                                     <span className="arrow">→</span>
                                                 </motion.div>
@@ -889,6 +899,68 @@ const LeadershipPage = () => {
                     }
                 }
             ` }} />
+
+            {/* Profile Modal */}
+            <AnimatePresence>
+                {selectedLeader && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setSelectedLeader(null)}
+                            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            className="relative w-full max-w-4xl bg-white rounded-2xl overflow-hidden shadow-2xl z-50 max-h-[90vh] flex flex-col"
+                        >
+                            <div className="flex flex-col md:flex-row h-full max-h-[90vh]">
+                                {/* Left Side - Image & Role */}
+                                <div className="md:w-1/3 bg-[#f8f8f8] p-8 flex flex-col items-center justify-center border-r border-gray-200">
+                                    <div className={`w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg ${selectedLeader.bgColor || 'bg-white'}`}>
+                                        <img 
+                                            src={selectedLeader.image} 
+                                            alt={selectedLeader.name}
+                                            className="w-full h-full"
+                                            style={{
+                                                objectFit: selectedLeader.bgSize || 'cover',
+                                                objectPosition: selectedLeader.bgPos || 'center'
+                                            }}
+                                        />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-center text-[#8b0000] mb-2">{selectedLeader.name}</h3>
+                                    <p className="text-gray-600 text-center font-medium capitalize tracking-wide">{selectedLeader.role}</p>
+                                </div>
+                                
+                                {/* Right Side - Biography */}
+                                <div className="md:w-2/3 p-8 md:p-12 overflow-y-auto">
+                                    <button 
+                                        onClick={() => setSelectedLeader(null)}
+                                        className="absolute top-4 right-4 text-gray-400 hover:text-red-600 transition-colors bg-gray-100 hover:bg-gray-200 rounded-full p-2"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round">
+                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                        </svg>
+                                    </button>
+                                    
+                                    <h4 className="text-xl font-semibold mb-6 text-gray-800 border-b pb-2">Director's Biography</h4>
+                                    
+                                    <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+                                        {selectedLeader.bio.split('\n\n').map((paragraph, idx) => (
+                                            <p key={idx} className="text-justify">{paragraph}</p>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+
         </div>
     );
 };
