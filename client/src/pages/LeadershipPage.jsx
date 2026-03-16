@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
@@ -6,7 +6,7 @@ import legacyHero from '../assets/Leadership Header Pic.JPG';
 import { useLocation, Link } from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { IoEnterOutline } from "react-icons/io5";
-import { useRef } from 'react';
+
 import founderImg from '../assets/leadership founder.JPG';
 import rnaLeadership from '../assets/Mr R N Agarwal leadership.JPG';
 import raunakLeadership from '../assets/Raunak Agarwal.JPG';
@@ -509,7 +509,9 @@ const LeadershipPage = () => {
                                                 
                                                 <motion.div
                                                     whileHover={{ x: 5 }}
-                                                    className="leader-view-profile"                                                      onClick={() => setSelectedLeader(leader)}                                                >
+                                                    className="leader-view-profile cursor-pointer"
+                                                    onClick={() => setSelectedLeader(leader)}
+                                                >
                                                     <span>View Profile</span>
                                                     <span className="arrow">→</span>
                                                 </motion.div>
@@ -898,69 +900,112 @@ const LeadershipPage = () => {
                         font-size: 10px;
                     }
                 }
-            ` }} />
 
-            {/* Profile Modal */}
+                .pattern-dots {
+                    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+                    background-size: 20px 20px;
+                    opacity: 0.15;
+                }
+
+                .custom-scrollbar::-webkit-scrollbar {
+                    width: 6px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb {
+                    background: #e5e7eb;
+                    border-radius: 10px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                    background: #d1d5db;
+                }
+            ` }} />
+            
             <AnimatePresence>
                 {selectedLeader && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+                        onClick={() => setSelectedLeader(null)}
+                    >
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => setSelectedLeader(null)}
-                            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
-                        />
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                            className="relative w-full max-w-4xl bg-white rounded-2xl overflow-hidden shadow-2xl z-50 max-h-[90vh] flex flex-col"
+                            initial={{ scale: 0.95, opacity: 0, y: 30 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 30 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                            className="bg-white rounded-none w-full max-w-5xl h-[520px] shadow-[0_30px_90px_-15px_rgba(0,0,0,0.7)] relative flex flex-col md:flex-row overflow-hidden"
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            <div className="flex flex-col md:flex-row h-full max-h-[90vh]">
-                                {/* Left Side - Image & Role */}
-                                <div className="md:w-1/3 bg-[#f8f8f8] p-8 flex flex-col items-center justify-center border-r border-gray-200">
-                                    <div className={`w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg ${selectedLeader.bgColor || 'bg-white'}`}>
-                                        <img 
-                                            src={selectedLeader.image} 
-                                            alt={selectedLeader.name}
+                            {/* Decorative Left Banner */}
+                            <div className="md:w-[40%] h-[240px] md:h-full bg-gradient-to-br from-[#8b0000] via-[#700000] to-[#4a0000] flex flex-col items-center justify-center p-6 md:p-10 relative overflow-hidden flex-shrink-0">
+                                {/* Abstract texture overlay */}
+                                <div className="absolute inset-0 opacity-10 pattern-dots"></div>
+                                
+                                <div className="relative z-10 flex flex-col items-center w-full">
+                                    <div 
+                                        className="w-36 h-36 md:w-48 md:h-48 rounded-full border-[6px] border-white/10 shadow-2xl mx-auto mb-4 bg-white overflow-hidden ring-4 ring-[#8b0000]/50"
+                                        style={{ backgroundColor: selectedLeader.bgColor || 'white' }}
+                                    >
+                                        <div 
                                             className="w-full h-full"
                                             style={{
-                                                objectFit: selectedLeader.bgSize || 'cover',
-                                                objectPosition: selectedLeader.bgPos || 'center'
+                                                backgroundImage: `url(${selectedLeader.image})`,
+                                                backgroundSize: selectedLeader.bgSize || 'cover',
+                                                backgroundPosition: 'top center',
+                                                backgroundRepeat: 'no-repeat'
                                             }}
                                         />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-center text-[#8b0000] mb-2">{selectedLeader.name}</h3>
-                                    <p className="text-gray-600 text-center font-medium capitalize tracking-wide">{selectedLeader.role}</p>
+                                    <h3 className="text-xl md:text-2xl font-[Outfit] font-bold text-white text-center mb-1 leading-tight">{selectedLeader.name}</h3>
+                                    <p className="text-[12px] md:text-sm text-[#ffcccc] font-medium text-center uppercase tracking-wider">{selectedLeader.role}</p>
                                 </div>
+                            </div>
+                            
+                            {/* Bio Content Area */}
+                            <div className="md:w-[60%] h-full bg-white flex flex-col items-center justify-center relative overflow-hidden">
+                                <button
+                                    onClick={() => setSelectedLeader(null)}
+                                    className="absolute top-4 right-4 text-gray-400 hover:text-[#8b0000] transition-all duration-300 bg-white hover:bg-red-50 p-2 z-20 shadow-sm border border-gray-100 hover:rotate-90"
+                                    aria-label="Close modal"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
                                 
-                                {/* Right Side - Biography */}
-                                <div className="md:w-2/3 p-8 md:p-12 overflow-y-auto">
-                                    <button 
-                                        onClick={() => setSelectedLeader(null)}
-                                        className="absolute top-4 right-4 text-gray-400 hover:text-red-600 transition-colors bg-gray-100 hover:bg-gray-200 rounded-full p-2"
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round">
-                                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                                        </svg>
-                                    </button>
+                                <div className="w-full max-w-[85%] px-4 py-8 flex flex-col items-center justify-center min-h-0">
+                                    <div className="w-full mb-6 relative">
+                                        <span className="text-[4rem] md:text-[6rem] font-serif absolute -top-8 -left-4 text-[#8b0000]/5 select-none leading-none">“</span>
+                                        <div className="h-[2px] w-10 bg-[#8b0000] mb-4 relative z-10"></div>
+                                        <h4 className="text-gray-900 font-[Outfit] text-lg md:text-xl font-light italic leading-tight relative z-10 pr-8">
+                                            Leading with vision, 
+                                            <span className="block text-[#8b0000] font-semibold not-italic mt-1">Driving Excellence.</span>
+                                        </h4>
+                                    </div>
+
+                                    <div className="w-full overflow-y-auto pr-6 custom-scrollbar mb-6 max-h-[280px]">
+                                        <div className="max-w-none text-gray-700 leading-relaxed font-light">
+                                            <p className="whitespace-pre-line text-[14px] md:text-[15px] text-justify tracking-tight opacity-90">{selectedLeader.bio}</p>
+                                        </div>
+                                    </div>
                                     
-                                    <h4 className="text-xl font-semibold mb-6 text-gray-800 border-b pb-2">Director's Biography</h4>
-                                    
-                                    <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
-                                        {selectedLeader.bio.split('\n\n').map((paragraph, idx) => (
-                                            <p key={idx} className="text-justify">{paragraph}</p>
-                                        ))}
+                                    <div className="w-full pt-4 border-t border-gray-100 flex items-center justify-between">
+                                        <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Board of Directors</p>
+                                        <div className="flex gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-none bg-[#8b0000]"></div>
+                                            <div className="w-1.5 h-1.5 rounded-none bg-[#8b0000]/30"></div>
+                                            <div className="w-1.5 h-1.5 rounded-none bg-[#8b0000]/10"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
-                    </div>
+                    </motion.div>
                 )}
             </AnimatePresence>
-
         </div>
     );
 };
