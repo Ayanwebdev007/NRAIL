@@ -40,7 +40,7 @@ const Navbar = () => {
     {
       title: 'Products',
       links: [
-        { label: 'Premium Board Grades', path: '/#premium-board' },
+        { label: 'Premium Board Grades', path: '/premium-board-grades' },
         { label: 'Duplex Boards', path: '/#duplex-boards' },
         { label: 'Writing & Printing', path: '/#writing-printing' },
         { label: 'Copier Paper', path: '/#copier-paper' }

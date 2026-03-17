@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import heroImg from '../assets/Unit V PM2.webp';
 import unit1 from '../assets/unit_1.png';
+import unit1TabImg1 from '../assets/unit 1 tab img 1.jpg';
+import unit1TabImg2 from '../assets/unit 1 tab img 2.jpg';
 import unitVPm1 from '../assets/unit_v_pm1.png';
 import unitVPm2 from '../assets/unit_v_pm2.png';
+import unitVPm2Img1 from '../assets/Unit V PM2 (Manufacturing Edge) 1.jpg';
+import unitVPm2Img2 from '../assets/Unit V PM2 (Manufacturing Edge) 2.jpg';
+import unitVPm2Img3 from '../assets/Unit V PM2 (Manufacturing Edge) 3.jpg';
 import unitVi from '../assets/unit_vi.png';
+import mainEdgeImg from '../assets/Manufacturing Edge first img.jpg';
 
 // Swiper imports
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -26,45 +32,53 @@ import sustainabilityImg from '../assets/framework_sustainability.png';
 import innovationImg from '../assets/framework_innovation_v2.png';
 import efficiencyImg from '../assets/framework_efficiency.png';
 import talentImg from '../assets/framework_talent.png';
+import techJpg from '../assets/Advanced Process Technology.jpg';
+import capacityJpg from '../assets/Capacity & Scale Leadership.JPG';
+import qualityJpg from '../assets/Quality Assurance & Testing Rigor..jpg';
+import sustainabilityJpg from '../assets/Sustainability & Circular Manufacturing.jpg';
+import innovationJpg from '../assets/Research & Product Innovation.jpg';
+import efficiencyJpg from '../assets/Operational Discipline & Efficiency.JPG';
+import learningJpg from '../assets/Learning & Talent Development.jpg';
 import blueGrid from '../assets/blue_grid.png';
-import greenPower1 from '../assets/green_power_1.png';
-import greenPower2 from '../assets/green_power_2.png';
+import greenPowerJpg1 from '../assets/green power 1.jpg';
+import greenPowerJpg2 from '../assets/green power 2.jpeg';
+import greenPowerJpg3 from '../assets/green power 3.JPG';
 
 const frameworkData = [
     {
         title: "Advanced Process Technology",
         description: "Integration of high-speed machinery, automation systems, and precision controls ensuring consistent output and superior quality.",
-        image: techImg
+        image: techJpg
     },
     {
         title: "Capacity & Scale Leadership",
         description: "Robust production infrastructure exceeding half a million tonnes annually, enabling dependable large-scale supply.",
-        image: capacityImg
+        image: capacityJpg
     },
     {
         title: "Quality Assurance & Testing Rigor",
         description: "Comprehensive testing protocols, international compliance standards, and continuous monitoring to ensure product reliability.",
-        image: qualityImg
+        image: qualityJpg
     },
     {
         title: "Sustainability & Circular Manufacturing",
         description: "Recycling-led operations, energy optimization, water stewardship, and environmentally responsible processes.",
-        image: sustainabilityImg
+        image: sustainabilityJpg
     },
     {
         title: "Research & Product Innovation",
         description: "Dedicated R&D capabilities focused on performance enhancement, coating technologies, fibre optimization, and market-responsive development.",
-        image: innovationImg
+        image: innovationJpg
     },
     {
         title: "Operational Discipline & Efficiency",
         description: "Structured planning, cost optimization, lean execution, and asset utilization excellence driving productivity and profitability.",
-        image: efficiencyImg
+        image: efficiencyJpg
     },
     {
         title: "Learning & Talent Development",
         description: "Continuous skill enhancement, technical training, leadership development, and knowledge-driven growth empowering high-performance teams.",
-        image: talentImg
+        image: learningJpg
     }
 ];
 
@@ -80,7 +94,7 @@ const unitsData = [
             { title: '32,428 sq mt', value: 'Wide Spread Base' },
             { title: '200-500 GSM', value: 'Versatile Board Range' },
         ],
-        image: unit1,
+        images: [unit1TabImg1, unit1TabImg2],
     },
     {
         id: 'unit-v-pm1',
@@ -106,7 +120,7 @@ const unitsData = [
             { title: '1,000 TPD', value: 'Machine capacity' },
             { title: '3,37,599 sq mt', value: 'Wide Spread Base' },
         ],
-        image: unitVPm2,
+        images: [unitVPm2Img1, unitVPm2Img2, unitVPm2Img3],
     },
     {
         id: 'unit-vi',
@@ -263,12 +277,39 @@ const UnitsSection = () => {
                         style={{ marginTop: '80px' }}
                     >
                         <div className="relative w-full aspect-[28/9] overflow-hidden rounded-none">
-                            <img
-                                src={unit.image}
-                                alt={unit.label}
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                            {unit.images ? (
+                                <Swiper
+                                    modules={[Autoplay, Pagination, EffectFade]}
+                                    effect="fade"
+                                    loop={true}
+                                    autoplay={{
+                                        delay: 4000,
+                                        disableOnInteraction: false,
+                                    }}
+                                    pagination={{
+                                        clickable: true,
+                                        bulletActiveClass: 'swiper-pagination-bullet-active !bg-[#8b0000]',
+                                    }}
+                                    className="w-full h-full"
+                                >
+                                    {unit.images.map((img, i) => (
+                                        <SwiperSlide key={i}>
+                                            <img
+                                                src={img}
+                                                alt={`${unit.label} - ${i + 1}`}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            ) : (
+                                <img
+                                    src={unit.image}
+                                    alt={unit.label}
+                                    className="w-full h-full object-cover"
+                                />
+                            )}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-[5] pointer-events-none"></div>
                         </div>
                     </motion.div>
                 </div>
@@ -279,12 +320,48 @@ const UnitsSection = () => {
 };
 
 const GreenPowerSection = () => {
+    const [swiper, setSwiper] = useState(null);
+
     return (
-        <section className="relative w-full h-[650px] flex items-center overflow-hidden">
+        <section className="relative w-full h-[650px] flex items-center overflow-hidden group">
+            <style>
+                {`
+                .green-power-nav-btn {
+                    color: rgba(255, 255, 255, 0.9) !important;
+                    background: rgba(0, 0, 0, 0.2);
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    backdrop-filter: blur(8px);
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    border: none;
+                    outline: none;
+                    opacity: 0;
+                    z-index: 60;
+                }
+                .group:hover .green-power-nav-btn {
+                    opacity: 1;
+                }
+                .green-power-nav-btn:hover {
+                    background: rgba(139, 0, 0, 0.8);
+                    color: white !important;
+                    transform: scale(1.1);
+                }
+                .green-power-nav-btn svg {
+                    width: 20px;
+                    height: 20px;
+                }
+                `}
+            </style>
             {/* Background Slider */}
             <div className="absolute inset-0">
                 <Swiper
-                    modules={[Autoplay, EffectFade]}
+                    modules={[Autoplay, EffectFade, Navigation]}
+                    onSwiper={setSwiper}
                     effect="fade"
                     loop={true}
                     speed={2000}
@@ -297,17 +374,39 @@ const GreenPowerSection = () => {
                     <SwiperSlide>
                         <div 
                             className="w-full h-full bg-cover bg-center" 
-                            style={{ backgroundImage: `url(${greenPower1})` }}
+                            style={{ backgroundImage: `url(${greenPowerJpg1})` }}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <div 
                             className="w-full h-full bg-cover bg-center" 
-                            style={{ backgroundImage: `url(${greenPower2})` }}
+                            style={{ backgroundImage: `url(${greenPowerJpg2})` }}
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div 
+                            className="w-full h-full bg-cover bg-center" 
+                            style={{ backgroundImage: `url(${greenPowerJpg3})` }}
                         />
                     </SwiperSlide>
                 </Swiper>
             </div>
+
+            {/* Custom Navigation Arrows */}
+            <button 
+                onClick={() => swiper?.slidePrev()}
+                className="green-power-prev green-power-nav-btn absolute left-8 top-1/2 -translate-y-1/2"
+                aria-label="Previous slide"
+            >
+                <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button 
+                onClick={() => swiper?.slideNext()}
+                className="green-power-next green-power-nav-btn absolute right-8 top-1/2 -translate-y-1/2"
+                aria-label="Next slide"
+            >
+                <ChevronRight className="w-6 h-6" />
+            </button>
 
             {/* Dark Overlay for better text legibility */}
             <div className="absolute inset-0 bg-black/40 z-[1]"></div>
@@ -577,7 +676,7 @@ const ManufacturingEdgePage = () => {
                             style={{ position: 'sticky', top: '100px', alignSelf: 'start' }}
                         >
                             <img
-                                src={heroImg}
+                                src={mainEdgeImg}
                                 alt="NRAIL Manufacturing Facility"
                                 className="w-full object-cover rounded-lg"
                                 style={{ minHeight: '560px', height: '100%' }}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Unit1Img from '../../assets/Unit 1.webp';
+import Unit1Img from '../../assets/Unit I.jpg';
 import UnitVImg from '../../assets/Unit V.webp';
-import UnitVPM2Img from '../../assets/Unit V PM2.webp';
+import UnitVPM2Img from '../../assets/Unit V PM2.JPG';
 import UnitVIImg from '../../assets/unit 6.webp';
 
 const ManufacturingExcellence = () => {
