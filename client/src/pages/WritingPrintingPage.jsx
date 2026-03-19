@@ -5,15 +5,15 @@ import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, Chev
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import logo from '../assets/logo.png';
-import heroImg from '../assets/wp header.JPG';
-import wp1 from '../assets/wp 1.png';
-import wp2 from '../assets/wp 2.png';
-import wp3 from '../assets/wp3.jpg';
+import heroImg from '../assets/wp header.webp';
+import wp1 from '../assets/wp 1.webp';
+import wp2 from '../assets/wp 2.webp';
+import wp3 from '../assets/wp3.webp';
 import technicalSpecPaperPdf from '../assets/technical_specification_paper.pdf';
-import industryNotebooks from '../assets/industry_notebooks.png';
-import industryPublication from '../assets/industry_publication.png';
-import industryCalendarDiary from '../assets/industry_calendar_diary.png';
-import industryCommercialPrinting from '../assets/industry_commercial_printing.png';
+import industryNotebooks from '../assets/industry_notebooks.webp';
+import industryPublication from '../assets/industry_publication.webp';
+import industryCalendarDiary from '../assets/industry_calendar_diary.webp';
+import industryCommercialPrinting from '../assets/industry_commercial_printing.webp';
 import { X, Download, Phone } from 'lucide-react';
 
 // Swiper imports

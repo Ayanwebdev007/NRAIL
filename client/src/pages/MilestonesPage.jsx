@@ -2,8 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import milestoneBg from '../assets/milestone_bg.png';
-import cityscape from '../assets/town-silhoutte.png';
+import milestoneBg from '../assets/milestone_bg.webp';
+import cityscape from '../assets/town-silhoutte.webp';
 import { ChevronLeft, ChevronRight, Pause, Play, Home, Factory, Building2, BookOpen, Handshake, Printer, Settings, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 

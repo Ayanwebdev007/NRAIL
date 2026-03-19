@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Unit1Img from '../../assets/Unit I.jpg';
-import UnitVImg from '../../assets/Unit V PM 1.JPG';
-import UnitVPM2Img from '../../assets/Unit V PM2.JPG';
-import UnitVIImg from '../../assets/HOME Unit VI.jpg';
+import Unit1Img from '../../assets/Unit I.webp';
+import UnitVImg from '../../assets/Unit V PM 1.webp';
+import UnitVPM2Img from '../../assets/Unit V PM2.webp';
+import UnitVIImg from '../../assets/HOME Unit VI.webp';
 
 const ManufacturingExcellence = () => {
     // Placeholder images

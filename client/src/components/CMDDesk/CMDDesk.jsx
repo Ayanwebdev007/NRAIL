@@ -69,7 +69,7 @@ const CMDDesk = () => {
                             <div className="absolute inset-0 border-[12px] border-primary translate-x-4 translate-y-4 -z-10 lg:hidden" />
 
                             <img
-                                src="/cmd_image.jpg"
+                                src="/cmd_image.webp"
                                 alt="CMD Mr R N Agarwal"
                                 className="w-full h-full object-cover object-bottom grayscale-[10%] hover:grayscale-0 transition-all duration-700"
                             />

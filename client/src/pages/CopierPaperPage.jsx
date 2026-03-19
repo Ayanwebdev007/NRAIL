@@ -5,17 +5,17 @@ import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, Chev
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import logo from '../assets/logo.png';
-import heroImg from '../assets/C Header.png';
-import c1 from '../assets/C1.png';
-import c2 from '../assets/C2.png';
-import c3 from '../assets/C3 (2).jpg';
+import heroImg from '../assets/C Header.webp';
+import c1 from '../assets/C1.webp';
+import c2 from '../assets/C2.webp';
+import c3 from '../assets/C3 (2).webp';
 import technicalSpecPaperPdf from '../assets/technical_specification_paper.pdf';
-import industryFmcg from '../assets/industry_fmcg.png';
-import industryRetail from '../assets/industry_retail.png';
-import industryIndustrial from '../assets/industry_industrial.png';
-import industryGarmentsHosiery from '../assets/industry_garments_hosiery.png';
-import industryAgarbatti from '../assets/industry_agarbatti.png';
-import industryElectronics from '../assets/industry_electronics.png';
+import industryFmcg from '../assets/industry_fmcg.webp';
+import industryRetail from '../assets/industry_retail.webp';
+import industryIndustrial from '../assets/industry_industrial.webp';
+import industryGarmentsHosiery from '../assets/industry_garments_hosiery.webp';
+import industryAgarbatti from '../assets/industry_agarbatti.webp';
+import industryElectronics from '../assets/industry_electronics.webp';
 import { X, Download, Phone } from 'lucide-react';
 
 // Swiper imports

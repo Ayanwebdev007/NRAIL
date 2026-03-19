@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ArrowRight, ArrowLeft } from 'lucide-react';
-import poojaImage from '../../assets/pooja_daftari.jpg';
+import poojaImage from '../../assets/pooja_daftari.webp';
 
 const EmployeeStories = () => {
     const [currentIndex, setCurrentIndex] = useState(0);

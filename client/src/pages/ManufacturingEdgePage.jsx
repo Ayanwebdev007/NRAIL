@@ -5,18 +5,18 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import heroImg from '../assets/Unit V PM2.webp';
-import unit1 from '../assets/unit_1.png';
-import unit1TabImg1 from '../assets/unit 1 tab img 1.jpg';
-import unit1TabImg2 from '../assets/unit 1 tab img 2.jpg';
-import unitVPm1_1 from '../assets/ME UNIT V PM1 1.JPG';
-import unitVPm1_2 from '../assets/ME UNIT V PM1 2.JPG';
-import unitVPm1_3 from '../assets/ME UNIT V PM1 3.JPG';
-import unitVPm2 from '../assets/unit_v_pm2.png';
-import unitVPm2Img1 from '../assets/Unit V PM2 (Manufacturing Edge) 1.jpg';
-import unitVPm2Img2 from '../assets/Unit V PM2 (Manufacturing Edge) 2.jpg';
-import unitVPm2Img3 from '../assets/Unit V PM2 (Manufacturing Edge) 3.jpg';
-import unitVi from '../assets/ME UNIT VI.JPG';
-import mainEdgeImg from '../assets/Manufacturing Edge first img.jpg';
+import unit1 from '../assets/unit_1.webp';
+import unit1TabImg1 from '../assets/unit 1 tab img 1.webp';
+import unit1TabImg2 from '../assets/unit 1 tab img 2.webp';
+import unitVPm1_1 from '../assets/ME UNIT V PM1 1.webp';
+import unitVPm1_2 from '../assets/ME UNIT V PM1 2.webp';
+import unitVPm1_3 from '../assets/ME UNIT V PM1 3.webp';
+import unitVPm2 from '../assets/unit_v_pm2.webp';
+import unitVPm2Img1 from '../assets/Unit V PM2 (Manufacturing Edge) 1.webp';
+import unitVPm2Img2 from '../assets/Unit V PM2 (Manufacturing Edge) 2.webp';
+import unitVPm2Img3 from '../assets/Unit V PM2 (Manufacturing Edge) 3.webp';
+import unitVi from '../assets/ME UNIT VI.webp';
+import mainEdgeImg from '../assets/Manufacturing Edge first img.webp';
 
 // Swiper imports
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -27,24 +27,24 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 // Framework images
-import techImg from '../assets/framework_tech.png';
-import capacityImg from '../assets/framework_capacity.png';
-import qualityImg from '../assets/framework_quality.png';
-import sustainabilityImg from '../assets/framework_sustainability.png';
-import innovationImg from '../assets/framework_innovation_v2.png';
-import efficiencyImg from '../assets/framework_efficiency.png';
-import talentImg from '../assets/framework_talent.png';
-import techJpg from '../assets/Advanced Process Technology.jpg';
-import capacityJpg from '../assets/Capacity & Scale Leadership.JPG';
-import qualityJpg from '../assets/Quality Assurance & Testing Rigor..jpg';
-import sustainabilityJpg from '../assets/Sustainability & Circular Manufacturing.jpg';
-import innovationJpg from '../assets/Research & Product Innovation.jpg';
-import efficiencyJpg from '../assets/Operational Discipline & Efficiency.JPG';
-import learningJpg from '../assets/Learning & Talent Development.jpg';
-import blueGrid from '../assets/blue_grid.png';
-import greenPowerJpg1 from '../assets/green power 1.jpg';
-import greenPowerJpg2 from '../assets/green power 2.jpeg';
-import greenPowerJpg3 from '../assets/green power 3.JPG';
+import techImg from '../assets/framework_tech.webp';
+import capacityImg from '../assets/framework_capacity.webp';
+import qualityImg from '../assets/framework_quality.webp';
+import sustainabilityImg from '../assets/framework_sustainability.webp';
+import innovationImg from '../assets/framework_innovation_v2.webp';
+import efficiencyImg from '../assets/framework_efficiency.webp';
+import talentImg from '../assets/framework_talent.webp';
+import techJpg from '../assets/Advanced Process Technology.webp';
+import capacityJpg from '../assets/Capacity & Scale Leadership.webp';
+import qualityJpg from '../assets/Quality Assurance & Testing Rigor..webp';
+import sustainabilityJpg from '../assets/Sustainability & Circular Manufacturing.webp';
+import innovationJpg from '../assets/Research & Product Innovation.webp';
+import efficiencyJpg from '../assets/Operational Discipline & Efficiency.webp';
+import learningJpg from '../assets/Learning & Talent Development.webp';
+import blueGrid from '../assets/blue_grid.webp';
+import greenPowerJpg1 from '../assets/green power 1.webp';
+import greenPowerJpg2 from '../assets/green power 2.webp';
+import greenPowerJpg3 from '../assets/green power 3.webp';
 
 const frameworkData = [
     {

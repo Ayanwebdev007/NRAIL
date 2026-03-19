@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
-import homeDb1 from '../../assets/home db 1.jpg';
-import homeDb2 from '../../assets/home db 2.png';
+import homeDb1 from '../../assets/home db 1.webp';
+import homeDb2 from '../../assets/home db 2.webp';
 import homeDb3 from '../../assets/home db 3.webp';
-import homeDb4 from '../../assets/home db 4.jpg';
-import homeDb5 from '../../assets/home db 5.png';
-import homeWp1 from '../../assets/home wp 1.jpg';
-import homeWp2 from '../../assets/home wp 2.jpg';
-import homeWp3 from '../../assets/home wp 3.jpg';
-import homeWp4 from '../../assets/home wp 4.jpg';
-import homeFbbsbs1 from '../../assets/home fbbsbs 1.png';
-import homeFbbsbs2 from '../../assets/home fbbsbs 2.jpg';
-import homeFbbsbs3 from '../../assets/home fbbsbs 3.jpg';
-import homeFbbsbs4 from '../../assets/home fbbsbs  4.jpg';
-import homeFbbsbs5 from '../../assets/home fbbsbs 5.jpg';
+import homeDb4 from '../../assets/home db 4.webp';
+import homeDb5 from '../../assets/home db 5.webp';
+import homeWp1 from '../../assets/home wp 1.webp';
+import homeWp2 from '../../assets/home wp 2.webp';
+import homeWp3 from '../../assets/home wp 3.webp';
+import homeWp4 from '../../assets/home wp 4.webp';
+import homeFbbsbs1 from '../../assets/home fbbsbs 1.webp';
+import homeFbbsbs2 from '../../assets/home fbbsbs 2.webp';
+import homeFbbsbs3 from '../../assets/home fbbsbs 3.webp';
+import homeFbbsbs4 from '../../assets/home fbbsbs  4.webp';
+import homeFbbsbs5 from '../../assets/home fbbsbs 5.webp';
 
 const products = [
     {

@@ -2,32 +2,32 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import legacyHero from '../assets/Leadership Header Pic.JPG';
+import legacyHero from '../assets/Leadership Header Pic.webp';
 import { useLocation, Link } from 'react-router-dom';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { IoEnterOutline } from "react-icons/io5";
 
-import founderImg from '../assets/leadership founder.JPG';
-import rnaLeadership from '../assets/Mr R N Agarwal leadership.JPG';
-import raunakLeadership from '../assets/Raunak Agarwal.JPG';
-import reenaLeadership from '../assets/Mrs Reena Agarwal.JPG';
-import rohanALeadership from '../assets/Rohan A.JPG';
-import pkMundraLeadership from '../assets/PK Mundra.jpeg';
-import sanjaySinhaLeadership from '../assets/sanjaysinha.jpg';
-import klChandakLeadership from '../assets/k_l_chandak.jpg';
-import sunitaNairLeadership from '../assets/Sunita Nair.jpg';
-import mahendraGuptaLeadership from '../assets/Mahendra Gupta.jpg';
-import rkBakshiLeadership from '../assets/rk_bakshi.jpg';
-import redTexture from '../assets/red texture.jpg';
+import founderImg from '../assets/leadership founder.webp';
+import rnaLeadership from '../assets/Mr R N Agarwal leadership.webp';
+import raunakLeadership from '../assets/Raunak Agarwal.webp';
+import reenaLeadership from '../assets/Mrs Reena Agarwal.webp';
+import rohanALeadership from '../assets/Rohan A.webp';
+import pkMundraLeadership from '../assets/PK Mundra.webp';
+import sanjaySinhaLeadership from '../assets/sanjaysinha.webp';
+import klChandakLeadership from '../assets/k_l_chandak.webp';
+import sunitaNairLeadership from '../assets/Sunita Nair.webp';
+import mahendraGuptaLeadership from '../assets/Mahendra Gupta.webp';
+import rkBakshiLeadership from '../assets/rk_bakshi.webp';
+import redTexture from '../assets/red texture.webp';
 
 // Panorama Leadership Assets
 import rajanPng from '../assets/panorama/rajan.webp';
 import navinPng from '../assets/panorama/navin.webp';
 import shivaanPng from '../assets/panorama/shivaan.webp';
 import sidharthPng from '../assets/panorama/Sidharth.webp';
-import amitPng from '../assets/panorama/amit.png';
-import kritiPng from '../assets/panorama/Kriti.png';
-import aprajitaPng from '../assets/panorama/Aparajita.png';
+import amitPng from '../assets/panorama/amit.webp';
+import kritiPng from '../assets/panorama/Kriti.webp';
+import aprajitaPng from '../assets/panorama/Aparajita.webp';
 
 const leadersList = [
     {

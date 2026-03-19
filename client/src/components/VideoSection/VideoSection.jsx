@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X } from 'lucide-react';
-import VideoThumbnail from '../../assets/yt video img.png';
+import VideoThumbnail from '../../assets/yt video img.webp';
 
 const VideoSection = () => {
     const [isOpen, setIsOpen] = useState(false);

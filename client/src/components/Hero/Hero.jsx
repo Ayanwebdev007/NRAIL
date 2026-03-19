@@ -6,10 +6,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import './Hero.css';
 import Slider1 from '../../assets/Hero_2.webp';
-import Slider2 from '../../assets/Pic 2.jpg';
-import Slider3 from '../../assets/Pic 3.jpg';
-import Slider4 from '../../assets/Pic 4.JPG';
-import Slider5 from '../../assets/Pic 5.jpg';
+import Slider2 from '../../assets/Pic 2.webp';
+import Slider3 from '../../assets/Pic 3.webp';
+import Slider4 from '../../assets/Pic 4.webp';
+import Slider5 from '../../assets/Pic 5.webp';
 import Slider6 from '../../assets/Hero_5.webp';
 
 const slides = [

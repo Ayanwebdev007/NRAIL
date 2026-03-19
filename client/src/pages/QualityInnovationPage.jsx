@@ -6,13 +6,13 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 // Asset imports
-import heroImg from '../assets/quality_innovation_hero.png';
-import qualityDetail from '../assets/quality assurance img.JPG';
-import innovationDetail from '../assets/innovation_detail.png';
-import benefit1 from '../assets/Customer Benefits.jpg';
-import benefit2 from '../assets/framework_tech.png';
-import benefit3 from '../assets/framework_sustainability.png';
-import benefit4 from '../assets/framework_efficiency.png';
+import heroImg from '../assets/quality_innovation_hero.webp';
+import qualityDetail from '../assets/quality assurance img.webp';
+import innovationDetail from '../assets/innovation_detail.webp';
+import benefit1 from '../assets/Customer Benefits.webp';
+import benefit2 from '../assets/framework_tech.webp';
+import benefit3 from '../assets/framework_sustainability.webp';
+import benefit4 from '../assets/framework_efficiency.webp';
 
 const QualityInnovationPage = () => {
   const [activeBenefit, setActiveBenefit] = React.useState(0);
