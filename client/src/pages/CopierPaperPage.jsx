@@ -9,7 +9,8 @@ import heroImg from '../assets/C Header.webp';
 import c1 from '../assets/C1.webp';
 import c2 from '../assets/C2.webp';
 import c3 from '../assets/C3 (2).webp';
-import technicalSpecPaperPdf from '../assets/technical_specification_paper.pdf';
+import nrBrilliancePdf from '../assets/specs/nr_brilliance.pdf';
+import nrCopierPdf from '../assets/specs/nr_copier.pdf';
 import industryFmcg from '../assets/industry_fmcg.webp';
 import industryRetail from '../assets/industry_retail.webp';
 import industryIndustrial from '../assets/industry_industrial.webp';
@@ -115,7 +116,7 @@ const CopierPowerSection = () => {
                     className="w-full pointer-events-auto"
                 >
                     <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
-                        Reliable Quality, Sustainably Created
+                        Building a Greener Tomorrow with Responsible Paper Innovation
                     </h2>
                     <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         Crafted through ethical sourcing and resource-efficient processes, NRAIL’s copier range aligns performance with environmental responsibility. Every sheet contributes to a greener future while delivering consistent, high-quality print results.
@@ -391,8 +392,8 @@ const ProductSpecsSection = ({ specs }) => {
                 }}
             />
 
-            <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10 flex justify-center">
-                <div className="grid grid-cols-1 max-w-xl w-full">
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
                     {specs.map((spec, index) => (
                         <motion.div
                             key={spec.id}
@@ -400,7 +401,7 @@ const ProductSpecsSection = ({ specs }) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: index * 0.2 }}
-                            className="relative overflow-hidden border border-white/5 p-10 lg:p-14 group transition-all duration-500 hover:border-[#8b0000]/30 hover:shadow-[0_0_50px_rgba(139,0,0,0.1)]"
+                            className="relative overflow-hidden border border-white/5 p-10 lg:p-14 group transition-all duration-500 hover:border-[#8b0000]/30 hover:shadow-[0_0_50px_rgba(139,0,0,0.1)] flex flex-col justify-center items-center"
                             style={{ minHeight: '380px', backgroundColor: 'rgba(255, 255, 255, 0.98)', backdropFilter: 'blur(10px)' }}
                         >
                             {/* Watermark Logo Only */}
@@ -413,7 +414,7 @@ const ProductSpecsSection = ({ specs }) => {
                             </div>
 
                             {/* Card Content */}
-                            <div className="relative z-10 h-full flex flex-col items-center justify-center text-center">
+                            <div className="relative z-10 flex flex-col items-center justify-center text-center">
                                 <motion.span 
                                     className="text-[10px] uppercase tracking-[0.4em] text-[#8b0000] font-bold mb-4"
                                 >
@@ -421,7 +422,7 @@ const ProductSpecsSection = ({ specs }) => {
                                 </motion.span>
                                 
                                 <h3 
-                                    className="font-['Outfit'] text-2xl lg:text-[32px] font-light text-gray-900 uppercase tracking-widest leading-tight"
+                                    className="font-['Outfit'] text-2xl lg:text-[32px] font-light text-gray-900 uppercase tracking-[0.2em] leading-tight"
                                     style={{ marginBottom: '16px' }}
                                 >
                                     {spec.title}
@@ -434,7 +435,7 @@ const ProductSpecsSection = ({ specs }) => {
 
                                 <button 
                                     onClick={() => setSelectedPdf({ url: spec.pdf, title: spec.title })}
-                                    className="group/btn relative h-[40px] w-[180px] bg-white border-2 border-[#8b0000] rounded-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center justify-center overflow-hidden hover:bg-[#8b0000] hover:scale-105"
+                                    className="group/btn relative h-[40px] w-full max-w-[200px] bg-white border-2 border-[#8b0000] rounded-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center justify-center overflow-hidden hover:bg-[#8b0000] hover:scale-105"
                                 >
                                     <span className="relative z-10 text-[#8b0000] group-hover/btn:text-white font-bold text-[12px] uppercase tracking-[0.2em] transition-colors duration-500">
                                         View Details
@@ -539,11 +540,13 @@ const CopierPaperPage = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
 
-        // Prefetch PDF for instant loading
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.href = technicalSpecPaperPdf;
-        document.head.appendChild(link);
+        const pdfs = [nrBrilliancePdf, nrCopierPdf];
+        pdfs.forEach(pdf => {
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.href = pdf;
+            document.head.appendChild(link);
+        });
     }, [location]);
 
     return (
@@ -627,10 +630,9 @@ const CopierPaperPage = () => {
                         {/* SPACER for GAP */}
                         <div style={{ height: '60px' }}></div>                        {/* Features Icons Section - Organized in 2 rows (3 top, 2 bottom) */}
                         <div className="flex flex-col gap-y-16 mt-16">
-                            {/* Row 1: First 4 items */}
+                            {/* Row 1: First 3 items */}
                             <div className="flex flex-wrap justify-center gap-x-12 lg:gap-x-24 gap-y-12">
                                 {[
-                                    { icon: <FileText size={80} strokeWidth={1} color="#8b0000" />, title: "Paper That Performs" },
                                     { icon: <Zap size={80} strokeWidth={1} color="#8b0000" />, title: "Jam-free Performance" },
                                     { icon: <Printer size={80} strokeWidth={1} color="#8b0000" />, title: "Excellent Printability" },
                                     { icon: <Layers size={80} strokeWidth={1} color="#8b0000" />, title: "Curl free" }
@@ -661,11 +663,11 @@ const CopierPaperPage = () => {
                                     { icon: <Droplets size={80} strokeWidth={1} color="#8b0000" />, title: "Lower Ink Consumption" }
                                 ].map((feature, index) => (
                                     <motion.div
-                                        key={index + 4}
+                                        key={index + 3}
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: (index + 4) * 0.1 }}
+                                        transition={{ delay: (index + 3) * 0.1 }}
                                         className="flex flex-col items-center text-center w-full md:w-auto md:min-w-[200px]"
                                     >
                                         <div className="mb-4">
@@ -690,12 +692,8 @@ const CopierPaperPage = () => {
 
             {/* Product Specifications Section - Combined Copier Range */}
             <ProductSpecsSection specs={[
-                { 
-                    id: "copier-grades",
-                    title: "Copier Paper Grades", 
-                    description: "Comprehensive technical specifications for our premium copier paper range (70, 75, and 80 GSM).",
-                    pdf: technicalSpecPaperPdf
-                }
+                { id: "brilliance", title: "NR BRILLIANCE", pdf: nrBrilliancePdf },
+                { id: "copier", title: "NR COPIER", pdf: nrCopierPdf }
             ]} />
 
             {/* Industries Section */}

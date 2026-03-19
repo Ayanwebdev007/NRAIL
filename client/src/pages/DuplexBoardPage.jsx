@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useMotionTemplate, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, ChevronLeft, Trees, ShieldCheck, Layers, Zap, Printer } from 'lucide-react';
+import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, ChevronLeft, Trees, ShieldCheck, Layers, Zap, Printer, Feather } from 'lucide-react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import logo from '../assets/logo.png';
@@ -39,6 +39,13 @@ import 'swiper/css/autoplay';
 
 const DuplexPowerSection = () => {
     const [swiper, setSwiper] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const slideData = [
+        { title: "NR ICONIC GREY BACK", img: db1 },
+        { title: "NR ICONIC WHITE BACK", img: db2 },
+        { title: "NR LEGEND WHITE BACK", img: db3 }
+    ];
 
     return (
         <section className="relative w-full h-[600px] flex items-center overflow-hidden group">
@@ -79,6 +86,7 @@ const DuplexPowerSection = () => {
                 <Swiper
                     modules={[Autoplay, EffectFade, Navigation]}
                     onSwiper={setSwiper}
+                    onSlideChange={(s) => setActiveIndex(s.realIndex)}
                     effect="fade"
                     loop={true}
                     speed={2000}
@@ -88,28 +96,21 @@ const DuplexPowerSection = () => {
                     }}
                     className="h-full w-full"
                 >
-                    <SwiperSlide>
-                        <div 
-                            className="w-full h-full bg-cover bg-center" 
-                            style={{ backgroundImage: `url(${db1})` }}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div 
-                            className="w-full h-full bg-cover" 
-                            style={{ backgroundImage: `url(${db2})`, backgroundPosition: 'center 15%' }}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div 
-                            className="w-full h-full bg-cover bg-center" 
-                            style={{ backgroundImage: `url(${db3})` }}
-                        />
-                    </SwiperSlide>
+                    {slideData.map((slide, index) => (
+                        <SwiperSlide key={index}>
+                            <div 
+                                className="w-full h-full bg-cover bg-center" 
+                                style={{ 
+                                    backgroundImage: `url(${slide.img})`,
+                                    backgroundPosition: index === 1 ? 'center 15%' : 'center'
+                                }}
+                            />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
 
-            {/* Blurry Gradient Overlay - 0% blur at top edge, smoothly increasing to full blur at bottom */}
+            {/* Blurry Gradient Overlay */}
             <div className="absolute inset-x-0 bottom-0 h-[45%] z-[1] pointer-events-none" style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
             {/* Dark tint at bottom for text legibility on bright images */}
             <div className="absolute inset-x-0 bottom-0 h-[30%] z-[2] pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)' }}></div>
@@ -117,19 +118,18 @@ const DuplexPowerSection = () => {
             {/* Content at Bottom - Full Width */}
             <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ padding: '0 60px 40px 60px' }}>
                 <motion.div
+                    key={activeIndex}
                     initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
                     <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
-                        Delivering Strength, Precision, and Converting Efficiency
+                        {slideData[activeIndex].title}
                     </h2>
-                    <div className="font-['Outfit'] font-light" style={{ fontSize: '15px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
-                        <p>• Uniform calliper for stable structure and consistent performance&nbsp;&nbsp;• High stiffness for strong, durable packaging solutions</p>
-                        <p>• Smooth runnability on automated filling and packaging lines&nbsp;&nbsp;• Refined coated surface with low impurities for excellent print results</p>
-                    </div>
+                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                        NRAIL Duplex Boards combine robust stiffness with refined surface quality to ensure dependable print performance across high-volume packaging applications
+                    </p>
                 </motion.div>
             </div>
 
@@ -592,7 +592,7 @@ const DuplexBoardPage = () => {
                             color: '#ffffff'
                         }}
                     >
-                        <span className="font-light">Precision-Crafted Boards for a</span> <span className="font-light text-[#f8f9fa]">Greener Future</span>
+                        <span className="font-light">Delivering Strength, Precision, and</span> <span className="font-light text-[#f8f9fa]">Converting Efficiency</span>
                     </motion.h1>
                 </div>
             </div>
@@ -637,7 +637,7 @@ const DuplexBoardPage = () => {
                                 transition={{ delay: 0.2 }}
                                 className="text-lg md:text-xl text-gray-600 leading-relaxed text-justify font-light !mt-4"
                             >
-                                At NRAIL, product excellence is driven by advanced fibre engineering, intelligent automation, and disciplined process control. Our boards are engineered to deliver superior surface finish, optimal stiffness, consistent brightness, and efficient converting performance. A Duplex Board portfolio enables customers to select solutions aligned with specific applications, performance expectations, and sustainability objectives. With uncompromising quality standards, every product is designed to enhance value across the entire supply chain. NRAIL Duplex Boards combine robust stiffness with refined surface quality to ensure dependable print performance across high-volume packaging applications.
+                                At NRAIL, product excellence is driven by advanced fibre engineering, intelligent automation, and disciplined process control. Our boards are engineered to deliver superior surface finish, optimal stiffness, consistent brightness, and efficient converting performance. A Duplex Board portfolio enables customers to select solutions aligned with specific applications, performance expectations, and sustainability objectives. With uncompromising quality standards, every product is designed to enhance value across the entire supply chain.
                             </motion.p>
                         </div>
 
@@ -647,9 +647,9 @@ const DuplexBoardPage = () => {
                             {/* Row 1: First 3 items */}
                             <div className="flex flex-wrap justify-center gap-x-12 lg:gap-x-24 gap-y-12">
                                 {[
-                                    { icon: <Trees size={80} strokeWidth={1} color="#8b0000" />, title: "Made of 100% virgin pulp" },
-                                    { icon: <Printer size={80} strokeWidth={1} color="#8b0000" />, title: "Offers excellent printability" },
-                                    { icon: <Layers size={80} strokeWidth={1} color="#8b0000" />, title: "Offers superior foldability" }
+                                    { icon: <Target size={80} strokeWidth={1} color="#8b0000" />, title: "Consistency" },
+                                    { icon: <Shield size={80} strokeWidth={1} color="#8b0000" />, title: "Durability" },
+                                    { icon: <Feather size={80} strokeWidth={1} color="#8b0000" />, title: "Smooth Surface" }
                                 ].map((feature, index) => (
                                     <motion.div
                                         key={index}
@@ -672,8 +672,8 @@ const DuplexBoardPage = () => {
                             {/* Row 2: Remaining 2 items */}
                             <div className="flex flex-wrap justify-center gap-x-12 lg:gap-x-24 gap-y-12">
                                 {[
-                                    { icon: <ShieldCheck size={80} strokeWidth={1} color="#8b0000" />, title: "FDA Compliant" },
-                                    { icon: <Zap size={80} strokeWidth={1} color="#8b0000" />, title: "Outstanding strength" }
+                                    { icon: <Printer size={80} strokeWidth={1} color="#8b0000" />, title: "Superior Print Quality" },
+                                    { icon: <Layers size={80} strokeWidth={1} color="#8b0000" />, title: "Superior Foldability" }
                                 ].map((feature, index) => (
                                     <motion.div
                                         key={index + 3}

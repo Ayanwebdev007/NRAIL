@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useMotionTemplate, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, ChevronLeft, Trees, ShieldCheck, Layers, Zap, Printer } from 'lucide-react';
+import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, ChevronLeft, Trees, ShieldCheck, Layers, Zap, Printer, Feather, Sun } from 'lucide-react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import logo from '../assets/logo.png';
@@ -9,7 +9,15 @@ import heroImg from '../assets/wp header.webp';
 import wp1 from '../assets/wp 1.webp';
 import wp2 from '../assets/wp 2.webp';
 import wp3 from '../assets/wp3.webp';
-import technicalSpecPaperPdf from '../assets/technical_specification_paper.pdf';
+import nrShineSsPdf from '../assets/specs/nr_shine_ss.pdf';
+import nrShinePdf from '../assets/specs/nr_shine.pdf';
+import nrExcelSsPdf from '../assets/specs/nr_excel_ss.pdf';
+import nrExcelPdf from '../assets/specs/nr_excel.pdf';
+import nrExcelSsPsPdf from '../assets/specs/nr_excel_ss_ps.pdf';
+import nrMaximaSsPdf from '../assets/specs/nr_maxima_ss.pdf';
+import nrMaximaPdf from '../assets/specs/nr_maxima.pdf';
+import nrClassicSsPdf from '../assets/specs/nr_classic_ss.pdf';
+import nrClassicPdf from '../assets/specs/nr_classic.pdf';
 import industryNotebooks from '../assets/industry_notebooks.webp';
 import industryPublication from '../assets/industry_publication.webp';
 import industryCalendarDiary from '../assets/industry_calendar_diary.webp';
@@ -111,7 +119,7 @@ const WritingPrintingPowerSection = () => {
                     className="w-full pointer-events-auto"
                 >
                     <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
-                        NRAIL’s Premier Printing Brands
+                        Engineered for Clarity, Consistency, and Print Excellence
                     </h2>
                     <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         NRAIL’s Writing & Printing portfolio offers a premium range of papers designed for high-quality, multicolour printing applications. With brands such as NR Classic, NR Maxima, NR Shine, and NR Excel, the range delivers optimal bulk, smoothness, brightness, and opacity—ensuring consistent performance across diverse printing needs.
@@ -286,48 +294,80 @@ const ProductSpecsSection = ({ specs }) => {
                 }}
             />
 
-            <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10 flex justify-center">
-                <div className="grid grid-cols-1 max-w-xl w-full">
-                    {specs.map((spec, index) => (
-                        <motion.div
-                            key={spec.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: index * 0.2 }}
-                            className="relative overflow-hidden border border-white/5 p-10 lg:p-14 group transition-all duration-500 hover:border-[#8b0000]/30 hover:shadow-[0_0_50px_rgba(139,0,0,0.1)]"
-                            style={{ minHeight: '380px', backgroundColor: 'rgba(255, 255, 255, 0.98)', backdropFilter: 'blur(10px)' }}
-                        >
-                            <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center transition-transform duration-1000 group-hover:scale-110">
-                                <img 
-                                    src={logo} 
-                                    alt="NRAIL Watermark" 
-                                    className="w-56 opacity-[0.14] group-hover:opacity-[0.25] transition-opacity duration-700 object-contain" 
-                                />
-                            </div>
-
-                            <div className="relative z-10 h-full flex flex-col items-center justify-center text-center">
-                                <motion.span className="text-[10px] uppercase tracking-[0.4em] text-[#8b0000] font-bold mb-4">
-                                    Technical Specification
-                                </motion.span>
-                                
-                                <h3 className="font-['Outfit'] text-2xl lg:text-[32px] font-light text-gray-900 uppercase tracking-widest leading-tight" style={{ marginBottom: '16px' }}>
-                                    {spec.title}
-                                </h3>
-
-                                <div className="w-16 h-[2px] bg-gray-100 opacity-0 group-hover:opacity-100 group-hover:w-28 group-hover:bg-[#8b0000] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" style={{ marginBottom: '24px' }}></div>
-
-                                <button 
-                                    onClick={() => setSelectedPdf({ url: spec.pdf, title: spec.title })}
-                                    className="group/btn relative h-[40px] w-[180px] bg-white border-2 border-[#8b0000] rounded-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center justify-center overflow-hidden hover:bg-[#8b0000] hover:scale-105"
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+                <div className="relative group/specs">
+                    <Swiper
+                        modules={[Navigation, Autoplay]}
+                        spaceBetween={50}
+                        slidesPerView={1}
+                        loop={true}
+                        speed={1000}
+                        grabCursor={true}
+                        centeredSlides={true}
+                        autoplay={{
+                            delay: 4000,
+                            disableOnInteraction: false,
+                        }}
+                        navigation={{
+                            prevEl: '.swiper-prev-spec',
+                            nextEl: '.swiper-next-spec',
+                        }}
+                        breakpoints={{
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 2 }
+                        }}
+                        className="specs-swiper !pb-12 max-w-6xl mx-auto"
+                    >
+                        {specs.map((spec, index) => (
+                            <SwiperSlide key={spec.id}>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                                    className="relative overflow-hidden border border-white/5 p-10 lg:p-14 group transition-all duration-500 hover:border-[#8b0000]/30 hover:shadow-[0_0_50px_rgba(139,0,0,0.1)] flex flex-col justify-center items-center"
+                                    style={{ minHeight: '380px', backgroundColor: 'rgba(255, 255, 255, 0.98)', backdropFilter: 'blur(10px)', width: '100%' }}
                                 >
-                                    <span className="relative z-10 text-[#8b0000] group-hover/btn:text-white font-bold text-[12px] uppercase tracking-[0.2em] transition-colors duration-500">
-                                        View Details
-                                    </span>
-                                </button>
-                            </div>
-                        </motion.div>
-                    ))}
+                                    <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center transition-transform duration-1000 group-hover:scale-110">
+                                        <img 
+                                            src={logo} 
+                                            alt="NRAIL Watermark" 
+                                            className="w-56 opacity-[0.14] group-hover:opacity-[0.25] transition-opacity duration-700 object-contain" 
+                                        />
+                                    </div>
+
+                                    <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                                        <motion.span className="text-[10px] uppercase tracking-[0.4em] text-[#8b0000] font-bold mb-4">
+                                            Technical Specification
+                                        </motion.span>
+                                        
+                                        <h3 className="font-['Outfit'] text-2xl lg:text-[32px] font-light text-gray-900 uppercase tracking-[0.2em] leading-tight" style={{ marginBottom: '16px' }}>
+                                            {spec.title}
+                                        </h3>
+
+                                        <div className="w-16 h-[2px] bg-gray-100 opacity-0 group-hover:opacity-100 group-hover:w-28 group-hover:bg-[#8b0000] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" style={{ marginBottom: '24px' }}></div>
+
+                                        <button 
+                                            onClick={() => setSelectedPdf({ url: spec.pdf, title: spec.title })}
+                                            className="group/btn relative h-[40px] w-full max-w-[200px] bg-white border-2 border-[#8b0000] rounded-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center justify-center overflow-hidden hover:bg-[#8b0000] hover:scale-105"
+                                        >
+                                            <span className="relative z-10 text-[#8b0000] group-hover/btn:text-white font-bold text-[12px] uppercase tracking-[0.1em] transition-colors duration-500">
+                                                View Details
+                                            </span>
+                                        </button>
+                                    </div>
+                                </motion.div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
+                    {/* Navigation Arrows */}
+                    <button className="swiper-prev-spec absolute left-[-40px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/10 hover:bg-[#8b0000] text-gray-400 hover:text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-gray-200 opacity-0 group-hover/specs:opacity-100 hidden lg:flex">
+                        <ChevronLeft size={24} />
+                    </button>
+                    <button className="swiper-next-spec absolute right-[-40px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/10 hover:bg-[#8b0000] text-gray-400 hover:text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-gray-200 opacity-0 group-hover/specs:opacity-100 hidden lg:flex">
+                        <ChevronRight size={24} />
+                    </button>
                 </div>
             </div>
 
@@ -397,7 +437,11 @@ const WritingPrintingPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        const pdfs = [technicalSpecPaperPdf];
+        const pdfs = [
+            nrShineSsPdf, nrShinePdf, nrExcelSsPdf, nrExcelPdf, 
+            nrExcelSsPsPdf, nrMaximaSsPdf, nrMaximaPdf, 
+            nrClassicSsPdf, nrClassicPdf
+        ];
         pdfs.forEach(pdf => {
             const link = document.createElement('link');
             link.rel = 'prefetch';
@@ -475,9 +519,9 @@ const WritingPrintingPage = () => {
                             {/* Row 1: First 3 items */}
                             <div className="flex flex-wrap justify-center gap-x-12 lg:gap-x-24 gap-y-12">
                                 {[
-                                    { icon: <Zap size={80} strokeWidth={1} color="#8b0000" />, title: "Smooth Surface" },
+                                    { icon: <Feather size={80} strokeWidth={1} color="#8b0000" />, title: "Smooth Surface" },
                                     { icon: <Printer size={80} strokeWidth={1} color="#8b0000" />, title: "Superior Print Quality" },
-                                    { icon: <ShieldCheck size={80} strokeWidth={1} color="#8b0000" />, title: "High Brightness" }
+                                    { icon: <Sun size={80} strokeWidth={1} color="#8b0000" />, title: "High Brightness" }
                                 ].map((feature, index) => (
                                     <motion.div
                                         key={index}
@@ -529,12 +573,15 @@ const WritingPrintingPage = () => {
             <WritingPrintingPowerSection />
 
             <ProductSpecsSection specs={[
-                { 
-                    id: "wp-tech-spec", 
-                    title: "Writing & Printing", 
-                    description: "Technical Specifications for our premium paper portfolio.", 
-                    pdf: technicalSpecPaperPdf 
-                }
+                { id: "classic", title: "NR CLASSIC", pdf: nrClassicPdf },
+                { id: "classic-ss", title: "NR CLASSIC SS", pdf: nrClassicSsPdf },
+                { id: "maxima", title: "NR MAXIMA", pdf: nrMaximaPdf },
+                { id: "maxima-ss", title: "NR MAXIMA SS", pdf: nrMaximaSsPdf },
+                { id: "excel", title: "NR EXCEL", pdf: nrExcelPdf },
+                { id: "excel-ss", title: "NR EXCEL SS", pdf: nrExcelSsPdf },
+                { id: "excel-ss-ps", title: "NR EXCEL SS (PS)", pdf: nrExcelSsPsPdf },
+                { id: "shine", title: "NR SHINE", pdf: nrShinePdf },
+                { id: "shine-ss", title: "NR SHINE SS", pdf: nrShineSsPdf }
             ]} />
 
             <IndustriesSection />

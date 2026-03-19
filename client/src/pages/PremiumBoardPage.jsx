@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useMotionTemplate, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, ChevronLeft, Trees, ShieldCheck, Layers, Zap, Printer } from 'lucide-react';
+import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, ChevronLeft, Trees, ShieldCheck, Layers, Zap, Printer, Feather } from 'lucide-react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import logo from '../assets/logo.png';
@@ -249,21 +249,21 @@ const IndustriesSection = () => {
     const swiperRef = useRef(null);
 
     const industries = [
+        { name: "FMCG", img: industryTeaNew },
         { name: "Pharmaceuticals", img: industryPharmaNew },
-        { name: "Cosmetics", img: industryCosmetics },
         { name: "Food & Confectionary", img: industryFoodNew },
-        { name: "Electronics", img: industryElectronicsNew },
-        { name: "Garments", img: industryGarmentsNew },
+        { name: "Garment Packaging", img: industryGarmentsNew },
+        { name: "Small Electronics Appliances", img: industryElectronicsNew },
         { name: "Liquor Cartons", img: industryLiquorNew },
-        { name: "Tea Packaging", img: industryTeaNew },
+        { name: "Beauty & Personal Care", img: industryCosmetics },
         // Double for smooth loop
+        { name: "FMCG", img: industryTeaNew },
         { name: "Pharmaceuticals", img: industryPharmaNew },
-        { name: "Cosmetics", img: industryCosmetics },
         { name: "Food & Confectionary", img: industryFoodNew },
-        { name: "Electronics", img: industryElectronicsNew },
-        { name: "Garments", img: industryGarmentsNew },
+        { name: "Garment Packaging", img: industryGarmentsNew },
+        { name: "Small Electronics Appliances", img: industryElectronicsNew },
         { name: "Liquor Cartons", img: industryLiquorNew },
-        { name: "Tea Packaging", img: industryTeaNew }
+        { name: "Beauty & Personal Care", img: industryCosmetics }
     ];
 
     return (
@@ -598,7 +598,7 @@ const PremiumBoardPage = () => {
                             color: '#ffffff'
                         }}
                     >
-                        <span className="font-light">Precision-Crafted Boards for a</span> <span className="font-light text-[#f8f9fa]">Greener Future</span>
+                        <span className="font-light">Paper that</span> <span className="font-light text-[#f8f9fa]">Powers Tomorrow</span>
                     </motion.h1>
                 </div>
             </div>
@@ -653,9 +653,9 @@ const PremiumBoardPage = () => {
                             {/* Row 1: First 3 items */}
                             <div className="flex flex-wrap justify-center gap-x-12 lg:gap-x-24 gap-y-12">
                                 {[
-                                    { icon: <Trees size={80} strokeWidth={1} color="#8b0000" />, title: "Made of 100% virgin pulp" },
-                                    { icon: <Printer size={80} strokeWidth={1} color="#8b0000" />, title: "Offers excellent printability" },
-                                    { icon: <Layers size={80} strokeWidth={1} color="#8b0000" />, title: "Offers superior foldability" }
+                                    { icon: <Target size={80} strokeWidth={1} color="#8b0000" />, title: "Consistency" },
+                                    { icon: <Shield size={80} strokeWidth={1} color="#8b0000" />, title: "Durability" },
+                                    { icon: <Feather size={80} strokeWidth={1} color="#8b0000" />, title: "Smooth Surface" }
                                 ].map((feature, index) => (
                                     <motion.div
                                         key={index}
@@ -678,8 +678,8 @@ const PremiumBoardPage = () => {
                             {/* Row 2: Remaining 2 items */}
                             <div className="flex flex-wrap justify-center gap-x-12 lg:gap-x-24 gap-y-12">
                                 {[
-                                    { icon: <ShieldCheck size={80} strokeWidth={1} color="#8b0000" />, title: "FDA Compliant" },
-                                    { icon: <Zap size={80} strokeWidth={1} color="#8b0000" />, title: "Outstanding strength" }
+                                    { icon: <Printer size={80} strokeWidth={1} color="#8b0000" />, title: "Superior Print Quality" },
+                                    { icon: <Layers size={80} strokeWidth={1} color="#8b0000" />, title: "Superior Foldability" }
                                 ].map((feature, index) => (
                                     <motion.div
                                         key={index + 3}

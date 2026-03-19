@@ -33,11 +33,11 @@ const leadersList = [
     {
         id: 1,
         name: "Mr. R N Agarwal",
-        role: "Chairman & MD",
+        role: "Our Chairman & Managing Director",
         image: rnaLeadership,
         bgPos: "center",
         bgSize: "cover",
-        bio: "N R Agarwal Industries Limited is guided by a distinguished Board of Directors under the leadership of Mr. R. N. Agarwal, Chairman & Managing Director. An Electrical Engineer and Management Graduate from the United States, Mr. Agarwal brings over two decades of deep industry expertise. As a promoter-director, he has been instrumental in shaping the company’s growth trajectory, strengthening its presence across domestic and international markets. His strategic foresight, analytical rigor, and decisive leadership continue to drive NRAIL’s sustained excellence and long-term vision."
+        bio: "Mr. R. N. Agarwal serves as Promoter and Chairman & Managing Director of N R Agarwal Industries Limited. An accomplished Electrical Engineer and MBA from the USA, he possesses over 24 years of multidimensional experience across product innovation, business development, financial oversight, and administrative leadership. Since joining the Board in 1993, he has steadily guided the Company’s growth, serving as Managing Director before assuming the role of Chairman & Managing Director in 2010. His tenure has been marked by strategic restructuring, operational strengthening, and expansion of manufacturing capabilities, including the successful establishment of the Sarigam Writing & Printing facility. A dynamic and decisive leader, Mr. Agarwal combines technical insight with strategic execution. He is known for building capable teams, driving efficiency, optimizing costs, and maintaining strong customer relationships. His adaptability to emerging technologies and evolving market demands continues to support sustained performance and long-term value creation."
     },
     {
         id: 2,
@@ -141,6 +141,21 @@ const LeadershipPage = () => {
             gridRef.current.scrollLeft = singleSetWidth;
         }
     }, [location]);
+
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        if (selectedLeader) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        };
+    }, [selectedLeader]);
 
     const handleScroll = () => {
         if (!gridRef.current) return;
@@ -266,6 +281,12 @@ const LeadershipPage = () => {
                                 <motion.div
                                     whileHover={{ x: 10 }}
                                     className="flex items-center gap-[12px] cursor-pointer group w-fit"
+                                    onClick={() => setSelectedLeader({
+                                        name: "Shri N R Agarwal (1932-2011)",
+                                        role: "Founder Chairman | Our inspiration & beloved founder",
+                                        image: founderImg,
+                                        bio: "Late Shri N. R. Agarwal, Founder of N R Agarwal Industries Limited, was a pioneering entrepreneur whose foresight shaped the foundation of the Company. A Chemical Engineer with over 40 years of industry experience, he gained extensive exposure at leading institutions including West Coast Paper Mills Ltd. and Rohit Paper Mills Ltd., before establishing NRAIL in Vapi. From a single manufacturing unit in 1993, he built a diversified enterprise spanning Duplex Boards, Newsprint, Writing & Printing, and Kraft papers. Through disciplined execution and value-based leadership, he steered the organization toward sustained expansion, establishing a global footprint and robust manufacturing presence in Gujarat. His customer philosophy cantered on the 3 Q’s — Quality, Quantity, and Quickness — embedding responsiveness and reliability into the Company’s DNA. With strong emphasis on modernization, scale, and operational excellence, he positioned NRAIL among India’s leading packaging solution providers. A firm believer in the power of people, he nurtured talent, encouraged learning, and prioritized stakeholder well-being. His legacy remains rooted in resilience, adaptability, and an unwavering commitment to progress."
+                                    })}
                                 >
                                     <span className="text-[#8b0000] font-bold text-sm tracking-wide">READ MORE</span>
                                     <div className="h-[2px] w-[30px] bg-[#8b0000] opacity-50 group-hover:w-[45px] transition-all duration-300"></div>
@@ -303,6 +324,7 @@ const LeadershipPage = () => {
                                 <motion.div
                                     whileHover={{ x: 10 }}
                                     className="flex items-center gap-[12px] cursor-pointer group w-fit"
+                                    onClick={() => setSelectedLeader(leadersList[0])}
                                 >
                                     <span className="text-[#8b0000] font-bold text-sm tracking-wide">READ MORE</span>
                                     <div className="h-[2px] w-[30px] bg-[#8b0000] opacity-50 group-hover:w-[45px] transition-all duration-300"></div>
@@ -909,6 +931,9 @@ const LeadershipPage = () => {
                     opacity: 0.15;
                 }
 
+                .custom-scrollbar {
+                    overscroll-behavior: contain;
+                }
                 .custom-scrollbar::-webkit-scrollbar {
                     width: 6px;
                 }
@@ -988,7 +1013,10 @@ const LeadershipPage = () => {
                                         </h4>
                                     </div>
 
-                                    <div className="w-full overflow-y-auto pr-6 custom-scrollbar mb-6 max-h-[280px]">
+                                    <div 
+                                        className="w-full overflow-y-auto pr-6 custom-scrollbar mb-6 h-[280px] flex-shrink-0"
+                                        onWheel={(e) => e.stopPropagation()}
+                                    >
                                         <div className="max-w-none text-gray-700 leading-relaxed font-light">
                                             <p className="whitespace-pre-line text-[14px] md:text-[15px] text-justify tracking-tight opacity-90">{selectedLeader.bio}</p>
                                         </div>

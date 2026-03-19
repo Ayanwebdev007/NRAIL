@@ -25,7 +25,7 @@ const products = [
             { id: 102, src: homeFbbsbs2, title: 'NR Power Coat', desc: '230-400 GSM' },
             { id: 103, src: homeFbbsbs3, title: 'NR Pearl Pac', desc: '230-400 GSM' },
             { id: 104, src: homeFbbsbs4, title: 'NR Pearl Coat', desc: '230-400 GSM' },
-            { id: 105, src: homeFbbsbs5, title: 'Premium Ivory Board', desc: 'High Bulk Series' },
+            { id: 105, src: homeFbbsbs5, title: 'NR Pearl Pac', desc: '230-400 GSM' },
         ]
     },
     {
@@ -36,18 +36,18 @@ const products = [
             { id: 202, src: homeDb2, title: 'NR Iconic White Back', desc: '230-500 GSM' },
             { id: 203, src: homeDb3, title: 'NR Legend Grey Back', desc: '230-500 GSM' },
             { id: 204, src: homeDb4, title: 'NR Legend White Back', desc: '230-500 GSM' },
-            { id: 205, src: homeDb5, title: 'Industrial Core Board', desc: 'Kraft Series' },
+            { id: 205, src: homeDb5, title: 'NR Iconic White Back', desc: '230-500 GSM' },
         ]
     },
     {
         id: 'writing',
         name: 'Writing & Printing Paper',
         images: [
-            { id: 301, src: homeWp1, title: 'NR Classic', desc: '48-120 GSM' },
-            { id: 302, src: homeWp2, title: 'NR Classic SS', desc: '48-120 GSM' },
-            { id: 303, src: homeWp3, title: 'NR Maxima', desc: '48-120 GSM' },
-            { id: 304, src: homeWp4, title: 'NR Maxima SS', desc: '48-120 GSM' },
-            { id: 305, src: 'https://images.unsplash.com/photo-1612115502120-e7f2258d4a67?auto=format&fit=crop&q=80&w=800', title: 'NR Excel / SS', desc: '48-120 GSM' },
+            { id: 301, src: homeWp1, title: 'NR Classic / SS', desc: '48-120 GSM' },
+            { id: 302, src: homeWp2, title: 'NR Maxima / SS', desc: '48-120 GSM' },
+            { id: 303, src: homeWp3, title: 'NR Excel / SS', desc: '48-120 GSM' },
+            { id: 304, src: homeWp4, title: 'NR Shine / SS', desc: '48-120 GSM' },
+            { id: 305, src: homeWp4, title: 'NR Shine / SS', desc: '48-120 GSM' },
         ]
     },
     {
