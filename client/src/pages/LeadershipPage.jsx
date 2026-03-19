@@ -214,7 +214,7 @@ const LeadershipPage = () => {
                             color: '#ffffffff'
                         }}
                     >
-                        Leaders Who Build What’s Next.
+                        Leaders Who Build What’s Next
                     </motion.h1>
                 </div>
             </div>
