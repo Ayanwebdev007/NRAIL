@@ -8,12 +8,14 @@ import heroImg from '../assets/Unit V PM2.webp';
 import unit1 from '../assets/unit_1.png';
 import unit1TabImg1 from '../assets/unit 1 tab img 1.jpg';
 import unit1TabImg2 from '../assets/unit 1 tab img 2.jpg';
-import unitVPm1 from '../assets/unit_v_pm1.png';
+import unitVPm1_1 from '../assets/ME UNIT V PM1 1.JPG';
+import unitVPm1_2 from '../assets/ME UNIT V PM1 2.JPG';
+import unitVPm1_3 from '../assets/ME UNIT V PM1 3.JPG';
 import unitVPm2 from '../assets/unit_v_pm2.png';
 import unitVPm2Img1 from '../assets/Unit V PM2 (Manufacturing Edge) 1.jpg';
 import unitVPm2Img2 from '../assets/Unit V PM2 (Manufacturing Edge) 2.jpg';
 import unitVPm2Img3 from '../assets/Unit V PM2 (Manufacturing Edge) 3.jpg';
-import unitVi from '../assets/unit_vi.png';
+import unitVi from '../assets/ME UNIT VI.JPG';
 import mainEdgeImg from '../assets/Manufacturing Edge first img.jpg';
 
 // Swiper imports
@@ -86,7 +88,7 @@ const unitsData = [
     {
         id: 'unit-1',
         label: 'Unit I',
-        location: 'Sarigam, Kale Road',
+        location: 'Vapi',
         descTitle: 'Established Legacy & Quality Excellence',
         description: 'Unit I in Vapi started its operations in April 1995 with a duplex board production capacity of 15,000 TPA. It is equipped with a cutting-edge duplex board manufacturing machine. The produced boards are ideally suited for offset printing, embossing, and foil stamping. Endorsed by the Central Food Technology Research Institute of India, these products are celebrated for their superior performance in post-print applications.',
         stats: [
@@ -107,7 +109,7 @@ const unitsData = [
             { title: '3,37,599 sq mt', value: 'Wide Spread Base' },
             { title: '70, 75, 80 GSM', value: 'NR Copier product range' },
         ],
-        image: unitVPm1,
+        images: [unitVPm1_1, unitVPm1_2, unitVPm1_3],
     },
     {
         id: 'unit-v-pm2',
@@ -125,10 +127,13 @@ const unitsData = [
     {
         id: 'unit-vi',
         label: 'Unit VI',
-        location: 'Vapi, Gujarat',
-        descTitle: '',
-        description: '',
-        stats: [],
+        location: 'Dahej',
+        descTitle: 'Growth & Expansion Journey',
+        description: 'Spread across a 135-acre site in Dahej, Gujarat, NRAIL is developing a next-generation manufacturing complex with a capacity of 1,500 TPD—marking a significant milestone in its growth and expansion journey.',
+        stats: [
+            { title: '1,500 TPD', value: 'Production capacity' },
+            { title: '135-Acre', value: 'Expansion site' },
+        ],
         image: unitVi,
     },
 ];

@@ -9,6 +9,9 @@ import ManufacturingEdgePage from './pages/ManufacturingEdgePage';
 import MilestonesPage from './pages/MilestonesPage';
 import QualityInnovationPage from './pages/QualityInnovationPage';
 import PremiumBoardPage from './pages/PremiumBoardPage';
+import DuplexBoardPage from './pages/DuplexBoardPage';
+import WritingPrintingPage from './pages/WritingPrintingPage';
+import CopierPaperPage from './pages/CopierPaperPage';
 import Loader from './components/Loader/Loader';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -59,6 +62,9 @@ function App() {
           <Route path="/milestones" element={<MilestonesPage />} />
           <Route path="/quality-innovation" element={<QualityInnovationPage />} />
           <Route path="/premium-board-grades" element={<PremiumBoardPage />} />
+          <Route path="/duplex-board-grades" element={<DuplexBoardPage />} />
+          <Route path="/writing-printing-grades" element={<WritingPrintingPage />} />
+          <Route path="/copier-paper-grades" element={<CopierPaperPage />} />
         </Routes>
       )}
     </div>

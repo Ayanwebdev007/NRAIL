@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Unit1Img from '../../assets/Unit I.jpg';
-import UnitVImg from '../../assets/Unit V.webp';
+import UnitVImg from '../../assets/Unit V PM 1.JPG';
 import UnitVPM2Img from '../../assets/Unit V PM2.JPG';
-import UnitVIImg from '../../assets/unit 6.webp';
+import UnitVIImg from '../../assets/HOME Unit VI.jpg';
 
 const ManufacturingExcellence = () => {
     // Placeholder images
@@ -16,7 +16,7 @@ const ManufacturingExcellence = () => {
         {
             id: 2,
             src: UnitVImg,
-            title: "Unit V"
+            title: "Unit V (PM1)"
         },
         {
             id: 3,

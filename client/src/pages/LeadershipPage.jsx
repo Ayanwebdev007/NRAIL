@@ -17,6 +17,7 @@ import sanjaySinhaLeadership from '../assets/sanjaysinha.jpg';
 import klChandakLeadership from '../assets/k_l_chandak.jpg';
 import sunitaNairLeadership from '../assets/Sunita Nair.jpg';
 import mahendraGuptaLeadership from '../assets/Mahendra Gupta.jpg';
+import rkBakshiLeadership from '../assets/rk_bakshi.jpg';
 import redTexture from '../assets/red texture.jpg';
 
 // Panorama Leadership Assets
@@ -78,9 +79,10 @@ const leadersList = [
         id: 6,
         name: "Mr. Rajiv Kumar Bakshi",
         role: "Independent Director",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
+        image: rkBakshiLeadership,
         bgPos: "center",
-        bgSize: "cover",
+        bgSize: "contain",
+        bgColor: "white",
         bio: "Mr. Rajiv Kumar Bakshi is a postgraduate in Science and a distinguished banking leader with more than 37 years of experience across key areas of finance and banking. His career includes leadership roles in branch management, credit strategy, treasury, international banking, and operational transformation across India and global markets. He held the prestigious position of Executive Director at Bank of Baroda from 2008 to 2012 and has also led overseas operations for Bank of India and IDBI. Presently, he serves as a Member of the Reserve Bank of India Services Board and as Senior Adviser to Centrum Capital Ltd., while contributing his expertise as an Independent Director on multiple corporate boards."
     },
     {

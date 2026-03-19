@@ -41,9 +41,9 @@ const Navbar = () => {
       title: 'Products',
       links: [
         { label: 'Premium Board Grades', path: '/premium-board-grades' },
-        { label: 'Duplex Boards', path: '/#duplex-boards' },
-        { label: 'Writing & Printing', path: '/#writing-printing' },
-        { label: 'Copier Paper', path: '/#copier-paper' }
+        { label: 'Duplex Board Grades', path: '/duplex-board-grades' },
+        { label: 'Writing & Printing', path: '/writing-printing-grades' },
+        { label: 'Copier Paper', path: '/copier-paper-grades' }
       ]
     },
     {

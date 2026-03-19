@@ -7,9 +7,9 @@ import Footer from '../components/Footer/Footer';
 
 // Asset imports
 import heroImg from '../assets/quality_innovation_hero.png';
-import qualityDetail from '../assets/quality_assurance_detail.png';
+import qualityDetail from '../assets/quality assurance img.JPG';
 import innovationDetail from '../assets/innovation_detail.png';
-import benefit1 from '../assets/framework_quality.png';
+import benefit1 from '../assets/Customer Benefits.jpg';
 import benefit2 from '../assets/framework_tech.png';
 import benefit3 from '../assets/framework_sustainability.png';
 import benefit4 from '../assets/framework_efficiency.png';
@@ -178,7 +178,7 @@ const QualityInnovationPage = () => {
                 Customer Benefits
               </div>
               <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
-                Delivering Measurable <span className="font-normal text-[#8b0000]">Benefits</span>
+                Delivering Measurable <span className="font-normal text-[#8b0000]">customer Benefits</span>
               </h2>
               <div className="space-y-8 font-['Outfit'] font-light text-gray-700 text-lg leading-relaxed text-justify" style={{ marginTop: '24px' }}>
                 <div>

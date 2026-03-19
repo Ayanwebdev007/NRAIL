@@ -5,24 +5,26 @@ import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, Chev
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import logo from '../assets/logo.png';
-import heroImg from '../assets/Premium Board Grades Header.png';
-import fbb1 from '../assets/fbb pic 1.jpg';
-import fbb2 from '../assets/fbb pic 2.jpg';
-import fbb3 from '../assets/FBB pic 4.jpg';
-import nrPowerCoatPdf from '../assets/NR Power Coat Specs_.pdf';
-import nrPowerPacPdf from '../assets/NR Power Pac Specs_.pdf';
-import nrPearlCoatPdf from '../assets/NR Pearl Coat Specs_.pdf';
-import nrPearlPacPdf from '../assets/NR Pearl Pac Specs_.pdf';
+import heroImg from '../assets/db header.png';
+import db1 from '../assets/db1.jpg';
+import db2 from '../assets/db2.jpg';
+import db3 from '../assets/db3.webp';
+import nrIconicGreyPdf from '../assets/Specifications - NR Iconic Grey Back.pdf';
+import nrIconicWhitePdf from '../assets/Specifications - NR Iconic White Back.pdf';
+import nrLegendGreyPdf from '../assets/Specifications - NR Legend Grey Back.pdf';
+import nrLegendWhitePdf from '../assets/Specifications - NR Legend White Back.pdf';
+import beautyImg from '../assets/beauty_care.png';
+import foodImg from '../assets/food_beverage.png';
+import apparelImg from '../assets/apparel.png';
 import pearl1 from '../assets/sbs.jpg';
 import pearl2 from '../assets/DSC06215 copy.jpg';
 import pearl3 from '../assets/sbs 3.png';
-import industryCosmetics from '../assets/Cosmetics.jpg';
-import industryElectronicsNew from '../assets/Electronics.jpg';
-import industryFoodNew from '../assets/Food & Confectionary.jpg';
-import industryGarmentsNew from '../assets/Garments.jpg';
-import industryLiquorNew from '../assets/Liquor Cartons.jpg';
-import industryPharmaNew from '../assets/Pharmaceuticals.jpg';
-import industryTeaNew from '../assets/Tea-Packaging-1.webp';
+import industryFmcg from '../assets/industry_fmcg.png';
+import industryElectronics from '../assets/industry_electronics.png';
+import industryRetail from '../assets/industry_retail.png';
+import industryIndustrial from '../assets/industry_industrial.png';
+import industryAgarbatti from '../assets/industry_agarbatti.png';
+import industryGarmentsHosiery from '../assets/industry_garments_hosiery.png';
 import { X, Download, Phone } from 'lucide-react';
 
 // Swiper imports
@@ -35,7 +37,7 @@ import 'swiper/css/autoplay';
 
 
 
-const NRPowerSection = () => {
+const DuplexPowerSection = () => {
     const [swiper, setSwiper] = useState(null);
 
     return (
@@ -89,19 +91,19 @@ const NRPowerSection = () => {
                     <SwiperSlide>
                         <div 
                             className="w-full h-full bg-cover bg-center" 
-                            style={{ backgroundImage: `url(${fbb1})` }}
+                            style={{ backgroundImage: `url(${db1})` }}
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div 
+                            className="w-full h-full bg-cover" 
+                            style={{ backgroundImage: `url(${db2})`, backgroundPosition: 'center 15%' }}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <div 
                             className="w-full h-full bg-cover bg-center" 
-                            style={{ backgroundImage: `url(${fbb2})` }}
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div 
-                            className="w-full h-full bg-cover bg-center" 
-                            style={{ backgroundImage: `url(${fbb3})` }}
+                            style={{ backgroundImage: `url(${db3})` }}
                         />
                     </SwiperSlide>
                 </Swiper>
@@ -122,11 +124,12 @@ const NRPowerSection = () => {
                     className="w-full pointer-events-auto"
                 >
                     <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
-                        NR Power Pac / NR Power Coat
+                        Delivering Strength, Precision, and Converting Efficiency
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
-                        Deliver bright, refined, and high-impact packaging solutions engineered for luxury brands, beauty, and personal care segments where visual excellence meets structural strength.
-                    </p>
+                    <div className="font-['Outfit'] font-light" style={{ fontSize: '15px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                        <p>• Uniform calliper for stable structure and consistent performance&nbsp;&nbsp;• High stiffness for strong, durable packaging solutions</p>
+                        <p>• Smooth runnability on automated filling and packaging lines&nbsp;&nbsp;• Refined coated surface with low impurities for excellent print results</p>
+                    </div>
                 </motion.div>
             </div>
 
@@ -147,7 +150,7 @@ const NRPowerSection = () => {
     );
 };
 
-const NRPearlSection = () => {
+const DuplexPearlSection = () => {
     const [swiper, setSwiper] = useState(null);
 
     return (
@@ -249,21 +252,12 @@ const IndustriesSection = () => {
     const swiperRef = useRef(null);
 
     const industries = [
-        { name: "Pharmaceuticals", img: industryPharmaNew },
-        { name: "Cosmetics", img: industryCosmetics },
-        { name: "Food & Confectionary", img: industryFoodNew },
-        { name: "Electronics", img: industryElectronicsNew },
-        { name: "Garments", img: industryGarmentsNew },
-        { name: "Liquor Cartons", img: industryLiquorNew },
-        { name: "Tea Packaging", img: industryTeaNew },
-        // Double for smooth loop
-        { name: "Pharmaceuticals", img: industryPharmaNew },
-        { name: "Cosmetics", img: industryCosmetics },
-        { name: "Food & Confectionary", img: industryFoodNew },
-        { name: "Electronics", img: industryElectronicsNew },
-        { name: "Garments", img: industryGarmentsNew },
-        { name: "Liquor Cartons", img: industryLiquorNew },
-        { name: "Tea Packaging", img: industryTeaNew }
+        { name: "FMCG", img: industryFmcg },
+        { name: "Retail", img: industryRetail },
+        { name: "Industrial Packaging", img: industryIndustrial },
+        { name: "Garments & Hosiery", img: industryGarmentsHosiery },
+        { name: "Agarbatti Packaging", img: industryAgarbatti },
+        { name: "Consumer Appliances", img: industryElectronics }
     ];
 
     return (
@@ -553,14 +547,14 @@ const ProductSpecsSection = ({ specs }) => {
     );
 };
 
-const PremiumBoardPage = () => {
+const DuplexBoardPage = () => {
     const location = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
 
         // Prefetch PDFs for instant loading
-        const pdfs = [nrPowerCoatPdf, nrPowerPacPdf, nrPearlCoatPdf, nrPearlPacPdf];
+        const pdfs = [nrIconicGreyPdf, nrIconicWhitePdf, nrLegendGreyPdf, nrLegendWhitePdf];
         pdfs.forEach(pdf => {
             const link = document.createElement('link');
             link.rel = 'prefetch';
@@ -610,7 +604,7 @@ const PremiumBoardPage = () => {
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
                     <span className="text-gray-500">Products</span>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
-                    <span className="text-[#8b0000] font-medium">Premium Board Grades</span>
+                    <span className="text-[#8b0000] font-medium">Duplex Board Grades</span>
                 </div>
             </div>
 
@@ -632,7 +626,7 @@ const PremiumBoardPage = () => {
                                 color: '#1a1a1a'
                             }}
                         >
-                            <span className="text-[#8b0000] font-light">Sustainability Meets Strength</span> with NRAIL's Packaging Board Solutions
+                            <span className="text-[#8b0000] font-light">Precision-Engineered</span> Duplex Board Solutions
                         </motion.h2>
                         
                         <div className="flex flex-col">
@@ -643,7 +637,7 @@ const PremiumBoardPage = () => {
                                 transition={{ delay: 0.2 }}
                                 className="text-lg md:text-xl text-gray-600 leading-relaxed text-justify font-light !mt-4"
                             >
-                                As global markets transition toward sustainable materials, paperboard has become a preferred packaging medium for brands seeking responsible alternatives. At NRAIL, we engineer advanced paperboard solutions that balance structural integrity, visual appeal, and environmental stewardship. Our high-quality boards, including virgin-grade offerings, are crafted to provide enhanced bulk, stiffness, and surface durability, ensuring reliable protection and superior print outcomes. Designed with recyclability and biodegradability in mind, these products contribute to circular packaging ecosystems. By combining performance excellence with climate-conscious manufacturing, NRAIL supports industries in building packaging that is both impactful and responsible.
+                                At NRAIL, product excellence is driven by advanced fibre engineering, intelligent automation, and disciplined process control. Our boards are engineered to deliver superior surface finish, optimal stiffness, consistent brightness, and efficient converting performance. A Duplex Board portfolio enables customers to select solutions aligned with specific applications, performance expectations, and sustainability objectives. With uncompromising quality standards, every product is designed to enhance value across the entire supply chain. NRAIL Duplex Boards combine robust stiffness with refined surface quality to ensure dependable print performance across high-volume packaging applications.
                             </motion.p>
                         </div>
 
@@ -706,41 +700,34 @@ const PremiumBoardPage = () => {
             {/* SPACER for GAP */}
             <div style={{ height: '60px' }}></div>
 
-            {/* NR Power Section */}
-            <NRPowerSection />
+            {/* Duplex Power Section */}
+            <DuplexPowerSection />
 
-            {/* Product Specifications Section - Power Range */}
+            {/* Product Specifications Section - Combined Duplex Range */}
             <ProductSpecsSection specs={[
                 { 
-                    id: "power-coat-spec",
-                    title: "NR POWER COAT", 
-                    description: "Premium coated board with superior surface finish and printability.",
-                    pdf: nrPowerCoatPdf
+                    id: "iconic-grey-spec",
+                    title: "NR ICONIC GREY BACK", 
+                    description: "Premium grey back board with superior stiffness and printability.",
+                    pdf: nrIconicGreyPdf
                 },
                 { 
-                    id: "power-pac-spec",
-                    title: "NR POWER PAC", 
-                    description: "High-strength packaging board engineered for maximum durability.",
-                    pdf: nrPowerPacPdf
-                }
-            ]} />
-
-            {/* NR Pearl Section */}
-            <NRPearlSection />
-
-            {/* Product Specifications Section - Pearl Range */}
-            <ProductSpecsSection specs={[
-                { 
-                    id: "pearl-coat-spec",
-                    title: "NR PEARL COAT", 
-                    description: "Ultra-premium bleached board with exceptional brightness and elegance.",
-                    pdf: nrPearlCoatPdf
+                    id: "iconic-white-spec",
+                    title: "NR ICONIC WHITE BACK", 
+                    description: "High-brightness white back board for premium packaging aesthetics.",
+                    pdf: nrIconicWhitePdf
                 },
                 { 
-                    id: "pearl-pac-spec",
-                    title: "NR PEARL PAC", 
-                    description: "High-clarity bleached board tailored for luxury pharmaceutical and food packaging.",
-                    pdf: nrPearlPacPdf
+                    id: "legend-grey-spec",
+                    title: "NR LEGEND GREY BACK", 
+                    description: "Value-driven grey back board with consistent quality and performance.",
+                    pdf: nrLegendGreyPdf
+                },
+                { 
+                    id: "legend-white-spec",
+                    title: "NR LEGEND WHITE BACK", 
+                    description: "Reliable white back board for versatile industrial and retail applications.",
+                    pdf: nrLegendWhitePdf
                 }
             ]} />
 
@@ -752,4 +739,4 @@ const PremiumBoardPage = () => {
     );
 };
 
-export default PremiumBoardPage;
+export default DuplexBoardPage;

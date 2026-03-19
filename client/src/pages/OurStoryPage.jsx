@@ -397,7 +397,7 @@ const OurStoryPage = () => {
                                     MISSION
                                 </h3>
                                 <div className="w-12 h-[2px] bg-white opacity-40"></div>
-                                <p className="text-lg leading-relaxed text-gray-100 font-light max-w-xl">
+                                <p className="text-lg leading-relaxed text-gray-100 font-light max-w-xl text-justify">
                                     N R Agarwal Industries Limited remains focused on creating sustained stakeholder value through technology-led innovation, cost-effective operations, and a robust organizational culture.
                                 </p>
                             </motion.div>
@@ -414,7 +414,7 @@ const OurStoryPage = () => {
                                     VISION
                                 </h3>
                                 <div className="w-12 h-[2px] bg-white opacity-40"></div>
-                                <p className="text-lg leading-relaxed text-gray-100 font-light max-w-xl">
+                                <p className="text-lg leading-relaxed text-gray-100 font-light max-w-xl text-justify">
                                     To be a globally acknowledged manufacturer delivering innovative paper products with consistent value to customers. Through steadfast adherence to our core values. Focused on providing sustainable returns while strengthening stakeholder confidence.
                                 </p>
                             </motion.div>
