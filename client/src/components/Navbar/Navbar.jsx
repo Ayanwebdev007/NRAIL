@@ -63,7 +63,7 @@ const Navbar = () => {
     {
       title: 'Life, Made Better',
       links: [
-        { label: 'Environmental Impact', path: '/#environmental-impact' },
+        { label: 'Environmental Impact', path: '/environmental-impact' },
         { label: 'Commitments', path: '/#commitments' },
         { label: 'Community Champions', path: '/#community-champions' }
       ]

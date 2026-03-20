@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 
 const Footer = () => {
@@ -12,7 +13,13 @@ const Footer = () => {
         },
         {
             title: "Sustainability",
-            links: ["Environment", "Social Impact", "Governance", "Annual Reports", "Certifications"]
+            links: [
+                { label: "Environment", path: "/environmental-impact" },
+                { label: "Social Impact", path: "/#social-impact" },
+                { label: "Governance", path: "/#governance" },
+                { label: "Annual Reports", path: "/#annual-reports" },
+                { label: "Certifications", path: "/#certifications" }
+            ]
         },
         {
             title: "Products",
@@ -20,7 +27,13 @@ const Footer = () => {
         },
         {
             title: "Support",
-            links: ["Contact", "Inquiry", "Locations", "Privacy Policy", "Terms of Use"]
+            links: [
+                { label: "Contact", path: "/#contact" },
+                { label: "Inquiry", path: "/#inquiry" },
+                { label: "Locations", path: "/#locations" },
+                { label: "Privacy Policy", path: "/privacy-policy" },
+                { label: "Terms of Use", path: "/terms-of-use" }
+            ]
         }
     ];
 
@@ -71,13 +84,13 @@ const Footer = () => {
                                 <ul className="space-y-4 md:space-y-6 2xl:space-y-10">
                                     {section.links.map((link, lIdx) => (
                                         <li key={lIdx}>
-                                            <a
-                                                href="#"
+                                            <Link
+                                                to={link.path || "#"}
                                                 className="text-white/40 hover:text-white text-sm 2xl:text-xl transition-colors duration-200 flex items-center group"
                                             >
-                                                <span>{link}</span>
+                                                <span>{link.label || link}</span>
                                                 <ArrowUpRight className="w-3 h-3 2xl:w-5 2xl:h-5 ml-1 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
