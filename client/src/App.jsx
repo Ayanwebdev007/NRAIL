@@ -13,6 +13,9 @@ import DuplexBoardPage from './pages/DuplexBoardPage';
 import WritingPrintingPage from './pages/WritingPrintingPage';
 import CopierPaperPage from './pages/CopierPaperPage';
 import EnvironmentalImpactPage from './pages/EnvironmentalImpactPage';
+import CommitmentsPage from './pages/CommitmentsPage';
+import CommunityChampsPage from './pages/CommunityChampsPage';
+import ContactPage from './pages/ContactPage';
 import Loader from './components/Loader/Loader';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
@@ -67,6 +70,9 @@ function App() {
           <Route path="/writing-printing-grades" element={<WritingPrintingPage />} />
           <Route path="/copier-paper-grades" element={<CopierPaperPage />} />
           <Route path="/environmental-impact" element={<EnvironmentalImpactPage />} />
+          <Route path="/commitments" element={<CommitmentsPage />} />
+          <Route path="/community-champions" element={<CommunityChampsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       )}
     </div>

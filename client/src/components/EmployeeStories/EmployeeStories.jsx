@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ArrowRight, ArrowLeft } from 'lucide-react';
 import poojaImage from '../../assets/pooja_daftari.webp';
+import raviImage from '../../assets/Ravi Kumar Sharma.png';
+import adityaImage from '../../assets/Aditya Sharma.png';
+import srinivaasImage from '../../assets/Srinivaas Iyengaar.png';
+import nishithaImage from '../../assets/Nishita Gandha.png';
+import rameshImage from '../../assets/Ramesh Alla.png';
 
 const EmployeeStories = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -10,31 +15,45 @@ const EmployeeStories = () => {
     const stories = [
         {
             id: "01",
-            name: "Pooja Daftari Mehta",
-            designation: "Company Secretary & Compliance Officer",
-            story: "What stands out for me at NRAIL is the leadership—it listens, guides, and leads with integrity. The workplace here feels collaborative, open, and encouraging. It’s an environment where learning and growth happen naturally.",
-            image: poojaImage
+            name: "Mr Ravi Kumar Sharma",
+            designation: "Vice President- Marketing Boards",
+            story: "For me, marketing at NRAIL is not just about products—it’s about building trust with every interaction. When I speak about our FBB, Duplex, Power, or Pearl boards, I speak with confidence because I know the quality behind them. What I truly value is how closely we work as one team—manufacturing, innovation, and marketing—always aligned to deliver the right solution. That’s what makes every customer conversation meaningful. Being part of NRAIL, I feel proud to represent a brand that stands for reliability, performance, and long-term partnerships.",
+            image: raviImage
         },
         {
             id: "02",
-            name: "Rahul Sharma",
-            designation: "Senior Engineer - Process Excellence",
-            story: "NRAIL is more than a workplace; it's a platform for innovation. The focus on future-ready infrastructure allows us to push the boundaries of what's possible in sustainable manufacturing every single day.",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2574&auto=format&fit=crop"
+            name: "Aditya Sharma",
+            designation: "Vice President- Sales & Marketing",
+            story: "In my journey of over a decade, I’ve learned that real growth is built on trust and consistency. At NRAIL, I don’t just present products—I deliver reliable solutions that customers depend on every day. Our Writing, Printing, and Copier products are most popular depending on their quality. I work closely with cross-functional teams to ensure that every commitment we make is fulfilled with precision. That alignment is what helps us build strong, long-term relationships. Being part of NRAIL means being part of a journey that is constantly evolving—and that’s what drives me forward.",
+            image: adityaImage
         },
         {
             id: "03",
-            name: "Sneha Iyer",
-            designation: "Sustainability Lead",
-            story: "Our commitment to the environment isn't just on paper—it's in our DNA. Working here gives me the chance to truly catalyse responsible growth across the industry through authentic, regenerative practices.",
-            image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2622&auto=format&fit=crop"
+            name: "Pooja Daftari Mehta",
+            designation: "Company Secretary & Compliance Officer",
+            story: "At NRAIL, learning is at the core of how we grow as individuals and as an organization. As perspectives evolve, our approach to governance becomes more robust and future-ready. What truly differentiates NRAIL is its leadership—approachable, supportive, and grounded in integrity. An open and collaborative culture encourages continuous development and shared responsibility. This environment enables us to strengthen compliance frameworks while building lasting trust across the organization.",
+            image: poojaImage
         },
         {
             id: "04",
-            name: "Vikram Malhotra",
-            designation: "Operations Manager",
-            story: "Efficiency and responsibility go hand-in-hand here. NRAIL empowers every individual to take ownership, creating a culture where excellence is a group achievement and growth is shared by all.",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2670&auto=format&fit=crop"
+            name: "Srinivaas Iyengaar",
+            designation: "HR- Lead",
+            story: "At NRAIL, we truly believe learning is the strongest driver of growth. As people evolve, organizations evolve—and that’s why nurturing a culture of continuous development remains a core focus for us. We invest in building capabilities, encouraging curiosity, and creating an environment where individuals feel empowered to grow and contribute. From skill enhancement to leadership development, every initiative is designed to unlock potential and strengthen performance. For me, it’s about enabling people to move forward with confidence—because when individuals grow, the organization progresses with purpose.",
+            image: srinivaasImage
+        },
+        {
+            id: "05",
+            name: "Nishitha Gandha",
+            designation: "Head- Treasury",
+            story: "At NRAIL, treasury is not just a function—it’s a responsibility that supports the company’s momentum. Every action is focused on maintaining stability while enabling growth. The leadership creates a sense of trust and direction, which reflects in how teams work together. That collaboration ensures we stay agile and aligned in a dynamic environment. For me, it’s about building financial strength that supports long-term success.",
+            image: nishithaImage
+        },
+        {
+            id: "06",
+            name: "Mr Ramesh Alla",
+            designation: "Unit Head: Unit V (PM2)",
+            story: "Leading a team at NRAIL is both a responsibility and a privilege. Every day, I see individuals coming together with commitment, ownership, and a shared goal of excellence. It’s this collective spirit that transforms our efforts into real achievements. Our top management is deeply involved in our journey—not just as leaders, but as constant enablers of progress. Their vision and support have helped us reach milestones that have redefined what’s possible in our industry. With strong alignment between leadership and teams, we continue to set new benchmarks in quality, productivity, and performance.",
+            image: rameshImage
         }
     ];
 
@@ -58,7 +77,7 @@ const EmployeeStories = () => {
                             <img
                                 src={stories[currentIndex].image}
                                 alt={stories[currentIndex].name}
-                                className="w-full h-full object-cover grayscale brightness-75 transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
+                                className="w-full h-full object-cover object-left grayscale brightness-75 transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
                             />
                             <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-[#050505]" />
                         </motion.div>
@@ -79,13 +98,13 @@ const EmployeeStories = () => {
                 </div>
 
                 {/* Right: Content Panel */}
-                <div className="w-full lg:w-1/2 bg-[#050505] relative flex flex-col pt-12 pb-12 px-8 md:px-16 lg:px-24">
+                <div className="w-full lg:w-1/2 bg-[#050505] relative flex flex-col pt-12 pb-32 px-8 md:px-16 lg:px-24">
 
                     <div className="max-w-xl w-full">
                         {/* Top Spacer to push Bar down away from edge */}
                         <div className="h-25 w-full"></div>
 
-                        <div className="relative">
+                        <div className="relative min-h-[450px] md:min-h-[400px] lg:min-h-[420px]">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={currentIndex}
@@ -110,7 +129,7 @@ const EmployeeStories = () => {
                                         <Quote className="w-8 h-8 text-red-600 mb-6" />
                                     </motion.div>
 
-                                    <h3 className="text-lg md:text-xl lg:text-2xl font-light text-white leading-relaxed tracking-tight italic mb-8">
+                                    <h3 className="text-base md:text-lg font-light text-white leading-relaxed tracking-wide italic mb-8">
                                         "{stories[currentIndex].story}"
                                     </h3>
 
@@ -132,7 +151,7 @@ const EmployeeStories = () => {
 
                     {/* Sharp Navigation - Anchored at Bottom */}
                     {/* Sharp Navigation - Anchored at Bottom but lifted */}
-                    <div className="absolute bottom-24 left-0 w-full px-8 md:px-16 lg:px-24">
+                    <div className="absolute bottom-12 left-0 w-full px-8 md:px-16 lg:px-24 z-10">
                         <div className="flex items-center gap-0 border border-white/10 w-fit bg-[#050505]/80 backdrop-blur-md">
                             <button
                                 onClick={handlePrev}
@@ -141,7 +160,7 @@ const EmployeeStories = () => {
                                 <ArrowLeft className="w-4 h-4" />
                             </button>
                             <div className="px-5 text-[10px] font-bold tracking-[0.2em] text-white/40">
-                                {stories[currentIndex].id} / 04
+                                {stories[currentIndex].id} / 0{stories.length}
                             </div>
                             <button
                                 onClick={handleNext}

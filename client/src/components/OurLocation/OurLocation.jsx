@@ -62,7 +62,7 @@ const locations = [
         id: 1,
         name: "Unit V (PM1)",
         code: "Unit V, Plot No. 169/2, GIDC, Vapi - 396195",
-        region: "Gujarat, India",
+        region: "Sarigam & Angam",
         lat: 20.30165769545624,
         lng: 72.86702364617466,
         link: "https://www.google.com/maps/search/?api=1&query=20.30165769545624,72.86702364617466"
@@ -71,7 +71,7 @@ const locations = [
         id: 2,
         name: "Unit I",
         code: "Plot No. 169/1, GIDC, Vapi - 396195",
-        region: "Gujarat, India",
+        region: "Vapi",
         lat: 20.371232173507327,
         lng: 72.92940450288985,
         link: "https://www.google.com/maps/search/?api=1&query=20.371232173507327,72.92940450288985"
@@ -80,7 +80,7 @@ const locations = [
         id: 3,
         name: "Unit V (PM2)",
         code: "Unit V, Plot No. 169/2, GIDC, Vapi - 396195",
-        region: "Gujarat, India",
+        region: "Sarigam & Angam",
         lat: 20.301699611726335,
         lng: 72.86465996366665,
         link: "https://www.google.com/maps/search/?api=1&query=20.301699611726335,72.86465996366665"
@@ -89,7 +89,7 @@ const locations = [
         id: 4,
         name: "UNIT VI",
         code: "502-A/501-B, Fortune Terraces, 5th Floor, Opp. Citi Mall, New Link Road, Andheri (West), Mumbai 400 053",
-        region: "Maharashtra, India",
+        region: "Dahej",
         lat: 19.138899970114217,
         lng: 72.83216446655372,
         link: "https://www.google.com/maps/search/?api=1&query=19.138899970114217,72.83216446655372"

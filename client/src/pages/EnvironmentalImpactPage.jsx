@@ -1,37 +1,62 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { ChevronRight, Recycle, Droplets, Zap } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Recycle, Droplets, Zap } from 'lucide-react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 // Asset imports
-import forestVideo from '../assets/forest_loop.mp4';
+import envHeaderImg from '../assets/Environmental Impact Header.jpg?v=2';
 import SustainabilityHero from '../assets/Sustainability & Circular Manufacturing.webp';
+import rrPic1 from '../assets/rr pic 1.JPG';
+import rrPic2 from '../assets/Recycle and Reuse bottom slider.jpeg';
+import waterPic1 from '../assets/Water management 1.jpg';
+import waterPic2 from '../assets/Water Management 2.jpg';
+import powerPic1 from '../assets/Power Management 1.JPG';
+import powerPic2 from '../assets/Power Management 2.jpg';
 
 const EnvironmentalImpactPage = () => {
     const location = useLocation();
     const [activeTab, setActiveTab] = useState('recycle');
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const slideImages = {
+        recycle: [rrPic1, rrPic2],
+        water: [waterPic1, waterPic2],
+        power: [powerPic1, powerPic2]
+    };
+
+    const currentImages = slideImages[activeTab];
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location]);
 
+    useEffect(() => {
+        let interval;
+        if (currentImages && currentImages.length > 1) {
+            interval = setInterval(() => {
+                setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+            }, 3000);
+        }
+        return () => clearInterval(interval);
+    }, [activeTab, currentSlide, currentImages]);
+
+    useEffect(() => {
+        setCurrentSlide(0);
+    }, [activeTab]);
+
     return (
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
 
-            {/* Hero Section - 95vh height to match Legacy page */}
-            <div className="relative w-full h-[95vh] overflow-hidden">
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
-                >
-                    <source src={forestVideo} type="video/mp4" />
-                </video>
+            {/* Hero Section - Height scales automatically with the image to show full height */}
+            <div className="relative w-full overflow-hidden flex flex-col justify-end text-white">
+                <img
+                    src={envHeaderImg}
+                    alt="Environmental Impact Header"
+                    className="w-full h-auto"
+                />
                 
                 {/* Overlay gradient to match Legacy page */}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -343,21 +368,78 @@ const EnvironmentalImpactPage = () => {
             </section>
 
             {/* Bottom Hero Image Section */}
-            <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden bg-gray-900">
-                <motion.div
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                    className="absolute inset-0 w-full h-full"
-                >
-                    <img
-                        src={SustainabilityHero}
-                        alt="Sustainability and Circular Manufacturing"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/20"></div>
-                </motion.div>
+            <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden bg-gray-900 group">
+                {currentImages ? (
+                    <>
+                        <motion.img
+                            src={currentImages[0]}
+                            alt={`${activeTab} 1`}
+                            animate={{
+                                opacity: currentSlide === 0 ? 1 : 0,
+                                scale: currentSlide === 0 ? 1 : 1.05,
+                                zIndex: currentSlide === 0 ? 10 : 0
+                            }}
+                            transition={{ duration: 1.2, ease: "easeInOut" }}
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        <motion.img
+                            src={currentImages[1]}
+                            alt={`${activeTab} 2`}
+                            animate={{
+                                opacity: currentSlide === 1 ? 1 : 0,
+                                scale: currentSlide === 1 ? 1 : 1.05,
+                                zIndex: currentSlide === 1 ? 10 : 0
+                            }}
+                            transition={{ duration: 1.2, ease: "easeInOut" }}
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/20 z-0"></div>
+                        
+                        {/* Navigation Arrows */}
+                        <button
+                            onClick={() => setCurrentSlide(prev => prev === 0 ? 1 : 0)}
+                            className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-[#8b0000] shadow-xl backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+                        >
+                            <ChevronLeft className="w-8 h-8" />
+                        </button>
+                        <button
+                            onClick={() => setCurrentSlide(prev => prev === 1 ? 0 : 1)}
+                            className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-[#8b0000] shadow-xl backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+                        >
+                            <ChevronRight className="w-8 h-8" />
+                        </button>
+
+                        {/* Pagination Dots */}
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 z-10">
+                            {[0, 1].map((idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setCurrentSlide(idx)}
+                                    className={`transition-all duration-300 rounded-full ${
+                                        currentSlide === idx 
+                                        ? 'w-10 h-2 bg-[#8b0000] shadow-md' 
+                                        : 'w-2 h-2 bg-white/80 hover:bg-white shadow-md'
+                                    }`}
+                                />
+                            ))}
+                        </div>
+                    </>
+                ) : (
+                    <motion.div
+                        initial={{ scale: 1.1, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className="absolute inset-0 w-full h-full"
+                    >
+                        <img
+                            src={SustainabilityHero}
+                            alt="Sustainability and Circular Manufacturing"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/20 z-0"></div>
+                    </motion.div>
+                )}
             </section>
 
             <Footer />

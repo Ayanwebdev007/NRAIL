@@ -6,10 +6,10 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 // Asset imports
-import heroImg from '../assets/quality_innovation_hero.webp';
+import heroImg from '../assets/Innovation Header.png';
 import qualityDetail from '../assets/quality assurance img.webp';
 import innovationDetail from '../assets/innovation_detail.webp';
-import benefit1 from '../assets/Customer Benefits.webp';
+import benefit1 from '../assets/customer benefits final.png';
 import benefit2 from '../assets/framework_tech.webp';
 import benefit3 from '../assets/framework_sustainability.webp';
 import benefit4 from '../assets/framework_efficiency.webp';
@@ -49,12 +49,12 @@ const QualityInnovationPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[95vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImg} 
             alt="Quality & Innovation Hero" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
