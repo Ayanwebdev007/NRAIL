@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, ChevronLeft, Trees, ShieldCheck, Layers, Zap, Printer, Feather } from 'lucide-react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 import heroImg from '../assets/db header.webp';
 import db1 from '../assets/db1.webp';
 import db2 from '../assets/db2.webp';

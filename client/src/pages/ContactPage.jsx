@@ -5,8 +5,8 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 // Asset imports
-import contactHero from '../assets/contact us page.JPG';
-import nrailLogo from '../assets/logo.png';
+import contactHero from '../assets/contact us page.webp';
+import nrailLogo from '../assets/logo.webp';
 
 const ContactPage = () => {
     const location = useLocation();

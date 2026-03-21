@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ArrowRight, ArrowLeft } from 'lucide-react';
 import poojaImage from '../../assets/pooja_daftari.webp';
-import raviImage from '../../assets/Ravi Kumar Sharma.png';
-import adityaImage from '../../assets/Aditya Sharma.png';
-import srinivaasImage from '../../assets/Srinivaas Iyengaar.png';
-import nishithaImage from '../../assets/Nishita Gandha.png';
-import rameshImage from '../../assets/Ramesh Alla.png';
+import raviImage from '../../assets/Ravi Kumar Sharma.webp';
+import adityaImage from '../../assets/Aditya Sharma.webp';
+import srinivaasImage from '../../assets/Srinivaas Iyengaar.webp';
+import nishithaImage from '../../assets/Nishita Gandha.webp';
+import rameshImage from '../../assets/Ramesh Alla.webp';
 
 const EmployeeStories = () => {
     const [currentIndex, setCurrentIndex] = useState(0);

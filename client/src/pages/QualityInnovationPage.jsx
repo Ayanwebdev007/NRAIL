@@ -6,10 +6,10 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 // Asset imports
-import heroImg from '../assets/Innovation Header.png';
+import heroImg from '../assets/Innovation Header.webp';
 import qualityDetail from '../assets/quality assurance img.webp';
 import innovationDetail from '../assets/innovation_detail.webp';
-import benefit1 from '../assets/customer benefits final.png';
+import benefit1 from '../assets/customer benefits final.webp';
 import benefit2 from '../assets/framework_tech.webp';
 import benefit3 from '../assets/framework_sustainability.webp';
 import benefit4 from '../assets/framework_efficiency.webp';

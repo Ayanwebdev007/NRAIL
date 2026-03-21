@@ -13,11 +13,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 
 // Asset imports
-import commitmentHero from '../assets/commitment header.jpg';
-import excellenceImg from '../assets/Together, We Drive Excellence.JPG';
-import TrustCareImage from '../assets/Strengthening Lives Through Trust and Care.png';
-import foundation1 from '../assets/The Foundation of Our Growth Story.jpg';
-import foundation2 from '../assets/The Foundation of Our Growth Story 2.png';
+import commitmentHero from '../assets/commitment header.webp';
+import excellenceImg from '../assets/Together, We Drive Excellence.webp';
+import TrustCareImage from '../assets/Strengthening Lives Through Trust and Care.webp';
+import foundation1 from '../assets/The Foundation of Our Growth Story.webp';
+import foundation2 from '../assets/The Foundation of Our Growth Story 2.webp';
 import greenPowerJpg1 from '../assets/green power 1.webp';
 import greenPowerJpg2 from '../assets/green power 2.webp';
 import greenPowerJpg3 from '../assets/green power 3.webp';

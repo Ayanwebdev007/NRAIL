@@ -6,11 +6,11 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 // Asset imports
-import CommunityHero from '../assets/Header.jpg';
-import EducationImg from '../assets/C0009.MP4.00_01_40_24.Still001.jpg';
-import HealthcareImg from '../assets/C0055.MP4.00_16_41_12.Still001.jpg';
-import EmpowermentImg from '../assets/C0050.MP4.00_15_41_10.Still001.jpg';
-import AnimalWelfareImg from '../assets/C0106.MP4.00_27_18_17.Still001.jpg';
+import CommunityHero from '../assets/Header.webp';
+import EducationImg from '../assets/C0009.MP4.00_01_40_24.Still001.webp';
+import HealthcareImg from '../assets/C0055.MP4.00_16_41_12.Still001.webp';
+import EmpowermentImg from '../assets/C0050.MP4.00_15_41_10.Still001.webp';
+import AnimalWelfareImg from '../assets/C0106.MP4.00_27_18_17.Still001.webp';
 
 const socialData = [
     {

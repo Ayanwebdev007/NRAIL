@@ -6,14 +6,14 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 // Asset imports
-import envHeaderImg from '../assets/Environmental Impact Header.jpg?v=2';
+import envHeaderImg from '../assets/Environmental Impact Header.webp?v=2';
 import SustainabilityHero from '../assets/Sustainability & Circular Manufacturing.webp';
-import rrPic1 from '../assets/rr pic 1.JPG';
-import rrPic2 from '../assets/Recycle and Reuse bottom slider.jpeg';
-import waterPic1 from '../assets/Water management 1.jpg';
-import waterPic2 from '../assets/Water Management 2.jpg';
-import powerPic1 from '../assets/Power Management 1.JPG';
-import powerPic2 from '../assets/Power Management 2.jpg';
+import rrPic1 from '../assets/rr pic 1.webp';
+import rrPic2 from '../assets/Recycle and Reuse bottom slider.webp';
+import waterPic1 from '../assets/Water management 1.webp';
+import waterPic2 from '../assets/Water Management 2.webp';
+import powerPic1 from '../assets/Power Management 1.webp';
+import powerPic2 from '../assets/Power Management 2.webp';
 
 const EnvironmentalImpactPage = () => {
     const location = useLocation();

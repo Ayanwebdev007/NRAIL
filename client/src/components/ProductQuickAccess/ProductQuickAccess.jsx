@@ -63,7 +63,7 @@ const products = [
     },
 ];
 
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.webp';
 
 const ProductQuickAccess = () => {
     const [activeTab, setActiveTab] = useState(products[0].id);
