@@ -37,13 +37,11 @@ const BookViewer = ({ pdfUrl, onClose }) => {
                 const totalPages = pdf.numPages;
                 const pagesArray = new Array(totalPages);
 
-                // Parallel batch rendering for better performance
-                const BATCH_SIZE = 4; // Process 4 pages at once
                 const renderPage = async (pageNum) => {
                     const page = await pdf.getPage(pageNum);
-                    const viewport = page.getViewport({ scale: 1.5 }); // Reduced from 2.0 for faster rendering
+                    const viewport = page.getViewport({ scale: 1.5 });
                     const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d', { alpha: false }); // Disable alpha for better performance
+                    const context = canvas.getContext('2d', { alpha: false });
 
                     canvas.height = viewport.height;
                     canvas.width = viewport.width;
@@ -54,22 +52,22 @@ const BookViewer = ({ pdfUrl, onClose }) => {
                         intent: 'display'
                     }).promise;
 
-                    return canvas.toDataURL('image/jpeg', 0.65); // Reduced quality from 0.8 to 0.65 for faster conversion
+                    return canvas.toDataURL('image/jpeg', 0.8); // High quality re-render on the 13MB file
                 };
 
-                // Process pages in batches
+                // Fast Sequential Batch Rendering
+                const BATCH_SIZE = 12;
                 for (let i = 0; i < totalPages; i += BATCH_SIZE) {
-                    const batch = [];
+                    const batchPromises = [];
                     for (let j = i; j < Math.min(i + BATCH_SIZE, totalPages); j++) {
-                        batch.push(renderPage(j + 1).then(dataUrl => {
+                        batchPromises.push(renderPage(j + 1).then(dataUrl => {
                             pagesArray[j] = dataUrl;
                         }));
                     }
-                    await Promise.all(batch);
+                    await Promise.all(batchPromises);
                     setRenderProgress(Math.round(((i + BATCH_SIZE) / totalPages) * 100));
                 }
 
-                // Set all pages at once after loading completes
                 setPages(pagesArray);
                 setLoading(false);
             } catch (error) {

@@ -16,7 +16,7 @@ import isoCa1Pdf from '../assets/ISO NR Aggrawal EMS CA (1).pdf';
 import fdaPm2Pdf from '../assets/IGB FDA - PM2 FG.pdf';
 import heavyMetalPm2Pdf from '../assets/Heavy Metal IGB 08.02.25 -U5 PM2.pdf';
 import fscCertificatePdf from '../assets/FSC Certificate.pdf';
-import coffeeTablePdf from '../assets/Coffe Table Book_NR Agarwal (1)_compressed.pdf';
+import coffeeTablePdf from '../assets/Coffe Table Book_NR Agarwal final.pdf';
 import bis1848Pdf from '../assets/BIS 1848 WP Updated on 21.08.2025.pdf';
 import { useLocation, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Shield, Zap, Leaf, ClipboardCheck, Users } from 'lucide-react';

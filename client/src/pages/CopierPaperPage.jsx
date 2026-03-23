@@ -11,12 +11,11 @@ import c2 from '../assets/C2.webp';
 import c3 from '../assets/C3 (2).webp';
 import nrBrilliancePdf from '../assets/specs/nr_brilliance.pdf';
 import nrCopierPdf from '../assets/specs/nr_copier.pdf';
-import industryFmcg from '../assets/industry_fmcg.webp';
-import industryRetail from '../assets/industry_retail.webp';
-import industryIndustrial from '../assets/industry_industrial.webp';
-import industryGarmentsHosiery from '../assets/industry_garments_hosiery.webp';
-import industryAgarbatti from '../assets/industry_agarbatti.webp';
-import industryElectronics from '../assets/industry_electronics.webp';
+import industryOffices from '../assets/Offices.png';
+import industryHomeUsage from '../assets/Home Usage.jpg';
+import industryLetterhead from '../assets/Letterhead.png';
+import industryHospitals from '../assets/Hospitals.png';
+import industryPrinting from '../assets/Printing & Photocopying.png';
 import { X, Download, Phone } from 'lucide-react';
 
 // Swiper imports
@@ -239,12 +238,11 @@ const IndustriesSection = () => {
     const swiperRef = useRef(null);
 
     const industries = [
-        { name: "FMCG", img: industryFmcg },
-        { name: "Retail", img: industryRetail },
-        { name: "Industrial Packaging", img: industryIndustrial },
-        { name: "Garments & Hosiery", img: industryGarmentsHosiery },
-        { name: "Agarbatti Packaging", img: industryAgarbatti },
-        { name: "Consumer Appliances", img: industryElectronics }
+        { name: "Offices", img: industryOffices },
+        { name: "Home Usage", img: industryHomeUsage },
+        { name: "Letterheads", img: industryLetterhead },
+        { name: "Hospitals", img: industryHospitals },
+        { name: "Printing & Photocopying", img: industryPrinting }
     ];
 
     return (

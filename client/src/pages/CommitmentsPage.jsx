@@ -218,105 +218,127 @@ const CommitmentsPage = () => {
 
             <div className="h-8 md:h-12 bg-white w-full"></div> {/* Refined Structural Spacer */}
 
-            {/* Strengthening Lives Section (Now Light Red Theme / Dark Text) */}
-            <section className="pb-32 bg-white w-full text-black font-['Outfit'] grid grid-cols-[1fr_min(1440px,90%)_1fr]">
-                <div className="col-start-2 bg-[#fecaca] border border-red-100 rounded-sm grid grid-cols-1 lg:grid-cols-[80px_1fr_80px_1.2fr] min-h-[450px] lg:min-h-[550px] overflow-hidden shadow-sm">
-                    {/* Left Empty Column (The Left Gap) - 80px on desktop */}
-                    <div className="hidden lg:block"></div>
+            {/* Strengthening Lives Section - Redesigned to match Mission/Vision aesthetic (Increased Height) */}
+            <section className="bg-[#8b0000] py-64 lg:py-80 relative overflow-hidden flex items-center" style={{ minHeight: '85vh' }}>
+                {/* Decorative Floral Background */}
+                <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                    <svg
+                        viewBox="0 0 400 400"
+                        className="absolute -top-20 -right-20 w-[400px] h-[400px] rotate-[15deg] fill-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M100,200 C100,100 200,50 300,100 C250,150 200,250 100,200 Z" />
+                        <path d="M50,150 C50,80 120,40 180,80 C150,120 120,180 50,150 Z" />
+                        <path d="M150,250 C150,180 220,140 280,180 C250,220 220,280 150,250 Z" />
+                    </svg>
+                </div>
 
-                    {/* Middle: Text Content (High Contrast Dark on Light Red) */}
-                    <div className="flex flex-col justify-center px-8 py-12 lg:px-0 lg:py-20 text-black text-left">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="flex flex-col items-start"
-                        >
-                            <h3 className="font-['Outfit'] leading-tight text-[#1a1a1a]" style={{ 
-                                fontSize: 'clamp(26px, 3.2vw, 34px)', 
-                                fontWeight: 300,
-                                textAlign: 'left'
-                            }}>
-                                <span className="font-light text-[#8b0000]">Strengthening</span> Lives Through <br className="hidden lg:block" /> Trust and Care
-                            </h3>
-                            <div className="h-4 md:h-6"></div> {/* Refined Spacer for Moderate Gap */}
-                            <p className="text-sm md:text-base text-gray-600 leading-relaxed text-justify font-light">
-                                At NRAIL, trust, safety, and commitment form the foundation of our organizational ethos and guide every aspect of our operations. We build trust through transparency, ethical governance, and consistent delivery, fostering strong relationships with employees, customers, and stakeholders. Safety remains a top priority, supported by structured systems, rigorous training, and strict adherence to regulatory standards to ensure a secure and healthy workplace. Our commitment extends beyond the factory floor to the communities we serve—through initiatives in education, healthcare, and social development, including women empowerment and local engagement. By aligning responsible practices with long-term vision, NRAIL continues to create a safe, inclusive, and trustworthy ecosystem for both people and society.
-                            </p>
-                        </motion.div>
-                    </div>
+                <div className="container mx-auto px-6 md:px-12 lg:px-24 max-w-7xl relative z-10">
+                    <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
+                        
+                        {/* Left Column - Text Block */}
+                        <div className="lg:w-1/2">
+                            <motion.div
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="text-white space-y-6"
+                            >
+                                <h3 className="text-3xl lg:text-4xl font-extrabold tracking-tight uppercase leading-tight">
+                                    <span className="whitespace-nowrap">Strengthening Lives</span> <br className="hidden lg:block text-[#fecacacc]" /> <span className="text-[#fecaca] whitespace-nowrap">Through Trust and Care</span>
+                                </h3>
+                                <div className="w-12 h-[2px] bg-white opacity-40"></div>
+                                <p className="text-base lg:text-lg leading-relaxed text-gray-100 font-light text-justify max-w-xl">
+                                    At NRAIL, trust, safety, and commitment form the foundation of our organizational ethos and guide every aspect of our operations. We build trust through transparency, ethical governance, and consistent delivery, fostering strong relationships with employees, customers, and stakeholders. Safety remains a top priority, supported by structured systems, rigorous training, and strict adherence to regulatory standards to ensure a secure and healthy workplace. Our commitment extends beyond the factory floor to the communities we serve—through initiatives in education, healthcare, and social development, including women empowerment and local engagement. By aligning responsible practices with long-term vision, NRAIL continues to create a safe, inclusive, and trustworthy ecosystem for both people and society.
+                                </p>
+                            </motion.div>
+                        </div>
 
-                    {/* Right Empty Column (The Right Gap) - 80px on desktop */}
-                    <div className="hidden lg:block"></div>
-                    
-                    {/* Right: Image Container */}
-                    <div className="relative min-h-[350px] lg:min-h-full">
+                        {/* Right Column - Organic Image */}
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1 }}
-                            className="absolute inset-0 w-full h-full"
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="lg:w-1/2 relative"
                         >
-                            <img 
-                                src={TrustCareImage} 
-                                alt="Strengthening Lives" 
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors duration-500"></div>
+                            <div className="relative z-20 overflow-hidden rounded-2xl aspect-[3/2] border-2 border-white/90"
+                                style={{
+                                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                                }}>
+                                <img
+                                    src={TrustCareImage}
+                                    alt="Strengthening Lives"
+                                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700"
+                                />
+                            </div>
                         </motion.div>
+
                     </div>
                 </div>
             </section>
 
             <div className="h-12 md:h-20 bg-white w-full"></div> {/* Structural Spacer */}
 
-            {/* Foundation of Our Growth Story Section (Now also Light Red Theme / Dark Text) */}
-            <section className="pb-32 bg-white w-full text-black font-['Outfit'] grid grid-cols-[1fr_min(1440px,90%)_1fr]">
-                <div className="col-start-2 grid grid-cols-1 lg:grid-cols-[1.2fr_80px_1fr_80px] min-h-[450px] lg:min-h-[550px] overflow-hidden bg-[#fecaca] border border-red-100 shadow-sm rounded-sm">
-                    {/* Left: Asset (Image on Left in this section) */}
-                    <div className="relative h-full min-h-[300px] lg:min-h-full overflow-hidden order-2 lg:order-1">
-                        <motion.img
-                            initial={{ scale: 1.1, opacity: 0 }}
-                            whileInView={{ scale: 1, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1.5 }}
-                            src={excellenceImg}
-                            alt="Together, We Drive Excellence"
-                            className="absolute inset-0 w-full h-full object-cover object-bottom"
-                        />
-                        <div className="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors duration-500"></div>
-                    </div>
+            {/* Together, We Drive Excellence Section - Redesigned to match aesthetic (Flipped Layout) */}
+            <section className="bg-[#8b0000] py-48 lg:py-64 relative overflow-hidden flex items-center" style={{ minHeight: '80vh' }}>
+                {/* Decorative Floral Background (Bottom Left for flipped effect) */}
+                <div className="absolute bottom-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                    <svg
+                        viewBox="0 0 400 400"
+                        className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rotate-[-45deg] fill-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M100,200 C100,100 200,50 300,100 C250,150 200,250 100,200 Z" />
+                        <path d="M50,150 C50,80 120,40 180,80 C150,120 120,180 50,150 Z" />
+                        <path d="M150,250 C150,180 220,140 280,180 C250,220 220,280 150,250 Z" />
+                    </svg>
+                </div>
 
-                    {/* Spacer Column - 80px on desktop */}
-                    <div className="hidden lg:block order-2"></div>
-
-                    {/* Right: Text Content (High Contrast Dark on Light Red) */}
-                    <div className="flex flex-col justify-center px-8 py-12 lg:px-0 lg:py-20 order-1 lg:order-3 text-black">
+                <div className="container mx-auto px-6 md:px-12 lg:px-24 max-w-7xl relative z-10">
+                    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                        
+                        {/* Left Column - Organic Image */}
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="flex flex-col items-start"
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="lg:w-1/2 relative"
                         >
-                            <h3 className="font-['Outfit'] leading-tight text-[#1a1a1a]" style={{ 
-                                fontSize: 'clamp(26px, 3.2vw, 34px)', 
-                                fontWeight: 300,
-                                textAlign: 'left'
-                            }}>
-                                Together, We <br className="hidden lg:block" /> <span className="text-[#8b0000] font-light">Drive Excellence</span>
-                            </h3>
-                            <div className="h-4 md:h-6"></div> {/* Refined Spacer for Moderate Gap */}
-                            <p className="text-sm md:text-base text-gray-600 leading-relaxed text-justify font-light">
-                                At NRAIL, we believe that strong teams build strong organizations. Our approach to team building focuses on creating a culture of trust, collaboration, and shared responsibility. By encouraging cross-functional synergy, continuous skill enhancement, and leadership engagement, we ensure that every individual plays a meaningful role in our growth journey. This cohesive and performance-driven culture allows us to achieve operational excellence and sustained progress.
-                            </p>
+                            <div className="relative z-20 overflow-hidden rounded-2xl aspect-[3/2] border-2 border-white/90"
+                                style={{
+                                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                                }}>
+                                <img
+                                    src={excellenceImg}
+                                    alt="Together, We Drive Excellence"
+                                    className="w-full h-full object-cover object-bottom"
+                                />
+                            </div>
                         </motion.div>
-                    </div>
 
-                    {/* Far Right Padding Column - 80px on desktop */}
-                    <div className="hidden lg:block order-4"></div>
+                        {/* Right Column - Text Block */}
+                        <div className="lg:w-1/2">
+                            <motion.div
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="text-white space-y-6"
+                            >
+                                <h3 className="text-3xl lg:text-4xl font-extrabold tracking-tight uppercase leading-tight">
+                                    <span className="whitespace-nowrap">Together, We</span> <br className="hidden lg:block text-[#fecacacc]" /> <span className="text-[#fecaca] whitespace-nowrap">Drive Excellence</span>
+                                </h3>
+                                <div className="w-12 h-[2px] bg-white opacity-40"></div>
+                                <p className="text-base lg:text-lg leading-relaxed text-gray-100 font-light text-justify max-w-xl">
+                                    At NRAIL, we believe that strong teams build strong organizations. Our approach to team building focuses on creating a culture of trust, collaboration, and shared responsibility. By encouraging cross-functional synergy, continuous skill enhancement, and leadership engagement, we ensure that every individual plays a meaningful role in our growth journey. This cohesive and performance-driven culture allows us to achieve operational excellence and sustained progress.
+                                </p>
+                            </motion.div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 

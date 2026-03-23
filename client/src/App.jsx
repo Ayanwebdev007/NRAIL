@@ -16,8 +16,19 @@ import EnvironmentalImpactPage from './pages/EnvironmentalImpactPage';
 import CommitmentsPage from './pages/CommitmentsPage';
 import CommunityChampsPage from './pages/CommunityChampsPage';
 import ShareholderInformationPage from './pages/ShareholderInformationPage';
+import FinancialReportsPage from './pages/FinancialReportsPage';
+import NrailAnnualReportsPage from './pages/NrailAnnualReportsPage';
+import AgmPage from './pages/AgmPage';
+import CorporateGovernancePage from './pages/CorporateGovernancePage';
+import ShareTransferAgentsPage from './pages/ShareTransferAgentsPage';
+import NewsroomPage from './pages/NewsroomPage';
+import InvestorInformationPage from './pages/InvestorInformationPage';
+import IndependentDirectorsPage from './pages/IndependentDirectorsPage';
+import PoliciesPage from './pages/PoliciesPage';
+import SebiDisclosurePage from './pages/SebiDisclosurePage';
 import ContactPage from './pages/ContactPage';
 import Loader from './components/Loader/Loader';
+import ScrollToTop from './components/ScrollToTop';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import './App.css';
@@ -40,6 +51,9 @@ function App() {
 
     requestAnimationFrame(raf);
 
+    // Make lenis accessible globally for ScrollToTop
+    window.lenis = lenis;
+
     // Initial Loading Timer
     const timer = setTimeout(() => {
       setLoading(false);
@@ -47,12 +61,14 @@ function App() {
 
     return () => {
       lenis.destroy();
+      window.lenis = null;
       clearTimeout(timer);
     };
   }, []);
 
   return (
     <div className="App">
+      <ScrollToTop />
       <AnimatePresence mode="wait">
         {loading && <Loader key="loader" />}
       </AnimatePresence>
@@ -74,6 +90,16 @@ function App() {
           <Route path="/commitments" element={<CommitmentsPage />} />
           <Route path="/community-champions" element={<CommunityChampsPage />} />
           <Route path="/shareholder-information" element={<ShareholderInformationPage />} />
+          <Route path="/financial-reports" element={<FinancialReportsPage />} />
+          <Route path="/nrail-annual-reports" element={<NrailAnnualReportsPage />} />
+          <Route path="/agm" element={<AgmPage />} />
+          <Route path="/corporate-governance" element={<CorporateGovernancePage />} />
+          <Route path="/share-transfer-agents" element={<ShareTransferAgentsPage />} />
+          <Route path="/newsroom" element={<NewsroomPage />} />
+          <Route path="/investor-information" element={<InvestorInformationPage />} />
+          <Route path="/independent-directors" element={<IndependentDirectorsPage />} />
+          <Route path="/policies" element={<PoliciesPage />} />
+          <Route path="/sebi-disclosure" element={<SebiDisclosurePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       )}

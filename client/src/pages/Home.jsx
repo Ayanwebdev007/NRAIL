@@ -15,7 +15,7 @@ import OurLocation from '../components/OurLocation/OurLocation';
 import Footer from '../components/Footer/Footer';
 import Loader from '../components/Loader/Loader';
 import BookViewer from '../components/BookViewer/BookViewer';
-import CoffeTableBook from '../assets/Coffe Table Book_NR Agarwal (1)_compressed.pdf';
+import CoffeTableBook from '../assets/Coffe Table Book_NR Agarwal final.pdf';
 
 const Home = () => {
     const [showBook, setShowBook] = useState(false);

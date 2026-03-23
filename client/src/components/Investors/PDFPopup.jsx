@@ -58,7 +58,7 @@ const PDFPopup = ({ pdfUrl, title, onClose }) => {
             {title}
           </span>
           <span className="text-[10px] text-white/40 uppercase tracking-widest mt-0.5">
-            {isPdf ? 'PDF Document' : 'Spreadsheet File'}
+            {isPdf ? 'PDF Document' : 'Downloadable File'}
           </span>
         </div>
 
@@ -98,21 +98,21 @@ const PDFPopup = ({ pdfUrl, title, onClose }) => {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center p-12 text-center max-w-md">
-            <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-6">
-              <Download className="text-green-600" size={40} />
+            <div className="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mb-6">
+              <Download className="text-[#b01e1e]" size={40} />
             </div>
             <h3 className="text-2xl font-black text-[#1a1a1a] uppercase mb-4">
-              Spreadsheet Ready
+              Document Ready
             </h3>
             <p className="text-black/60 mb-8 leading-relaxed">
-              This document is a spreadsheet and cannot be viewed directly. Please download it to view the content on your device.
+              This file cannot be viewed directly in the browser. Please download it to view the content on your device.
             </p>
             <button
               onClick={handleDownload}
-              className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white font-black uppercase tracking-widest py-4 rounded-xl transition-all shadow-lg hover:shadow-green-900/20"
+              className="w-full flex items-center justify-center gap-3 bg-[#b01e1e] hover:bg-[#d42424] text-white font-black uppercase tracking-widest py-4 rounded-xl transition-all shadow-lg hover:shadow-red-900/20"
             >
               <Download size={20} />
-              Download Spreadsheet
+              Download Document
             </button>
           </div>
         )}

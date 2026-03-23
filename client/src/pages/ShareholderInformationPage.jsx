@@ -5,13 +5,22 @@ import InvestorCard from '../components/Investors/InvestorCard';
 import PDFPopup from '../components/Investors/PDFPopup';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const ShareholderInformationPage = () => {
+    const [searchParams] = useSearchParams();
     const [view, setView] = useState('root'); // root, shareholder-info, shareholding-pattern, shareholding-year
     const [selectedYear, setSelectedYear] = useState(null);
     const [popupData, setPopupData] = useState(null);
     const [navigationHistory, setNavigationHistory] = useState(['root']);
+
+    useEffect(() => {
+        const viewParam = searchParams.get('view');
+        const allowedViews = ['shareholder-info', 'shareholding-pattern'];
+        if (viewParam && allowedViews.includes(viewParam)) {
+            handleNavigate(viewParam);
+        }
+    }, [searchParams]);
 
     // Dynamic asset loading using Vite's glob import
     const pdfs = import.meta.glob('../assets/1.Shareholder Information/1.Shareholder Information/**/*.pdf', { eager: true, as: 'url' });

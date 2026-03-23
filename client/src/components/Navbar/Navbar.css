@@ -121,7 +121,9 @@
     /* Increased to match main links scale */
     font-weight: 500;
     transition: all 0.3s ease;
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 320px;
+    line-height: 1.4;
 }
 
 .dropdown li a:hover {
