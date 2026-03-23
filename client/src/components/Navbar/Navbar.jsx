@@ -49,15 +49,16 @@ const Navbar = () => {
     {
       title: 'Investors',
       links: [
-        { label: 'Board of Directors', path: '/#board-of-directors' },
-        { label: 'Financial Performance', path: '/#financial-performance' },
-        { label: 'Shareholding Pattern', path: '/#shareholding-pattern' },
-        { label: 'Shareholder Information', path: '/#shareholder-information' },
-        { label: 'Codes and Policies', path: '/#codes-policies' },
-        { label: 'Corporate Governance', path: '/#corporate-governance' },
-        { label: 'Investor Presentations', path: '/#investor-presentations' },
+        { label: 'Shareholder Information', path: '/shareholder-information' },
+        { label: 'Financial Report', path: '/#financial-report' },
+        { label: 'NRAIL Annual Report', path: '/#nrail-annual-report' },
         { label: 'AGM', path: '/#agm' },
-        { label: 'Annual Report', path: '/#annual-report' }
+        { label: 'Corporate Governance', path: '/#corporate-governance' },
+        { label: 'Share Transfer Agents', path: '/#share-transfer-agents' },
+        { label: 'Newsroom', path: '/#newsroom' },
+        { label: 'Investor Information', path: '/#investor-information' },
+        { label: 'Independent Directors', path: '/#independent-directors' },
+        { label: 'Policies at NRAIL', path: '/#policies-at-nrail' }
       ]
     },
     {

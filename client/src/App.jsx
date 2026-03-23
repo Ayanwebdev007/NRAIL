@@ -15,6 +15,7 @@ import CopierPaperPage from './pages/CopierPaperPage';
 import EnvironmentalImpactPage from './pages/EnvironmentalImpactPage';
 import CommitmentsPage from './pages/CommitmentsPage';
 import CommunityChampsPage from './pages/CommunityChampsPage';
+import ShareholderInformationPage from './pages/ShareholderInformationPage';
 import ContactPage from './pages/ContactPage';
 import Loader from './components/Loader/Loader';
 import Lenis from 'lenis';
@@ -72,6 +73,7 @@ function App() {
           <Route path="/environmental-impact" element={<EnvironmentalImpactPage />} />
           <Route path="/commitments" element={<CommitmentsPage />} />
           <Route path="/community-champions" element={<CommunityChampsPage />} />
+          <Route path="/shareholder-information" element={<ShareholderInformationPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       )}
