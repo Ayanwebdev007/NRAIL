@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
 // Asset imports
-import envHeaderImg from '../assets/Environmental Impact Header.webp?v=2';
+import envHeaderImg from '../assets/Environmental Impact Header Final.png';
 import SustainabilityHero from '../assets/Sustainability & Circular Manufacturing.webp';
 import rrPic1 from '../assets/rr pic 1.webp';
 import rrPic2 from '../assets/Recycle and Reuse bottom slider.webp';
@@ -50,12 +50,12 @@ const EnvironmentalImpactPage = () => {
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
 
-            {/* Hero Section - Height scales automatically with the image to show full height */}
-            <div className="relative w-full overflow-hidden flex flex-col justify-end text-white">
+            {/* Hero Section - Height normalized to 95vh for consistency */}
+            <div className="relative w-full h-[95vh] overflow-hidden flex flex-col justify-end text-white bg-white">
                 <img
                     src={envHeaderImg}
                     alt="Environmental Impact Header"
-                    className="w-full h-auto"
+                    className="w-full h-full object-contain"
                 />
                 
                 {/* Overlay gradient to match Legacy page */}
