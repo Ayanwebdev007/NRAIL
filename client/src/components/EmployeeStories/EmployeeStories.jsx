@@ -68,7 +68,7 @@ const EmployeeStories = () => {
             id: "08",
             name: "Ramesh Alla",
             designation: "Unit Head: Unit V (PM2)",
-            story: "Leading a team at NRAIL is both a responsibility and a privilege. Every day, I see individuals coming together with commitment, ownership, and a shared goal of excellence. It’s this collective spirit that transforms our efforts into real achievements. Our top management is deeply involved in our journey—not just as leaders, but as constant enablers of progress. Their vision and support have helped us reach milestones that have redefined what’s possible in our industry. With strong alignment between leadership and teams, we continue to set new benchmarks in quality, productivity, and performance. Being part of NRAIL means being part of something bigger—an organization that is continuously evolving and leading with purpose.",
+            story: "Leading a team at NRAIL is both a responsibility and a privilege. Every day, I see individuals coming together with commitment, ownership, and a shared goal of excellence. It’s this collective spirit that transforms our efforts into real achievements. Our top management is deeply involved in our journey—not just as leaders, but as constant enablers of progress. Their vision and support have helped us reach milestones that have redefined what’s possible in our industry.",
             image: rameshImage
         }
     ];
