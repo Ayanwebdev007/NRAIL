@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
 import milestoneBg from '../assets/milestone_bg.webp';
 import cityscape from '../assets/town-silhoutte.webp';
 import { ChevronLeft, ChevronRight, TrendingUp, Play, Pause } from 'lucide-react';
@@ -400,7 +399,6 @@ const MilestonesPage = () => {
                 </div>
             </div>
 
-            <Footer />
 
             <style dangerouslySetInnerHTML={{ __html: `
                 .no-scrollbar::-webkit-scrollbar {
