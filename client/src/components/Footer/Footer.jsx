@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Linkedin, Instagram, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.webp';
 
@@ -63,7 +63,7 @@ const Footer = () => {
                         <div className="h-2 md:h-5" />
 
                         <div className="flex items-center gap-4 md:gap-6 2xl:gap-10">
-                            {[Linkedin, Twitter, Facebook, Instagram].map((Icon, index) => (
+                            {[Linkedin, Instagram].map((Icon, index) => (
                                 <a
                                     key={index}
                                     href="#"

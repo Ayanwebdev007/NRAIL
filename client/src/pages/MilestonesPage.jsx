@@ -326,12 +326,12 @@ const MilestonesPage = () => {
                                     >
                                         {/* Large Image Fragment */}
                                         <motion.div 
-                                            className="w-[200px] h-[140px] shrink-0 overflow-hidden border border-white/40 rounded-lg bg-black box-content"
+                                            className="w-[200px] h-[140px] shrink-0 overflow-hidden border border-white/40 rounded-lg bg-white box-content"
                                         >
                                             <img 
                                                 src={m.image || milestoneBg} 
                                                 alt={m.year} 
-                                                className="w-full h-full object-cover"
+                                                className={`w-full h-full ${m.year === "1983" ? 'object-contain' : 'object-cover'}`}
                                             />
                                         </motion.div>
 
