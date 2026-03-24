@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import milestoneBg from '../assets/milestone_bg.webp';
 import cityscape from '../assets/town-silhoutte.webp';
-import { ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
+import { ChevronLeft, ChevronRight, TrendingUp, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import milestone1 from '../assets/Connector Image 1.png';
 import milestone2 from '../assets/Connector Image 2.png';
@@ -86,6 +86,7 @@ const MilestonesPage = () => {
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     useEffect(() => {
         // Ensure the page always starts from the top when navigated to
@@ -148,6 +149,24 @@ const MilestonesPage = () => {
         };
     }, [isDragging, startX, scrollLeft]);
 
+    // Auto-scroll logic when playing
+    useEffect(() => {
+        let timer;
+        if (isPlaying && scrollContainerRef.current) {
+            timer = setInterval(() => {
+                const el = scrollContainerRef.current;
+                const maxScroll = el.scrollWidth - el.clientWidth;
+                
+                if (el.scrollLeft >= maxScroll - 1) {
+                    setIsPlaying(false); // Stop at end
+                } else {
+                    el.scrollBy({ left: 4, behavior: 'auto' }); // Smooth continuous scroll
+                }
+            }, 30);
+        }
+        return () => clearInterval(timer);
+    }, [isPlaying]);
+
     const scroll = (direction) => {
         if (scrollContainerRef.current) {
             const scrollAmount = window.innerWidth * 0.8;
@@ -162,22 +181,37 @@ const MilestonesPage = () => {
         <div className="bg-white min-h-screen font-[Outfit] flex flex-col">
             <Navbar />
 
-            {/* Fixed Controls Container */}
+            {/* Fixed Breadcrumbs Container */}
             <div className="sticky top-20 left-0 w-full z-50 bg-white/95 backdrop-blur-md py-4 border-b border-gray-100">
-                <div className="container mx-auto px-6 flex items-center justify-between">
-                    <div className="flex items-center text-lg text-gray-500 font-normal whitespace-nowrap">
+                <div className="container mx-auto px-6 flex items-center justify-start">
+                    <div className="flex items-center text-sm md:text-lg text-gray-500 font-normal whitespace-nowrap">
                         <Link to="/our-story" className="hover:text-[#8b0000] transition-colors">Our Story</Link>
                         <ChevronRight size={16} className="mx-2 text-gray-400" />
                         <span className="text-[#8b0000]">Our Legacy</span>
                     </div>
-
-                    <div className="flex items-center gap-4 bg-white shadow-sm border border-gray-100 rounded-sm px-4 py-1 mx-4">
-                        <ChevronLeft size={16} className="text-gray-300 cursor-pointer hover:text-[#8b0000]" onClick={() => scroll('prev')} />
-                        <span className="text-[#8b0000] font-black text-xs md:text-sm tracking-widest min-w-[80px] md:min-w-[120px] text-center">1983 - 2025</span>
-                        <ChevronRight size={16} className="text-gray-300 cursor-pointer hover:text-[#8b0000]" onClick={() => scroll('next')} />
-                    </div>
-
                 </div>
+            </div>
+
+            {/* Floating Navigation Pill */}
+            <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[60]">
+                <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    className="flex items-center gap-6 bg-white shadow-2xl border border-gray-100 rounded-full px-8 py-3 mx-4"
+                >
+                    <ChevronLeft size={20} className="text-gray-300 cursor-pointer hover:text-[#8b0000] transition-colors" onClick={() => scroll('prev')} />
+                    
+                    <button 
+                        onClick={() => setIsPlaying(!isPlaying)}
+                        className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#8b0000] hover:bg-red-50 transition-colors shadow-inner"
+                    >
+                        {isPlaying ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" className="ml-1" />}
+                    </button>
+
+                    <span className="text-[#8b0000] font-black text-xs md:text-base tracking-[0.2em] min-w-[100px] md:min-w-[150px] text-center select-none uppercase">1983 - 2025</span>
+                    
+                    <ChevronRight size={20} className="text-gray-300 cursor-pointer hover:text-[#8b0000] transition-colors" onClick={() => scroll('next')} />
+                </motion.div>
             </div>
 
             {/* Main Timeline Section */}
