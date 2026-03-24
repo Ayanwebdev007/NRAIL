@@ -157,7 +157,7 @@ const QualityInnovationPage = () => {
               <img 
                 src={innovationDetail} 
                 alt="Sustainability Innovation" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-right"
               />
             </motion.div>
           </div>
