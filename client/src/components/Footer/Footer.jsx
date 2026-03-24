@@ -110,7 +110,7 @@ const Footer = () => {
                         </div>
                         <div>
                             <p className="text-[10px] 2xl:text-sm font-bold tracking-widest text-white/30 uppercase mb-1">Headquarters</p>
-                            <p className="text-sm md:text-sm 2xl:text-xl font-light">Vapi, Gujarat, India</p>
+                            <p className="text-sm md:text-sm 2xl:text-xl font-light">Mumbai, Maharashtra, India</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-6 2xl:gap-10">
@@ -119,7 +119,7 @@ const Footer = () => {
                         </div>
                         <div>
                             <p className="text-[10px] 2xl:text-sm font-bold tracking-widest text-white/30 uppercase mb-1">Call Us</p>
-                            <p className="text-sm md:text-sm 2xl:text-xl font-light">+91 260 2433391</p>
+                            <p className="text-sm md:text-sm 2xl:text-xl font-light">+91 (22) 67317500</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-6 2xl:gap-10">
