@@ -4,57 +4,79 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import milestoneBg from '../assets/milestone_bg.webp';
 import cityscape from '../assets/town-silhoutte.webp';
-import { ChevronLeft, ChevronRight, Pause, Play, Home, Factory, Building2, BookOpen, Handshake, Printer, Settings, TrendingUp } from 'lucide-react';
+import { ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import milestone1 from '../assets/Connector Image 1.png';
+import milestone2 from '../assets/Connector Image 2.png';
+import milestone3 from '../assets/Connector Image 3.png';
+import milestone4 from '../assets/Connector Image 4.png';
+import milestone5 from '../assets/Connector Image 5.png';
+import milestone6 from '../assets/Connector Image 6.png';
+import milestone7 from '../assets/milestone_7.png';
+import img1983 from '../assets/1983.webp';
+import img1993 from '../assets/1993.webp';
+import img1995 from '../assets/1995.webp';
+import img1998 from '../assets/1998.webp';
+import img2014 from '../assets/2014.webp';
+import img2024 from '../assets/2024.webp';
+import img2025 from '../assets/2025.webp';
 
 const milestones = [
     {
         year: "1983",
         title: "Group Foundation",
         description: "The beginning of a legacy in paper manufacturing, setting the foundation for future growth and excellence.",
-        icon: Home
+        icon: milestone1,
+        image: img1983
     },
     {
         year: "1993",
         title: "Company Establishment",
         description: "Official establishment of NRAIL, marking a significant milestone in our corporate journey.",
-        icon: Building2
+        icon: milestone2,
+        image: img1993
     },
     {
         year: "1995",
         title: "Unit I — Duplex Production Launched",
         description: "Inauguration of our first manufacturing unit specifically dedicated to premium Duplex board production.",
-        icon: Factory
+        icon: milestone3,
+        image: img1995
     },
     {
         year: "1998",
         title: "Unit II – Newsprint Launched",
         description: "Expanding our horizons with the launch of Unit II, dedicated to high-quality newsprint production.",
-        icon: BookOpen
+        icon: milestone4,
+        image: img1998
     },
     {
         year: "2005",
         title: "Strategic Merger",
         description: "Merger of N R Paper & Boards Ltd. and Suman Paper & Boards Ltd. (Units III & IV), strengthening our market position.",
-        icon: Handshake
+        icon: milestone5,
+        image: milestoneBg
     },
     {
         year: "2014",
         title: "Unit V, Sarigam",
         description: "Commencement of Writing & Printing Paper Production at our state-of-the-art Sarigam facility.",
-        icon: Printer
+        icon: milestone6,
+        image: img2014
     },
     {
         year: "2024",
         title: "Unit 5 PM II inaugurated",
         description: "A major leap in capacity with the inauguration of Paper Machine II at Unit 5, enhancing our production capabilities.",
-        icon: Settings
+        icon: milestone7,
+        image: img2024
     },
     {
         year: "2025",
         title: "Highest ever Monthly Group Production",
         description: "Achieved our Highest ever Monthly Group Production of 44,768 MT, a testament to our efficiency and scale.",
-        icon: TrendingUp
+        icon: TrendingUp,
+        image: img2025
     }
 ];
 
@@ -166,8 +188,8 @@ const MilestonesPage = () => {
             >
                 {/* 2. Timeline Content Container */}
                 <div className="flex items-center gap-[30vw] min-w-max relative z-20 h-full">
-                    {/* Intro Space: Allows city to establish before first milestone */}
-                    <div className="w-[10vw] shrink-0"></div>                    {/* 1. Imaginary Middle Line (Static Dotted Path) */}
+                    <div className="w-[3vw] shrink-0"></div>
+                    {/* 1. Imaginary Middle Line (Static Dotted Path) */}
                     <div className="absolute left-0 right-0 h-[2px] bg-gray-100 top-[60%] -translate-y-1/2 z-10">
                         <div className="absolute inset-0 border-t-2 border-dashed border-gray-200"></div>
                     </div>
@@ -183,7 +205,8 @@ const MilestonesPage = () => {
 
                     {/* 3. Watermark Years Background Layer (Behind towns) */}
                     <div className="absolute inset-0 flex items-center gap-[30vw] min-w-max pointer-events-none z-0">
-                        <div className="w-[10vw] shrink-0"></div>                        {milestones.map((m, idx) => (
+                        <div className="w-[3vw] shrink-0"></div>
+                        {milestones.map((m, idx) => (
                             <div key={idx} className="relative w-[400px] h-full flex flex-col items-center">
                                 <div className="absolute bottom-[40%] w-full flex flex-col items-center pointer-events-none z-0">
                                     <div className="absolute bottom-0 text-[12rem] font-light tracking-tighter leading-none select-none bg-gradient-to-t from-transparent via-[#8b0000]/20 to-[#8b0000]/40 bg-clip-text text-transparent transform translate-y-[-30%]">
@@ -196,7 +219,8 @@ const MilestonesPage = () => {
  
                     {/* 4. Interactive Milestone Icons Layer (In front of towns) */}
                     <div className="absolute inset-0 flex items-center gap-[30vw] min-w-max pointer-events-none z-20">
-                        <div className="w-[10vw] shrink-0"></div>
+                        <div className="w-[3vw] shrink-0"></div>
+
                         {milestones.map((m, idx) => {
                             const sectionProgress = (scrollProgress * milestones.length) - idx;
                             const isFocused = Math.abs(sectionProgress - 0.8) < 0.8;
@@ -204,7 +228,7 @@ const MilestonesPage = () => {
                             return (
                                 <div key={idx} className="relative w-[400px] h-full flex flex-col items-center">
                                     {idx < milestones.length - 1 && (
-                                        <div className="absolute bottom-[40%] left-[calc(100%+15vw)] w-[600px] h-[350px] flex flex-col items-center pointer-events-none z-20 overflow-hidden transform -translate-x-1/2">
+                                        <div className="absolute bottom-[40%] left-[calc(100%+15vw)] w-[600px] h-[500px] flex flex-col items-center pointer-events-none z-20 overflow-hidden transform -translate-x-1/2">
                                             <motion.div 
                                                 initial={{ opacity: 0, y: 350, scale: 3.5 }}
                                                 animate={{ 
@@ -220,7 +244,15 @@ const MilestonesPage = () => {
                                                 }}
                                                 className="absolute bottom-0 text-black origin-bottom"
                                             >
-                                                <m.icon strokeWidth={0.5} size={48} />
+                                                {typeof m.icon === 'string' ? (
+                                                    <img 
+                                                        src={m.icon} 
+                                                        alt="" 
+                                                        className={(m.year === "1995" || m.year === "2024") ? "w-24 h-24 object-contain translate-y-[20%]" : "w-12 h-12 object-contain"} 
+                                                    />
+                                                ) : (
+                                                    <m.icon strokeWidth={0.5} size={48} />
+                                                )}
                                             </motion.div>
                                         </div>
                                     )}
@@ -274,7 +306,7 @@ const MilestonesPage = () => {
                                 </div>
 
                                 {/* --- LOWER PART: "Atmos-Nav" Floating Fragment --- */}
-                                <div className="absolute top-[60%] mt-12 w-[600px] flex flex-col items-center z-50 pointer-events-none">
+                                <div className="absolute top-[60%] mt-12 w-[400px] flex flex-col items-center z-50 pointer-events-none">
                                     <motion.div 
                                         animate={{ 
                                             y: isNear ? [0, -10, 0] : 0,
@@ -286,19 +318,19 @@ const MilestonesPage = () => {
                                             y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                                             opacity: { duration: 0.5 }
                                         }}
-                                        className="relative w-full flex flex-row items-center gap-8 px-8 py-6 rounded-2xl mesh-red border border-white/20"
+                                        className="relative w-full flex flex-row items-center gap-5 px-5 py-3 rounded-2xl mesh-red border border-white/20"
                                         style={{
                                             transformStyle: "preserve-3d",
                                             perspective: "1000px"
                                         }}
                                     >
-                                        {/* Parallax Image Fragment */}
+                                        {/* Large Image Fragment */}
                                         <motion.div 
-                                            className="w-[200px] h-[150px] shrink-0 overflow-hidden border border-white/40 rounded-lg bg-black box-content"
+                                            className="w-[200px] h-[140px] shrink-0 overflow-hidden border border-white/40 rounded-lg bg-black box-content"
                                         >
                                             <img 
-                                                src={milestoneBg} 
-                                                alt="" 
+                                                src={m.image || milestoneBg} 
+                                                alt={m.year} 
                                                 className="w-full h-full object-cover"
                                             />
                                         </motion.div>
@@ -307,13 +339,13 @@ const MilestonesPage = () => {
                                         <div className="flex-1 text-left">
                                             <motion.h4 
                                                 animate={{ x: isNear ? 0 : 20 }}
-                                                className="text-white text-3xl font-light tracking-wide mb-2 flex items-baseline gap-2"
+                                                className="text-white text-2xl font-light tracking-wide mb-2 flex items-baseline gap-2"
                                             >
                                                 <span className="text-white">{m.year}</span>
                                             </motion.h4>
                                             <motion.p 
                                                 animate={{ x: isNear ? 0 : 40 }}
-                                                className="text-gray-100 text-sm leading-relaxed max-w-[320px] font-light"
+                                                className="text-gray-100 text-[10px] leading-relaxed max-w-[150px] font-light text-justify"
                                             >
                                                 {m.description}
                                             </motion.p>
