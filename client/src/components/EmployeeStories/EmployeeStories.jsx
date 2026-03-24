@@ -93,7 +93,7 @@ const EmployeeStories = () => {
                             <img
                                 src={stories[currentIndex].image}
                                 alt={stories[currentIndex].name}
-                                className="w-full h-full object-cover object-left grayscale brightness-75 transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
+                                className={`w-full h-full object-cover ${stories[currentIndex].id === "03" ? 'object-right' : stories[currentIndex].id === "07" ? 'object-[80%_center]' : 'object-left'} grayscale brightness-75 transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100`}
                             />
                             <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-[#050505]" />
                         </motion.div>
