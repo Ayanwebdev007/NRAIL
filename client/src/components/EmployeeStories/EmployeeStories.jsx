@@ -8,6 +8,8 @@ import adityaImage from '../../assets/Aditya Sharma.webp';
 import srinivaasImage from '../../assets/Srinivaas Iyengaar.webp';
 import nishithaImage from '../../assets/Nishita Gandha.webp';
 import rameshImage from '../../assets/Ramesh Alla.webp';
+import sarvachanImage from '../../assets/Sarvachan Cahawla Chauhan.webp';
+import aashishImage from '../../assets/Aashish Gulati.webp';
 
 const EmployeeStories = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,7 +17,7 @@ const EmployeeStories = () => {
     const stories = [
         {
             id: "01",
-            name: "Mr Ravi Kumar Sharma",
+            name: "Ravi Kumar Sharma",
             designation: "Vice President- Marketing Boards",
             story: "For me, marketing at NRAIL is not just about products—it’s about building trust with every interaction. When I speak about our FBB, Duplex, Power, or Pearl boards, I speak with confidence because I know the quality behind them. What I truly value is how closely we work as one team—manufacturing, innovation, and marketing—always aligned to deliver the right solution. That’s what makes every customer conversation meaningful. Being part of NRAIL, I feel proud to represent a brand that stands for reliability, performance, and long-term partnerships.",
             image: raviImage
@@ -29,30 +31,44 @@ const EmployeeStories = () => {
         },
         {
             id: "03",
+            name: "Sarvachan Cahawla Chauhan",
+            designation: "Head-R&D",
+            story: "Working in Quality and Innovation at NRAIL means constantly evolving. We are always exploring better ways to enhance performance, improve consistency, and deliver value. The support from leadership and collaboration across teams make it possible to turn ideas into measurable outcomes. That’s what enables us to maintain high standards while continuing to innovate. For me, it’s about creating products that not only meet expectations—but set new benchmarks.",
+            image: sarvachanImage
+        },
+        {
+            id: "04",
             name: "Pooja Daftari Mehta",
             designation: "Company Secretary & Compliance Officer",
             story: "At NRAIL, learning is at the core of how we grow as individuals and as an organization. As perspectives evolve, our approach to governance becomes more robust and future-ready. What truly differentiates NRAIL is its leadership—approachable, supportive, and grounded in integrity. An open and collaborative culture encourages continuous development and shared responsibility. This environment enables us to strengthen compliance frameworks while building lasting trust across the organization.",
             image: poojaImage
         },
         {
-            id: "04",
+            id: "05",
             name: "Srinivaas Iyengaar",
             designation: "HR- Lead",
             story: "At NRAIL, we truly believe learning is the strongest driver of growth. As people evolve, organizations evolve—and that’s why nurturing a culture of continuous development remains a core focus for us. We invest in building capabilities, encouraging curiosity, and creating an environment where individuals feel empowered to grow and contribute. From skill enhancement to leadership development, every initiative is designed to unlock potential and strengthen performance. For me, it’s about enabling people to move forward with confidence—because when individuals grow, the organization progresses with purpose.",
             image: srinivaasImage
         },
         {
-            id: "05",
+            id: "06",
             name: "Nishitha Gandha",
             designation: "Head- Treasury",
             story: "At NRAIL, treasury is not just a function—it’s a responsibility that supports the company’s momentum. Every action is focused on maintaining stability while enabling growth. The leadership creates a sense of trust and direction, which reflects in how teams work together. That collaboration ensures we stay agile and aligned in a dynamic environment. For me, it’s about building financial strength that supports long-term success.",
             image: nishithaImage
         },
         {
-            id: "06",
-            name: "Mr Ramesh Alla",
+            id: "07",
+            name: "Aashish Gulati",
+            designation: "President-Operations Unit V (PM1)",
+            story: "At NRAIL’s Unit V (PM1), we are redefining what recycled paper can achieve. Using 100% recovered fibre, we produce Writing, Printing, and Copier papers that combine sustainability with superior performance. Our strength lies in integrating advanced technology with disciplined execution. From deinking and fibre refinement to precision-controlled production, every process is designed to ensure high brightness, smoothness, and consistency. It’s rewarding to see how innovation and recycling together enable us to deliver premium products for modern applications.",
+            image: aashishImage
+        },
+        {
+            id: "08",
+            name: "Ramesh Alla",
             designation: "Unit Head: Unit V (PM2)",
-            story: "Leading a team at NRAIL is both a responsibility and a privilege. Every day, I see individuals coming together with commitment, ownership, and a shared goal of excellence. It’s this collective spirit that transforms our efforts into real achievements. Our top management is deeply involved in our journey—not just as leaders, but as constant enablers of progress. Their vision and support have helped us reach milestones that have redefined what’s possible in our industry. With strong alignment between leadership and teams, we continue to set new benchmarks in quality, productivity, and performance.",
+            story: "Leading a team at NRAIL is both a responsibility and a privilege. Every day, I see individuals coming together with commitment, ownership, and a shared goal of excellence. It’s this collective spirit that transforms our efforts into real achievements. Our top management is deeply involved in our journey—not just as leaders, but as constant enablers of progress. Their vision and support have helped us reach milestones that have redefined what’s possible in our industry. With strong alignment between leadership and teams, we continue to set new benchmarks in quality, productivity, and performance. Being part of NRAIL means being part of something bigger—an organization that is continuously evolving and leading with purpose.",
             image: rameshImage
         }
     ];

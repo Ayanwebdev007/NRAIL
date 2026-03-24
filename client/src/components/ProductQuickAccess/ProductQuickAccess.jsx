@@ -15,6 +15,10 @@ import homeFbbsbs2 from '../../assets/home fbbsbs 2.webp';
 import homeFbbsbs3 from '../../assets/home fbbsbs 3.webp';
 import homeFbbsbs4 from '../../assets/home fbbsbs  4.webp';
 import homeFbbsbs5 from '../../assets/home fbbsbs 5.webp';
+import copier1 from '../../assets/Copier 1.webp';
+import copier2 from '../../assets/C2 (1).webp';
+import subGrade from '../../assets/Sublimate.webp';
+import pharmaPrint from '../../assets/pharma_print.webp';
 
 const products = [
     {
@@ -54,11 +58,11 @@ const products = [
         id: 'copier',
         name: 'Copier & Speciality',
         images: [
-            { id: 401, src: 'https://images.unsplash.com/photo-1512418490979-92798ccc13b0?auto=format&fit=crop&q=80&w=800', title: 'NR Copier', desc: '70/75/80 GSM' },
-            { id: 402, src: 'https://images.unsplash.com/photo-1583521214690-73421a1829a9?auto=format&fit=crop&q=80&w=800', title: 'NR Brilliance', desc: '70/75/80 GSM' },
-            { id: 403, src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800', title: 'Sublimation Grade', desc: '48-64 GSM' },
-            { id: 404, src: 'https://images.unsplash.com/photo-1616628188859-e15a8c484378?auto=format&fit=crop&q=80&w=800', title: 'Pharma Print', desc: '40 GSM' },
-            { id: 405, src: 'https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?auto=format&fit=crop&q=80&w=800', title: 'Office Pro Suite', desc: 'Premium Copy series' },
+            { id: 401, src: copier1, title: 'NR Copier', desc: '70/75/80 GSM' },
+            { id: 402, src: copier2, title: 'NR Brilliance', desc: '70/75/80 GSM' },
+            { id: 403, src: subGrade, title: 'Sublimation Grade', desc: '48-64 GSM' },
+            { id: 404, src: pharmaPrint, title: 'Pharma Print', desc: '40 GSM' },
+            { id: 405, src: copier1, title: 'NR Copier', desc: '70/75/80 GSM' },
         ]
     },
 ];

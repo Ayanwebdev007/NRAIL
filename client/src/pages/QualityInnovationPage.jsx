@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 // Asset imports
 import heroImg from '../assets/Innovation Header.webp';
 import qualityDetail from '../assets/quality assurance img.webp';
-import innovationDetail from '../assets/innovation_detail.webp';
+import innovationDetail from '../assets/Innovation.webp';
 import benefit1 from '../assets/customer benefits final.webp';
 import benefit2 from '../assets/framework_tech.webp';
 import benefit3 from '../assets/framework_sustainability.webp';
