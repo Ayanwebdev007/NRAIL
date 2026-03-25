@@ -223,14 +223,7 @@ const OurStory = ({ onOpenBook }) => {
                             </div>
                         </div>
 
-                        <motion.div
-                            className="view-more-container"
-                            variants={itemVariants}
-                            whileHover={{ x: 10, transition: { duration: 0.2 } }}
-                        >
-                            <a href="#partners" className="view-more-btn">View More</a>
-                            <div className="view-more-line"></div>
-                        </motion.div>
+
                     </motion.div>
                 </div>
             </div>

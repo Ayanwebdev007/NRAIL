@@ -61,8 +61,8 @@ const EnvironmentalImpactPage = () => {
                 {/* Overlay gradient to match Legacy page */}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
                 
-                {/* Hero Text - Positioned at bottom-16 to match Legacy page */}
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                {/* Hero Text - Positioned at bottom-8 to match Legacy page */}
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
