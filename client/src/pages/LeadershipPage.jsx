@@ -588,16 +588,16 @@ const LeadershipPage = () => {
                                 designation: "Vice President - Sales and Marketing"
                             },
                             {
+                                name: "Deepak B Asopa",
+                                designation: "Vice President - Finance & Accounts"
+                            },
+                            {
                                 name: "Joshua Madhuker",
                                 designation: "President - Corporate Affairs"
                             },
                             {
                                 name: "Pooja Daftary",
                                 designation: "Company Secretary & Compliance Officer"
-                            },
-                            {
-                                name: "Ramesh Harkulkar",
-                                designation: "Senior General Manager - Accounts and Taxation"
                             }
                         ].map((member, index) => (
                             <motion.div

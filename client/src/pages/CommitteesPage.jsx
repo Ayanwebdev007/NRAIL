@@ -79,7 +79,7 @@ const CommitteesPage = () => {
                             <span className="text-gray-400 font-light mx-0.5">&gt;</span>
                             <Link to="/our-story" className="text-[#2d6ca2] hover:text-[#800000] transition-colors px-1">Our Story</Link>
                             <span className="text-gray-400 font-light mx-0.5">&gt;</span>
-                            <span className="text-[#800000] font-medium px-1">Board of Committees</span>
+                            <span className="text-[#800000] font-medium px-1">Committees of Board</span>
                         </div>
 
                         {/* Smaller Spacer for balanced gap */}
@@ -92,9 +92,9 @@ const CommitteesPage = () => {
                             viewport={{ once: false, margin: "-50px" }}
                             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                         >
-                            <span className="block text-black uppercase">Board of</span>
+                            <span className="block text-black uppercase">Committees</span>
                             <span className="block text-[#8b0000] uppercase">
-                                Committees
+                                of Board
                             </span>
                         </motion.h1>
                     </motion.div>

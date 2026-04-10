@@ -25,6 +25,7 @@ import NewsroomPage from './pages/NewsroomPage';
 import InvestorInformationPage from './pages/InvestorInformationPage';
 import IndependentDirectorsPage from './pages/IndependentDirectorsPage';
 import PoliciesPage from './pages/PoliciesPage';
+import OtherCompliancesPage from './pages/OtherCompliancesPage';
 import SebiDisclosurePage from './pages/SebiDisclosurePage';
 import ContactPage from './pages/ContactPage';
 import Loader from './components/Loader/Loader';
@@ -99,6 +100,7 @@ function App() {
           <Route path="/investor-information" element={<InvestorInformationPage />} />
           <Route path="/independent-directors" element={<IndependentDirectorsPage />} />
           <Route path="/policies" element={<PoliciesPage />} />
+          <Route path="/other-compliances" element={<OtherCompliancesPage />} />
           <Route path="/sebi-disclosure" element={<SebiDisclosurePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

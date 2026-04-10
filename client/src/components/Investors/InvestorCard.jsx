@@ -1,5 +1,4 @@
-import React from 'react';
-import { ChevronRight, FileText, FileSpreadsheet } from 'lucide-react';
+import { ChevronRight, FileText, FileSpreadsheet, Video } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const InvestorCard = ({ title, number, type, onClick }) => {
@@ -19,6 +18,8 @@ const InvestorCard = ({ title, number, type, onClick }) => {
         <div className="absolute top-4 right-4 md:top-6 md:right-6 opacity-40 group-hover:opacity-100 transition-opacity">
           {type === 'pdf' ? (
             <FileText size={24} className="text-[#b01e1e]" />
+          ) : type === 'video' ? (
+            <Video size={24} className="text-[#2d6ca2]" />
           ) : (
             <FileSpreadsheet size={24} className="text-green-600" />
           )}

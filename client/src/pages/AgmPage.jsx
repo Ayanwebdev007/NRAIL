@@ -28,15 +28,26 @@ const AgmPage = () => {
         }))].sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
 
     const getFilesForAgm = (agmName) => {
-        return Object.keys(allFiles)
+        const files = Object.keys(allFiles)
             .filter(path => path.includes(`/${agmName}/`))
             .map(path => ({
                 name: path.split('/').pop().replace(/\.[^/.]+$/, "").replace(/_/g, " "),
                 url: allFiles[path],
                 originalName: path.split('/').pop(),
                 type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'excel'
-            }))
-            .sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true, sensitivity: 'base' }));
+            }));
+
+        // Task F: Inject SharePoint link for 31st AGM Recording
+        if (agmName === '31st AGM (2023-24)') {
+            files.push({
+                name: 'Recording of 31st AGM',
+                url: 'https://nragarwal-my.sharepoint.com/:v:/g/personal/pamela_dutta_nrail_com/EYVtR76_G3dGiI7EbvVavc0BLy_GlDrwVk7DNQuMQDg10Q',
+                originalName: 'agm_recording_31',
+                type: 'video'
+            });
+        }
+
+        return files.sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true, sensitivity: 'base' }));
     };
 
     const handleNavigate = (agmName) => {
@@ -68,7 +79,13 @@ const AgmPage = () => {
                         title={file.name}
                         number={(index + 1).toString().padStart(2, '0')}
                         type={file.type}
-                        onClick={() => setPopupData({ url: file.url, title: file.name })}
+                        onClick={() => {
+                            if (file.type === 'video') {
+                                window.open(file.url, '_blank');
+                            } else {
+                                setPopupData({ url: file.url, title: file.name });
+                            }
+                        }}
                     />
                 ))}
             </div>

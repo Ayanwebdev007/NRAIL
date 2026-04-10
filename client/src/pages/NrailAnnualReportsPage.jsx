@@ -24,7 +24,11 @@ const NrailAnnualReportsPage = () => {
             originalName: path.split('/').pop(),
             type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'excel'
         }))
-        .sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true }));
+        .sort((a, b) => {
+            const yearA = parseInt(a.originalName.match(/\d{4}/)?.[0] || 0);
+            const yearB = parseInt(b.originalName.match(/\d{4}/)?.[0] || 0);
+            return yearB - yearA;
+        });
 
     return (
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">

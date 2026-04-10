@@ -95,9 +95,9 @@ const SebiDisclosurePage = () => {
                                             item === "Details of familiarization programs imparted to Independent Directors" ? "/independent-directors" :
                                             item === "Email address for grievance redressal and other relevant details" ? "/shareholder-information?view=shareholder-info" :
                                             item === "Contact information of the designated officials of the listed entity who are responsible for assisting and handling investor grievances" ? "/shareholder-information?view=shareholder-info" :
-                                            item === "Secretarial Compliance Report under Regulation 24A" ? "/shareholder-information?view=shareholder-info" :
+                                            item === "Secretarial Compliance Report under Regulation 24A" ? "/other-compliances?category=secretarial Compliance Report" :
                                             item === "Disclosure of Contact Details of Key Managerial Personnel as required under sub-regulation (5) of Regulation 30" ? "/shareholder-information?view=shareholder-info" :
-                                            item === "Annual Return as provided under section 92 of the Companies Act, 2013" ? "/shareholder-information?view=shareholder-info" :
+                                            item === "Annual Return as provided under section 92 of the Companies Act, 2013" ? "/other-compliances?category=Annual Return" :
                                             item === "Shareholding Pattern" ? "/shareholder-information?view=shareholding-pattern" :
                                             item === "All credit ratings obtained by the entity for all its outstanding instruments" ? "/newsroom" :
                                             item === "Advertisements in Newspapers as per Regulation 47(1)" ? "/newsroom" :
@@ -132,7 +132,8 @@ const SebiDisclosurePage = () => {
                                             {item.subItems.map((sub, sIdx) => {
                                                 const subLink = 
                                                     sub === "Notice of meeting of the board of directors where financial results shall be discussed" ? "/newsroom" : 
-                                                    sub === "Financial Results" || sub === "Annual Report" ? "/financial-reports" :
+                                                    sub === "Financial Results" ? "/financial-reports" :
+                                                    sub === "Annual Report" ? "/nrail-annual-reports" :
                                                     "#";
                                                 return (
                                                     <Link 

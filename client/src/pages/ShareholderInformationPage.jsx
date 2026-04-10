@@ -37,7 +37,7 @@ const ShareholderInformationPage = () => {
             originalName: path.split('/').pop(),
             type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'excel'
         }))
-        .sort((a, b) => a.originalName.localeCompare(b.originalName, undefined, { numeric: true, sensitivity: 'base' }));
+        .sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true, sensitivity: 'base' }));
 
     const shareholdingPatternYears = [...new Set(Object.keys(allFiles)
         .filter(path => path.includes('/Shareholding Pattern/'))
@@ -49,14 +49,21 @@ const ShareholderInformationPage = () => {
 
     const getFilesForYear = (year) => {
         return Object.keys(allFiles)
-            .filter(path => path.includes(`/Shareholding Pattern/${year}/`))
+            .filter(path => {
+                const isCorrectYear = path.includes(`/Shareholding Pattern/${year}/`);
+                // Task B: Hide 30.06.2025 from 2024-25 view (it belongs in 2025-26)
+                if (year === '2024-25' && path.includes('Shareholding Pattern-30.06.2025.pdf')) {
+                    return false;
+                }
+                return isCorrectYear;
+            })
             .map(path => ({
                 name: path.split('/').pop().replace(/\.[^/.]+$/, "").replace(/_/g, " "),
                 url: allFiles[path],
                 originalName: path.split('/').pop(),
                 type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'excel'
             }))
-            .sort((a, b) => a.originalName.localeCompare(b.originalName, undefined, { numeric: true, sensitivity: 'base' }));
+            .sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true, sensitivity: 'base' }));
     };
 
     const handleNavigate = (newView, year = null) => {
