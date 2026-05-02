@@ -124,10 +124,10 @@ const DuplexPowerSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         {slideData[activeIndex].title}
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         NRAIL Duplex Boards combine robust stiffness with refined surface quality to ensure dependable print performance across high-volume packaging applications
                     </p>
                 </motion.div>
@@ -222,10 +222,10 @@ const DuplexPearlSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         NR Pearl Pac / NR Pearl Coat
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         Premium solid bleached boards designed for superior surface elegance, high brightness, and exceptional print clarity—ideal for cosmetics, pharmaceuticals, food, and specialty packaging that demands sophistication and strength.
                     </p>
                 </motion.div>
@@ -586,13 +586,13 @@ const DuplexBoardPage = () => {
                         className="font-[Outfit]"
                         style={{
                             fontSize: '48px',
-                            fontWeight: 300,
+                            fontWeight: 700,
                             lineHeight: 1.1,
                             letterSpacing: '0.02em',
                             color: '#ffffff'
                         }}
                     >
-                        <span className="font-light">Delivering Strength, Precision, and</span> <span className="font-light text-[#f8f9fa]">Converting Efficiency</span>
+                        <span className="font-bold">Delivering Strength, Precision, and</span> <span className="font-bold text-[#f8f9fa]">Converting Efficiency</span>
                     </motion.h1>
                 </div>
             </div>

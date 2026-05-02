@@ -9,15 +9,15 @@ import heroImg from '../assets/wp header.webp';
 import wp1 from '../assets/wp 1.webp';
 import wp2 from '../assets/wp 2.webp';
 import wp3 from '../assets/wp3.webp';
-import nrShineSsPdf from '../assets/specs/nr_shine_ss.pdf';
-import nrShinePdf from '../assets/specs/nr_shine.pdf';
-import nrExcelSsPdf from '../assets/specs/nr_excel_ss.pdf';
-import nrExcelPdf from '../assets/specs/nr_excel.pdf';
-import nrExcelSsPsPdf from '../assets/specs/nr_excel_ss_ps.pdf';
-import nrMaximaSsPdf from '../assets/specs/nr_maxima_ss.pdf';
-import nrMaximaPdf from '../assets/specs/nr_maxima.pdf';
-import nrClassicSsPdf from '../assets/specs/nr_classic_ss.pdf';
-import nrClassicPdf from '../assets/specs/nr_classic.pdf';
+import nrShineSsPdf from '../assets/specs2/Technical Specification-Shine SS.pdf';
+import nrShinePdf from '../assets/specs2/Technical Specification-Shine.pdf';
+import nrExcelSsPdf from '../assets/specs2/Technical Specification-Excel SS.pdf';
+import nrExcelPdf from '../assets/specs2/Technical Specification-Excel.pdf';
+import nrExcelSsPsPdf from '../assets/specs2/Technical Specification-Excel SS (PS).pdf';
+import nrMaximaSsPdf from '../assets/specs2/Technical Specification-Maxima SS.pdf';
+import nrMaximaPdf from '../assets/specs2/Technical Specification-Maxima.pdf';
+import nrClassicSsPdf from '../assets/specs2/Technical Specification-Classic SS.pdf';
+import nrClassicPdf from '../assets/specs2/Technical Specification-Classic.pdf';
 import industryNotebooks from '../assets/industry_notebooks.webp';
 import industryPublication from '../assets/industry_publication.webp';
 import industryCalendarDiary from '../assets/industry_calendar_diary.webp';
@@ -118,10 +118,10 @@ const WritingPrintingPowerSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         Engineered for Clarity, Consistency, and Print Excellence
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         NRAIL’s Writing & Printing portfolio offers a premium range of papers designed for high-quality, multicolour printing applications. With brands such as NR Classic, NR Maxima, NR Shine, and NR Excel, the range delivers optimal bulk, smoothness, brightness, and opacity—ensuring consistent performance across diverse printing needs.
                     </p>
                 </motion.div>
@@ -469,9 +469,9 @@ const WritingPrintingPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         className="font-[Outfit]"
-                        style={{ fontSize: '48px', fontWeight: 300, lineHeight: 1.1, letterSpacing: '0.02em', color: '#ffffff' }}
+                        style={{ fontSize: '48px', fontWeight: 700, lineHeight: 1.1, letterSpacing: '0.02em', color: '#ffffff' }}
                     >
-                        Crafted for <span className="font-light text-[#f8f9fa]">Print Excellence</span>
+                        Crafted for <span className="font-bold text-[#f8f9fa]">Print Excellence</span>
                     </motion.h1>
                 </div>
             </div>

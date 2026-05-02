@@ -9,8 +9,8 @@ import heroImg from '../assets/C Header.webp';
 import c1 from '../assets/C1.webp';
 import c2 from '../assets/C2.webp';
 import c3 from '../assets/C3 (2).webp';
-import nrBrilliancePdf from '../assets/specs/nr_brilliance.pdf';
-import nrCopierPdf from '../assets/specs/nr_copier.pdf';
+import nrBrilliancePdf from '../assets/specs2/Technical Specification-Brilliance.pdf';
+import nrCopierPdf from '../assets/specs2/Technical Specification-NR Copier.pdf';
 import industryOffices from '../assets/Offices.png';
 import industryHomeUsage from '../assets/Home Usage.jpg';
 import industryLetterhead from '../assets/Letterhead.png';
@@ -114,10 +114,10 @@ const CopierPowerSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         Building a Greener Tomorrow with Responsible Paper Innovation
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         Crafted through ethical sourcing and resource-efficient processes, NRAIL’s copier range aligns performance with environmental responsibility. Every sheet contributes to a greener future while delivering consistent, high-quality print results.
                     </p>
                 </motion.div>
@@ -208,10 +208,10 @@ const CopierPremiumSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         Premium Copier Range
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         Specifically engineered to deliver superior results in all types of office equipment, our premium copier paper range combines precision-cut edges with high-level brightness for a professional look in documents, reports, and marketing materials.
                     </p>
                 </motion.div>
@@ -570,13 +570,13 @@ const CopierPaperPage = () => {
                         className="font-[Outfit]"
                         style={{
                             fontSize: '48px',
-                            fontWeight: 300,
+                            fontWeight: 700,
                             lineHeight: 1.1,
                             letterSpacing: '0.02em',
                             color: '#ffffff'
                         }}
                     >
-                        Performance You Can Trust, <span className="font-light text-[#f8f9fa]">Every Time</span>
+                        Performance You Can Trust, <span className="font-bold text-[#f8f9fa]">Every Time</span>
                     </motion.h1>
                 </div>
             </div>

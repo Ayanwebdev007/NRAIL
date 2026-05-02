@@ -121,10 +121,10 @@ const NRPowerSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         NR Power Pac / NR Power Coat
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         Deliver bright, refined, and high-impact packaging solutions engineered for luxury brands, beauty, and personal care segments where visual excellence meets structural strength.
                     </p>
                 </motion.div>
@@ -219,10 +219,10 @@ const NRPearlSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         NR Pearl Pac / NR Pearl Coat
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.6', marginTop: '8px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         Premium solid bleached boards designed for superior surface elegance, high brightness, and exceptional print clarity—ideal for cosmetics, pharmaceuticals, food, and specialty packaging that demands sophistication and strength.
                     </p>
                 </motion.div>
@@ -584,7 +584,7 @@ const PremiumBoardPage = () => {
                 </div>
 
                 {/* Hero Text */}
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -592,13 +592,13 @@ const PremiumBoardPage = () => {
                         className="font-[Outfit]"
                         style={{
                             fontSize: '48px',
-                            fontWeight: 300,
+                            fontWeight: 700,
                             lineHeight: 1.1,
                             letterSpacing: '0.02em',
                             color: '#ffffff'
                         }}
                     >
-                        <span className="font-light">Paper that</span> <span className="font-light text-[#f8f9fa]">Powers Tomorrow</span>
+                        <span className="font-bold">Paper that</span> <span className="font-bold text-[#f8f9fa]">Powers Tomorrow</span>
                     </motion.h1>
                 </div>
             </div>
@@ -712,16 +712,16 @@ const PremiumBoardPage = () => {
             {/* Product Specifications Section - Power Range */}
             <ProductSpecsSection specs={[
                 { 
-                    id: "power-coat-spec",
-                    title: "NR POWER COAT", 
-                    description: "Premium coated board with superior surface finish and printability.",
-                    pdf: nrPowerCoatPdf
-                },
-                { 
                     id: "power-pac-spec",
                     title: "NR POWER PAC", 
                     description: "High-strength packaging board engineered for maximum durability.",
                     pdf: nrPowerPacPdf
+                },
+                { 
+                    id: "power-coat-spec",
+                    title: "NR POWER COAT", 
+                    description: "Premium coated board with superior surface finish and printability.",
+                    pdf: nrPowerCoatPdf
                 }
             ]} />
 
@@ -731,16 +731,16 @@ const PremiumBoardPage = () => {
             {/* Product Specifications Section - Pearl Range */}
             <ProductSpecsSection specs={[
                 { 
-                    id: "pearl-coat-spec",
-                    title: "NR PEARL COAT", 
-                    description: "Ultra-premium bleached board with exceptional brightness and elegance.",
-                    pdf: nrPearlCoatPdf
-                },
-                { 
                     id: "pearl-pac-spec",
                     title: "NR PEARL PAC", 
                     description: "High-clarity bleached board tailored for luxury pharmaceutical and food packaging.",
                     pdf: nrPearlPacPdf
+                },
+                { 
+                    id: "pearl-coat-spec",
+                    title: "NR PEARL COAT", 
+                    description: "Ultra-premium bleached board with exceptional brightness and elegance.",
+                    pdf: nrPearlCoatPdf
                 }
             ]} />
 
