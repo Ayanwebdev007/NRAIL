@@ -25,34 +25,34 @@ const EmployeeStories = () => {
         {
             id: "02",
             name: "Aditya Sharma",
-            designation: "Vice President- Sales & Marketing",
+            designation: "Vice President- Sales & Marketing (Writing & Printing)",
             story: "In my journey of over a decade, I’ve learned that real growth is built on trust and consistency. At NRAIL, I don’t just present products—I deliver reliable solutions that customers depend on every day. Our Writing, Printing, and Copier products are most popular depending on their quality. I work closely with cross-functional teams to ensure that every commitment we make is fulfilled with precision. That alignment is what helps us build strong, long-term relationships. Being part of NRAIL means being part of a journey that is constantly evolving—and that’s what drives me forward.",
             image: adityaImage
         },
         {
             id: "03",
             name: "Sarvachan Cahawla Chauhan",
-            designation: "Head-R&D",
+            designation: "Head-R&D/QA",
             story: "Working in Quality and Innovation at NRAIL means constantly evolving. We are always exploring better ways to enhance performance, improve consistency, and deliver value. The support from leadership and collaboration across teams make it possible to turn ideas into measurable outcomes. That’s what enables us to maintain high standards while continuing to innovate. For me, it’s about creating products that not only meet expectations—but set new benchmarks.",
             image: sarvachanImage
         },
         {
             id: "04",
-            name: "Pooja Daftari Mehta",
+            name: "POOJA DAFTARY",
             designation: "Company Secretary & Compliance Officer",
             story: "At NRAIL, learning is at the core of how we grow as individuals and as an organization. As perspectives evolve, our approach to governance becomes more robust and future-ready. What truly differentiates NRAIL is its leadership—approachable, supportive, and grounded in integrity. An open and collaborative culture encourages continuous development and shared responsibility. This environment enables us to strengthen compliance frameworks while building lasting trust across the organization.",
             image: poojaImage
         },
         {
             id: "05",
-            name: "Srinivaas Iyengaar",
+            name: "SRINIVAS IYENGAR",
             designation: "HR- Lead",
             story: "At NRAIL, we truly believe learning is the strongest driver of growth. As people evolve, organizations evolve—and that’s why nurturing a culture of continuous development remains a core focus for us. We invest in building capabilities, encouraging curiosity, and creating an environment where individuals feel empowered to grow and contribute. From skill enhancement to leadership development, every initiative is designed to unlock potential and strengthen performance. For me, it’s about enabling people to move forward with confidence—because when individuals grow, the organization progresses with purpose.",
             image: srinivaasImage
         },
         {
             id: "06",
-            name: "Nishitha Gandha",
+            name: "NISHITA GANDHA",
             designation: "Head- Treasury",
             story: "At NRAIL, treasury is not just a function—it’s a responsibility that supports the company’s momentum. Every action is focused on maintaining stability while enabling growth. The leadership creates a sense of trust and direction, which reflects in how teams work together. That collaboration ensures we stay agile and aligned in a dynamic environment. For me, it’s about building financial strength that supports long-term success.",
             image: nishithaImage
