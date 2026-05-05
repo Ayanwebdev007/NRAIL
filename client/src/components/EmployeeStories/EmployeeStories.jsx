@@ -8,7 +8,7 @@ import adityaImage from '../../assets/Aditya Sharma.webp';
 import srinivaasImage from '../../assets/Srinivaas Iyengaar.webp';
 import nishithaImage from '../../assets/Nishita Gandha.webp';
 import rameshImage from '../../assets/Ramesh Alla.webp';
-import sarvachanImage from '../../assets/Sarvachan Cahawla Chauhan.webp';
+import sarvachanChauhanImage from '../../assets/Sarvachan Cahawla Chauhan.webp';
 import aashishImage from '../../assets/Aashish Gulati.webp';
 
 const EmployeeStories = () => {
@@ -31,10 +31,10 @@ const EmployeeStories = () => {
         },
         {
             id: "03",
-            name: "Sarvachan Cahawla Chauhan",
+            name: "Sarvachan Chauhan",
             designation: "Head-R&D/QA",
             story: "Working in Quality and Innovation at NRAIL means constantly evolving. We are always exploring better ways to enhance performance, improve consistency, and deliver value. The support from leadership and collaboration across teams make it possible to turn ideas into measurable outcomes. That’s what enables us to maintain high standards while continuing to innovate. For me, it’s about creating products that not only meet expectations—but set new benchmarks.",
-            image: sarvachanImage
+            image: sarvachanChauhanImage
         },
         {
             id: "04",

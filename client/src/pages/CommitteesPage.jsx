@@ -68,12 +68,7 @@ const CommitteesPage = () => {
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#8b0000]/[0.02] to-transparent pointer-events-none"></div>
 
                 <div className="container mx-auto px-6 md:px-24 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false, margin: "-50px" }}
-                        transition={{ duration: 0.7, ease: "easeOut" }}
-                    >
+                    <div>
                         <div className="flex items-center gap-1.5 text-lg mb-16 font-normal">
                             <Link to="/" className="text-[#2d6ca2] hover:text-[#800000] transition-colors px-1">Home</Link>
                             <span className="text-gray-400 font-light mx-0.5">&gt;</span>
@@ -85,19 +80,13 @@ const CommitteesPage = () => {
                         {/* Smaller Spacer for balanced gap */}
                         <div className="h-6 md:h-8"></div>
 
-                        <motion.h1
-                            className="text-[48px] font-extrabold mb-8 leading-[0.9]"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, margin: "-50px" }}
-                            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                        >
+                        <h1 className="text-[48px] font-extrabold mb-8 leading-[0.9]">
                             <span className="block text-black uppercase">Committees</span>
                             <span className="block text-[#8b0000] uppercase">
                                 of Board
                             </span>
-                        </motion.h1>
-                    </motion.div>
+                        </h1>
+                    </div>
 
                     {/* Explicit Gap Below Title Before Cards */}
                     <div className="h-8 md:h-12 w-full"></div>
@@ -109,12 +98,8 @@ const CommitteesPage = () => {
                 <div className="container mx-auto px-6 md:px-12 max-w-7xl">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                         {committeeData.map((committee, index) => (
-                            <motion.div
+                            <div
                                 key={index}
-                                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                                viewport={{ once: false, margin: "-80px" }}
-                                transition={{ duration: 0.5, delay: index * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
                                 className="group relative rounded-2xl border border-[#8b0000]/20 hover:border-[#d4af37]/40 transition-all duration-500 overflow-hidden framework-card-bg"
                                 style={{
                                     padding: '32px 28px 28px',
@@ -180,7 +165,7 @@ const CommitteesPage = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>

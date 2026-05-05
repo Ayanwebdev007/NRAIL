@@ -112,8 +112,11 @@
     transform: translateY(0);
 }
 
-.dropdown li a {
+.dropdown li a,
+.dropdown li button {
     display: block;
+    width: 100%;
+    text-align: left;
     padding: 12px 30px;
     color: #ffffff;
     /* White text for dropdown as requested */
@@ -124,9 +127,14 @@
     white-space: normal;
     max-width: 320px;
     line-height: 1.4;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
 }
 
-.dropdown li a:hover {
+.dropdown li a:hover,
+.dropdown li button:hover {
     background: var(--primary);
     color: #ffffff;
     padding-left: 35px;
@@ -205,13 +213,21 @@
         display: block;
     }
 
-    .dropdown li a {
+    .dropdown li a,
+    .dropdown li button {
         color: #555;
         font-size: 18px;
         padding: 8px 0;
+        background: transparent;
+        border: none;
+        width: 100%;
+        text-align: center;
+        font-family: inherit;
+        cursor: pointer;
     }
 
-    .dropdown li a:hover {
+    .dropdown li a:hover,
+    .dropdown li button:hover {
         background: transparent;
         color: var(--primary);
         padding-left: 0;

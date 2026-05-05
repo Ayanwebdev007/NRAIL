@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, X } from 'lucide-react';
 import logo from '../../assets/logo.webp';
 import './Navbar.css';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -23,6 +25,7 @@ const Navbar = () => {
       links: [
         { label: 'NRAIL Legacy', path: '/our-story' },
         { label: 'Vision & Mission', path: '/our-story#vision-mission' },
+        { label: 'Corporate Presentation', action: 'video' },
         { label: 'Milestone', path: '/milestones' },
         { label: 'Leadership', path: '/leadership' },
         { label: 'Committees of Board', path: '/committees-of-board' }
@@ -95,9 +98,21 @@ const Navbar = () => {
                   {item.links.map((link, subIndex) => (
                     <li key={subIndex}>
                       {/* Handle simple string links or object links */}
-                      <Link to={link.path ? link.path : `/#${link.label ? link.label.toLowerCase().replace(/ /g, '-') : link.toLowerCase().replace(/ /g, '-')}`}>
-                        {link.label || link}
-                      </Link>
+                      {link.action === 'video' ? (
+                        <button
+                          onClick={() => {
+                            setVideoOpen(true);
+                            setMobileMenuOpen(false);
+                          }}
+                          className="text-left w-full"
+                        >
+                          {link.label}
+                        </button>
+                      ) : (
+                        <Link to={link.path ? link.path : `/#${link.label ? link.label.toLowerCase().replace(/ /g, '-') : link.toLowerCase().replace(/ /g, '-')}`}>
+                          {link.label || link}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -112,6 +127,46 @@ const Navbar = () => {
           <div className={mobileMenuOpen ? 'bar open' : 'bar'}></div>
         </div>
       </div>
+
+      {/* Video Modal Overlay */}
+      <AnimatePresence>
+        {videoOpen && (
+          <motion.div
+            className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/95 p-4 md:p-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setVideoOpen(false)}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute top-6 right-6 lg:top-12 lg:right-12 text-white/70 hover:text-white transition-colors z-[1100]"
+            >
+              <X size={44} />
+            </button>
+
+            {/* Video Container */}
+            <motion.div
+              className="w-full max-w-5xl aspect-video bg-black shadow-2xl relative rounded-xl overflow-hidden border border-white/10"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/3Gk0ZB1XXX8?autoplay=1"
+                title="NRAIL Corporate Presentation"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

@@ -425,8 +425,9 @@ const OurStoryPage = () => {
 
             </div>
 
+
             {/* Core Values Section */}
-            <div className={`bg-white pt-24 pb-60 relative overflow-hidden`} style={{ marginTop: '50px', marginBottom: '100px' }}>
+            <div className={`bg-white pt-24 pb-60 relative overflow-hidden`} style={{ marginBottom: '100px' }}>
                 {/* Subtle Pinstripe Background */}
                 <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #8b0000 0px, #8b0000 1px, transparent 1px, transparent 10px)' }}></div>
 

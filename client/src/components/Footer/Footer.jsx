@@ -9,30 +9,41 @@ const Footer = () => {
     const footerLinks = [
         {
             title: "Company",
-            links: ["About Us", "Our Story", "Leadership", "Careers", "Newsroom"]
+            links: [
+                { label: "About Us", path: "/our-story" },
+                { label: "Our Story", path: "/our-story" },
+                { label: "Leadership", path: "/leadership" },
+                { label: "Careers", path: "/newsroom" },
+                { label: "Newsroom", path: "/newsroom" }
+            ]
         },
         {
             title: "Sustainability",
             links: [
                 { label: "Environment", path: "/environmental-impact" },
-                { label: "Social Impact", path: "/#social-impact" },
-                { label: "Governance", path: "/#governance" },
-                { label: "Annual Reports", path: "/#annual-reports" },
-                { label: "Certifications", path: "/#certifications" }
+                { label: "Social Impact", path: "/community-champions" },
+                { label: "Governance", path: "/corporate-governance" },
+                { label: "Annual Reports", path: "/nrail-annual-reports" },
+                { label: "Certifications", path: "/our-story#certifications" }
             ]
         },
         {
             title: "Products",
-            links: ["Duplex Board", "Paper Solutions", "Packaging", "Innovation", "Global Reach"]
+            links: [
+                { label: "Duplex Board", path: "/duplex-board-grades" },
+                { label: "Paper Solutions", path: "/writing-printing-grades" },
+                { label: "Packaging", path: "/premium-board-grades" },
+                { label: "Innovation", path: "/quality-innovation" },
+                { label: "Global Reach", path: "/manufacturing-edge" }
+            ]
         },
         {
             title: "Support",
             links: [
-                { label: "Contact", path: "/#contact" },
-                { label: "Inquiry", path: "/#inquiry" },
-                { label: "Locations", path: "/#locations" },
-                { label: "Privacy Policy", path: "/privacy-policy" },
-                { label: "Terms of Use", path: "/terms-of-use" }
+                { label: "Contact", path: "/contact" },
+                { label: "Inquiry", path: "/contact" },
+                { label: "Privacy Policy", path: "/policies" },
+                { label: "Terms of Use", path: "/policies" }
             ]
         }
     ];
@@ -142,9 +153,9 @@ const Footer = () => {
                         © {currentYear} NR AGARWAL INDUSTRIES LTD. ALL RIGHTS RESERVED.
                     </p>
                     <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 2xl:gap-16 text-[10px] md:text-[11px] 2xl:text-base font-medium tracking-wider text-white/20">
-                        <a href="#" className="hover:text-red-600 transition-colors">PRIVACY POLICY</a>
-                        <a href="#" className="hover:text-red-600 transition-colors">TERMS & CONDITIONS</a>
-                        <a href="#" className="hover:text-red-600 transition-colors">SITEMAP</a>
+                        <Link to="/policies" className="hover:text-red-600 transition-colors">PRIVACY POLICY</Link>
+                        <Link to="/policies" className="hover:text-red-600 transition-colors">TERMS & CONDITIONS</Link>
+                        <Link to="/contact#locations" className="hover:text-red-600 transition-colors uppercase">LOCATIONS</Link>
                     </div>
                 </div>
 
