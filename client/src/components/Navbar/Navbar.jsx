@@ -73,7 +73,7 @@ const Navbar = () => {
         { label: 'Community Champions', path: '/community-champions' }
       ]
     },
-    { title: 'Media', links: [] },
+    { title: 'Media', links: [], path: '/media' },
     { title: 'Contact Us', links: [] },
   ];
 
@@ -89,7 +89,7 @@ const Navbar = () => {
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           {navData.map((item, index) => (
             <li key={index} className={item.links.length > 0 ? 'has-dropdown' : ''}>
-              <Link to={item.title === 'Our Story' ? '/our-story' : item.title === 'Contact Us' ? '/contact' : `/#${item.title.toLowerCase().replace(/ /g, '-')}`}>
+              <Link to={item.path ? item.path : item.title === 'Our Story' ? '/our-story' : item.title === 'Contact Us' ? '/contact' : `/#${item.title.toLowerCase().replace(/ /g, '-')}`}>
                 {item.title.toUpperCase()}
                 {item.links.length > 0 && <ChevronDown size={16} className="dropdown-icon" />}
               </Link>

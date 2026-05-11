@@ -9,6 +9,7 @@ import heroImg from '../assets/db header.webp';
 import db1 from '../assets/db1.webp';
 import db2 from '../assets/db2.webp';
 import db3 from '../assets/db3.webp';
+import db4 from '../assets/Grey back iconic.jpg';
 import nrIconicGreyPdf from '../assets/Specifications - NR Iconic Grey Back.pdf';
 import nrIconicWhitePdf from '../assets/Specifications - NR Iconic White Back.pdf';
 import nrLegendGreyPdf from '../assets/Specifications - NR Legend Grey Back.pdf';
@@ -42,9 +43,10 @@ const DuplexPowerSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const slideData = [
-        { title: "NR ICONIC GREY BACK", img: db1 },
+        { title: "NR ICONIC GREY BACK", img: db4 },
         { title: "NR ICONIC WHITE BACK", img: db2 },
-        { title: "NR LEGEND WHITE BACK", img: db3 }
+        { title: "NR LEGEND WHITE BACK", img: db3 },
+        { title: "NR LEGEND GREY BACK", img: db1 }
     ];
 
     return (
@@ -101,7 +103,7 @@ const DuplexPowerSection = () => {
                             <div 
                                 className="w-full h-full bg-cover bg-center" 
                                 style={{ 
-                                    backgroundImage: `url(${slide.img})`,
+                                    backgroundImage: `url("${slide.img}")`,
                                     backgroundPosition: index === 1 ? 'center 15%' : 'center'
                                 }}
                             />

@@ -27,6 +27,7 @@ import IndependentDirectorsPage from './pages/IndependentDirectorsPage';
 import PoliciesPage from './pages/PoliciesPage';
 import OtherCompliancesPage from './pages/OtherCompliancesPage';
 import SebiDisclosurePage from './pages/SebiDisclosurePage';
+import MediaPage from './pages/MediaPage';
 import ContactPage from './pages/ContactPage';
 import Loader from './components/Loader/Loader';
 import ScrollToTop from './components/ScrollToTop';
@@ -102,6 +103,7 @@ function App() {
           <Route path="/policies" element={<PoliciesPage />} />
           <Route path="/other-compliances" element={<OtherCompliancesPage />} />
           <Route path="/sebi-disclosure" element={<SebiDisclosurePage />} />
+          <Route path="/media" element={<MediaPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       )}

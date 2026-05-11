@@ -5,7 +5,7 @@ import { ChevronRight, FileText, Layout, Shield, Target, Award, ArrowRight, Chev
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import logo from '../assets/logo.webp';
-import heroImg from '../assets/C Header.webp';
+import heroImg from '../assets/copier final header.jpeg';
 import c1 from '../assets/C1.webp';
 import c2 from '../assets/C2.webp';
 import c3 from '../assets/C3 (2).webp';
@@ -555,7 +555,7 @@ const CopierPaperPage = () => {
             <div className="relative w-full h-[95vh]">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url("${heroImg}")` }}
+                    style={{ backgroundImage: `url("${heroImg}")`, backgroundPosition: 'center 25%' }}
                 >
                     {/* Overlay gradient */}
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent"></div>
