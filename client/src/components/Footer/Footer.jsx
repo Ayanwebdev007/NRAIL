@@ -7,7 +7,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const socialLinks = [
-        { Icon: Linkedin, href: "#", label: "LinkedIn" },
+        { Icon: Linkedin, href: "https://www.linkedin.com/in/n-r-agarwal-industries-ltd/", label: "LinkedIn" },
         { Icon: Youtube, href: "https://www.youtube.com/@NRAgarwalIndustriesLtd/", label: "YouTube" }
     ];
 

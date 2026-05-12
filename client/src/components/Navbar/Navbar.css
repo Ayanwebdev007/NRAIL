@@ -55,8 +55,10 @@
     padding: 10px 0;
 }
 
-.nav-links>li>a {
+.nav-links>li>a,
+.nav-link-trigger {
     font-size: 15px;
+    cursor: pointer;
     /* Reduced from 18px */
     /* Further increased text size */
     font-weight: 700;
@@ -75,7 +77,8 @@
     stroke: var(--primary);
 }
 
-.nav-links>li:hover>a {
+.nav-links>li:hover>a,
+.nav-links>li:hover .nav-link-trigger {
     opacity: 0.8;
 }
 
@@ -187,10 +190,14 @@
         right: 0;
     }
 
-    .nav-links>li>a {
+    .nav-links>li>a,
+    .nav-link-trigger {
         font-size: 24px;
         color: #000000;
         /* Black text for mobile menu */
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .dropdown {

@@ -89,10 +89,16 @@ const Navbar = () => {
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           {navData.map((item, index) => (
             <li key={index} className={item.links.length > 0 ? 'has-dropdown' : ''}>
-              <Link to={item.path ? item.path : item.title === 'Our Story' ? '/our-story' : item.title === 'Contact Us' ? '/contact' : `/#${item.title.toLowerCase().replace(/ /g, '-')}`}>
-                {item.title.toUpperCase()}
-                {item.links.length > 0 && <ChevronDown size={16} className="dropdown-icon" />}
-              </Link>
+              {item.links.length > 0 ? (
+                <div className="nav-link-trigger">
+                  {item.title.toUpperCase()}
+                  <ChevronDown size={16} className="dropdown-icon" />
+                </div>
+              ) : (
+                <Link to={item.path ? item.path : item.title === 'Contact Us' ? '/contact' : '#'}>
+                  {item.title.toUpperCase()}
+                </Link>
+              )}
               {item.links.length > 0 && (
                 <ul className="dropdown">
                   {item.links.map((link, subIndex) => (
