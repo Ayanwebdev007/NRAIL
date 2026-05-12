@@ -25,6 +25,8 @@ import NewsroomPage from './pages/NewsroomPage';
 import InvestorInformationPage from './pages/InvestorInformationPage';
 import IndependentDirectorsPage from './pages/IndependentDirectorsPage';
 import PoliciesPage from './pages/PoliciesPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsConditionsPage from './pages/TermsConditionsPage';
 import OtherCompliancesPage from './pages/OtherCompliancesPage';
 import SebiDisclosurePage from './pages/SebiDisclosurePage';
 import MediaPage from './pages/MediaPage';
@@ -101,6 +103,8 @@ function App() {
           <Route path="/investor-information" element={<InvestorInformationPage />} />
           <Route path="/independent-directors" element={<IndependentDirectorsPage />} />
           <Route path="/policies" element={<PoliciesPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-and-conditions" element={<TermsConditionsPage />} />
           <Route path="/other-compliances" element={<OtherCompliancesPage />} />
           <Route path="/sebi-disclosure" element={<SebiDisclosurePage />} />
           <Route path="/media" element={<MediaPage />} />

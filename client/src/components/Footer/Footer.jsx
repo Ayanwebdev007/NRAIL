@@ -1,10 +1,15 @@
 import React from 'react';
-import { Linkedin, Instagram, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Linkedin, Youtube, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.webp';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+
+    const socialLinks = [
+        { Icon: Linkedin, href: "#", label: "LinkedIn" },
+        { Icon: Youtube, href: "https://www.youtube.com/@NRAgarwalIndustriesLtd/", label: "YouTube" }
+    ];
 
     const footerLinks = [
         {
@@ -42,8 +47,8 @@ const Footer = () => {
             links: [
                 { label: "Contact", path: "/contact" },
                 { label: "Inquiry", path: "/contact" },
-                { label: "Privacy Policy", path: "/policies" },
-                { label: "Terms of Use", path: "/policies" }
+                { label: "Privacy Policy", path: "/privacy-policy" },
+                { label: "Terms of Use", path: "/terms-and-conditions" }
             ]
         }
     ];
@@ -74,10 +79,13 @@ const Footer = () => {
                         <div className="h-2 md:h-5" />
 
                         <div className="flex items-center gap-4 md:gap-6 2xl:gap-10">
-                            {[Linkedin, Instagram].map((Icon, index) => (
+                            {socialLinks.map(({ Icon, href, label }, index) => (
                                 <a
                                     key={index}
-                                    href="#"
+                                    href={href}
+                                    target={href !== "#" ? "_blank" : undefined}
+                                    rel={href !== "#" ? "noopener noreferrer" : undefined}
+                                    aria-label={label}
                                     className="w-8 h-8 md:w-9 md:h-9 2xl:w-14 2xl:h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all duration-300 group"
                                 >
                                     <Icon className="w-4 h-4 2xl:w-6 2xl:h-6 text-white/60 group-hover:text-white" />
@@ -153,8 +161,8 @@ const Footer = () => {
                         © {currentYear} NR AGARWAL INDUSTRIES LTD. ALL RIGHTS RESERVED.
                     </p>
                     <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 2xl:gap-16 text-[10px] md:text-[11px] 2xl:text-base font-medium tracking-wider text-white/20">
-                        <Link to="/policies" className="hover:text-red-600 transition-colors">PRIVACY POLICY</Link>
-                        <Link to="/policies" className="hover:text-red-600 transition-colors">TERMS & CONDITIONS</Link>
+                        <Link to="/privacy-policy" className="hover:text-red-600 transition-colors">PRIVACY POLICY</Link>
+                        <Link to="/terms-and-conditions" className="hover:text-red-600 transition-colors">TERMS & CONDITIONS</Link>
                         <Link to="/contact#locations" className="hover:text-red-600 transition-colors uppercase">LOCATIONS</Link>
                     </div>
                 </div>
