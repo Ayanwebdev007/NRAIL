@@ -129,10 +129,10 @@ const unitsData = [
         label: 'Unit VI',
         location: 'Dahej',
         descTitle: 'Growth & Expansion Journey',
-        description: 'Spread across a 135-acre site in Dahej, Gujarat, NRAIL is developing a next-generation manufacturing complex with a capacity of 1,500 TPD—marking a significant milestone in its growth and expansion journey.',
+        description: 'Spread across a 546,326 sq mt site in Dahej, Gujarat, NRAIL is developing a next-generation manufacturing complex with a capacity of 1,500 TPD—marking a significant milestone in its growth and expansion journey.',
         stats: [
             { title: '1,500 TPD', value: 'Production capacity' },
-            { title: '135-Acre', value: 'Expansion site' },
+            { title: '546,326 sq mt', value: 'Expansion site' },
         ],
         image: unitVi,
     },

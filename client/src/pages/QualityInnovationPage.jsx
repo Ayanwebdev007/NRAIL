@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, Check, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 
@@ -16,10 +16,20 @@ import benefit4 from '../assets/framework_efficiency.webp';
 
 const QualityInnovationPage = () => {
   const [activeBenefit, setActiveBenefit] = React.useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   const benefits = [
     {
@@ -72,7 +82,7 @@ const QualityInnovationPage = () => {
       </div>
 
       {/* Quality Assurance Section */}
-      <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+      <section id="quality-assurance" className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="container mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
             <motion.div
@@ -118,7 +128,7 @@ const QualityInnovationPage = () => {
       </section>
 
       {/* Innovation Section */}
-      <section className="bg-gray-50 overflow-hidden" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+      <section id="innovation" className="bg-gray-50 overflow-hidden" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
         <div className="container mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
             <motion.div

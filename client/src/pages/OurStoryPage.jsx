@@ -7,90 +7,129 @@ import FounderImg from '../assets/NR FOUNDER FRAME.webp';
 import RoyalFrame from '../assets/frame.webp';
 import MissionImg from '../assets/mission vission.webp';
 import certifiedLogo from '../assets/certified-logo.webp';
-import reachCertificatePdf from '../assets/REACH Certificate IGB.pdf';
-import moshCertificatePdf from '../assets/MOSH IGB.pdf';
-import leadPhthalatesPdf from '../assets/Lead and phthalates - U1.pdf';
-import isoCa3Pdf from '../assets/ISO NR Aggrawal EMS CA (3).pdf';
-import isoCa2Pdf from '../assets/ISO NR Aggrawal EMS CA (2).pdf';
-import isoCa1Pdf from '../assets/ISO NR Aggrawal EMS CA (1).pdf';
-import fdaPm2Pdf from '../assets/IGB FDA - PM2 FG.pdf';
-import heavyMetalPm2Pdf from '../assets/Heavy Metal IGB 08.02.25 -U5 PM2.pdf';
-import fscCertificatePdf from '../assets/FSC Certificate.pdf';
-import coffeeTablePdf from '../assets/Coffe Table Book_NR Agarwal final.pdf';
-import bis1848Pdf from '../assets/BIS 1848 WP Updated on 21.08.2025.pdf';
+import endorsement14490Pdf from '../assets/NRAIL FINAL CERTIFICATES/14490 Endorsement No.05.pdf';
+import endorsement1848Pdf from '../assets/NRAIL FINAL CERTIFICATES/1848 Endorsement No.09.pdf';
+import bisPlainCopierPdf from '../assets/NRAIL FINAL CERTIFICATES/BIS - PLAIN COPIER PAPER.pdf';
+import bisWritingPrintingPdf from '../assets/NRAIL FINAL CERTIFICATES/BIS - WRITING & PRINTING.pdf';
+import fdaPearlCoatPdf from '../assets/NRAIL FINAL CERTIFICATES/FDA-Pearl Coat.pdf';
+import fdaPowerPacPdf from '../assets/NRAIL FINAL CERTIFICATES/FDA-Power Pac.pdf';
+import fscCertificateNrailPdf from '../assets/NRAIL FINAL CERTIFICATES/FSC Certificate NRAIL.pdf';
+import igbHeavyMetalPdf from '../assets/NRAIL FINAL CERTIFICATES/IGB - Heavy Metal.pdf';
+import igbReachPdf from '../assets/NRAIL FINAL CERTIFICATES/IGB - Reach.pdf';
+import igbRohsPdf from '../assets/NRAIL FINAL CERTIFICATES/IGB - RoHS.pdf';
+import igbFdaPdf from '../assets/NRAIL FINAL CERTIFICATES/IGB -FDA.pdf';
+import reachPearlCoatPdf from '../assets/NRAIL FINAL CERTIFICATES/REACH Certificate Pearl Coat.pdf';
+import reachPowerPacPdf from '../assets/NRAIL FINAL CERTIFICATES/REACH Certificate Power Pac.pdf';
+import rohsPearlCoatPdf from '../assets/NRAIL FINAL CERTIFICATES/ROHS -Pearl Coat.pdf';
+import rohsPowerPacPdf from '../assets/NRAIL FINAL CERTIFICATES/ROHS Power Pac.pdf';
 import { useLocation, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Shield, Zap, Leaf, ClipboardCheck, Users } from 'lucide-react';
 
 const certifications = [
     {
-        displayTitle: 'REACH Certificate IGB',
-        title: 'REACH Certificate IGB',
-        file: reachCertificatePdf,
-        badgeTop: 'Compliance Certification',
-        badgeCode: 'REACH',
+        displayTitle: '14490 Endorsement No.05',
+        title: '14490 Endorsement No.05',
+        file: endorsement14490Pdf,
+        badgeTop: 'BIS Endorsement',
+        badgeCode: 'IS 14490',
     },
     {
-        displayTitle: 'MOSH IGB',
-        title: 'MOSH IGB',
-        file: moshCertificatePdf,
-        badgeTop: 'Safety Compliance',
-        badgeCode: 'MOSH',
+        displayTitle: '1848 Endorsement No.09',
+        title: '1848 Endorsement No.09',
+        file: endorsement1848Pdf,
+        badgeTop: 'BIS Endorsement',
+        badgeCode: 'IS 1848',
     },
     {
-        displayTitle: 'Lead and phthalates - U1',
-        title: 'Lead and phthalates - U1',
-        file: leadPhthalatesPdf,
-        badgeTop: 'Material Safety',
-        badgeCode: 'LEAD FREE',
+        displayTitle: 'BIS - Plain Copier Paper',
+        title: 'BIS - Plain Copier Paper',
+        file: bisPlainCopierPdf,
+        badgeTop: 'Indian Standards',
+        badgeCode: 'BIS COPIER',
     },
     {
-        displayTitle: 'ISO NR Aggrawal EMS CA (1)',
-        title: 'ISO NR Aggrawal EMS CA (1)',
-        file: isoCa1Pdf,
-        badgeTop: 'Environmental System',
-        badgeCode: 'ISO 14001',
+        displayTitle: 'BIS - Writing & Printing',
+        title: 'BIS - Writing & Printing',
+        file: bisWritingPrintingPdf,
+        badgeTop: 'Indian Standards',
+        badgeCode: 'BIS WP',
     },
     {
-        displayTitle: 'ISO NR Aggrawal EMS CA (2)',
-        title: 'ISO NR Aggrawal EMS CA (2)',
-        file: isoCa2Pdf,
-        badgeTop: 'Quality System',
-        badgeCode: 'ISO 9001',
-    },
-    {
-        displayTitle: 'ISO NR Aggrawal EMS CA (3)',
-        title: 'ISO NR Aggrawal EMS CA (3)',
-        file: isoCa3Pdf,
-        badgeTop: 'Safety System',
-        badgeCode: 'ISO 45001',
-    },
-    {
-        displayTitle: 'IGB FDA - PM2 FG',
-        title: 'IGB FDA - PM2 FG',
-        file: fdaPm2Pdf,
+        displayTitle: 'FDA - Pearl Coat',
+        title: 'FDA - Pearl Coat',
+        file: fdaPearlCoatPdf,
         badgeTop: 'Food Contact Safety',
-        badgeCode: 'FDA',
+        badgeCode: 'FDA PEARL',
     },
     {
-        displayTitle: 'Heavy Metal IGB 08.02.25 -U5 PM2',
-        title: 'Heavy Metal IGB 08.02.25 -U5 PM2',
-        file: heavyMetalPm2Pdf,
-        badgeTop: 'Material Testing',
-        badgeCode: 'HEAVY METAL',
+        displayTitle: 'FDA - Power Pac',
+        title: 'FDA - Power Pac',
+        file: fdaPowerPacPdf,
+        badgeTop: 'Food Contact Safety',
+        badgeCode: 'FDA POWER',
     },
     {
-        displayTitle: 'FSC Certificate',
-        title: 'FSC Certificate',
-        file: fscCertificatePdf,
+        displayTitle: 'FSC Certificate NRAIL',
+        title: 'FSC Certificate NRAIL',
+        file: fscCertificateNrailPdf,
         badgeTop: 'Forest Stewardship',
         badgeCode: 'FSC',
     },
     {
-        displayTitle: 'BIS 1848 WP Updated on 21.08.2025',
-        title: 'BIS 1848 WP Updated on 21.08.2025',
-        file: bis1848Pdf,
-        badgeTop: 'Indian Standards',
-        badgeCode: 'BIS 1848',
+        displayTitle: 'IGB - Heavy Metal',
+        title: 'IGB - Heavy Metal',
+        file: igbHeavyMetalPdf,
+        badgeTop: 'Material Testing',
+        badgeCode: 'HEAVY METAL',
+    },
+    {
+        displayTitle: 'IGB - REACH',
+        title: 'IGB - REACH',
+        file: igbReachPdf,
+        badgeTop: 'Compliance Certification',
+        badgeCode: 'REACH',
+    },
+    {
+        displayTitle: 'IGB - RoHS',
+        title: 'IGB - RoHS',
+        file: igbRohsPdf,
+        badgeTop: 'Hazardous Substances',
+        badgeCode: 'RoHS',
+    },
+    {
+        displayTitle: 'IGB - FDA',
+        title: 'IGB - FDA',
+        file: igbFdaPdf,
+        badgeTop: 'Food Contact Safety',
+        badgeCode: 'FDA IGB',
+    },
+    {
+        displayTitle: 'REACH - Pearl Coat',
+        title: 'REACH - Pearl Coat',
+        file: reachPearlCoatPdf,
+        badgeTop: 'Compliance Certification',
+        badgeCode: 'REACH PEARL',
+    },
+    {
+        displayTitle: 'REACH - Power Pac',
+        title: 'REACH - Power Pac',
+        file: reachPowerPacPdf,
+        badgeTop: 'Compliance Certification',
+        badgeCode: 'REACH POWER',
+    },
+    {
+        displayTitle: 'RoHS - Pearl Coat',
+        title: 'RoHS - Pearl Coat',
+        file: rohsPearlCoatPdf,
+        badgeTop: 'Hazardous Substances',
+        badgeCode: 'RoHS PEARL',
+    },
+    {
+        displayTitle: 'RoHS - Power Pac',
+        title: 'RoHS - Power Pac',
+        file: rohsPowerPacPdf,
+        badgeTop: 'Hazardous Substances',
+        badgeCode: 'RoHS POWER',
     },
 ];
 
