@@ -594,7 +594,7 @@ const OurStoryPage = () => {
             </div>
 
             {/* Our Certifications Section */}
-            <div className="bg-white pb-32 relative">
+            <div id="certifications" className="bg-white pb-32 relative">
                 <div className="container mx-auto px-6 max-w-7xl">
                     <div className="flex flex-col items-center text-center mb-24">
                         <motion.div

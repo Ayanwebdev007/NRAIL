@@ -2,7 +2,7 @@ import React from 'react';
 
 const GlobalReliability = () => {
     return (
-        <section className="w-full flex justify-center items-center bg-black overflow-hidden relative">
+        <section id="global-reliability" className="w-full flex justify-center items-center bg-black overflow-hidden relative">
             <img
                 src="/NRAIL MAP.webp"
                 alt="Global Reliability - Wraps the world"

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import './KeyHighlights.css';
 
-const Counter = ({ from = 0, to, duration = 2, prefix = "", suffix = "", separateTPA = false }) => {
+const Counter = ({ from = 0, to, duration = 2, prefix = "", suffix = "", unit = "" }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false, amount: 0.5 });
 
@@ -30,13 +30,13 @@ const Counter = ({ from = 0, to, duration = 2, prefix = "", suffix = "", separat
         return unsubscribe;
     }, [springValue]);
 
-    // formatting for 600,000
-    const formattedValue = displayValue.toLocaleString();
+    // formatting for 4,40,000 using Indian system
+    const formattedValue = displayValue.toLocaleString('en-IN');
 
     return (
         <span ref={ref}>
             {prefix}{formattedValue}{suffix}
-            {separateTPA && <span style={{ marginLeft: '8px' }}>TPA</span>}
+            {unit && <span style={{ marginLeft: '8px' }}>{unit}</span>}
         </span>
     );
 };
@@ -103,9 +103,9 @@ const KeyHighlights = () => {
         {
             type: "count",
             from: 0,
-            to: 600000,
-            suffix: "+",
-            separateTPA: true, // Special handling for TPA to ensure it flows nicely
+            to: 440000,
+            suffix: "",
+            unit: "MTPA", // Special handling for MTPA to ensure it flows nicely
             text: "Capacity"
         },
         {
@@ -116,7 +116,7 @@ const KeyHighlights = () => {
         {
             type: "count",
             from: 10,
-            to: 3,
+            to: 5,
             prefix: "Top-",
             text: "Paper Producer in India"
         },
@@ -159,7 +159,7 @@ const KeyHighlights = () => {
                                         to={item.to}
                                         prefix={item.prefix}
                                         suffix={item.suffix}
-                                        separateTPA={item.separateTPA}
+                                        unit={item.unit}
                                     />
                                 ) : (
                                     <TextReveal text={item.content} />

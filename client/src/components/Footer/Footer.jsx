@@ -38,8 +38,8 @@ const Footer = () => {
                 { label: "Duplex Board", path: "/duplex-board-grades" },
                 { label: "Paper Solutions", path: "/writing-printing-grades" },
                 { label: "Packaging", path: "/premium-board-grades" },
-                { label: "Innovation", path: "/quality-innovation" },
-                { label: "Global Reach", path: "/manufacturing-edge" }
+                { label: "Innovation", path: "/quality-innovation#innovation" },
+                { label: "Global Reach", path: "/#global-reliability" }
             ]
         },
         {
