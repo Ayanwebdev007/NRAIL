@@ -119,8 +119,8 @@ const unitsData = [
         description: 'Situated within a sprawling 100-acre industrial complex in Sarigam, we adhere to a Go-Green philosophy by exclusively using 100% recycled raw materials. Our recent INR 1000 crore expansion includes a 2,40,000 TPA packaging board plant. This makes Unit V PM II India\'s largest standalone packaging board facility.',
         stats: [
             { title: '2,40,000 TPA', value: 'Packaging board plant capacity' },
-            { title: '200-400 GSM', value: 'Versatile Board Range' },
             { title: '3,37,599 sq mt', value: 'Wide Spread Base' },
+            { title: '200-400 GSM', value: 'Versatile Board Range' },
         ],
         images: [unitVPm2Img1, unitVPm2Img2, unitVPm2Img3],
     },
@@ -133,7 +133,6 @@ const unitsData = [
         stats: [
             { title: '5,00,000 TPA approx', value: 'Production Capacity' },
             { title: '6,07,028 sq meters', value: 'Widespread Area' },
-            { title: '₹1,500 Crore', value: 'Estimated Project Investment' },
         ],
         image: unitVi,
     },
@@ -201,7 +200,7 @@ const UnitsSection = () => {
                     {unit.stats && unit.stats.length > 0 ? (
                         <>
                             {/* Stats Grid - Premium Elevation */}
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 w-full max-w-6xl mx-auto" style={{ marginBottom: '80px', textAlign: 'center' }}>
+                            <div className={`grid grid-cols-1 ${unit.stats.length === 2 ? 'md:grid-cols-2 max-w-4xl' : 'md:grid-cols-3 max-w-6xl'} gap-16 w-full mx-auto`} style={{ marginBottom: '80px', textAlign: 'center' }}>
                                 {unit.stats.map((stat, sIdx) => (
                                     <motion.div
                                         key={sIdx}

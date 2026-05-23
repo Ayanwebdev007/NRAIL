@@ -117,8 +117,8 @@ const KeyHighlights = () => {
             type: "count",
             from: 10,
             to: 5,
-            prefix: "Top-",
-            text: "Paper Producer in India"
+            prefix: "One of the Top-",
+            text: "Paper Producers in India"
         },
         {
             type: "text",
