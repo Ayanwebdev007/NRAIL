@@ -88,11 +88,12 @@ const locations = [
     {
         id: 4,
         name: "UNIT VI",
-        code: "502-A/501-B, Fortune Terraces, 5th Floor, Opp. Citi Mall, New Link Road, Andheri (West), Mumbai 400 053",
+        code: "Dahej, Bharuch District, Gujarat",
         region: "Dahej",
-        lat: 19.138899970114217,
-        lng: 72.83216446655372,
-        link: "https://www.google.com/maps/search/?api=1&query=19.138899970114217,72.83216446655372"
+        lat: 21.71,
+        lng: 72.58,
+        link: "https://www.google.com/maps/search/?api=1&query=Dahej,Gujarat,India",
+        upcoming: true
     }
 ];
 
@@ -114,13 +115,13 @@ const OurLocation = () => {
     const [activeLocation, setActiveLocation] = useState(null);
     const markerRefs = useRef({}); // Store refs to markers
 
-    // Initial Overview Center (Visual center between Vapi and Mumbai)
-    const initialCenter = [19.85, 72.95];
-    const initialZoom = 8; // Zoomed out to see both Vapi and Mumbai
+    // Initial Overview Center (midpoint between Vapi/Sarigam and Dahej to show all pins)
+    const initialCenter = [21.0, 72.75];
+    const initialZoom = 8;
 
     // Active state derived values
     const mapCenter = activeLocation ? [activeLocation.lat, activeLocation.lng] : initialCenter;
-    const mapZoom = activeLocation ? 16 : initialZoom;
+    const mapZoom = activeLocation ? (activeLocation.upcoming ? 11 : 16) : initialZoom;
 
     // Effect to open popup when activeLocation changes via button click
     useEffect(() => {
@@ -172,6 +173,9 @@ const OurLocation = () => {
                                 <MapPin className="w-6 h-6" />
                             </div>
                             <h3 className="text-lg font-bold mb-1">{loc.name}</h3>
+                            {loc.upcoming && (
+                                <span style={{ color: '#dc2626', fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.08em', background: activeLocation?.id === loc.id ? 'rgba(255,255,255,0.25)' : '#fef2f2', padding: '2px 10px', borderRadius: '999px', display: 'inline-block', marginBottom: '4px', border: activeLocation?.id === loc.id ? '1px solid rgba(255,255,255,0.4)' : '1px solid #fecaca' }}>UPCOMING</span>
+                            )}
                             <p className={`text-xs uppercase tracking-wider font-semibold ${activeLocation?.id === loc.id ? 'text-white/80' : 'text-gray-400'
                                 }`}>
                                 {loc.region}
@@ -220,8 +224,16 @@ const OurLocation = () => {
                                                 <MapPin className="w-5 h-5" />
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-gray-900 text-lg leading-tight mb-1">{loc.name}</h3>
+                                                <h3 className="font-bold text-gray-900 text-lg leading-tight mb-1">
+                                                    {loc.name}
+                                                    {loc.upcoming && (
+                                                        <span style={{ color: '#dc2626', fontSize: '0.6rem', fontWeight: 700, marginLeft: '6px', letterSpacing: '0.05em', verticalAlign: 'super', background: '#fef2f2', padding: '1px 5px', borderRadius: '3px' }}>UPCOMING</span>
+                                                    )}
+                                                </h3>
                                                 <p className="text-sm text-gray-500 leading-relaxed font-medium">{loc.code}</p>
+                                                {loc.upcoming && (
+                                                    <p className="text-xs text-amber-600 mt-1 italic font-medium">Exact location to be finalized</p>
+                                                )}
                                             </div>
                                         </div>
 
@@ -231,7 +243,7 @@ const OurLocation = () => {
                                             rel="noopener noreferrer"
                                             className="flex items-center justify-center gap-2 w-full bg-red-600 !text-white text-sm font-bold px-4 py-4 rounded-xl hover:bg-red-700 transition-all group shadow-md no-underline"
                                         >
-                                            <span>View on Google Maps</span>
+                                            <span>{loc.upcoming ? 'View Dahej Area' : 'View on Google Maps'}</span>
                                             <Navigation className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                         </a>
                                     </div>
