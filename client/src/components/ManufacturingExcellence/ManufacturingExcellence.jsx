@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Unit1Img from '../../assets/Unit I.webp';
 import UnitVImg from '../../assets/Unit V PM 1.webp';
 import UnitVPM2Img from '../../assets/Unit V PM2.webp';
 import UnitVIImg from '../../assets/HOME Unit VI.webp';
 
 const ManufacturingExcellence = () => {
+    const navigate = useNavigate();
     // Placeholder images
     const images = [
         {
@@ -112,6 +114,7 @@ const ManufacturingExcellence = () => {
                 {images.map((img, index) => (
                     <motion.div
                         key={img.id}
+                        onClick={() => navigate('/manufacturing-edge', { state: { activeUnit: index } })}
                         variants={{
                             hidden: { opacity: 0, y: 100, rotateX: 15, scale: 0.9 },
                             visible: {

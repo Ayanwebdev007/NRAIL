@@ -30,7 +30,7 @@ const Counter = ({ from = 0, to, duration = 2, prefix = "", suffix = "", unit = 
         return unsubscribe;
     }, [springValue]);
 
-    // formatting for 4,40,000 using Indian system
+    // formatting for 4,68,000 using Indian system
     const formattedValue = displayValue.toLocaleString('en-IN');
 
     return (
@@ -103,9 +103,9 @@ const KeyHighlights = () => {
         {
             type: "count",
             from: 0,
-            to: 440000,
+            to: 468000,
             suffix: "",
-            unit: "MTPA", // Special handling for MTPA to ensure it flows nicely
+            unit: "TPA", // Special handling for TPA to ensure it flows nicely
             text: "Capacity"
         },
         {
@@ -117,7 +117,7 @@ const KeyHighlights = () => {
             type: "count",
             from: 10,
             to: 5,
-            prefix: "One of the Top-",
+            prefix: "One of the Top ",
             text: "Paper Producers in India"
         },
         {

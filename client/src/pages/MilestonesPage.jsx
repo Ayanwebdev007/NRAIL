@@ -72,8 +72,8 @@ const milestones = [
     },
     {
         year: "2025",
-        title: "Highest ever Monthly Group Production",
-        description: "Achieved our Highest ever Monthly Group Production of 44,768 MT, a testament to our efficiency and scale.",
+        title: "Announcement of 1500 TPD new Dahej plant",
+        description: "Announcement of 1500 TPD new Dahej plant",
         icon: TrendingUp,
         image: img2025
     }

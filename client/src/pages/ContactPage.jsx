@@ -77,6 +77,7 @@ const ContactPage = () => {
                             <p className="font-['Outfit'] uppercase tracking-[0.15em] text-[#8b0000] mb-2" style={{ fontSize: '12px', fontWeight: 500 }}>CONTACT</p>
                             <p className="font-['Outfit'] text-gray-800" style={{ fontSize: '16px', lineHeight: 1.7, fontWeight: 400 }}>
                                 Phone: +91 (22) 67317500<br />
+                                Email: admin@nrail.com<br />
                                 Fax: +91 (22) 26730227 / 26736953
                             </p>
                         </div>

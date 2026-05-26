@@ -131,19 +131,26 @@ const unitsData = [
         descTitle: 'Growth & Expansion Journey',
         description: 'NRAIL is set to establish its upcoming Unit VI facility at Dahej, Gujarat, further strengthening its manufacturing footprint and long-term growth strategy. The proposed unit will be developed over approximately 150 acres with an estimated project investment of around ₹1,500 crore. Upon commissioning, the facility is expected to deliver an annual production capacity of nearly 5,00,000 TPA. Construction activities are expected to commence in Q2 FY28, while commercial production is targeted to begin by December 2029. The project is expected to enhance NRAIL’s production capabilities and support future market expansion initiatives.',
         stats: [
-            { title: '5,00,000 TPA approx', value: 'Production Capacity' },
-            { title: '6,07,028 sq meters', value: 'Widespread Area' },
+            { title: '5,00,000 TPA', value: 'Proposed Production Capacity' },
+            { title: '5,70,000 sq meters', value: 'Widespread Area' },
         ],
         image: unitVi,
     },
 ];
 
 const UnitsSection = () => {
+    const location = useLocation();
     const [activeUnit, setActiveUnit] = useState(0);
     const unit = unitsData[activeUnit];
 
+    useEffect(() => {
+        if (location.state && typeof location.state.activeUnit === 'number') {
+            setActiveUnit(location.state.activeUnit);
+        }
+    }, [location]);
+
     return (
-        <div style={{ background: '#ffffff', padding: '100px 0 0 0' }}>
+        <div id="units-section" style={{ background: '#ffffff', padding: '100px 0 0 0' }}>
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 {/* Section Heading */}
                 <motion.div
@@ -618,7 +625,16 @@ const ManufacturingEdgePage = () => {
     const [showMore, setShowMore] = useState(false);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (location.state && typeof location.state.activeUnit === 'number') {
+            setTimeout(() => {
+                const element = document.getElementById('units-section');
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            window.scrollTo(0, 0);
+        }
     }, [location]);
 
     return (

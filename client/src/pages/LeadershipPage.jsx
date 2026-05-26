@@ -42,7 +42,7 @@ const leadersList = [
     {
         id: 2,
         name: "Mr. Raunak Agarwal",
-        role: "Executive Director",
+        role: "Deputy Managing Director",
         image: raunakLeadership,
         bgPos: "center",
         bgSize: "cover",
@@ -60,7 +60,7 @@ const leadersList = [
     {
         id: 4,
         name: "Mr. Rohan Agarwal",
-        role: "Executive Director & CEO",
+        role: "Deputy Managing Director",
         image: rohanALeadership,
         bgPos: "center",
         bgSize: "cover",
@@ -373,7 +373,7 @@ const LeadershipPage = () => {
                                 },
                                 {
                                     name: "Mr. Raunak Agarwal",
-                                    title: "Executive Director",
+                                    title: "Deputy Managing Director",
                                     image: raunakLeadership
                                 },
                                 {
@@ -383,7 +383,7 @@ const LeadershipPage = () => {
                                 },
                                 {
                                     name: "Mr. Rohan Agarwal",
-                                    title: "Executive Director & CEO",
+                                    title: "Deputy Managing Director",
                                     image: rohanALeadership
                                 },
                                 {

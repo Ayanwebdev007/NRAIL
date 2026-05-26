@@ -147,7 +147,7 @@ const Footer = () => {
                         </div>
                         <div>
                             <p className="text-[10px] 2xl:text-sm font-bold tracking-widest text-white/30 uppercase mb-1">Email Us</p>
-                            <p className="text-sm md:text-sm 2xl:text-xl font-light">info@nrail.com</p>
+                            <p className="text-sm md:text-sm 2xl:text-xl font-light">admin@nrail.com</p>
                         </div>
                     </div>
                 </div>
