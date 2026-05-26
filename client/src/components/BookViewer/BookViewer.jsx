@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import HTMLPageFlip from 'react-pageflip';
-import * as pdfjsLib from 'pdfjs-dist';
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-import { ChevronLeft, ChevronRight, X, Loader2, Download } from 'lucide-react';
-
-// Set worker path
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
+import { ChevronLeft, ChevronRight, X, Download } from 'lucide-react';
 
 const Page = forwardRef((props, ref) => {
     return (
@@ -19,67 +14,11 @@ const Page = forwardRef((props, ref) => {
 });
 
 const BookViewer = ({ pdfUrl, onClose }) => {
-    const [pages, setPages] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [renderProgress, setRenderProgress] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
     const book = useRef();
 
-    useEffect(() => {
-        const loadPdf = async () => {
-            try {
-                console.log('Loading PDF with optimized rendering:', pdfUrl);
-                setLoading(true);
-                setRenderProgress(0);
-
-                const loadingTask = pdfjsLib.getDocument(pdfUrl);
-                const pdf = await loadingTask.promise;
-                const totalPages = pdf.numPages;
-                const pagesArray = new Array(totalPages);
-
-                const renderPage = async (pageNum) => {
-                    const page = await pdf.getPage(pageNum);
-                    const viewport = page.getViewport({ scale: 1.5 });
-                    const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d', { alpha: false });
-
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
-
-                    await page.render({
-                        canvasContext: context,
-                        viewport,
-                        intent: 'display'
-                    }).promise;
-
-                    return canvas.toDataURL('image/jpeg', 0.8); // High quality re-render on the 13MB file
-                };
-
-                // Fast Sequential Batch Rendering
-                const BATCH_SIZE = 12;
-                for (let i = 0; i < totalPages; i += BATCH_SIZE) {
-                    const batchPromises = [];
-                    for (let j = i; j < Math.min(i + BATCH_SIZE, totalPages); j++) {
-                        batchPromises.push(renderPage(j + 1).then(dataUrl => {
-                            pagesArray[j] = dataUrl;
-                        }));
-                    }
-                    await Promise.all(batchPromises);
-                    setRenderProgress(Math.round(((i + BATCH_SIZE) / totalPages) * 100));
-                }
-
-                setPages(pagesArray);
-                setLoading(false);
-            } catch (error) {
-                console.error('Stable PDF loading failed:', error);
-                setLoading(false);
-            }
-        };
-
-        if (pdfUrl) {
-            loadPdf();
-        }
-    }, [pdfUrl]);
+    // 24 pre-rendered pages stored in the public directory
+    const pages = Array.from({ length: 24 }, (_, i) => `/coffe-table-book/page-${i + 1}.webp?v=3`);
 
     const onNext = () => {
         if (book.current) {
@@ -151,65 +90,50 @@ const BookViewer = ({ pdfUrl, onClose }) => {
                 </div>
             </div>
 
-            {loading && pages.length === 0 ? (
-                <div className="flex-1 flex flex-col items-center justify-center gap-12">
-                    <div className="relative w-32 h-32">
-                        <Loader2 className="animate-spin text-[#b01e1e]" size={128} />
-                        <div className="absolute inset-0 flex items-center justify-center text-lg font-bold">
-                            {renderProgress}%
-                        </div>
-                    </div>
-                    <div className="text-center space-y-4">
-                        <h2 className="text-3xl tracking-[0.5em] font-light uppercase">Restoring Legacy</h2>
-                        <p className="text-xs text-white/30 tracking-[0.8em] uppercase">Opening Coffee Table Book...</p>
-                    </div>
-                </div>
-            ) : (
-                <div className="flex-1 w-full flex items-center justify-center relative gap-12 lg:gap-24 overflow-hidden">
-                    <button
-                        className="hidden xl:flex bg-white/5 hover:bg-white/15 border border-white/5 text-white w-24 h-24 rounded-full items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-0 z-[10000]"
-                        onClick={onPrev}
-                        disabled={currentPage === 0}
-                    >
-                        <ChevronLeft size={60} />
-                    </button>
+            <div className="flex-1 w-full flex items-center justify-center relative gap-12 lg:gap-24 overflow-hidden">
+                <button
+                    className="hidden xl:flex bg-white/5 hover:bg-white/15 border border-white/5 text-white w-24 h-24 rounded-full items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-0 z-[10000]"
+                    onClick={onPrev}
+                    disabled={currentPage === 0}
+                >
+                    <ChevronLeft size={60} />
+                </button>
 
-                    <HTMLPageFlip
-                        width={550}
-                        height={733}
-                        size="stretch"
-                        minWidth={315}
-                        maxWidth={1200}
-                        minHeight={400}
-                        maxHeight={1600}
-                        maxShadowOpacity={0.6}
-                        showCover={true}
-                        mobileScrollSupport={true}
-                        onFlip={onFlip}
-                        className="shadow-2xl"
-                        ref={book}
-                    >
-                        {pages.map((image, index) => (
-                            <Page key={index}>
-                                <img
-                                    src={image}
-                                    alt={`Page ${index + 1}`}
-                                    className="w-full h-full object-contain select-none"
-                                    draggable="false"
-                                />
-                            </Page>
-                        ))}
-                    </HTMLPageFlip>
+                <HTMLPageFlip
+                    width={550}
+                    height={733}
+                    size="stretch"
+                    minWidth={315}
+                    maxWidth={1200}
+                    minHeight={400}
+                    maxHeight={1600}
+                    maxShadowOpacity={0.6}
+                    showCover={true}
+                    mobileScrollSupport={true}
+                    onFlip={onFlip}
+                    className="shadow-2xl"
+                    ref={book}
+                >
+                    {pages.map((image, index) => (
+                        <Page key={index}>
+                            <img
+                                src={image}
+                                alt={`Page ${index + 1}`}
+                                className="w-full h-full object-contain select-none"
+                                draggable="false"
+                            />
+                        </Page>
+                    ))}
+                </HTMLPageFlip>
 
-                    <button
-                        className="hidden xl:flex bg-white/5 hover:bg-white/15 border border-white/5 text-white w-24 h-24 rounded-full items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-0 z-[10000]"
-                        onClick={onNext}
-                        disabled={currentPage >= pages.length - 1}
-                    >
-                        <ChevronRight size={60} />
-                    </button>
-                </div>
-            )}
+                <button
+                    className="hidden xl:flex bg-white/5 hover:bg-white/15 border border-white/5 text-white w-24 h-24 rounded-full items-center justify-center transition-all duration-300 hover:scale-110 disabled:opacity-0 z-[10000]"
+                    onClick={onNext}
+                    disabled={currentPage >= pages.length - 1}
+                >
+                    <ChevronRight size={60} />
+                </button>
+            </div>
 
             <div className="pb-4 opacity-20 text-[10px] tracking-[0.4em] uppercase font-light">
                 Use arrows or click to turn pages
