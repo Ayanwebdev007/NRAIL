@@ -62,7 +62,7 @@ const Navbar = () => {
         { label: 'Independent Directors', path: '/independent-directors' },
         { label: 'Policies at NRAIL', path: '/policies' },
         { label: 'Other Compliances', path: '/other-compliances' },
-        { label: 'Disclosure under Regulations 46 and 62 of SEBI (LODR) Regulations', path: '/sebi-disclosure' }
+        { label: 'Disclosure under Regulation 46 of SEBI (LODR) Regulations', path: '/sebi-disclosure' }
       ]
     },
     {

@@ -96,6 +96,7 @@
     margin-bottom: 40px;
     /* Reduced margin */
     max-width: 95%;
+    text-align: justify;
 }
 
 .story-features {

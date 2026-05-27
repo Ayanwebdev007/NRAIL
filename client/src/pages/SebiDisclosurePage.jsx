@@ -31,7 +31,7 @@ const SebiDisclosurePage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        <span className="block text-black">Disclosure under Regulation 46 and 62</span>
+                        <span className="block text-black">Disclosure under Regulation 46</span>
                         <span className="block text-[#8b0000]">of SEBI (LODR) Regulations</span>
                     </motion.h1>
 
@@ -44,6 +44,8 @@ const SebiDisclosurePage = () => {
                     <div className="space-y-4">
                         {[
                             "Details of its business",
+                            "MOA and AOA",
+                            "Brief profile of Board of Directors including directorship and full time positions in body corporates",
                             "Terms and conditions of appointment of Independent Directors",
                             "Composition of various committees of Board of Directors",
                             "Code of conduct of Board of Directors and Senior Management Personnel",
@@ -85,6 +87,8 @@ const SebiDisclosurePage = () => {
                                     (() => {
                                         const to = 
                                             item === "Details of its business" ? "/our-story" : 
+                                            item === "MOA and AOA" ? "/other-compliances" :
+                                            item === "Brief profile of Board of Directors including directorship and full time positions in body corporates" ? "/leadership" :
                                             item === "Terms and conditions of appointment of Independent Directors" ? "/independent-directors" : 
                                             item === "Composition of various committees of Board of Directors" ? "/committees-of-board" :
                                             item === "Code of conduct of Board of Directors and Senior Management Personnel" ? "/policies?category=Company%20Policy" :
@@ -92,7 +96,7 @@ const SebiDisclosurePage = () => {
                                             item === "Policy on Materiality of Related Party Transactions and on Dealing with Related Party Transactions" ? "/policies?category=Company%20Policy" :
                                             item === "Disclosure of the policy for determination of materiality of events or information" ? "/policies?category=Company%20Policy" :
                                             item === "Dividend Distribution Policy under Regulation 43A" ? "/policies?category=Company%20Policy" :
-                                            item === "Details of familiarization programs imparted to Independent Directors" ? "/independent-directors" :
+                                            item === "Details of familiarization programs imparted to Independent Directors" ? "/other-compliances" :
                                             item === "Email address for grievance redressal and other relevant details" ? "/shareholder-information?view=shareholder-info" :
                                             item === "Contact information of the designated officials of the listed entity who are responsible for assisting and handling investor grievances" ? "/shareholder-information?view=shareholder-info" :
                                             item === "Secretarial Compliance Report under Regulation 24A" ? "/other-compliances?category=secretarial Compliance Report" :

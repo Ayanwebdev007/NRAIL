@@ -60,21 +60,21 @@ const premiumIcon = createCustomIcon();
 const locations = [
     {
         id: 1,
-        name: "Unit V (PM1)",
-        code: "Unit V, Plot No. 169/2, GIDC, Vapi - 396195",
-        region: "Sarigam & Angam",
-        lat: 20.30165769545624,
-        lng: 72.86702364617466,
-        link: "https://www.google.com/maps/search/?api=1&query=20.30165769545624,72.86702364617466"
-    },
-    {
-        id: 2,
         name: "Unit I",
         code: "Plot No. 169/1, GIDC, Vapi - 396195",
         region: "Vapi",
         lat: 20.371232173507327,
         lng: 72.92940450288985,
         link: "https://www.google.com/maps/search/?api=1&query=20.371232173507327,72.92940450288985"
+    },
+    {
+        id: 2,
+        name: "Unit V (PM1)",
+        code: "Unit V, Plot No. 169/2, GIDC, Vapi - 396195",
+        region: "Sarigam & Angam",
+        lat: 20.30165769545624,
+        lng: 72.86702364617466,
+        link: "https://www.google.com/maps/search/?api=1&query=20.30165769545624,72.86702364617466"
     },
     {
         id: 3,
@@ -231,9 +231,6 @@ const OurLocation = () => {
                                                     )}
                                                 </h3>
                                                 <p className="text-sm text-gray-500 leading-relaxed font-medium">{loc.code}</p>
-                                                {loc.upcoming && (
-                                                    <p className="text-xs text-amber-600 mt-1 italic font-medium">Exact location to be finalized</p>
-                                                )}
                                             </div>
                                         </div>
 

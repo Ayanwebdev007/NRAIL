@@ -123,7 +123,7 @@ const OurStory = ({ onOpenBook }) => {
                         transition={{ delay: 0.2, ...springTransition }} // Reduced delay
                     >
                         <p className="story-description" style={{ marginBottom: '15px' }}>
-                            At NRAIL, progress is powered by responsibility—and guided by purpose. Founded in 1983, N R Agarwal Industries Limited has built a legacy rooted in recycling excellence, disciplined manufacturing, and a commitment to creating value beyond products.
+                            At NRAIL, progress is powered by responsibility—and guided by purpose. Founded in 1993, N R Agarwal Industries Limited has built a legacy rooted in recycling excellence, disciplined manufacturing, and a commitment to creating value beyond products.
                         </p>
                         <p className="story-description">
                             The company’s operations are anchored in wastepaper-based production, where recovered fibre is transformed into reliable, high-performance paper through advanced processing and quality systems. This recycling-led foundation is strengthened by future-ready infrastructure and the introduction of virgin-grade boards, enabling NRAIL to serve both sustainable and premium packaging requirements with equal confidence.
