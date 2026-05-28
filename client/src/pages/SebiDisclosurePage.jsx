@@ -97,7 +97,7 @@ const SebiDisclosurePage = () => {
                                             item === "Disclosure of the policy for determination of materiality of events or information" ? "/policies?category=Company%20Policy" :
                                             item === "Dividend Distribution Policy under Regulation 43A" ? "/policies?category=Company%20Policy" :
                                             item === "Details of familiarization programs imparted to Independent Directors" ? "/other-compliances" :
-                                            item === "Email address for grievance redressal and other relevant details" ? "/shareholder-information?view=shareholder-info" :
+                                            item === "Email address for grievance redressal and other relevant details" ? "/shareholder-information?view=shareholder-info/nodal-officer" :
                                             item === "Contact information of the designated officials of the listed entity who are responsible for assisting and handling investor grievances" ? "/shareholder-information?view=shareholder-info" :
                                             item === "Secretarial Compliance Report under Regulation 24A" ? "/other-compliances?category=secretarial Compliance Report" :
                                             item === "Disclosure of Contact Details of Key Managerial Personnel as required under sub-regulation (5) of Regulation 30" ? "/shareholder-information?view=shareholder-info" :

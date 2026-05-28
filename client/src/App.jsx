@@ -94,6 +94,7 @@ function App() {
           <Route path="/commitments" element={<CommitmentsPage />} />
           <Route path="/community-champions" element={<CommunityChampsPage />} />
           <Route path="/shareholder-information" element={<ShareholderInformationPage />} />
+          <Route path="/shareholder-information/nodal-officer" element={<ShareholderInformationPage />} />
           <Route path="/financial-reports" element={<FinancialReportsPage />} />
           <Route path="/nrail-annual-reports" element={<NrailAnnualReportsPage />} />
           <Route path="/agm" element={<AgmPage />} />

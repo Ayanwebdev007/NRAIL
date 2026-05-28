@@ -5,32 +5,43 @@ import InvestorCard from '../components/Investors/InvestorCard';
 import PDFPopup from '../components/Investors/PDFPopup';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft } from 'lucide-react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
-const ShareholderInformationPage = () => {
-    const [searchParams] = useSearchParams();
-    const [view, setView] = useState('root'); // root, shareholder-info, shareholding-pattern, shareholding-year
-    const [selectedYear, setSelectedYear] = useState(null);
-    const [popupData, setPopupData] = useState(null);
-    const [navigationHistory, setNavigationHistory] = useState(['root']);
+// Dynamic asset loading using Vite's glob import
+const pdfs = import.meta.glob('../assets/1.Shareholder Information/1.Shareholder Information/**/*.pdf', { eager: true, as: 'url' });
+const excels = import.meta.glob('../assets/1.Shareholder Information/1.Shareholder Information/**/*.{xls,xlsx,xlsm}', { eager: true, as: 'url' });
 
-    useEffect(() => {
-        const viewParam = searchParams.get('view');
-        const allowedViews = ['shareholder-info', 'shareholding-pattern'];
-        if (viewParam && allowedViews.includes(viewParam)) {
-            handleNavigate(viewParam);
-        }
-    }, [searchParams]);
+const allFiles = { ...pdfs, ...excels };
 
-    // Dynamic asset loading using Vite's glob import
-    const pdfs = import.meta.glob('../assets/1.Shareholder Information/1.Shareholder Information/**/*.pdf', { eager: true, as: 'url' });
-    const excels = import.meta.glob('../assets/1.Shareholder Information/1.Shareholder Information/**/*.{xls,xlsx,xlsm}', { eager: true, as: 'url' });
+// Categorize files
+const shareholderInfoFiles = Object.keys(allFiles)
+    .filter(path => path.includes('/Shareholder Information/'))
+    .map(path => ({
+        name: path.split('/').pop().replace(/\.[^/.]+$/, "").replace(/_/g, " "),
+        url: allFiles[path],
+        originalName: path.split('/').pop(),
+        type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'excel'
+    }))
+    .sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true, sensitivity: 'base' }));
 
-    const allFiles = { ...pdfs, ...excels };
+const shareholdingPatternYears = [...new Set(Object.keys(allFiles)
+    .filter(path => path.includes('/Shareholding Pattern/'))
+    .map(path => {
+        const parts = path.split('/');
+        const yearIdx = parts.indexOf('Shareholding Pattern') + 1;
+        return parts[yearIdx];
+    }))].sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
 
-    // Categorize files
-    const shareholderInfoFiles = Object.keys(allFiles)
-        .filter(path => path.includes('/Shareholder Information/'))
+const getFilesForYear = (year) => {
+    return Object.keys(allFiles)
+        .filter(path => {
+            const isCorrectYear = path.includes(`/Shareholding Pattern/${year}/`);
+            // Task B: Hide 30.06.2025 from 2024-25 view (it belongs in 2025-26)
+            if (year === '2024-25' && path.includes('Shareholding Pattern-30.06.2025.pdf')) {
+                return false;
+            }
+            return isCorrectYear;
+        })
         .map(path => ({
             name: path.split('/').pop().replace(/\.[^/.]+$/, "").replace(/_/g, " "),
             url: allFiles[path],
@@ -38,33 +49,45 @@ const ShareholderInformationPage = () => {
             type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'excel'
         }))
         .sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true, sensitivity: 'base' }));
+};
 
-    const shareholdingPatternYears = [...new Set(Object.keys(allFiles)
-        .filter(path => path.includes('/Shareholding Pattern/'))
-        .map(path => {
-            const parts = path.split('/');
-            const yearIdx = parts.indexOf('Shareholding Pattern') + 1;
-            return parts[yearIdx];
-        }))].sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
+const ShareholderInformationPage = () => {
+    const [searchParams] = useSearchParams();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [view, setView] = useState('root'); // root, shareholder-info, shareholding-pattern, shareholding-year
+    const [selectedYear, setSelectedYear] = useState(null);
+    const [popupData, setPopupData] = useState(null);
+    const [navigationHistory, setNavigationHistory] = useState(['root']);
 
-    const getFilesForYear = (year) => {
-        return Object.keys(allFiles)
-            .filter(path => {
-                const isCorrectYear = path.includes(`/Shareholding Pattern/${year}/`);
-                // Task B: Hide 30.06.2025 from 2024-25 view (it belongs in 2025-26)
-                if (year === '2024-25' && path.includes('Shareholding Pattern-30.06.2025.pdf')) {
-                    return false;
-                }
-                return isCorrectYear;
-            })
-            .map(path => ({
-                name: path.split('/').pop().replace(/\.[^/.]+$/, "").replace(/_/g, " "),
-                url: allFiles[path],
-                originalName: path.split('/').pop(),
-                type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'excel'
-            }))
-            .sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true, sensitivity: 'base' }));
-    };
+    useEffect(() => {
+        const viewParam = searchParams.get('view');
+        const isNodalOfficer = 
+            location.pathname === '/shareholder-information/nodal-officer' || 
+            location.pathname === '/nodal-officer' || 
+            viewParam === 'shareholder-info/nodal-officer' ||
+            searchParams.get('popup') === 'nodal-officer';
+        
+        if (isNodalOfficer) {
+            setView('shareholder-info');
+            setNavigationHistory(['root', 'shareholder-info']);
+            const nodalOfficerFile = shareholderInfoFiles.find(
+                file => file.name.toLowerCase() === 'nodal officer'
+            );
+            if (nodalOfficerFile) {
+                setPopupData({ url: nodalOfficerFile.url, title: nodalOfficerFile.name });
+            }
+        } else {
+            const allowedViews = ['shareholder-info', 'shareholding-pattern'];
+            if (viewParam && allowedViews.includes(viewParam)) {
+                setView(viewParam);
+                setNavigationHistory(['root', viewParam]);
+            } else {
+                setView('root');
+                setNavigationHistory(['root']);
+            }
+        }
+    }, [searchParams, location.pathname]);
 
     const handleNavigate = (newView, year = null) => {
         setNavigationHistory([...navigationHistory, newView]);
@@ -78,6 +101,19 @@ const ShareholderInformationPage = () => {
             newHistory.pop();
             setNavigationHistory(newHistory);
             setView(newHistory[newHistory.length - 1]);
+        }
+    };
+
+    const handleClosePopup = () => {
+        setPopupData(null);
+        const viewParam = searchParams.get('view');
+        if (
+            location.pathname === '/shareholder-information/nodal-officer' ||
+            location.pathname === '/nodal-officer' ||
+            viewParam === 'shareholder-info/nodal-officer' ||
+            searchParams.get('popup') === 'nodal-officer'
+        ) {
+            navigate('/shareholder-information?view=shareholder-info', { replace: true });
         }
     };
 
@@ -247,7 +283,7 @@ const ShareholderInformationPage = () => {
                     <PDFPopup 
                         pdfUrl={popupData.url} 
                         title={popupData.title} 
-                        onClose={() => setPopupData(null)} 
+                        onClose={handleClosePopup} 
                     />
                 )}
             </AnimatePresence>
