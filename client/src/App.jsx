@@ -95,6 +95,7 @@ function App() {
           <Route path="/community-champions" element={<CommunityChampsPage />} />
           <Route path="/shareholder-information" element={<ShareholderInformationPage />} />
           <Route path="/shareholder-information/nodal-officer" element={<ShareholderInformationPage />} />
+          <Route path="/shareholder-information/investor-grievances" element={<ShareholderInformationPage />} />
           <Route path="/financial-reports" element={<FinancialReportsPage />} />
           <Route path="/nrail-annual-reports" element={<NrailAnnualReportsPage />} />
           <Route path="/agm" element={<AgmPage />} />
@@ -107,6 +108,8 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-and-conditions" element={<TermsConditionsPage />} />
           <Route path="/other-compliances" element={<OtherCompliancesPage />} />
+          <Route path="/other-compliances/moa-and-aoa" element={<OtherCompliancesPage />} />
+          <Route path="/other-compliances/familiarization-programme" element={<OtherCompliancesPage />} />
           <Route path="/sebi-disclosure" element={<SebiDisclosurePage />} />
           <Route path="/media" element={<MediaPage />} />
           <Route path="/contact" element={<ContactPage />} />

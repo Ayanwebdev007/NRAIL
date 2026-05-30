@@ -4,10 +4,12 @@ import Footer from '../components/Footer/Footer';
 import InvestorCard from '../components/Investors/InvestorCard';
 import PDFPopup from '../components/Investors/PDFPopup';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
 const OtherCompliancesPage = () => {
     const [searchParams] = useSearchParams();
+    const location = useLocation();
+    const navigate = useNavigate();
     const [view, setView] = useState('root'); // root, files
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [popupData, setPopupData] = useState(null);
@@ -25,12 +27,31 @@ const OtherCompliancesPage = () => {
         return parts[idx + 1];
     }))].sort();
 
+    // Import familiarization PDF
+    const familiarizationPdfs = import.meta.glob('../assets/9. Independent Directors/9. Independent Directors/Familiarization Programme for Independent Directors.pdf', { eager: true, as: 'url' });
+
     useEffect(() => {
-        const catParam = searchParams.get('category');
-        if (catParam && categories.includes(catParam)) {
-            handleNavigateCategory(catParam);
+        if (location.pathname === '/other-compliances/moa-and-aoa') {
+            setSelectedCategory('MOA and AOA');
+            setView('files');
+            const files = getFiles('MOA and AOA');
+            const moaFile = files.find(f => f.originalName === 'MOA & AOA.pdf' || f.name.toLowerCase().includes('moa & aoa'));
+            if (moaFile) {
+                setPopupData({ url: moaFile.url, title: moaFile.name });
+            }
+        } else if (location.pathname === '/other-compliances/familiarization-programme') {
+            const pdfPaths = Object.keys(familiarizationPdfs);
+            if (pdfPaths.length > 0) {
+                const url = familiarizationPdfs[pdfPaths[0]];
+                setPopupData({ url, title: "Familiarization Programme for Independent Directors" });
+            }
+        } else {
+            const catParam = searchParams.get('category');
+            if (catParam && categories.includes(catParam)) {
+                handleNavigateCategory(catParam);
+            }
         }
-    }, [searchParams, categories.length]);
+    }, [searchParams, categories.length, location.pathname]);
 
     const getFiles = (category) => {
         return Object.keys(allFilesMap)
@@ -110,6 +131,15 @@ const OtherCompliancesPage = () => {
                 ))}
             </div>
         );
+    };
+
+    const handleClosePopup = () => {
+        setPopupData(null);
+        if (location.pathname === '/other-compliances/moa-and-aoa') {
+            navigate('/other-compliances?category=MOA and AOA', { replace: true });
+        } else if (location.pathname === '/other-compliances/familiarization-programme') {
+            navigate('/other-compliances', { replace: true });
+        }
     };
 
     return (
@@ -193,7 +223,7 @@ const OtherCompliancesPage = () => {
                     <PDFPopup 
                         pdfUrl={popupData.url} 
                         title={popupData.title} 
-                        onClose={() => setPopupData(null)} 
+                        onClose={handleClosePopup} 
                     />
                 )}
             </AnimatePresence>

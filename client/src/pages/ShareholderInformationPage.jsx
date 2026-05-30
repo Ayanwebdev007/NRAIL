@@ -68,6 +68,9 @@ const ShareholderInformationPage = () => {
             viewParam === 'shareholder-info/nodal-officer' ||
             searchParams.get('popup') === 'nodal-officer';
         
+        const isInvestorGrievances = 
+            location.pathname === '/shareholder-information/investor-grievances';
+
         if (isNodalOfficer) {
             setView('shareholder-info');
             setNavigationHistory(['root', 'shareholder-info']);
@@ -76,6 +79,15 @@ const ShareholderInformationPage = () => {
             );
             if (nodalOfficerFile) {
                 setPopupData({ url: nodalOfficerFile.url, title: nodalOfficerFile.name });
+            }
+        } else if (isInvestorGrievances) {
+            setView('shareholder-info');
+            setNavigationHistory(['root', 'shareholder-info']);
+            const grievancesFile = shareholderInfoFiles.find(
+                file => file.name.toLowerCase().includes('grievance')
+            );
+            if (grievancesFile) {
+                setPopupData({ url: grievancesFile.url, title: grievancesFile.name });
             }
         } else {
             const allowedViews = ['shareholder-info', 'shareholding-pattern'];
@@ -87,7 +99,7 @@ const ShareholderInformationPage = () => {
                 setNavigationHistory(['root']);
             }
         }
-    }, [searchParams, location.pathname]);
+    }, [searchParams, location.pathname, shareholderInfoFiles]);
 
     const handleNavigate = (newView, year = null) => {
         setNavigationHistory([...navigationHistory, newView]);
@@ -111,7 +123,8 @@ const ShareholderInformationPage = () => {
             location.pathname === '/shareholder-information/nodal-officer' ||
             location.pathname === '/nodal-officer' ||
             viewParam === 'shareholder-info/nodal-officer' ||
-            searchParams.get('popup') === 'nodal-officer'
+            searchParams.get('popup') === 'nodal-officer' ||
+            location.pathname === '/shareholder-information/investor-grievances'
         ) {
             navigate('/shareholder-information?view=shareholder-info', { replace: true });
         }
