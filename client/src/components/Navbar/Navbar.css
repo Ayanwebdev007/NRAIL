@@ -143,6 +143,40 @@
     padding-left: 35px;
 }
 
+/* Mega Dropdown for large link lists on desktop */
+@media (min-width: 1025px) {
+    .dropdown.mega-dropdown {
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        min-width: 620px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 15px 10px;
+        gap: 2px 10px;
+    }
+    
+    .nav-links>li:hover .dropdown.mega-dropdown {
+        transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown.mega-dropdown li {
+        width: 100%;
+    }
+    
+    .dropdown.mega-dropdown li a,
+    .dropdown.mega-dropdown li button {
+        max-width: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        white-space: normal;
+    }
+    
+    .dropdown.mega-dropdown li a:hover,
+    .dropdown.mega-dropdown li button:hover {
+        padding-left: 25px;
+    }
+}
+
 /* Mobile Toggle */
 .mobile-toggle {
     display: none;

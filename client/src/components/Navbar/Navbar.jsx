@@ -100,7 +100,7 @@ const Navbar = () => {
                 </Link>
               )}
               {item.links.length > 0 && (
-                <ul className="dropdown">
+                <ul className={`dropdown ${item.links.length > 8 ? 'mega-dropdown' : ''}`}>
                   {item.links.map((link, subIndex) => (
                     <li key={subIndex}>
                       {/* Handle simple string links or object links */}

@@ -6,6 +6,37 @@ import PDFPopup from '../components/Investors/PDFPopup';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+const parseDateFromFileName = (fileName) => {
+    // 1. Try to find DD.MM.YYYY or DD-MM-YYYY format
+    const ddMMyyyyMatch = fileName.match(/(\d{1,2})[.-](\d{1,2})[.-](\d{4})/);
+    if (ddMMyyyyMatch) {
+        const [_, day, month, year] = ddMMyyyyMatch;
+        const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+        if (!isNaN(date.getTime())) {
+            return date.getTime();
+        }
+    }
+
+    // 2. Try to find Month DD, YYYY format after "ended"
+    const nameWithoutExt = fileName.replace(/\.[^/.]+$/, "");
+    const endedMatch = nameWithoutExt.match(/ended\s+(.+)$/i);
+    if (endedMatch && endedMatch[1]) {
+        const dateStr = endedMatch[1].trim();
+        const parsed = Date.parse(dateStr);
+        if (!isNaN(parsed)) {
+            return parsed;
+        }
+    }
+
+    // Fallback: try parsing the whole name without extension
+    const parsedFallback = Date.parse(nameWithoutExt);
+    if (!isNaN(parsedFallback)) {
+        return parsedFallback;
+    }
+
+    return 0;
+};
+
 const FinancialReportsPage = () => {
     const [view, setView] = useState('root'); // root, year-details
     const [selectedYear, setSelectedYear] = useState(null);
@@ -37,7 +68,16 @@ const FinancialReportsPage = () => {
                 originalName: path.split('/').pop(),
                 type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'excel'
             }))
-            .sort((a, b) => a.originalName.localeCompare(b.originalName, undefined, { numeric: true, sensitivity: 'base' }));
+            .sort((a, b) => {
+                const dateA = parseDateFromFileName(a.originalName);
+                const dateB = parseDateFromFileName(b.originalName);
+                if (dateA !== 0 && dateB !== 0) {
+                    return dateB - dateA;
+                }
+                if (dateA !== 0) return -1;
+                if (dateB !== 0) return 1;
+                return b.originalName.localeCompare(a.originalName, undefined, { numeric: true, sensitivity: 'base' });
+            });
     };
 
     const handleNavigate = (year) => {
