@@ -39,7 +39,7 @@ const NRPowerSection = () => {
     const [swiper, setSwiper] = useState(null);
 
     return (
-        <section className="relative w-full h-[600px] flex items-center overflow-hidden group">
+        <section className="relative w-full h-[600px] flex items-center overflow-hidden group pb-slider-mobile">
             <style>
                 {`
                 .nr-power-nav-btn {
@@ -73,7 +73,7 @@ const NRPowerSection = () => {
                 `}
             </style>
             {/* Background Slider */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 pb-slider-bg-mobile">
                 <Swiper
                     modules={[Autoplay, EffectFade, Navigation]}
                     onSwiper={setSwiper}
@@ -108,12 +108,12 @@ const NRPowerSection = () => {
             </div>
 
             {/* Blurry Gradient Overlay - 0% blur at top edge, smoothly increasing to full blur at bottom */}
-            <div className="absolute inset-x-0 bottom-0 h-[45%] z-[1] pointer-events-none" style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
+            <div className="absolute inset-x-0 bottom-0 h-[45%] z-[1] pointer-events-none pb-slider-overlay-mobile" style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
             {/* Dark tint at bottom for text legibility on bright images */}
-            <div className="absolute inset-x-0 bottom-0 h-[30%] z-[2] pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)' }}></div>
+            <div className="absolute inset-x-0 bottom-0 h-[30%] z-[2] pointer-events-none pb-slider-overlay-mobile" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)' }}></div>
 
             {/* Content at Bottom - Full Width */}
-            <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ padding: '0 60px 40px 60px' }}>
+            <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-slider-text-container-mobile" style={{ padding: '0 60px 40px 60px' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -121,10 +121,10 @@ const NRPowerSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide pb-slider-title-mobile" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         NR Power Pac / NR Power Coat
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light pb-slider-text-mobile" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         Deliver bright, refined, and high-impact packaging solutions engineered for luxury brands, beauty, and personal care segments where visual excellence meets structural strength.
                     </p>
                 </motion.div>
@@ -151,7 +151,7 @@ const NRPearlSection = () => {
     const [swiper, setSwiper] = useState(null);
 
     return (
-        <section className="relative w-full h-[600px] flex items-center overflow-hidden group">
+        <section className="relative w-full h-[600px] flex items-center overflow-hidden group pb-slider-mobile">
             <style>
                 {`
                 .nr-pearl-nav-btn {
@@ -181,37 +181,39 @@ const NRPearlSection = () => {
                 `}
             </style>
             
-            <Swiper
-                modules={[Autoplay, EffectFade, Navigation]}
-                effect="fade"
-                speed={1500}
-                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                loop={true}
-                className="w-full h-full"
-                onSwiper={setSwiper}
-            >
-                {[pearl1, pearl2, pearl3].map((img, index) => (
-                    <SwiperSlide key={index}>
-                        <div 
-                            className="w-full h-full bg-cover transition-transform duration-[10000ms] scale-110 group-hover:scale-100"
-                            style={{ 
-                                backgroundImage: `url("${img}")`, 
-                                backgroundColor: '#ffffff',
-                                backgroundPosition: index === 2 ? 'top' : 'center'
-                            }}
-                        >
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+            <div className="absolute inset-0 pb-slider-bg-mobile">
+                <Swiper
+                    modules={[Autoplay, EffectFade, Navigation]}
+                    effect="fade"
+                    speed={1500}
+                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                    loop={true}
+                    className="w-full h-full"
+                    onSwiper={setSwiper}
+                >
+                    {[pearl1, pearl2, pearl3].map((img, index) => (
+                        <SwiperSlide key={index}>
+                            <div 
+                                className="w-full h-full bg-cover transition-transform duration-[10000ms] scale-110 group-hover:scale-100"
+                                style={{ 
+                                    backgroundImage: `url("${img}")`, 
+                                    backgroundColor: '#ffffff',
+                                    backgroundPosition: index === 2 ? 'top' : 'center'
+                                }}
+                            >
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
 
             {/* Blurry Gradient Overlay - 0% blur at top edge, smoothly increasing to full blur at bottom */}
-            <div className="absolute inset-x-0 bottom-0 h-[45%] z-[1] pointer-events-none" style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
+            <div className="absolute inset-x-0 bottom-0 h-[45%] z-[1] pointer-events-none pb-slider-overlay-mobile" style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
             {/* Dark tint at bottom for text legibility on bright images */}
-            <div className="absolute inset-x-0 bottom-0 h-[30%] z-[2] pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)' }}></div>
+            <div className="absolute inset-x-0 bottom-0 h-[30%] z-[2] pointer-events-none pb-slider-overlay-mobile" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)' }}></div>
 
             {/* Content at Bottom - Full Width */}
-            <div className="absolute inset-x-0 bottom-0 z-50 pointer-events-none" style={{ padding: '0 60px 40px 60px' }}>
+            <div className="absolute inset-x-0 bottom-0 z-50 pointer-events-none pb-slider-text-container-mobile" style={{ padding: '0 60px 40px 60px' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -219,10 +221,10 @@ const NRPearlSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide pb-slider-title-mobile" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         NR Pearl Pac / NR Pearl Coat
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light pb-slider-text-mobile" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         Premium solid bleached boards designed for superior surface elegance, high brightness, and exceptional print clarity—ideal for cosmetics, pharmaceuticals, food, and specialty packaging that demands sophistication and strength.
                     </p>
                 </motion.div>
@@ -337,13 +339,13 @@ const IndustriesSection = () => {
                 {/* Navigation Arrows */}
                 <button 
                     onClick={() => swiperRef.current?.slidePrev()}
-                    className="absolute left-[-20px] lg:left-[-40px] top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/10 hover:bg-[#8b0000] text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-white/20 opacity-0 group-hover/industries:opacity-100"
+                    className="absolute left-[-20px] lg:left-[-40px] top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/10 hover:bg-[#8b0000] text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-white/20 opacity-0 group-hover/industries:opacity-100 industries-nav-btn"
                 >
                     <ChevronLeft size={24} />
                 </button>
                 <button 
                     onClick={() => swiperRef.current?.slideNext()}
-                    className="absolute right-[-20px] lg:right-[-40px] top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/10 hover:bg-[#8b0000] text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-white/20 opacity-0 group-hover/industries:opacity-100"
+                    className="absolute right-[-20px] lg:right-[-40px] top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/10 hover:bg-[#8b0000] text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-white/20 opacity-0 group-hover/industries:opacity-100 industries-nav-btn"
                 >
                     <ChevronRight size={24} />
                 </button>
@@ -366,7 +368,7 @@ const ProductSpecsSection = ({ specs }) => {
 
     return (
         <section 
-            className="relative bg-black overflow-hidden" 
+            className="relative bg-black overflow-hidden pb-specs-mobile" 
             style={{ paddingTop: '160px', paddingBottom: '160px' }}
             onMouseMove={handleMouseMove}
         >
@@ -572,9 +574,35 @@ const PremiumBoardPage = () => {
     return (
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
+            <style>{`
+                @media (max-width: 1023px) {
+                    .pb-hero-mobile {
+                        height: auto !important;
+                        aspect-ratio: 16 / 9 !important;
+                        min-height: unset !important;
+                        margin-top: 70px !important;
+                    }
+                    .pb-hero-title-mobile { font-size: 18px !important; line-height: 1.2 !important; }
+                    .pb-hero-text-container-mobile { bottom: 16px !important; }
+                    
+                    .pb-breadcrumb-mobile { padding-top: 16px !important; }
+                    .pb-breadcrumb-flex-mobile { flex-wrap: wrap !important; font-size: 14px !important; }
+                    
+                    .pb-slider-mobile { height: auto !important; display: flex !important; flex-direction: column !important; }
+                    .pb-slider-bg-mobile { position: relative !important; height: 300px !important; width: 100% !important; }
+                    .pb-slider-text-container-mobile { position: relative !important; padding: 40px 24px !important; background: #0a0a0a !important; }
+                    .pb-slider-overlay-mobile { display: none !important; }
+                    .pb-slider-text-mobile { font-size: 16px !important; line-height: 1.4 !important; }
+                    .pb-slider-title-mobile { font-size: 24px !important; }
+                    
+                    .pb-specs-mobile { padding-top: 60px !important; padding-bottom: 60px !important; }
+                    
+                    .nr-power-nav-btn, .nr-pearl-nav-btn, .industries-nav-btn { display: none !important; }
+                }
+            `}</style>
 
             {/* Hero Section */}
-            <div className="relative w-full h-[95vh]">
+            <div className="relative w-full h-[95vh] pb-hero-mobile">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url("${heroImg}")` }}
@@ -584,12 +612,12 @@ const PremiumBoardPage = () => {
                 </div>
 
                 {/* Hero Text */}
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center w-full px-4 pb-hero-text-container-mobile">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="font-[Outfit]"
+                        className="font-[Outfit] pb-hero-title-mobile"
                         style={{
                             fontSize: '48px',
                             fontWeight: 700,
@@ -604,8 +632,8 @@ const PremiumBoardPage = () => {
             </div>
 
             {/* Breadcrumbs Section */}
-            <div className="container mx-auto px-6 md:px-12 lg:px-24 pt-12">
-                <div className="flex items-center text-sm md:text-lg text-gray-500 font-normal">
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 pt-12 pb-breadcrumb-mobile">
+                <div className="flex items-center text-sm md:text-lg text-gray-500 font-normal pb-breadcrumb-flex-mobile">
                     <Link to="/" className="hover:text-[#8b0000] transition-colors">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
                     <span className="text-gray-500">Products</span>

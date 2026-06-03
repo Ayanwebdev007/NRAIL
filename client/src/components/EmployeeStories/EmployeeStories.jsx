@@ -77,10 +77,38 @@ const EmployeeStories = () => {
     const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + stories.length) % stories.length);
 
     return (
+        <>
+        <style>{`
+            @media (max-width: 1023px) {
+                .es-image-panel-mobile { height: 400px !important; position: relative !important; }
+                .es-content-panel-mobile { padding-top: 8px !important; padding-bottom: 16px !important; }
+                .es-spacer-mobile { display: none !important; }
+                .es-bottom-spacer-mobile { display: none !important; }
+                .es-text-container-mobile { min-height: 320px !important; }
+                .es-name-mobile { margin-bottom: 0 !important; }
+                .es-nav-mobile { 
+                    bottom: auto !important; 
+                    top: -64px !important; 
+                    left: auto !important; 
+                    right: 0 !important; 
+                    width: auto !important; 
+                    padding: 0 16px 0 0 !important; 
+                }
+                .es-watermark-mobile { top: 24px !important; }
+                .es-number-mobile { font-size: 48px !important; bottom: 16px !important; left: 16px !important; }
+                .es-story-text-mobile { font-size: 14px !important; }
+                .es-gradient-mobile {
+                    background-image: linear-gradient(to top, #050505 0%, transparent 60%, rgba(0,0,0,0.2) 100%) !important;
+                }
+                .es-image-mobile {
+                    object-position: center !important;
+                }
+            }
+        `}</style>
         <section className="bg-black text-white py-0 overflow-hidden font-[Outfit] border-t border-white/5">
             <div className="flex flex-col lg:flex-row h-auto min-h-[600px]">
                 {/* Left: Image Panel */}
-                <div className="w-full lg:w-1/2 relative overflow-hidden group">
+                <div className="w-full lg:w-1/2 relative overflow-hidden group es-image-panel-mobile">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
@@ -93,34 +121,34 @@ const EmployeeStories = () => {
                             <img
                                 src={stories[currentIndex].image}
                                 alt={stories[currentIndex].name}
-                                className={`w-full h-full object-cover ${stories[currentIndex].id === "03" ? 'object-right' : stories[currentIndex].id === "07" ? 'object-[80%_center]' : 'object-left'} grayscale brightness-75 transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100`}
+                                className={`w-full h-full object-cover ${stories[currentIndex].id === "03" ? 'object-right' : stories[currentIndex].id === "07" ? 'object-[80%_center]' : 'object-left'} grayscale brightness-75 transition-all duration-1000 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 ${["03", "04", "07"].includes(stories[currentIndex].id) ? 'es-image-mobile' : ''}`}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-[#050505]" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-[#050505] es-gradient-mobile" />
                         </motion.div>
                     </AnimatePresence>
 
                     {/* Branding Watermark */}
-                    <div className="absolute top-10 lg:top-15 left-8 z-20 flex items-center">
+                    <div className="absolute top-10 lg:top-15 left-8 z-20 flex items-center es-watermark-mobile">
                         <div className="h-10 w-[6px] bg-red-600"></div>
                         <div className="w-2"></div>
                         <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-white/60">Employees Stories</span>
                     </div>
 
                     <div className="absolute bottom-8 left-8 z-20">
-                        <span className="text-6xl md:text-8xl font-bold text-white/5 tracking-tighter select-none leading-none">
+                        <span className="text-6xl md:text-8xl font-bold text-white/5 tracking-tighter select-none leading-none es-number-mobile">
                             {stories[currentIndex].id}
                         </span>
                     </div>
                 </div>
 
                 {/* Right: Content Panel */}
-                <div className="w-full lg:w-1/2 bg-[#050505] relative flex flex-col pt-12 pb-32 px-8 md:px-16 lg:px-24">
+                <div className="w-full lg:w-1/2 bg-[#050505] relative flex flex-col pt-12 pb-32 px-8 md:px-16 lg:px-24 es-content-panel-mobile">
 
                     <div className="max-w-xl w-full">
                         {/* Top Spacer to push Bar down away from edge */}
-                        <div className="h-25 w-full"></div>
+                        <div className="h-25 w-full es-spacer-mobile"></div>
 
-                        <div className="relative min-h-[450px] md:min-h-[400px] lg:min-h-[420px]">
+                        <div className="relative min-h-[450px] md:min-h-[400px] lg:min-h-[420px] es-text-container-mobile">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={currentIndex}
@@ -145,11 +173,11 @@ const EmployeeStories = () => {
                                         <Quote className="w-8 h-8 text-red-600 mb-6" />
                                     </motion.div>
 
-                                    <h3 className="text-base md:text-lg font-light text-white leading-relaxed tracking-wide italic mb-8">
+                                    <h3 className="text-base md:text-lg font-light text-white leading-relaxed tracking-wide italic mb-8 es-story-text-mobile">
                                         "{stories[currentIndex].story}"
                                     </h3>
 
-                                    <div className="mb-16">
+                                    <div className="mb-16 es-name-mobile">
                                         <h4 className="text-xl md:text-2xl font-bold text-white tracking-tight uppercase">
                                             {stories[currentIndex].name}
                                         </h4>
@@ -162,12 +190,12 @@ const EmployeeStories = () => {
                         </div>
 
                         {/* Spacer for Gap */}
-                        <div className="h-8 md:h-12" />
+                        <div className="h-8 md:h-12 es-bottom-spacer-mobile" />
                     </div>
 
                     {/* Sharp Navigation - Anchored at Bottom */}
                     {/* Sharp Navigation - Anchored at Bottom but lifted */}
-                    <div className="absolute bottom-12 left-0 w-full px-8 md:px-16 lg:px-24 z-10">
+                    <div className="absolute bottom-12 left-0 w-full px-8 md:px-16 lg:px-24 z-10 es-nav-mobile">
                         <div className="flex items-center gap-0 border border-white/10 w-fit bg-[#050505]/80 backdrop-blur-md">
                             <button
                                 onClick={handlePrev}
@@ -194,6 +222,7 @@ const EmployeeStories = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 };
 

@@ -19,8 +19,21 @@ const ContactPage = () => {
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
 
+            <style>{`
+                @media (max-width: 1023px) {
+                    .contact-hero-mobile { height: 40vh !important; }
+                    .contact-hero-text-mobile { bottom: 16px !important; left: 16px !important; }
+                    .contact-hero-text-mobile h1 { font-size: 36px !important; }
+                    .contact-section-mobile { padding-top: 48px !important; padding-bottom: 48px !important; padding-left: 20px !important; padding-right: 20px !important;}
+                    .contact-grid-mobile { gap: 16px !important; padding-bottom: 32px !important; margin-bottom: 32px !important; }
+                    .contact-title-mobile { font-size: 26px !important; margin-bottom: 8px !important; }
+                    .contact-form-title-mobile { margin-top: 16px !important; margin-bottom: -16px !important;}
+                    .contact-btn-mobile { width: 100% !important; text-align: center !important; }
+                }
+            `}</style>
+
             {/* Hero Section - Full viewport with NRAIL logo top-left and "Let's Connect" bottom-left */}
-            <div className="relative w-full h-screen">
+            <div className="relative w-full h-screen contact-hero-mobile">
                 <div
                     className="absolute inset-0 bg-cover bg-top"
                     style={{ backgroundImage: `url("${contactHero}")` }}
@@ -30,7 +43,7 @@ const ContactPage = () => {
                 </div>
 
                 {/* "Let's Connect" - Bottom Left */}
-                <div className="absolute bottom-16 left-10 z-10">
+                <div className="absolute bottom-16 left-10 z-10 contact-hero-text-mobile">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -49,8 +62,8 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Details Section */}
-            <section className="bg-white" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
-                <div className="container mx-auto px-6 md:px-12 lg:px-24 max-w-6xl">
+            <section className="bg-white contact-section-mobile" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+                <div className="container mx-auto max-w-6xl">
 
                     {/* Corporate Office */}
                     <motion.div
@@ -58,10 +71,10 @@ const ContactPage = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="grid grid-cols-1 md:grid-cols-[280px_1fr_1fr] gap-8 md:gap-12 items-start"
+                        className="grid grid-cols-1 md:grid-cols-[280px_1fr_1fr] gap-8 md:gap-12 items-start contact-grid-mobile"
                         style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: '40px', marginBottom: '40px' }}
                     >
-                        <h2 className="font-['Outfit']" style={{ color: '#8b0000', fontSize: '32px', fontWeight: 300, lineHeight: 1.2 }}>
+                        <h2 className="font-['Outfit'] contact-title-mobile" style={{ color: '#8b0000', fontSize: '32px', fontWeight: 300, lineHeight: 1.2 }}>
                             Corporate Office
                         </h2>
                         <div>
@@ -89,10 +102,10 @@ const ContactPage = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="grid grid-cols-1 md:grid-cols-[280px_1fr_1fr] gap-8 md:gap-12 items-start"
+                        className="grid grid-cols-1 md:grid-cols-[280px_1fr_1fr] gap-8 md:gap-12 items-start contact-grid-mobile"
                         style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: '40px', marginBottom: '40px' }}
                     >
-                        <h2 className="font-['Outfit']" style={{ color: '#8b0000', fontSize: '32px', fontWeight: 300, lineHeight: 1.2 }}>
+                        <h2 className="font-['Outfit'] contact-title-mobile" style={{ color: '#8b0000', fontSize: '32px', fontWeight: 300, lineHeight: 1.2 }}>
                             Unit I
                         </h2>
                         <div>
@@ -117,9 +130,9 @@ const ContactPage = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="grid grid-cols-1 md:grid-cols-[280px_1fr_1fr] gap-8 md:gap-12 items-start"
+                        className="grid grid-cols-1 md:grid-cols-[280px_1fr_1fr] gap-8 md:gap-12 items-start contact-grid-mobile"
                     >
-                        <h2 className="font-['Outfit']" style={{ color: '#8b0000', fontSize: '32px', fontWeight: 300, lineHeight: 1.2 }}>
+                        <h2 className="font-['Outfit'] contact-title-mobile" style={{ color: '#8b0000', fontSize: '32px', fontWeight: 300, lineHeight: 1.2 }}>
                             Unit V
                         </h2>
                         <div>
@@ -148,8 +161,8 @@ const ContactPage = () => {
                         className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start"
                         style={{ marginTop: '80px', paddingTop: '60px', borderTop: '1px solid #e5e5e5' }}
                     >
-                        <div>
-                            <h2 className="font-['Outfit']" style={{ color: '#8b0000', fontSize: '32px', fontWeight: 300, lineHeight: 1.2 }}>
+                        <div className="contact-form-title-mobile">
+                            <h2 className="font-['Outfit'] contact-title-mobile" style={{ color: '#8b0000', fontSize: '32px', fontWeight: 300, lineHeight: 1.2 }}>
                                 Inquiry
                             </h2>
                         </div>
@@ -199,7 +212,7 @@ const ContactPage = () => {
                                 <div style={{ marginTop: '8px' }}>
                                     <button
                                         type="submit"
-                                        className="font-['Outfit'] contact-submit-btn"
+                                        className="font-['Outfit'] contact-submit-btn contact-btn-mobile"
                                     >
                                         SEND MESSAGE
                                     </button>

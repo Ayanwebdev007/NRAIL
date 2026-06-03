@@ -36,7 +36,7 @@ const WritingPrintingPowerSection = () => {
     const [swiper, setSwiper] = useState(null);
 
     return (
-        <section className="relative w-full h-[600px] flex items-center overflow-hidden group">
+        <section className="relative w-full h-[600px] flex items-center overflow-hidden group wp-slider-mobile">
             <style>
                 {`
                 .wp-power-nav-btn {
@@ -70,7 +70,7 @@ const WritingPrintingPowerSection = () => {
                 `}
             </style>
             {/* Background Slider */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 wp-slider-bg-mobile">
                 <Swiper
                     modules={[Autoplay, EffectFade, Navigation]}
                     onSwiper={setSwiper}
@@ -105,12 +105,12 @@ const WritingPrintingPowerSection = () => {
             </div>
 
             {/* Blurry Gradient Overlay - 0% blur at top edge, smoothly increasing to full blur at bottom */}
-            <div className="absolute inset-x-0 bottom-0 h-[45%] z-[1] pointer-events-none" style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
+            <div className="absolute inset-x-0 bottom-0 h-[45%] z-[1] pointer-events-none wp-slider-overlay-mobile" style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
             {/* Dark tint at bottom for text legibility on bright images */}
-            <div className="absolute inset-x-0 bottom-0 h-[30%] z-[2] pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)' }}></div>
+            <div className="absolute inset-x-0 bottom-0 h-[30%] z-[2] pointer-events-none wp-slider-overlay-mobile" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)' }}></div>
 
             {/* Content at Bottom - Full Width */}
-            <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ padding: '0 60px 40px 60px' }}>
+            <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none wp-slider-text-container-mobile" style={{ padding: '0 60px 40px 60px' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -118,10 +118,10 @@ const WritingPrintingPowerSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-bold tracking-wide" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-bold tracking-wide wp-slider-title-mobile" style={{ fontSize: '26px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 700, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         Engineered for Clarity, Consistency, and Print Excellence
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                    <p className="font-['Outfit'] font-light wp-slider-text-mobile" style={{ fontSize: '21px', lineHeight: '1.6', marginTop: '8px', maxWidth: '1200px', color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
                         NRAIL’s Writing & Printing portfolio offers a premium range of papers designed for high-quality, multicolour printing applications. With brands such as NR Classic, NR Maxima, NR Shine, and NR Excel, the range delivers optimal bulk, smoothness, brightness, and opacity—ensuring consistent performance across diverse printing needs.
                     </p>
                 </motion.div>
@@ -227,13 +227,13 @@ const IndustriesSection = () => {
 
                 <button 
                     onClick={() => swiperRef.current?.slidePrev()}
-                    className="absolute left-[-20px] lg:left-[-40px] top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/10 hover:bg-[#8b0000] text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-white/20 opacity-0 group-hover/industries:opacity-100"
+                    className="absolute left-[8px] lg:left-[-40px] top-[40%] -translate-y-1/2 z-10 w-10 h-10 bg-white/10 hover:bg-[#8b0000] text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-white/20 opacity-0 group-hover/industries:opacity-100 industries-nav-btn"
                 >
                     <ChevronLeft size={24} />
                 </button>
                 <button 
                     onClick={() => swiperRef.current?.slideNext()}
-                    className="absolute right-[-20px] lg:right-[-40px] top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/10 hover:bg-[#8b0000] text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-white/20 opacity-0 group-hover/industries:opacity-100"
+                    className="absolute right-[8px] lg:right-[-40px] top-[40%] -translate-y-1/2 z-10 w-10 h-10 bg-white/10 hover:bg-[#8b0000] text-white rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border border-white/20 opacity-0 group-hover/industries:opacity-100 industries-nav-btn"
                 >
                     <ChevronRight size={24} />
                 </button>
@@ -255,7 +255,7 @@ const ProductSpecsSection = ({ specs }) => {
 
     return (
         <section 
-            className="relative bg-black overflow-hidden" 
+            className="relative bg-black overflow-hidden wp-specs-mobile" 
             style={{ paddingTop: '160px', paddingBottom: '160px' }}
             onMouseMove={handleMouseMove}
         >
@@ -453,9 +453,35 @@ const WritingPrintingPage = () => {
     return (
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
+            <style>{`
+                @media (max-width: 1023px) {
+                    .wp-hero-mobile {
+                        height: auto !important;
+                        aspect-ratio: 16 / 9 !important;
+                        min-height: unset !important;
+                        margin-top: 70px !important;
+                    }
+                    .wp-hero-title-mobile { font-size: 18px !important; line-height: 1.2 !important; }
+                    .wp-hero-text-container-mobile { bottom: 16px !important; }
+                    
+                    .wp-breadcrumb-mobile { padding-top: 16px !important; }
+                    .wp-breadcrumb-flex-mobile { flex-wrap: wrap !important; font-size: 14px !important; }
+                    
+                    .wp-slider-mobile { height: auto !important; display: flex !important; flex-direction: column !important; }
+                    .wp-slider-bg-mobile { position: relative !important; height: 300px !important; width: 100% !important; }
+                    .wp-slider-text-container-mobile { position: relative !important; padding: 40px 24px !important; background: #0a0a0a !important; }
+                    .wp-slider-overlay-mobile { display: none !important; }
+                    .wp-slider-text-mobile { font-size: 16px !important; line-height: 1.4 !important; }
+                    .wp-slider-title-mobile { font-size: 24px !important; }
+                    
+                    .wp-specs-mobile { padding-top: 60px !important; padding-bottom: 60px !important; }
+                    
+                    .wp-power-nav-btn, .industries-nav-btn, .swiper-prev-spec, .swiper-next-spec { display: none !important; }
+                }
+            `}</style>
 
             {/* Hero Section */}
-            <div className="relative w-full h-[95vh]">
+            <div className="relative w-full h-[95vh] wp-hero-mobile">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url("${heroImg}")` }}
@@ -463,12 +489,12 @@ const WritingPrintingPage = () => {
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent"></div>
                 </div>
 
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4 wp-hero-text-container-mobile">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="font-[Outfit]"
+                        className="font-[Outfit] wp-hero-title-mobile"
                         style={{ fontSize: '48px', fontWeight: 700, lineHeight: 1.1, letterSpacing: '0.02em', color: '#ffffff' }}
                     >
                         Crafted for <span className="font-bold text-[#f8f9fa]">Print Excellence</span>
@@ -477,8 +503,8 @@ const WritingPrintingPage = () => {
             </div>
 
             {/* Breadcrumbs Section */}
-            <div className="container mx-auto px-6 md:px-12 lg:px-24 pt-12">
-                <div className="flex items-center text-sm md:text-lg text-gray-500 font-normal">
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 pt-12 wp-breadcrumb-mobile">
+                <div className="flex items-center text-sm md:text-lg text-gray-500 font-normal wp-breadcrumb-flex-mobile">
                     <Link to="/" className="hover:text-[#8b0000] transition-colors">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
                     <span className="text-gray-500">Products</span>

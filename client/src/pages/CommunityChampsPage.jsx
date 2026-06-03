@@ -46,8 +46,33 @@ const CommunityChampsPage = () => {
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
 
+            <style>{`
+                @media (max-width: 1023px) {
+                    .champ-hero-mobile { height: 40vh !important; }
+                    .champ-hero-text-mobile { font-size: 28px !important; bottom: 16px !important; }
+                    .champ-breadcrumb-mobile { font-size: 14px !important; margin-bottom: 24px !important; }
+                    .champ-title-mobile { font-size: 22px !important; text-align: center; }
+                    .champ-main-para-mobile { font-size: 15px !important; text-align: justify !important; padding: 0 24px !important; }
+                    .champ-section-title-mobile { font-size: 24px !important; margin-bottom: 24px !important; }
+                    
+                    /* Social Cards Grid Mobile */
+                    .social-grid-mobile { 
+                        flex-direction: column !important; 
+                        flex-wrap: nowrap !important;
+                        gap: 24px !important; 
+                    }
+                    .social-card-mobile { 
+                        width: 100% !important; 
+                        height: auto !important;
+                    }
+                    .social-card-img-mobile {
+                        height: 250px !important;
+                    }
+                }
+            `}</style>
+
             {/* Hero Section - 95vh height */}
-            <div className="relative w-full h-[95vh] overflow-hidden">
+            <div className="relative w-full h-[95vh] overflow-hidden champ-hero-mobile">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url("${CommunityHero}")` }}
@@ -62,7 +87,7 @@ const CommunityChampsPage = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="font-[Outfit]"
+                        className="font-[Outfit] champ-hero-text-mobile"
                         style={{
                             fontSize: '48px',
                             fontWeight: 300,
@@ -77,8 +102,8 @@ const CommunityChampsPage = () => {
             </div>
 
             {/* Breadcrumbs Section */}
-            <div className="container mx-auto px-6 md:px-12 lg:px-24" style={{ marginTop: '5px', marginBottom: '50px' }}>
-                <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal font-['Outfit']">
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 champ-breadcrumb-mobile" style={{ marginTop: '5px', marginBottom: '50px' }}>
+                <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal font-['Outfit'] champ-breadcrumb-mobile">
                     <Link to="/" className="hover:text-[#8b0000] transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400 shrink-0" />
                     <Link to="/our-story" className="hover:text-[#8b0000] transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Our Story</Link>
@@ -95,7 +120,7 @@ const CommunityChampsPage = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="font-['Outfit'] !mb-0 leading-tight"
+                            className="font-['Outfit'] !mb-0 leading-tight champ-title-mobile"
                             style={{ 
                                 fontSize: 'clamp(26px, 3.2vw, 34px)', 
                                 fontWeight: 300,
@@ -111,7 +136,7 @@ const CommunityChampsPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
-                                className="text-lg md:text-xl text-gray-600 leading-relaxed text-justify font-light !mt-4"
+                                className="text-lg md:text-xl text-gray-600 leading-relaxed text-justify font-light !mt-4 champ-main-para-mobile"
                             >
                                 At NRAIL, CSR is driven by a commitment to meaningful community impact and inclusive development. Our initiatives focus on strengthening education infrastructure, improving healthcare access, promoting women empowerment, and supporting rural upliftment around our operational areas. Alongside these efforts, we conduct awareness programs on health, hygiene, environmental conservation, and safety—enabling communities to make informed, sustainable choices and build a better future.
                             </motion.p>
@@ -130,14 +155,14 @@ const CommunityChampsPage = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h2 className="font-['Outfit']" style={{ fontSize: '32px', fontWeight: 300, color: '#111', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '32px' }}>
+                        <h2 className="font-['Outfit'] champ-section-title-mobile" style={{ fontSize: '32px', fontWeight: 300, color: '#111', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '32px' }}>
                             Our <span style={{ color: '#8b0000', fontWeight: 700 }}>Social</span> Initiatives
                         </h2>
                     </motion.div>
                 </div>
 
                 <div className="w-full px-6 md:px-12 flex justify-center relative">
-                    <div style={{ width: '100%', maxWidth: '1342px', display: 'flex', flexWrap: 'nowrap', gap: '30px', justifyContent: 'center' }}>
+                    <div className="social-grid-mobile" style={{ width: '100%', maxWidth: '1342px', display: 'flex', gap: '30px', justifyContent: 'center' }}>
                         {socialData.map((item, index) => (
                             <motion.div
                                 key={index}
@@ -145,11 +170,11 @@ const CommunityChampsPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="flex flex-col group"
+                                className="flex flex-col group social-card-mobile"
                                 style={{ height: '480px', width: '313px', flexShrink: 0 }}
                             >
                                 {/* Image part */}
-                                <div className="relative overflow-hidden" style={{ height: '220px' }}>
+                                <div className="relative overflow-hidden social-card-img-mobile" style={{ height: '220px' }}>
                                     <img
                                         src={item.image}
                                         alt={item.title}

@@ -57,9 +57,25 @@ const QualityInnovationPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <style>{`
+        @media (max-width: 1023px) {
+            .qi-hero-mobile {
+                height: auto !important;
+                aspect-ratio: 16 / 9 !important;
+                min-height: unset !important;
+                margin-top: 70px !important;
+            }
+            .qi-breadcrumb-mobile { margin-bottom: 24px !important; margin-top: 16px !important; }
+            .qi-breadcrumb-flex-mobile { flex-wrap: wrap !important; font-size: 14px !important; }
+            .qi-section-mobile { padding-top: 48px !important; padding-bottom: 48px !important; }
+            .qi-gap-mobile { gap: 32px !important; }
+            .qi-title-mobile { font-size: 28px !important; }
+            .qi-badge-mobile { margin-bottom: 24px !important; }
+        }
+      `}</style>
       
       {/* Hero Section */}
-      <section className="relative h-[95vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[95vh] flex items-center justify-center overflow-hidden qi-hero-mobile">
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImg} 
@@ -71,8 +87,8 @@ const QualityInnovationPage = () => {
       </section>
 
       {/* Breadcrumbs Section */}
-      <div className="container mx-auto px-6 md:px-12 lg:px-24" style={{ marginTop: '5px', marginBottom: '50px' }}>
-        <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24 qi-breadcrumb-mobile" style={{ marginTop: '5px', marginBottom: '50px' }}>
+        <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal qi-breadcrumb-flex-mobile">
           <Link to="/" className="hover:text-[#8b0000] transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Home</Link>
           <ChevronRight className="w-4 h-4 mx-1 text-gray-400 shrink-0" />
           <span className="text-gray-500 px-2 py-1">Manufacturing Excellence</span>
@@ -82,19 +98,19 @@ const QualityInnovationPage = () => {
       </div>
 
       {/* Quality Assurance Section */}
-      <section id="quality-assurance" className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+      <section id="quality-assurance" className="bg-white qi-section-mobile" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="container mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start qi-gap-mobile">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide" style={{ marginBottom: '40px' }}>
+              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide qi-badge-mobile" style={{ marginBottom: '40px' }}>
                 Quality Assurance
               </div>
-              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
+              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide qi-title-mobile" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
                 Delivering Confidence Through <span className="font-normal text-[#8b0000]">Quality</span>
               </h2>
               <div className="space-y-6 font-['Outfit'] font-light text-gray-700 text-lg leading-relaxed text-justify" style={{ marginTop: '8px' }}>
@@ -128,9 +144,9 @@ const QualityInnovationPage = () => {
       </section>
 
       {/* Innovation Section */}
-      <section id="innovation" className="bg-gray-50 overflow-hidden" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+      <section id="innovation" className="bg-gray-50 overflow-hidden qi-section-mobile" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
         <div className="container mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start qi-gap-mobile">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -138,10 +154,10 @@ const QualityInnovationPage = () => {
               transition={{ duration: 0.8 }}
               className="lg:order-2"
             >
-              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide" style={{ marginBottom: '40px' }}>
+              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide qi-badge-mobile" style={{ marginBottom: '40px' }}>
                 Sustainable Innovation
               </div>
-              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
+              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide qi-title-mobile" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
                 Shaping Tomorrow’s Packaging with <span className="font-normal text-[#8b0000]">Sustainable Innovation</span>
               </h2>
               <div className="space-y-6 font-['Outfit'] font-light text-gray-700 text-lg leading-relaxed text-justify" style={{ marginTop: '8px' }}>
@@ -175,19 +191,19 @@ const QualityInnovationPage = () => {
       </section>
 
       {/* Simplified Benefits Section */}
-      <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+      <section className="bg-white qi-section-mobile" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="container mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start qi-gap-mobile">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide" style={{ marginBottom: '40px' }}>
+              <div className="inline-block px-6 py-2 bg-[#8b0000]/10 border-l-4 border-[#8b0000] text-[#8b0000] font-['Outfit'] text-2xl font-medium tracking-wide qi-badge-mobile" style={{ marginBottom: '40px' }}>
                 Customer Benefits
               </div>
-              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
+              <h2 className="font-['Outfit'] font-light text-[#111] leading-tight tracking-wide qi-title-mobile" style={{ fontSize: '28px', fontWeight: 300, margin: 0 }}>
                 Delivering Measurable <span className="font-normal text-[#8b0000]">customer Benefits</span>
               </h2>
               <div className="space-y-8 font-['Outfit'] font-light text-gray-700 text-lg leading-relaxed text-justify" style={{ marginTop: '24px' }}>

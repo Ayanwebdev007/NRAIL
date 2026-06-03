@@ -135,11 +135,14 @@ const LeadershipPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        // Initialize scroll to the middle group
-        if (gridRef.current) {
-            const singleSetWidth = leadersList.length * 350; // 320 card + 30 gap
-            gridRef.current.scrollLeft = singleSetWidth;
-        }
+        // Initialize scroll to the middle group after a slight delay to ensure CSS applies
+        setTimeout(() => {
+            if (gridRef.current && gridRef.current.children[0]) {
+                const cardWidthWithGap = gridRef.current.children[0].offsetWidth + 30; // Card width + 30px gap
+                const singleSetWidth = leadersList.length * cardWidthWithGap;
+                gridRef.current.scrollLeft = singleSetWidth;
+            }
+        }, 100);
     }, [location]);
 
     // Lock body scroll when modal is open
@@ -158,25 +161,26 @@ const LeadershipPage = () => {
     }, [selectedLeader]);
 
     const handleScroll = () => {
-        if (!gridRef.current) return;
-        const { scrollLeft, scrollWidth } = gridRef.current;
-        const singleSetWidth = leadersList.length * 350;
+        if (!gridRef.current || !gridRef.current.children[0]) return;
+        const { scrollLeft } = gridRef.current;
+        const cardWidthWithGap = gridRef.current.children[0].offsetWidth + 30;
+        const singleSetWidth = leadersList.length * cardWidthWithGap;
 
         // If we reach the end of the middle group (going right), jump back to start of middle group
         if (scrollLeft >= singleSetWidth * 2) {
             gridRef.current.scrollLeft = scrollLeft - singleSetWidth;
         } 
         // If we reach the start of the middle group (going left), jump to end of middle group
-        else if (scrollLeft <= singleSetWidth - 350) { // Small buffer to ensure seamless
+        else if (scrollLeft <= singleSetWidth - cardWidthWithGap) {
              gridRef.current.scrollLeft = scrollLeft + singleSetWidth;
         }
     };
 
     const scroll = (direction) => {
-        if (gridRef.current) {
-            const scrollAmount = 350; // Card width (320) + gap (30)
+        if (gridRef.current && gridRef.current.children[0]) {
+            const cardWidthWithGap = gridRef.current.children[0].offsetWidth + 30;
             gridRef.current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                left: direction === 'left' ? -cardWidthWithGap : cardWidthWithGap,
                 behavior: 'smooth'
             });
         }
@@ -187,7 +191,7 @@ const LeadershipPage = () => {
             <Navbar />
 
             {/* Hero Section - 95vh height */}
-            <div className="relative w-full h-[95vh]">
+            <div className="relative w-full h-[95vh] ld-hero-mobile">
                 <div
                     className="absolute inset-0 bg-cover"
                     style={{ 
@@ -200,12 +204,12 @@ const LeadershipPage = () => {
                 </div>
 
                 {/* Hero Text */}
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4 ld-hero-text-container-mobile">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="font-[Outfit]"
+                        className="font-[Outfit] ld-hero-title-mobile"
                         style={{
                             fontSize: '48px',
                             fontWeight: 300,
@@ -220,7 +224,7 @@ const LeadershipPage = () => {
             </div>
 
             {/* Breadcrumbs - Premium Design with forced spacing */}
-            <div className="container mx-auto px-6" style={{ marginTop: '5px ', marginBottom: '50px' }}>
+            <div className="container mx-auto px-6 ld-breadcrumb-mobile" style={{ marginTop: '5px ', marginBottom: '50px' }}>
                 <div className="flex items-center text-lg text-gray-500 font-normal">
                     <Link to="/" className="hover:text-primary transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
@@ -231,18 +235,18 @@ const LeadershipPage = () => {
             </div>
 
             {/* Leadership Text Content */}
-            <div className="bg-white pt-12 pb-32 lg:pb-64 relative overflow-hidden">
+            <div className="bg-white pt-12 pb-32 lg:pb-64 relative overflow-hidden ld-intro-section-mobile">
                 <div className="container mx-auto px-6 max-w-7xl">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="max-w-none"
+                        className="max-w-none ld-intro-text-mobile"
                         style={{ marginBottom: '100px' }}
                     >
                         <p
-                            className="text-black text-2xl md:text-3xl lg:text-[32px] font-light text-left tracking-tight"
+                            className="text-black text-2xl md:text-3xl lg:text-[32px] font-light text-left tracking-tight ld-text-center-mobile"
                             style={{ lineHeight: '1.1' }}
                         >
                             Leadership at NRAIL extends beyond the present, shaping pathways that empower teams, enhance infrastructure, and redefine industry benchmarks. A forward-thinking approach drives enduring performance and purposeful evolution.
@@ -257,7 +261,7 @@ const LeadershipPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.1 }}
-                            className="bg-[#f8f8f8] p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
+                            className="bg-[#f8f8f8] p-6 flex flex-col md:flex-row gap-6 items-start md:items-center ld-items-center-mobile ld-text-center-mobile"
                         >
                             <div className="flex-shrink-0 w-56 h-56 bg-[#f8f8f8] flex items-center justify-center self-center">
                                 <div className="w-40 h-40 overflow-hidden">
@@ -273,14 +277,14 @@ const LeadershipPage = () => {
                                     <h3 className="text-xl font-bold text-black leading-tight">Shri N R Agarwal <span className="text-gray-500 text-sm italic font-normal">(1932-2011)</span></h3>
                                     <p className="text-gray-700 text-sm font-medium mt-1">Our Inspiration & Beloved Founder</p>
                                 </div>
-                                <div className="h-[1px] w-[90%] bg-gray-300 my-2"></div>
+                                <div className="h-[1px] w-[90%] bg-gray-300 my-2 ld-mx-auto-mobile"></div>
                                 <div style={{ marginTop: '16px' }}>
                                     <p className="text-[#8b0000] text-xs font-bold uppercase tracking-widest mt-1">Founder Chairman</p>
                                 </div>
 
                                 <motion.div
                                     whileHover={{ x: 10 }}
-                                    className="flex items-center gap-[12px] cursor-pointer group w-fit"
+                                    className="flex items-center gap-[12px] cursor-pointer group w-fit ld-mx-auto-mobile"
                                     onClick={() => setSelectedLeader({
                                         name: "Shri N R Agarwal (1932-2011)",
                                         role: "Founder Chairman | Our inspiration & beloved founder",
@@ -300,7 +304,7 @@ const LeadershipPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="bg-[#f8f8f8] p-6 flex flex-col md:flex-row gap-6 items-start md:items-center"
+                            className="bg-[#f8f8f8] p-6 flex flex-col md:flex-row gap-6 items-start md:items-center ld-items-center-mobile ld-text-center-mobile"
                         >
                             <div className="flex-shrink-0 w-56 h-56 bg-[#f8f8f8] flex items-center justify-center self-center">
                                 <div className="w-40 h-40 overflow-hidden">
@@ -316,14 +320,14 @@ const LeadershipPage = () => {
                                     <h3 className="text-xl font-bold text-black leading-tight">Mr. R N Agarwal</h3>
                                     <p className="text-gray-700 text-sm font-medium mt-1">Driving Excellence & Innovation</p>
                                 </div>
-                                <div className="h-[1px] w-[90%] bg-gray-300 my-2"></div>
+                                <div className="h-[1px] w-[90%] bg-gray-300 my-2 ld-mx-auto-mobile"></div>
                                 <div style={{ marginTop: '16px' }}>
                                     <p className="text-[#8b0000] text-xs font-bold uppercase tracking-widest mt-1">Chairman & Managing Director</p>
                                 </div>
 
                                 <motion.div
                                     whileHover={{ x: 10 }}
-                                    className="flex items-center gap-[12px] cursor-pointer group w-fit"
+                                    className="flex items-center gap-[12px] cursor-pointer group w-fit ld-mx-auto-mobile"
                                     onClick={() => setSelectedLeader(leadersList[0])}
                                 >
                                     <span className="text-[#8b0000] font-bold text-sm tracking-wide">READ MORE</span>
@@ -332,7 +336,7 @@ const LeadershipPage = () => {
                             </div>
                         </motion.div>
                     </div>
-                    <div className="h-4 md:h-8 w-full bg-white block"></div>
+                    <div className="h-4 md:h-8 w-full bg-white block ld-founder-spacer-mobile"></div>
                 </div>
             </div>
             {/* Old Board of Directors Section - Commented Out
@@ -460,7 +464,7 @@ const LeadershipPage = () => {
             */}
 
             <section className="leadership-outer-container">
-                <div className="leadership-grid-bg relative overflow-hidden pt-16 pb-48 md:pt-24 md:pb-72">
+                <div className="leadership-grid-bg relative overflow-hidden pt-16 pb-48 md:pt-24 md:pb-72 ld-board-bg-mobile">
                     {/* Texture Overlay from Manufacturing Edge */}
                     <div className="texture-overlay"></div>
                     
@@ -474,7 +478,7 @@ const LeadershipPage = () => {
                             transition={{ duration: 0.8 }}
                             className="text-center mb-6"
                         >
-                            <h2 className="text-4xl md:text-6xl font-normal !text-white tracking-widest uppercase">
+                            <h2 className="text-4xl md:text-6xl font-normal !text-white tracking-widest uppercase ld-board-title-mobile">
                                 Board of Directors
                             </h2>
                         </motion.div>
@@ -560,18 +564,18 @@ const LeadershipPage = () => {
         </section>
 
             {/* Senior Management Team Section */}
-            <div className="bg-[#fafafa] pt-40 pb-72 md:pt-56 md:pb-96 border-t border-gray-100">
+            <div className="bg-[#fafafa] pt-40 pb-72 md:pt-56 md:pb-96 border-t border-gray-100 ld-mgmt-section-mobile">
                 <div className="container mx-auto px-12 md:px-24 max-w-6xl">
                     {/* Top Gap Spacer - Matched with Board of Directors */}
-                    <div className="h-12 md:h-16 w-full"></div>
+                    <div className="h-12 md:h-16 w-full ld-mgmt-spacer-mobile"></div>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-left"
+                        className="text-left ld-text-center-mobile"
                     >
-                        <h2 className="text-4xl md:text-6xl font-[Outfit] font-extralight tracking-tight" style={{ color: '#8b0000' }}>Senior Management Team</h2>
+                        <h2 className="text-4xl md:text-6xl font-[Outfit] font-extralight tracking-tight ld-mgmt-title-mobile" style={{ color: '#8b0000' }}>Senior Management Team</h2>
                     </motion.div>
 
                     {/* Fine-tuned Vertical Spacer */}
@@ -608,14 +612,14 @@ const LeadershipPage = () => {
                                 transition={{ duration: 0.8, delay: index * 0.1 }}
                                 className="group relative"
                             >
-                                <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-16 pb-12 border-b border-gray-200/60 group-hover:border-[#8b0000]/30 transition-colors duration-500">
+                                <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-16 pb-12 border-b border-gray-200/60 group-hover:border-[#8b0000]/30 transition-colors duration-500 ld-items-center-mobile ld-text-center-mobile">
                                     {/* Vertical Index Number */}
                                     <span className="text-4xl md:text-5xl font-[Outfit] font-bold text-gray-200 group-hover:text-[#8b0000]/20 transition-colors duration-500 min-w-[60px]">
                                         0{index + 1}
                                     </span>
 
                                     {/* Content Group */}
-                                    <div className="flex flex-col md:flex-row md:items-baseline md:gap-12 flex-grow md:whitespace-nowrap">
+                                    <div className="flex flex-col md:flex-row md:items-baseline md:gap-12 flex-grow md:whitespace-nowrap ld-items-center-mobile">
                                         <h3 className="text-3xl md:text-3xl lg:text-4xl font-[Outfit] text-black font-light tracking-tight group-hover:text-[#8b0000] transition-colors duration-500 whitespace-nowrap">
                                             {member.name}
                                         </h3>
@@ -636,7 +640,7 @@ const LeadershipPage = () => {
                     </div>
 
                     {/* Final Bottom Spacer to Footer - Matched with existing style */}
-                    <div className="h-32 md:h-48 w-full"></div>
+                    <div className="h-32 md:h-48 w-full ld-mgmt-bottom-spacer-mobile"></div>
                 </div>
             </div>
 
@@ -946,6 +950,35 @@ const LeadershipPage = () => {
                 }
                 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
                     background: #d1d5db;
+                }
+
+                @media (max-width: 1023px) {
+                    .ld-hero-mobile {
+                        height: auto !important;
+                        aspect-ratio: 16 / 9 !important;
+                        min-height: unset !important;
+                        margin-top: 70px !important;
+                    }
+                    .ld-hero-text-container-mobile { bottom: 16px !important; }
+                    .ld-hero-title-mobile { font-size: 18px !important; }
+                    
+                    .ld-breadcrumb-mobile { margin-bottom: 16px !important; margin-top: 16px !important; }
+                    
+                    .ld-intro-section-mobile { padding-bottom: 48px !important; }
+                    .ld-intro-text-mobile { margin-bottom: 32px !important; }
+                    .ld-founder-spacer-mobile { display: none !important; }
+                    
+                    .ld-board-bg-mobile { min-height: auto !important; padding-top: 32px !important; padding-bottom: 48px !important; }
+                    .ld-board-title-mobile { font-size: 28px !important; }
+                    
+                    .ld-mgmt-section-mobile { padding-top: 48px !important; padding-bottom: 48px !important; }
+                    .ld-mgmt-spacer-mobile { height: 16px !important; }
+                    .ld-mgmt-title-mobile { font-size: 32px !important; }
+                    .ld-mgmt-bottom-spacer-mobile { height: 16px !important; }
+                    
+                    .ld-text-center-mobile { text-align: center !important; }
+                    .ld-items-center-mobile { align-items: center !important; justify-content: center !important; }
+                    .ld-mx-auto-mobile { margin-left: auto !important; margin-right: auto !important; }
                 }
             ` }} />
             

@@ -154,9 +154,41 @@ const OurStoryPage = () => {
     return (
         <div className="bg-white min-h-screen font-main">
             <Navbar />
+            <style>{`
+                @media (max-width: 1023px) {
+                    .os-hero-mobile {
+                        height: auto !important;
+                        aspect-ratio: 16 / 9 !important;
+                        min-height: unset !important;
+                        margin-top: 70px !important;
+                    }
+                    .os-hero-text-container-mobile {
+                        bottom: 16px !important;
+                    }
+                    .os-hero-title-mobile { font-size: 18px !important; }
+                    
+                    .os-breadcrumb-mobile { margin-bottom: 16px !important; margin-top: 16px !important; }
+                    .os-section-padding-mobile { padding-top: 24px !important; padding-bottom: 48px !important; }
+                    .os-title-mobile { font-size: 36px !important; }
+                    
+                    .os-founder-section-mobile { padding-top: 48px !important; padding-bottom: 48px !important; }
+                    .os-founder-container-mobile { margin-top: 24px !important; margin-bottom: 24px !important; }
+                    
+                    .os-mission-header-mobile { padding-top: 48px !important; padding-bottom: 24px !important; }
+                    .os-mission-detail-mobile { padding-top: 48px !important; padding-bottom: 48px !important; min-height: auto !important; }
+                    .os-mission-text-mobile > :not([hidden]) ~ :not([hidden]) { margin-top: 32px !important; }
+                    
+                    .os-core-values-section-mobile { padding-top: 48px !important; padding-bottom: 48px !important; margin-bottom: 24px !important; }
+                    .os-core-values-header-mobile { margin-bottom: 32px !important; }
+                    .os-core-values-grid-mobile { gap: 32px !important; }
+                    
+                    .os-cert-section-mobile { padding-bottom: 48px !important; }
+                    .os-cert-header-mobile { margin-bottom: 32px !important; }
+                }
+            `}</style>
 
             {/* Hero Section - 95vh height */}
-            <div className="relative w-full h-[95vh]">
+            <div className="relative w-full h-[95vh] os-hero-mobile">
                 <div
                     className="absolute inset-0 bg-cover bg-top"
                     style={{ backgroundImage: `url("${legacyHero}")` }}
@@ -166,12 +198,12 @@ const OurStoryPage = () => {
                 </div>
 
                 {/* Hero Text */}
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4 os-hero-text-container-mobile">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="font-[Outfit]"
+                        className="font-[Outfit] os-hero-title-mobile"
                         style={{
                             fontSize: '48px', // Matching the 48px from reference
                             fontWeight: 300,
@@ -186,7 +218,7 @@ const OurStoryPage = () => {
             </div>
 
             {/* Breadcrumbs - Premium Design with forced spacing */}
-            <div className="container mx-auto px-6" style={{ marginTop: '5px ', marginBottom: '50px' }}>
+            <div className="container mx-auto px-6 os-breadcrumb-mobile" style={{ marginTop: '5px ', marginBottom: '50px' }}>
                 <div className="flex items-center text-lg text-gray-500 font-normal">
                     <Link to="/" className="hover:text-primary transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
@@ -198,7 +230,7 @@ const OurStoryPage = () => {
 
             {/* Main Content Sections - Removed as per request to start fresh */}
             {/* Main Content - Legacy Section */}
-            <div id="nrail-legacy" className="bg-white py-20 relative">
+            <div id="nrail-legacy" className="bg-white py-20 relative os-section-padding-mobile">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -210,7 +242,7 @@ const OurStoryPage = () => {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             className="space-y-6"
                         >
-                            <h2 className="text-6xl font-extrabold mb-8 leading-[0.9]">
+                            <h2 className="text-6xl font-extrabold mb-8 leading-[0.9] os-title-mobile">
                                 <span className="block text-black">NRAIL</span>
                                 <span className="block text-[#8b0000]">LEGACY</span>
                             </h2>
@@ -265,11 +297,11 @@ const OurStoryPage = () => {
             <div className="h-20 w-full"></div>
 
             {/* Founder's Message Section - Premium Royal Design */}
-            <div className="bg-white pt-48 pb-48 relative overflow-hidden">
+            <div className="bg-white pt-48 pb-48 relative overflow-hidden os-founder-section-mobile">
                 {/* Decorative Background Elements */}
                 <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#d4af37]/0 via-[#d4af37]/40 to-[#d4af37]/0"></div>
 
-                <div className="container mx-auto px-6 max-w-7xl" style={{ marginTop: '80px', marginBottom: '100px' }}>
+                <div className="container mx-auto px-6 max-w-7xl os-founder-container-mobile" style={{ marginTop: '80px', marginBottom: '100px' }}>
                     <div className="flex flex-col lg:flex-row gap-20 items-center justify-between">
 
                         {/* Image Section - The Royal Frame */}
@@ -303,7 +335,7 @@ const OurStoryPage = () => {
                                 <h5 className="font-['Cinzel'] text-[#d4af37] tracking-[0.2em] uppercase font-bold mb-3 text-lg">
                                     Founder’s Message
                                 </h5>
-                                <h2 className="font-['Playfair_Display'] text-6xl text-[#1a1a1a] font-bold leading-tight mb-4">
+                                <h2 className="font-['Playfair_Display'] text-6xl text-[#1a1a1a] font-bold leading-tight mb-4 os-title-mobile">
                                     Shri N R Agarwal
                                 </h2>
                                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-4">
@@ -339,7 +371,7 @@ const OurStoryPage = () => {
             </div>
 
             {/* Mission & Vision Header Section */}
-            <div id="vision-mission" className="bg-white pt-32 pb-48 relative">
+            <div id="vision-mission" className="bg-white pt-32 pb-48 relative os-mission-header-mobile">
                 <div className="container mx-auto px-6 max-w-7xl" style={{ marginTop: '40px' }}>
                     <div className="flex flex-col items-center text-center mt-8">
                         {/* Top Line with Red Lines matching reference */}
@@ -379,7 +411,7 @@ const OurStoryPage = () => {
             </div>
 
             {/* Mission & Vision Detail Section - Redesigned Section */}
-            <div className="bg-[#8b0000] py-52 relative overflow-hidden flex items-center" style={{ minHeight: '60vh' }}>
+            <div className="bg-[#8b0000] py-52 relative overflow-hidden flex items-center os-mission-detail-mobile" style={{ minHeight: '60vh' }}>
                 {/* Decorative Floral Background (Leaf/Plant illustration logic) */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                     <svg
@@ -423,7 +455,7 @@ const OurStoryPage = () => {
                         </motion.div>
 
                         {/* Right Column - Vertical Text Blocks */}
-                        <div className="lg:w-1/2 space-y-32">
+                        <div className="lg:w-1/2 space-y-32 os-mission-text-mobile">
                             {/* Mission Block */}
                             <motion.div
                                 initial={{ opacity: 0, x: 50 }}
@@ -466,13 +498,13 @@ const OurStoryPage = () => {
 
 
             {/* Core Values Section */}
-            <div className={`bg-white pt-24 pb-60 relative overflow-hidden`} style={{ marginBottom: '100px' }}>
+            <div className={`bg-white pt-24 pb-60 relative overflow-hidden os-core-values-section-mobile`} style={{ marginBottom: '100px' }}>
                 {/* Subtle Pinstripe Background */}
                 <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #8b0000 0px, #8b0000 1px, transparent 1px, transparent 10px)' }}></div>
 
                 <div className="container mx-auto px-6 max-w-7xl relative z-10">
                     {/* Top Header like Corporate Excellence */}
-                    <div className="flex flex-col items-center" style={{ marginBottom: '80px' }}>
+                    <div className="flex flex-col items-center os-core-values-header-mobile" style={{ marginBottom: '80px' }}>
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -489,7 +521,7 @@ const OurStoryPage = () => {
                     {/* Values Grid - Premium Card Layout */}
                     <div className="flex flex-col gap-16 items-center w-full">
                         {/* First Row: 3 Values */}
-                        <div className="flex flex-wrap justify-center gap-24 w-full">
+                        <div className="flex flex-wrap justify-center gap-24 w-full os-core-values-grid-mobile">
                             {[
                                 {
                                     icon: <Shield size={36} />,
@@ -542,7 +574,7 @@ const OurStoryPage = () => {
                         </div>
 
                         {/* Second Row: 2 Values (Centered) */}
-                        <div className="flex flex-wrap justify-center gap-24 w-full">
+                        <div className="flex flex-wrap justify-center gap-24 w-full os-core-values-grid-mobile">
                             {[
                                 {
                                     icon: <ClipboardCheck size={36} />,
@@ -594,9 +626,9 @@ const OurStoryPage = () => {
             </div>
 
             {/* Our Certifications Section */}
-            <div id="certifications" className="bg-white pb-32 relative">
+            <div id="certifications" className="bg-white pb-32 relative os-cert-section-mobile">
                 <div className="container mx-auto px-6 max-w-7xl">
-                    <div className="flex flex-col items-center text-center mb-24">
+                    <div className="flex flex-col items-center text-center mb-24 os-cert-header-mobile">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}

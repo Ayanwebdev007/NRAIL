@@ -43,14 +43,17 @@ const CMDDesk = () => {
     };
 
     return (
-        <section className="relative w-full bg-white min-h-[800px] py-12 lg:py-24 flex items-center overflow-hidden">
+        <section 
+            className="relative w-full bg-white lg:min-h-[800px] pt-12 pb-12 lg:py-24 block lg:flex lg:items-center overflow-hidden"
+            style={{ paddingTop: window.innerWidth <= 1024 ? '100px' : '0px' }}
+        >
             <div className="container mx-auto px-4 relative">
 
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
 
                     {/* Left Side: Image with Decorative Bar */}
                     <motion.div
-                        className="relative w-full lg:w-5/12 flex justify-center lg:justify-end items-center h-[500px] lg:h-[650px]"
+                        className="relative w-full lg:w-5/12 flex justify-center lg:justify-end items-center h-auto lg:h-[650px] mt-12 lg:mt-0"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ amount: 0.3, once: false }}
@@ -66,7 +69,7 @@ const CMDDesk = () => {
                             variants={imageVariants}
                         >
                             {/* Inner Decorative Red Frame for Mobile */}
-                            <div className="absolute inset-0 border-[12px] border-primary translate-x-4 translate-y-4 -z-10 lg:hidden" />
+                            <div className="absolute inset-0 border-[12px] border-primary translate-x-3 translate-y-3 -z-10 lg:hidden" />
 
                             <img
                                 src="/cmd_image.webp"
@@ -87,7 +90,7 @@ const CMDDesk = () => {
                         >
                             {/* Quote Icon Top */}
                             <motion.div variants={itemVariants}>
-                                <Quote size={60} className="text-primary opacity-20 absolute -top-12 -left-8 lg:-left-16 rotate-180" fill="currentColor" />
+                                <Quote size={60} className="text-primary opacity-20 absolute -top-6 lg:-top-12 left-0 lg:-left-16 rotate-180" fill="currentColor" />
                             </motion.div>
 
                             <div className="relative z-10">

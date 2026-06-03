@@ -33,8 +33,23 @@ const EnvironmentalImpact = () => {
     ];
 
     return (
-        <section className="relative w-full bg-white text-gray-900 overflow-hidden font-[Outfit]" style={{ paddingTop: '6rem', paddingBottom: '4rem' }}>
-            <div className="container mx-auto px-6 text-center flex flex-col items-center" style={{ marginBottom: '4rem' }}>
+        <>
+        <style>{`
+            @media (max-width: 1023px) {
+                .ei-section-mobile { padding-top: 48px !important; padding-bottom: 32px !important; }
+                .ei-container-mobile { margin-bottom: 32px !important; }
+                .ei-mid-gap-mobile { margin-top: 48px !important; }
+                .ei-text-gap-mobile { margin-bottom: 32px !important; }
+                .ei-steps-container-mobile { margin-top: 64px !important; padding-bottom: 64px !important; }
+                .ei-step-card-mobile { 
+                    transform: none !important; 
+                    height: auto !important;
+                    padding-bottom: 32px !important;
+                }
+            }
+        `}</style>
+        <section className="relative w-full bg-white text-gray-900 overflow-hidden font-[Outfit] ei-section-mobile" style={{ paddingTop: '6rem', paddingBottom: '4rem' }}>
+            <div className="container mx-auto px-6 text-center flex flex-col items-center ei-container-mobile" style={{ marginBottom: '4rem' }}>
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +92,7 @@ const EnvironmentalImpact = () => {
                 </div>
             </motion.div>
 
-            <div className="container mx-auto px-6 mt-32 text-center max-w-6xl">
+            <div className="container mx-auto px-6 mt-32 text-center max-w-6xl ei-mid-gap-mobile">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +102,7 @@ const EnvironmentalImpact = () => {
                 >
                     <div className="flex flex-col items-center">
                         <span className="w-px h-16 bg-gradient-to-b from-transparent via-red-300 to-red-700 mb-6 opacity-30"></span>
-                        <p className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-900 text-center max-w-4xl leading-relaxed" style={{ marginBottom: '4rem' }}>
+                        <p className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-900 text-center max-w-4xl leading-relaxed ei-text-gap-mobile" style={{ marginBottom: '4rem' }}>
                             With sustainability embedded into its corporate ethos, NRAIL is committed to catalysing responsible growth across the industry.
                         </p>
                     </div>
@@ -103,7 +118,7 @@ const EnvironmentalImpact = () => {
             </div>
 
             {/* Process Steps */}
-            <div className="relative" style={{ marginTop: '140px', paddingBottom: '10rem' }}>
+            <div className="relative ei-steps-container-mobile" style={{ marginTop: '140px', paddingBottom: '10rem' }}>
                 {/* Full Width Zigzag Line */}
                 <div className="hidden md:block absolute top-0 left-0 w-full h-[200px] z-0 opacity-40 overflow-hidden">
                     <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 200">
@@ -125,7 +140,9 @@ const EnvironmentalImpact = () => {
                         {steps.map((step, index) => (
                             <div
                                 key={step.id}
-                                className={`group relative flex flex-col items-center text-center cursor-pointer transition-all duration-300 overflow-hidden px-4 rounded-lg`}
+                                tabIndex={0}
+                                onClick={() => {}}
+                                className={`group relative flex flex-col items-center text-center cursor-pointer transition-all duration-300 overflow-hidden px-4 rounded-lg ei-step-card-mobile focus:outline-none`}
                                 style={{
                                     transform: index % 2 === 1 ? 'translateY(6rem)' : 'translateY(0)', // 6rem = 96px (matches SVG valley-peak diff)
                                     paddingBottom: '5rem',
@@ -133,33 +150,33 @@ const EnvironmentalImpact = () => {
                                 }}
                             >
                                 {/* Hover Background Overlay */}
-                                <div className="absolute inset-0 bg-black translate-y-[-101%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+                                <div className="absolute inset-0 bg-black translate-y-[-101%] group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
 
                                 {/* Content Wrapper */}
                                 <div className="relative z-10 flex flex-col items-center w-full h-full pt-8">
                                     {/* Red Box Container (Persistent) - Turns Green on Hover */}
-                                    <div className="relative w-24 h-24 shrink-0 flex items-center justify-center bg-red-700 shadow-lg rounded-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-emerald-700" style={{ marginBottom: '1.5rem' }}>
+                                    <div className="relative w-24 h-24 shrink-0 flex items-center justify-center bg-red-700 shadow-lg rounded-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-emerald-700 group-focus:scale-110 group-focus:bg-emerald-700" style={{ marginBottom: '1.5rem' }}>
                                         {/* Number (Default) */}
-                                        <span className="absolute text-white text-3xl font-bold transition-all duration-300 opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-50">
+                                        <span className="absolute text-white text-3xl font-bold transition-all duration-300 opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-50 group-focus:opacity-0 group-focus:scale-50">
                                             {step.id}
                                         </span>
 
                                         {/* Icon (Hover) */}
-                                        <span className="absolute flex items-center justify-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100">
+                                        <span className="absolute flex items-center justify-center transition-all duration-300 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 group-focus:opacity-100 group-focus:scale-100">
                                             {step.icon}
                                         </span>
                                     </div>
 
                                     {/* Title */}
                                     <h4
-                                        className="text-xl font-medium text-black group-hover:text-white px-2 transition-colors duration-300"
+                                        className="text-xl font-medium text-black group-hover:text-white group-focus:text-white px-2 transition-colors duration-300"
                                         style={{ marginBottom: '1rem' }}
                                     >
                                         {step.title}
                                     </h4>
 
                                     {/* Description */}
-                                    <div className="text-sm text-gray-600 group-hover:text-gray-200 leading-relaxed max-w-[220px] mx-auto opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                                    <div className="text-sm text-gray-600 group-hover:text-gray-200 group-focus:text-gray-200 leading-relaxed max-w-[220px] mx-auto opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 group-focus:opacity-100 group-focus:translate-y-0 transition-all duration-500 delay-100">
                                         {step.description}
                                     </div>
                                 </div>
@@ -169,6 +186,7 @@ const EnvironmentalImpact = () => {
                 </div>
             </div>
         </section >
+        </>
     );
 };
 

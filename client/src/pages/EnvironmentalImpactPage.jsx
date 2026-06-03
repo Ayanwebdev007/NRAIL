@@ -50,8 +50,24 @@ const EnvironmentalImpactPage = () => {
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
 
+            <style>{`
+                @media (max-width: 1023px) {
+                    .env-hero-mobile { height: 40vh !important; }
+                    .env-hero-text-mobile { font-size: 32px !important; padding-bottom: 16px !important; }
+                    .env-breadcrumb-mobile { font-size: 14px !important; margin-bottom: 24px !important; }
+                    .env-tabs-mobile { gap: 16px !important; margin-bottom: 40px !important; }
+                    .env-tab-btn-mobile { flex: 1; min-width: 90px; }
+                    .env-tab-icon-mobile { width: 48px !important; height: 48px !important; }
+                    .env-tab-text-mobile { font-size: 11px !important; white-space: normal !important; text-align: center !important; letter-spacing: 0.1em !important; }
+                    .env-tab-content-mobile { padding-top: 32px !important; }
+                    .env-grid-mobile { gap: 32px !important; }
+                    .env-slider-arrow-mobile { display: none !important; }
+                    .env-bottom-slider-mobile { height: 350px !important; }
+                    .env-spacer-mobile { height: 40px !important; }
+                }
+            `}</style>
             {/* Hero Section - Height normalized to 95vh for consistency */}
-            <div className="relative w-full h-[95vh] overflow-hidden flex flex-col justify-end text-white bg-white">
+            <div className="relative w-full h-[95vh] overflow-hidden flex flex-col justify-end text-white bg-white env-hero-mobile">
                 <img
                     src={envHeaderImg}
                     alt="Environmental Impact Header"
@@ -62,12 +78,12 @@ const EnvironmentalImpactPage = () => {
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
                 
                 {/* Hero Text - Positioned at bottom-8 to match Legacy page */}
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center w-full px-4 env-hero-text-mobile">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="font-[Outfit]"
+                        className="font-[Outfit] env-hero-text-mobile"
                         style={{
                             fontSize: '48px',
                             fontWeight: 300,
@@ -82,8 +98,8 @@ const EnvironmentalImpactPage = () => {
             </div>
 
             {/* Breadcrumbs Section */}
-            <div className="container mx-auto px-6 md:px-12 lg:px-24" style={{ marginTop: '5px', marginBottom: '50px' }}>
-                <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal font-['Outfit']">
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 env-breadcrumb-mobile" style={{ marginTop: '5px', marginBottom: '50px' }}>
+                <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal font-['Outfit'] env-breadcrumb-mobile">
                     <Link to="/" className="hover:text-[#8b0000] transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400 shrink-0" />
                     <span className="text-gray-500 px-2 py-1">Life, Made Better</span>
@@ -139,7 +155,7 @@ const EnvironmentalImpactPage = () => {
 
                     <div className="w-full">
                         {/* Premium Tabs Navigation */}
-                        <div className="flex flex-wrap justify-center gap-12 lg:gap-24 mb-48 px-4">
+                        <div className="flex flex-wrap justify-center gap-12 lg:gap-24 mb-48 px-4 env-tabs-mobile">
                             {[
                                 { id: 'recycle', label: 'Recycle & Reuse', icon: <Recycle className="w-6 h-6" /> },
                                 { id: 'water', label: 'Responsible Water Use', icon: <Droplets className="w-6 h-6" /> },
@@ -148,16 +164,16 @@ const EnvironmentalImpactPage = () => {
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className="group relative flex flex-col items-center gap-4 py-2"
+                                    className="group relative flex flex-col items-center gap-4 py-2 env-tab-btn-mobile"
                                 >
-                                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 env-tab-icon-mobile ${
                                         activeTab === tab.id 
                                         ? 'bg-[#8b0000] text-white shadow-2xl shadow-[#8b0000]/30 scale-110' 
                                         : 'bg-white text-gray-400 group-hover:text-[#8b0000] shadow-sm border border-gray-100 group-hover:border-[#8b0000]/20'
                                     }`}>
                                         {tab.icon}
                                     </div>
-                                    <span className={`font-['Outfit'] text-[15px] font-bold uppercase tracking-[0.2em] transition-all duration-300 text-center whitespace-nowrap ${
+                                    <span className={`font-['Outfit'] text-[15px] font-bold uppercase tracking-[0.2em] transition-all duration-300 text-center whitespace-nowrap env-tab-text-mobile ${
                                         activeTab === tab.id ? 'text-black' : 'text-black/50 group-hover:text-black'
                                     }`}>
                                         {tab.label}
@@ -176,7 +192,7 @@ const EnvironmentalImpactPage = () => {
                         {/* Tab Content */}
                         {activeTab === 'recycle' && (
                             <div 
-                                className="flex flex-col items-center space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                                className="flex flex-col items-center space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700 env-tab-content-mobile"
                                 style={{ paddingTop: '80px' }}
                             >
                                 {/* Intro Paragraph */}
@@ -187,7 +203,7 @@ const EnvironmentalImpactPage = () => {
                                 </div>
 
                                 {/* Process Steps Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 env-grid-mobile">
                                     {[
                                         {
                                             title: "Paper Recycling at NRAIL",
@@ -239,7 +255,7 @@ const EnvironmentalImpactPage = () => {
                         {/* Responsible Water Use Content */}
                         {activeTab === 'water' && (
                             <div 
-                                className="flex flex-col items-center space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                                className="flex flex-col items-center space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700 env-tab-content-mobile"
                                 style={{ paddingTop: '80px' }}
                             >
                                 {/* Intro Paragraph */}
@@ -250,7 +266,7 @@ const EnvironmentalImpactPage = () => {
                                 </div>
 
                                 {/* Process Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 env-grid-mobile">
                                     {[
                                         {
                                             title: "Optimized Water Consumption",
@@ -303,7 +319,7 @@ const EnvironmentalImpactPage = () => {
                         {/* Integrated Power Management Content */}
                         {activeTab === 'power' && (
                             <div 
-                                className="flex flex-col items-center space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                                className="flex flex-col items-center space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700 env-tab-content-mobile"
                                 style={{ paddingTop: '80px' }}
                             >
                                 {/* Intro Paragraph */}
@@ -314,7 +330,7 @@ const EnvironmentalImpactPage = () => {
                                 </div>
 
                                 {/* Process Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 env-grid-mobile">
                                     {[
                                         {
                                             title: "Captive Power Generation",
@@ -368,7 +384,7 @@ const EnvironmentalImpactPage = () => {
             </section>
 
             {/* Bottom Hero Image Section */}
-            <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden bg-gray-900 group">
+            <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden bg-gray-900 group env-bottom-slider-mobile">
                 {currentImages ? (
                     <>
                         <motion.img
@@ -398,13 +414,13 @@ const EnvironmentalImpactPage = () => {
                         {/* Navigation Arrows */}
                         <button
                             onClick={() => setCurrentSlide(prev => prev === 0 ? 1 : 0)}
-                            className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-[#8b0000] shadow-xl backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+                            className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-[#8b0000] shadow-xl backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 env-slider-arrow-mobile"
                         >
                             <ChevronLeft className="w-8 h-8" />
                         </button>
                         <button
                             onClick={() => setCurrentSlide(prev => prev === 1 ? 0 : 1)}
-                            className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-[#8b0000] shadow-xl backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+                            className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-[#8b0000] shadow-xl backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 env-slider-arrow-mobile"
                         >
                             <ChevronRight className="w-8 h-8" />
                         </button>

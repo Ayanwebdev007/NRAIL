@@ -33,14 +33,24 @@ const ManufacturingExcellence = () => {
     ];
 
     return (
+        <>
+        <style>{`
+            .manufacturing-section {
+                padding: 96px 20px 64px 20px;
+            }
+            @media (min-width: 1024px) {
+                .manufacturing-section {
+                    padding: 140px 20px 100px 20px;
+                }
+            }
+        `}</style>
         <section
-            className="relative bg-black text-center text-white overflow-hidden"
-            style={{ padding: '140px 20px 100px 20px' }} // Reduced top padding (was 200px) but kept enough for watermark
+            className="relative bg-black text-center text-white overflow-hidden manufacturing-section"
         >
 
             {/* Background Faint Text "OUR EXCELLENCE" - Positioned from Left Side */}
             <div
-                className="absolute left-0 w-full pointer-events-none select-none overflow-hidden text-left"
+                className="absolute left-0 w-full pointer-events-none select-none overflow-hidden text-left hidden lg:block"
                 style={{
                     top: '55px', // Moved UP to reduce overlap (was 75px)
                     zIndex: 0
@@ -169,6 +179,7 @@ const ManufacturingExcellence = () => {
                 ))}
             </motion.div>
         </section>
+        </>
     );
 };
 

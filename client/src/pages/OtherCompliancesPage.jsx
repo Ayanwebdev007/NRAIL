@@ -105,7 +105,7 @@ const OtherCompliancesPage = () => {
     const renderContent = () => {
         if (view === 'root') {
             return (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 investors-card-grid-mobile">
                     {categories.map((cat, index) => (
                         <InvestorCard 
                             key={index}
@@ -119,7 +119,7 @@ const OtherCompliancesPage = () => {
         }
 
         return (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 investors-card-grid-mobile">
                 {getFiles(selectedCategory).map((file, index) => (
                     <InvestorCard 
                         key={index}
@@ -146,13 +146,22 @@ const OtherCompliancesPage = () => {
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
 
-            <div className="h-20 md:h-28 w-full bg-white"></div>
+            <style>{`
+                @media (max-width: 1023px) {
+                    .investors-title-mobile { font-size: 36px !important; line-height: 1.1 !important; }
+                    .investors-breadcrumb-mobile { margin-bottom: 24px !important; gap: 8px !important; font-size: 14px !important; }
+                    .investors-content-mobile { padding-top: 40px !important; padding-bottom: 40px !important; }
+                    .investors-card-grid-mobile { gap: 16px !important; padding-top: 24px !important; padding-bottom: 24px !important; }
+                    .investors-spacer-mobile { height: 70px !important; }
+                }
+            `}</style>
+            <div className="h-20 md:h-28 w-full bg-white investors-spacer-mobile"></div>
 
             <div className="pt-16 pb-12 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#8b0000]/[0.02] to-transparent pointer-events-none"></div>
 
                 <div className="container mx-auto px-6 md:px-24 relative z-10">
-                    <div className="flex flex-wrap items-center gap-1.5 text-lg mb-16 font-normal">
+                    <div className="flex flex-wrap items-center gap-1.5 text-lg mb-16 font-normal investors-breadcrumb-mobile">
                         <Link to="/" className="text-[#2d6ca2] hover:text-[#800000] transition-colors px-1">Home</Link>
                         <span className="text-gray-400 font-light mx-0.5">&gt;</span>
                         <Link to="/investor-information" className="text-[#2d6ca2] hover:text-[#800000] transition-colors px-1">Investors</Link>
@@ -176,7 +185,7 @@ const OtherCompliancesPage = () => {
                     <div className="h-6 md:h-8"></div>
 
                     <motion.h1
-                        className="text-[48px] font-extrabold mb-8 leading-[0.9] uppercase"
+                        className="text-[48px] font-extrabold mb-8 leading-[0.9] uppercase investors-title-mobile"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -200,7 +209,7 @@ const OtherCompliancesPage = () => {
                 </div>
             </div>
 
-            <div className="py-24 md:py-32 bg-[#fafafa]/50">
+            <div className="py-24 md:py-32 bg-[#fafafa]/50 investors-content-mobile">
                 <div className="container mx-auto px-6 md:px-12 max-w-7xl">
                     <motion.div
                         key={view + (selectedCategory || '')}

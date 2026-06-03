@@ -83,4 +83,16 @@
     .swiper-button-prev {
         display: none !important;
     }
+
+    .hero {
+        height: auto;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        min-height: unset;
+        margin-top: 70px; /* Push below fixed navbar */
+    }
+
+    .slide-bg {
+        background-position: center center !important;
+    }
 }

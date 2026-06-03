@@ -131,9 +131,33 @@ const OurLocation = () => {
     }, [activeLocation]);
 
     return (
-        <section style={{ paddingTop: '80px' }} className="relative w-full pb-24 bg-white overflow-hidden font-[Outfit]">
+        <>
+        <style>{`
+            @media (max-width: 1023px) {
+                .ol-section-mobile { padding-top: 48px !important; padding-bottom: 48px !important; }
+                .ol-container-mobile { width: 95% !important; }
+                .ol-buttons-container-mobile { 
+                    display: grid !important; 
+                    grid-template-columns: 1fr 1fr !important; 
+                    gap: 12px !important; 
+                }
+                .ol-button-mobile { padding: 12px 8px !important; }
+                .ol-map-mobile { height: 350px !important; border-width: 2px !important; }
+                .ol-view-all-btn-mobile {
+                    top: auto !important;
+                    bottom: 24px !important;
+                    left: 50% !important;
+                    right: auto !important;
+                    transform: translateX(-50%) !important;
+                    padding: 10px 24px !important;
+                    font-size: 14px !important;
+                    width: max-content !important;
+                }
+            }
+        `}</style>
+        <section style={{ paddingTop: '80px' }} className="relative w-full pb-24 bg-white overflow-hidden font-[Outfit] ol-section-mobile">
 
-            <div style={{ width: '85%', maxWidth: '1600px', margin: '0 auto' }} className="relative z-10 flex flex-col items-center">
+            <div style={{ width: '85%', maxWidth: '1600px', margin: '0 auto' }} className="relative z-10 flex flex-col items-center ol-container-mobile">
 
                 {/* Header */}
                 <motion.div
@@ -154,7 +178,7 @@ const OurLocation = () => {
                 </motion.div>
 
                 {/* Location Bars */}
-                <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center w-full mx-auto">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center w-full mx-auto ol-buttons-container-mobile">
                     {locations.map((loc) => (
                         <motion.button
                             key={loc.id}
@@ -163,7 +187,7 @@ const OurLocation = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: loc.id * 0.1 }}
-                            className={`flex flex-col items-center p-6 rounded-2xl border transition-all duration-300 flex-1 hover:shadow-lg hover:-translate-y-1 ${activeLocation?.id === loc.id
+                            className={`flex flex-col items-center p-6 rounded-2xl border transition-all duration-300 flex-1 hover:shadow-lg hover:-translate-y-1 ol-button-mobile ${activeLocation?.id === loc.id
                                 ? 'bg-red-600 border-red-600 text-white shadow-xl scale-105 z-10'
                                 : 'bg-white border-gray-100 text-gray-900 hover:border-red-200'
                                 }`}
@@ -190,7 +214,7 @@ const OurLocation = () => {
                 <div className="w-full h-8 min-h-[32px] bg-transparent shrink-0"></div>
 
                 {/* Leaflet Map Section */}
-                <div className="w-full h-[500px] md:h-[600px] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative z-0 mx-auto">
+                <div className="w-full h-[500px] md:h-[600px] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative z-0 mx-auto ol-map-mobile">
                     <MapContainer
                         center={initialCenter}
                         zoom={initialZoom}
@@ -262,7 +286,7 @@ const OurLocation = () => {
                                 });
                             }}
                             style={{ padding: '15px 40px' }}
-                            className="absolute top-4 right-4 bg-red-600 rounded-full shadow-lg text-base font-bold text-white hover:bg-white hover:text-red-600 transition-all z-[1000] border border-transparent hover:border-red-600 flex items-center gap-2 tracking-wide"
+                            className="absolute top-4 right-4 bg-red-600 rounded-full shadow-lg text-base font-bold text-white hover:bg-white hover:text-red-600 transition-all z-[1000] border border-transparent hover:border-red-600 flex items-center gap-2 tracking-wide ol-view-all-btn-mobile"
                         >
                             <Maximize2 className="w-4 h-4" /> View All Units
                         </motion.button>
@@ -276,6 +300,7 @@ const OurLocation = () => {
 
             </div>
         </section>
+        </>
     );
 };
 

@@ -161,19 +161,19 @@ const UnitsSection = () => {
                     className="text-center"
                     style={{ marginBottom: '64px' }}
                 >
-                    <h2 className="font-['Outfit']" style={{ fontSize: '36px', fontWeight: 300, color: '#111', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    <h2 className="font-['Outfit'] me-title-mobile" style={{ fontSize: '36px', fontWeight: 300, color: '#111', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                         <span style={{ color: '#8b0000', fontWeight: 700 }}>India's Largest</span> Green Packaging Plant
                     </h2>
                 </motion.div>
 
                 {/* Unit Tabs - JK Paper Style Blocks */}
                 <div className="flex justify-center" style={{ marginBottom: '64px' }}>
-                    <div className="inline-flex overflow-hidden" style={{ border: '1px solid #e0e0e0', borderRadius: '0px' }}>
+                    <div className="inline-flex overflow-hidden me-tabs-container-mobile" style={{ border: '1px solid #e0e0e0', borderRadius: '0px' }}>
                         {unitsData.map((u, idx) => (
                             <button
                                 key={u.id}
                                 onClick={() => setActiveUnit(idx)}
-                                className="transition-all duration-300 font-['Outfit'] flex flex-col items-center justify-center text-center"
+                                className="transition-all duration-300 font-['Outfit'] flex flex-col items-center justify-center text-center me-tab-btn-mobile"
                                 style={{
                                     padding: '16px 32px',
                                     background: activeUnit === idx ? '#8b0000' : '#ffffff',
@@ -288,7 +288,7 @@ const UnitsSection = () => {
                         className="w-full"
                         style={{ marginTop: '80px' }}
                     >
-                        <div className="relative w-full aspect-[28/9] overflow-hidden rounded-none">
+                        <div className="relative w-full aspect-[28/9] overflow-hidden rounded-none me-carousel-mobile">
                             {unit.images ? (
                                 <Swiper
                                     modules={[Autoplay, Pagination, EffectFade]}
@@ -469,7 +469,7 @@ const FrameworkSection = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center"
                 >
-                    <h2 className="font-['Outfit']" style={{ fontSize: '32px', fontWeight: 300, color: '#111', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '32px', whiteSpace: 'nowrap' }}>
+                    <h2 className="font-['Outfit'] me-framework-title-mobile" style={{ fontSize: '32px', fontWeight: 300, color: '#111', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '32px', whiteSpace: 'nowrap' }}>
                         The <span style={{ color: '#8b0000', fontWeight: 700 }}>Framework</span> Supporting Our Manufacturing Mastery
                     </h2>
                 </motion.div>
@@ -640,9 +640,48 @@ const ManufacturingEdgePage = () => {
     return (
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
+            <style>{`
+                @media (max-width: 1023px) {
+                    .me-hero-mobile {
+                        height: auto !important;
+                        aspect-ratio: 16 / 9 !important;
+                        min-height: unset !important;
+                        margin-top: 70px !important;
+                    }
+                    .me-hero-text-container-mobile { bottom: 16px !important; }
+                    .me-hero-title-mobile { font-size: 24px !important; }
+                    
+                    .me-tabs-container-mobile { 
+                        display: flex !important;
+                        flex-wrap: wrap !important;
+                        justify-content: center !important;
+                    }
+                    .me-tab-btn-mobile {
+                        flex: 1 1 45% !important;
+                        min-width: unset !important;
+                        padding: 12px !important;
+                        border-right: 1px solid #e0e0e0 !important;
+                        border-bottom: 1px solid #e0e0e0 !important;
+                    }
+                    .me-tab-btn-mobile:nth-child(even) { border-right: none !important; }
+                    .me-tab-btn-mobile:nth-last-child(-n+2) { border-bottom: none !important; }
+                    
+                    .me-carousel-mobile { aspect-ratio: 16 / 9 !important; }
+                    .me-title-mobile { font-size: 28px !important; }
+                    .me-framework-title-mobile { font-size: 24px !important; white-space: normal !important; }
+                    
+                    .me-breadcrumb-mobile { margin-bottom: 16px !important; margin-top: 16px !important; }
+                    .me-breadcrumb-flex-mobile { flex-wrap: wrap !important; font-size: 14px !important; }
+                    
+                    .me-static-img-mobile { position: static !important; margin-bottom: 24px !important; }
+                    .me-img-height-mobile { min-height: unset !important; height: auto !important; max-height: 300px !important; }
+                    
+                    .green-power-nav-btn { display: none !important; }
+                }
+            `}</style>
 
             {/* Hero Section - 95vh height */}
-            <div className="relative w-full h-[95vh]">
+            <div className="relative w-full h-[95vh] me-hero-mobile">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url("${heroImg}")` }}
@@ -652,12 +691,12 @@ const ManufacturingEdgePage = () => {
                 </div>
 
                 {/* Hero Text */}
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4 me-hero-text-container-mobile">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="font-[Outfit]"
+                        className="font-[Outfit] me-hero-title-mobile"
                         style={{
                             fontSize: '48px',
                             fontWeight: 300,
@@ -672,8 +711,8 @@ const ManufacturingEdgePage = () => {
             </div>
 
             {/* Breadcrumbs */}
-            <div className="container mx-auto px-6" style={{ marginTop: '5px', marginBottom: '50px' }}>
-                <div className="flex items-center text-lg text-gray-500 font-normal">
+            <div className="container mx-auto px-6 me-breadcrumb-mobile" style={{ marginTop: '5px', marginBottom: '50px' }}>
+                <div className="flex items-center text-lg text-gray-500 font-normal me-breadcrumb-flex-mobile">
                     <Link to="/" className="hover:text-[#8b0000] transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
                     <span className="text-gray-500 px-2 py-1">Manufacturing Excellence</span>
@@ -693,13 +732,13 @@ const ManufacturingEdgePage = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: false, margin: "-80px" }}
                             transition={{ duration: 0.7, ease: "easeOut" }}
-                            className="relative"
+                            className="relative me-static-img-mobile"
                             style={{ position: 'sticky', top: '100px', alignSelf: 'start' }}
                         >
                             <img
                                 src={mainEdgeImg}
                                 alt="NRAIL Manufacturing Facility"
-                                className="w-full object-cover rounded-lg"
+                                className="w-full object-cover rounded-lg me-img-height-mobile"
                                 style={{ minHeight: '560px', height: '100%' }}
                             />
                         </motion.div>

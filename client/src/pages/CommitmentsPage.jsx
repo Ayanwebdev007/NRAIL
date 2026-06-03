@@ -26,7 +26,7 @@ const TeamExcellenceSection = () => {
     const [swiper, setSwiper] = useState(null);
 
     return (
-        <section className="relative w-full h-[600px] flex items-center overflow-hidden group">
+        <section className="relative w-full h-[600px] flex items-center overflow-hidden group commit-slider-mobile">
             <style>
                 {`
                 .team-excellence-nav-btn {
@@ -61,7 +61,7 @@ const TeamExcellenceSection = () => {
                 `}
             </style>
             {/* Background Slider */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 commit-slider-bg-mobile">
                 <Swiper
                     modules={[Autoplay, EffectFade, Navigation]}
                     onSwiper={setSwiper}
@@ -90,12 +90,12 @@ const TeamExcellenceSection = () => {
             </div>
 
             {/* Blurry Gradient Overlay at Bottom - Increased Height */}
-            <div className="absolute inset-x-0 bottom-0 h-[75%] z-[1] pointer-events-none" style={{ backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
+            <div className="absolute inset-x-0 bottom-0 h-[75%] z-[1] pointer-events-none commit-slider-overlay-mobile" style={{ backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 5%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.85) 85%, black 100%)' }}></div>
             {/* Dark tint at bottom for text legibility - Increased Height */}
-            <div className="absolute inset-x-0 bottom-0 h-[65%] z-[2] pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, transparent 100%)' }}></div>
+            <div className="absolute inset-x-0 bottom-0 h-[65%] z-[2] pointer-events-none commit-slider-overlay-mobile" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, transparent 100%)' }}></div>
 
             {/* Content at Bottom - Focused on the text provided by user */}
-            <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ padding: '0 60px 40px 60px' }}>
+            <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none commit-slider-content-mobile" style={{ padding: '0 60px 40px 60px' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -103,10 +103,10 @@ const TeamExcellenceSection = () => {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="w-full pointer-events-auto"
                 >
-                    <h2 className="font-['Outfit'] font-thin tracking-wide" style={{ fontSize: '28px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
+                    <h2 className="font-['Outfit'] font-thin tracking-wide commit-slider-title-mobile" style={{ fontSize: '28px', margin: 0, padding: 0, lineHeight: '1.2', fontWeight: 100, color: '#ffffff', textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}>
                         The Foundation of Our Growth Story
                     </h2>
-                    <p className="font-['Outfit'] font-light" style={{ fontSize: '16px', lineHeight: '1.7', marginTop: '12px', color: 'rgba(255,255,255,0.95)', textShadow: '0 1px 4px rgba(0,0,0,0.4)', maxWidth: '1200px' }}>
+                    <p className="font-['Outfit'] font-light commit-slider-text-mobile" style={{ fontSize: '16px', lineHeight: '1.7', marginTop: '12px', color: 'rgba(255,255,255,0.95)', textShadow: '0 1px 4px rgba(0,0,0,0.4)', maxWidth: '1200px' }}>
                         NRAIL’s evolving work culture acts as a catalyst for operational excellence and long-term success. At NRAIL, our culture brings together passion, innovation, and a shared purpose. It empowers our teams to grow, adapt, and explore new possibilities. Together, it fuels our progress and strengthens our ability to deliver meaningful outcomes.
                     </p>
                 </motion.div>
@@ -115,14 +115,14 @@ const TeamExcellenceSection = () => {
             {/* Custom Navigation Arrows */}
             <button 
                 onClick={() => swiper?.slidePrev()}
-                className="team-excellence-prev team-excellence-nav-btn absolute left-8 top-1/2 -translate-y-1/2 z-[60]"
+                className="team-excellence-prev team-excellence-nav-btn absolute left-8 top-1/2 -translate-y-1/2 z-[60] commit-slider-arrow-mobile"
                 aria-label="Previous slide"
             >
                 <ChevronLeft className="w-6 h-6" />
             </button>
             <button 
                 onClick={() => swiper?.slideNext()}
-                className="team-excellence-next team-excellence-nav-btn absolute right-8 top-1/2 -translate-y-1/2 z-[60]"
+                className="team-excellence-next team-excellence-nav-btn absolute right-8 top-1/2 -translate-y-1/2 z-[60] commit-slider-arrow-mobile"
                 aria-label="Next slide"
             >
                 <ChevronRight className="w-6 h-6" />
@@ -142,8 +142,47 @@ const CommitmentsPage = () => {
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
 
+            <style>{`
+                @media (max-width: 1023px) {
+                    .commit-hero-mobile { height: 40vh !important; }
+                    .commit-hero-text-mobile { font-size: 32px !important; bottom: 16px !important; }
+                    .commit-breadcrumb-mobile { font-size: 14px !important; margin-bottom: 24px !important; }
+                    .commit-section-mobile { padding-top: 64px !important; padding-bottom: 64px !important; min-height: auto !important; }
+                    .commit-title-mobile { font-size: 24px !important; text-align: center; }
+                    .commit-text-mobile { font-size: 15px !important; text-align: justify !important; padding: 0 16px !important; }
+                    .commit-main-para-mobile { font-size: 15px !important; text-align: justify !important; padding: 0 24px !important; }
+                    .commit-line-mobile { margin-left: auto !important; margin-right: auto !important; }
+                    
+                    /* Foundation / Slider specific */
+                    .commit-slider-mobile { height: auto !important; flex-direction: column !important; padding-bottom: 32px !important; }
+                    .commit-slider-bg-mobile { position: relative !important; height: 60vw !important; max-height: 300px !important; width: 100% !important; background-color: #ffffff; }
+                    .commit-slider-bg-mobile .swiper-slide { background-color: #ffffff !important; }
+                    .commit-slider-bg-mobile .swiper-slide div { background-size: contain !important; background-repeat: no-repeat !important; background-position: center center !important; background-color: #ffffff !important; }
+                    .commit-slider-overlay-mobile { display: none !important; }
+                    .commit-slider-content-mobile { 
+                        position: relative !important; 
+                        padding: 32px 16px 20px 16px !important; 
+                        background: #ffffff !important; 
+                    }
+                    .commit-slider-title-mobile { 
+                        font-size: 22px !important; 
+                        color: #1a1a1a !important; 
+                        text-shadow: none !important; 
+                        text-align: center !important;
+                    }
+                    .commit-slider-text-mobile { 
+                        font-size: 15px !important; 
+                        color: #4b5563 !important; 
+                        text-shadow: none !important; 
+                        text-align: justify !important; 
+                        padding: 0 24px !important;
+                        margin-top: 16px !important;
+                    }
+                    .commit-slider-arrow-mobile { display: none !important; }
+                }
+            `}</style>
             {/* Hero Section - 95vh height */}
-            <div className="relative w-full h-[95vh] overflow-hidden">
+            <div className="relative w-full h-[95vh] overflow-hidden commit-hero-mobile">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url("${commitmentHero}")` }}
@@ -153,12 +192,12 @@ const CommitmentsPage = () => {
                 </div>
 
                 {/* Hero Text */}
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4">
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-center w-full px-4 commit-hero-text-mobile">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="font-[Outfit]"
+                        className="font-[Outfit] commit-hero-text-mobile"
                         style={{
                             fontSize: '48px',
                             fontWeight: 300,
@@ -173,8 +212,8 @@ const CommitmentsPage = () => {
             </div>
 
             {/* Breadcrumbs Section */}
-            <div className="container mx-auto px-6 md:px-12 lg:px-24" style={{ marginTop: '5px', marginBottom: '50px' }}>
-                <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal font-['Outfit']">
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 commit-breadcrumb-mobile" style={{ marginTop: '5px', marginBottom: '50px' }}>
+                <div className="flex flex-wrap items-center text-lg text-gray-500 font-normal font-['Outfit'] commit-breadcrumb-mobile">
                     <Link to="/" className="hover:text-[#8b0000] transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-1 text-gray-400 shrink-0" />
                     <Link to="/our-story" className="hover:text-[#8b0000] transition-colors hover:bg-gray-50 px-2 py-1 rounded-md">Our Story</Link>
@@ -207,7 +246,7 @@ const CommitmentsPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
-                                className="text-lg md:text-xl text-gray-600 leading-relaxed text-justify font-light !mt-4"
+                                className="text-lg md:text-xl text-gray-600 leading-relaxed text-justify font-light !mt-4 commit-main-para-mobile"
                             >
                                 At NRAIL, we manufacture with purpose—driving progress toward a sustainable future. Excellence at NRAIL is more than a pursuit—it is embedded in every action we take. With a clear focus on creating lasting value for society, it remains the principle that drives our journey forward.
                             </motion.p>
@@ -219,7 +258,7 @@ const CommitmentsPage = () => {
             <div className="h-8 md:h-12 bg-white w-full"></div> {/* Refined Structural Spacer */}
 
             {/* Strengthening Lives Section - Redesigned to match Mission/Vision aesthetic (Increased Height) */}
-            <section className="bg-[#8b0000] py-64 lg:py-80 relative overflow-hidden flex items-center" style={{ minHeight: '85vh' }}>
+            <section className="bg-[#8b0000] py-64 lg:py-80 relative overflow-hidden flex items-center commit-section-mobile" style={{ minHeight: '85vh' }}>
                 {/* Decorative Floral Background */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                     <svg
@@ -245,11 +284,11 @@ const CommitmentsPage = () => {
                                 transition={{ duration: 0.8 }}
                                 className="text-white space-y-6"
                             >
-                                <h3 className="text-3xl lg:text-4xl font-extrabold tracking-tight uppercase leading-tight">
+                                <h3 className="text-3xl lg:text-4xl font-extrabold tracking-tight uppercase leading-tight commit-title-mobile">
                                     <span className="whitespace-nowrap">Strengthening Lives</span> <br className="hidden lg:block text-[#fecacacc]" /> <span className="text-[#fecaca] whitespace-nowrap">Through Trust and Care</span>
                                 </h3>
-                                <div className="w-12 h-[2px] bg-white opacity-40"></div>
-                                <p className="text-base lg:text-lg leading-relaxed text-gray-100 font-light text-justify max-w-xl">
+                                <div className="w-12 h-[2px] bg-white opacity-40 commit-line-mobile"></div>
+                                <p className="text-base lg:text-lg leading-relaxed text-gray-100 font-light text-justify max-w-xl commit-text-mobile">
                                     At NRAIL, trust, safety, and commitment form the foundation of our organizational ethos and guide every aspect of our operations. We build trust through transparency, ethical governance, and consistent delivery, fostering strong relationships with employees, customers, and stakeholders. Safety remains a top priority, supported by structured systems, rigorous training, and strict adherence to regulatory standards to ensure a secure and healthy workplace. Our commitment extends beyond the factory floor to the communities we serve—through initiatives in education, healthcare, and social development, including women empowerment and local engagement. By aligning responsible practices with long-term vision, NRAIL continues to create a safe, inclusive, and trustworthy ecosystem for both people and society.
                                 </p>
                             </motion.div>
@@ -282,7 +321,7 @@ const CommitmentsPage = () => {
             <div className="h-12 md:h-20 bg-white w-full"></div> {/* Structural Spacer */}
 
             {/* Together, We Drive Excellence Section - Redesigned to match aesthetic (Flipped Layout) */}
-            <section className="bg-[#8b0000] py-48 lg:py-64 relative overflow-hidden flex items-center" style={{ minHeight: '80vh' }}>
+            <section className="bg-[#8b0000] py-48 lg:py-64 relative overflow-hidden flex items-center commit-section-mobile" style={{ minHeight: '80vh' }}>
                 {/* Decorative Floral Background (Bottom Left for flipped effect) */}
                 <div className="absolute bottom-0 left-0 w-full h-full opacity-10 pointer-events-none">
                     <svg
@@ -328,11 +367,11 @@ const CommitmentsPage = () => {
                                 transition={{ duration: 0.8 }}
                                 className="text-white space-y-6"
                             >
-                                <h3 className="text-3xl lg:text-4xl font-extrabold tracking-tight uppercase leading-tight">
+                                <h3 className="text-3xl lg:text-4xl font-extrabold tracking-tight uppercase leading-tight commit-title-mobile">
                                     <span className="whitespace-nowrap">Together, We</span> <br className="hidden lg:block text-[#fecacacc]" /> <span className="text-[#fecaca] whitespace-nowrap">Drive Excellence</span>
                                 </h3>
-                                <div className="w-12 h-[2px] bg-white opacity-40"></div>
-                                <p className="text-base lg:text-lg leading-relaxed text-gray-100 font-light text-justify max-w-xl">
+                                <div className="w-12 h-[2px] bg-white opacity-40 commit-line-mobile"></div>
+                                <p className="text-base lg:text-lg leading-relaxed text-gray-100 font-light text-justify max-w-xl commit-text-mobile">
                                     At NRAIL, we believe that strong teams build strong organizations. Our approach to team building focuses on creating a culture of trust, collaboration, and shared responsibility. By encouraging cross-functional synergy, continuous skill enhancement, and leadership engagement, we ensure that every individual plays a meaningful role in our growth journey. This cohesive and performance-driven culture allows us to achieve operational excellence and sustained progress.
                                 </p>
                             </motion.div>

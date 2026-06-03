@@ -174,7 +174,7 @@ const ShareholderInformationPage = () => {
         switch (view) {
             case 'root':
                 return (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto py-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto py-20 shareholder-card-grid-mobile">
                         <InvestorCard 
                             title="Shareholder Information" 
                             number="01" 
@@ -189,7 +189,7 @@ const ShareholderInformationPage = () => {
                 );
             case 'shareholder-info':
                 return (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 shareholder-card-grid-mobile">
                         {shareholderInfoFiles.map((file, index) => (
                             <InvestorCard 
                                 key={index}
@@ -203,7 +203,7 @@ const ShareholderInformationPage = () => {
                 );
             case 'shareholding-pattern':
                 return (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-12">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-12 shareholder-card-grid-mobile">
                         {shareholdingPatternYears.map((year, index) => (
                             <InvestorCard 
                                 key={index}
@@ -216,7 +216,7 @@ const ShareholderInformationPage = () => {
                 );
             case 'shareholding-year':
                 return (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 shareholder-card-grid-mobile">
                         {getFilesForYear(selectedYear).map((file, index) => (
                             <InvestorCard 
                                 key={index}
@@ -236,16 +236,25 @@ const ShareholderInformationPage = () => {
     return (
         <div className="bg-white min-h-screen font-['Outfit'] antialiased text-black selection:bg-[#8b0000] selection:text-white">
             <Navbar />
+            <style>{`
+                @media (max-width: 1023px) {
+                    .shareholder-title-mobile { font-size: 36px !important; line-height: 1.1 !important; }
+                    .shareholder-breadcrumb-mobile { margin-bottom: 24px !important; gap: 8px !important; font-size: 14px !important; }
+                    .shareholder-content-mobile { padding-top: 40px !important; padding-bottom: 40px !important; }
+                    .shareholder-card-grid-mobile { gap: 16px !important; padding-top: 24px !important; padding-bottom: 24px !important; }
+                    .shareholder-spacer-mobile { height: 70px !important; }
+                }
+            `}</style>
 
             {/* Essential Spacer for fixed Navbar */}
-            <div className="h-20 md:h-28 w-full bg-white"></div>
+            <div className="h-20 md:h-28 w-full bg-white shareholder-spacer-mobile"></div>
 
             <div className="pt-16 pb-12 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#8b0000]/[0.02] to-transparent pointer-events-none"></div>
 
                 <div className="container mx-auto px-6 md:px-24 relative z-10">
                     {/* Breadcrumbs */}
-                    <div className="flex flex-wrap items-center gap-1.5 text-lg mb-16 font-normal">
+                    <div className="flex flex-wrap items-center gap-1.5 text-lg mb-16 font-normal shareholder-breadcrumb-mobile">
                         <Link to="/" className="text-[#2d6ca2] hover:text-[#800000] transition-colors px-1">Home</Link>
                         <span className="text-gray-400 font-light mx-0.5">&gt;</span>
                         <span className="text-[#2d6ca2] px-1 pointer-events-none">Investors</span>
@@ -280,7 +289,7 @@ const ShareholderInformationPage = () => {
                     <div className="h-6 md:h-8"></div>
 
                     <motion.h1
-                        className="text-[48px] font-extrabold mb-8 leading-[0.9] uppercase"
+                        className="text-[48px] font-extrabold mb-8 leading-[0.9] uppercase shareholder-title-mobile"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -312,7 +321,7 @@ const ShareholderInformationPage = () => {
                 </div>
             </div>
 
-            <div className="py-24 md:py-32 bg-[#fafafa]/50">
+            <div className="py-24 md:py-32 bg-[#fafafa]/50 shareholder-content-mobile">
                 <div className="container mx-auto px-6 md:px-12 max-w-7xl">
                     <motion.div
                         key={view}

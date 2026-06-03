@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeMobileMenu, setActiveMobileMenu] = useState(null);
   const [videoOpen, setVideoOpen] = useState(false);
   const location = useLocation();
 
@@ -88,9 +89,14 @@ const Navbar = () => {
 
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           {navData.map((item, index) => (
-            <li key={index} className={item.links.length > 0 ? 'has-dropdown' : ''}>
+            <li key={index} className={`${item.links.length > 0 ? 'has-dropdown' : ''} ${activeMobileMenu === index ? 'mobile-expanded' : ''}`}>
               {item.links.length > 0 ? (
-                <div className="nav-link-trigger">
+                <div 
+                  className="nav-link-trigger" 
+                  onClick={() => { 
+                    if(window.innerWidth <= 1024) setActiveMobileMenu(activeMobileMenu === index ? null : index); 
+                  }}
+                >
                   {item.title.toUpperCase()}
                   <ChevronDown size={16} className="dropdown-icon" />
                 </div>

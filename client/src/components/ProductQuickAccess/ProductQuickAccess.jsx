@@ -158,8 +158,20 @@ const ProductQuickAccess = () => {
     };
 
     return (
+        <>
+        <style>{`
+            @media (max-width: 1023px) {
+                .pqa-section-mobile { padding-top: 48px !important; padding-bottom: 48px !important; }
+                .pqa-title-mobile { font-size: 24px !important; }
+                .pqa-tab-btn-mobile { padding: 8px 16px !important; font-size: 11px !important; }
+                .pqa-subtitle-mobile { font-size: 14px !important; margin-top: 24px !important; margin-bottom: 16px !important; }
+                .pqa-slider-mobile { height: 450px !important; }
+                .pqa-nav-btn-mobile { width: 40px !important; height: 40px !important; }
+                .pqa-spacer-mobile { height: 64px !important; }
+            }
+        `}</style>
         <section
-            className="relative w-full bg-[#f8f9fa] overflow-hidden pb-32 font-[Outfit]"
+            className="relative w-full bg-[#f8f9fa] overflow-hidden pb-32 font-[Outfit] pqa-section-mobile"
             style={{ paddingTop: '10vh' }}
         >
 
@@ -206,7 +218,7 @@ const ProductQuickAccess = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
                         transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                        className="text-black mb-10 uppercase"
+                        className="text-black mb-10 uppercase pqa-title-mobile"
                         style={{
                             fontSize: '28px',
                             fontWeight: 800,
@@ -226,7 +238,7 @@ const ProductQuickAccess = () => {
                                     onClick={() => setActiveTab(product.id)}
                                     style={{ padding: '12px 40px' }} // Force padding
                                     className={`
-                                        relative rounded-full text-[11px] md:text-sm font-bold uppercase tracking-wide transition-all duration-300
+                                        pqa-tab-btn-mobile relative rounded-full text-[11px] md:text-sm font-bold uppercase tracking-wide transition-all duration-300
                                         ${activeTab === product.id ? 'text-white' : 'text-black'}
                                     `}
                                 >
@@ -249,7 +261,7 @@ const ProductQuickAccess = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-[#8b0000] font-bold uppercase tracking-[0.25em]"
+                        className="text-[#8b0000] font-bold uppercase tracking-[0.25em] pqa-subtitle-mobile"
                         style={{ fontSize: '18px', marginBottom: '20px', marginTop: '48px' }} // Reduced gap significantly
                     >
                         Product Showcase
@@ -259,7 +271,7 @@ const ProductQuickAccess = () => {
 
                 {/* Cinematic Slider Stage - Reduced Height */}
                 <motion.div
-                    className="relative w-full max-w-[1800px] h-[500px] xl:h-[600px] 2xl:h-[700px] flex items-center justify-center mx-auto"
+                    className="relative w-full max-w-[1800px] h-[500px] xl:h-[600px] 2xl:h-[700px] flex items-center justify-center mx-auto pqa-slider-mobile"
                     initial={{ opacity: 0, scale: 0.8, rotateY: 15 }}
                     whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
@@ -269,14 +281,14 @@ const ProductQuickAccess = () => {
                     {/* Navigation Buttons - Smaller & Closer */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 md:left-10 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-black hover:scale-110 transition-all duration-300 group border border-gray-100"
+                        className="absolute left-2 md:left-10 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-black hover:scale-110 transition-all duration-300 group border border-gray-100 pqa-nav-btn-mobile"
                     >
                         <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
                     </button>
 
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 md:right-10 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-black hover:scale-110 transition-all duration-300 group border border-gray-100"
+                        className="absolute right-2 md:right-10 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-black hover:scale-110 transition-all duration-300 group border border-gray-100 pqa-nav-btn-mobile"
                     >
                         <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
                     </button>
@@ -345,8 +357,9 @@ const ProductQuickAccess = () => {
             </div>
 
             {/* Significant Bottom Spacer */}
-            <div className="h-32 w-full" />
+            <div className="h-32 w-full pqa-spacer-mobile" />
         </section>
+        </>
     );
 };
 
