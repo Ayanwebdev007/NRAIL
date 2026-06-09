@@ -185,6 +185,9 @@ const OurStoryPage = () => {
                     .os-cert-section-mobile { padding-bottom: 48px !important; }
                     .os-cert-header-mobile { margin-bottom: 32px !important; }
                 }
+                @media (min-width: 1024px) {
+                    .os-core-values-header-mobile { margin-top: 100px !important; }
+                }
             `}</style>
 
             {/* Hero Section - 95vh height */}
@@ -498,7 +501,7 @@ const OurStoryPage = () => {
 
 
             {/* Core Values Section */}
-            <div className={`bg-white pt-24 pb-60 relative overflow-hidden os-core-values-section-mobile`} style={{ marginBottom: '100px' }}>
+            <div className={`bg-white pt-40 pb-60 relative overflow-hidden os-core-values-section-mobile`} style={{ marginBottom: '100px' }}>
                 {/* Subtle Pinstripe Background */}
                 <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #8b0000 0px, #8b0000 1px, transparent 1px, transparent 10px)' }}></div>
 
