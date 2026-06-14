@@ -19,7 +19,7 @@ import sunitaNairLeadership from '../assets/Sunita Nair.webp';
 import mahendraGuptaLeadership from '../assets/Mahendra Gupta.webp';
 import rkBakshiLeadership from '../assets/rk_bakshi.webp';
 import redTexture from '../assets/red texture.webp';
-import directorshipPdf from '../assets/11. Other Compliances/Directorship in Other Entities/Directorship in other entity.pdf';
+import directorshipPdf from '../assets/11. Other Compliances/Directorship in Other Entities/Directorship in Other Entities.pdf';
 
 // Panorama Leadership Assets
 import rajanPng from '../assets/panorama/rajan.webp';
