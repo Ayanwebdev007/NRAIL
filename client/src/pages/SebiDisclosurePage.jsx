@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import kmpPdf from '../assets/1.Shareholder Information/1.Shareholder Information/Shareholder Information/KMP for determining Materiality-Regulation 30(5) SEBI LODR.pdf';
 
 const SebiDisclosurePage = () => {
     return (
@@ -43,8 +44,8 @@ const SebiDisclosurePage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        <span className="block text-black">Disclosure under Reg 42</span>
-                        <span className="block text-[#8b0000]">of SEBI (LODR) Regulations</span>
+                        <span className="block text-black">Disclosure under Regulation 46</span>
+                        <span className="block text-[#8b0000]">of SEBI(LODR) Regulations 2015</span>
                     </motion.h1>
 
                     <div className="h-8 md:h-12 w-full"></div>
@@ -112,7 +113,7 @@ const SebiDisclosurePage = () => {
                                             item === "Email address for grievance redressal and other relevant details" ? "/shareholder-information/nodal-officer" :
                                             item === "Contact information of the designated officials of the listed entity who are responsible for assisting and handling investor grievances" ? "/shareholder-information/investor-grievances" :
                                             item === "Secretarial Compliance Report under Regulation 24A" ? "/other-compliances?category=secretarial Compliance Report" :
-                                            item === "Disclosure of Contact Details of Key Managerial Personnel as required under sub-regulation (5) of Regulation 30" ? "/shareholder-information?view=shareholder-info" :
+                                            item === "Disclosure of Contact Details of Key Managerial Personnel as required under sub-regulation (5) of Regulation 30" ? kmpPdf :
                                             item === "Annual Return as provided under section 92 of the Companies Act, 2013" ? "/other-compliances?category=Annual Return" :
                                             item === "Shareholding Pattern" ? "/shareholder-information?view=shareholding-pattern" :
                                             item === "All credit ratings obtained by the entity for all its outstanding instruments" ? "/newsroom" :
@@ -120,8 +121,9 @@ const SebiDisclosurePage = () => {
                                             item === "Disclosures under sub-regulation (8) of regulation 30 of these regulations" ? "/newsroom" :
                                             null;
 
-                                        const Component = to ? Link : 'div';
-                                        const extraProps = to ? { to } : {};
+                                        const isPdf = to && to.includes('.pdf');
+                                        const Component = to ? (isPdf ? 'a' : Link) : 'div';
+                                        const extraProps = to ? (isPdf ? { href: to, target: "_blank", rel: "noopener noreferrer" } : { to }) : {};
 
                                         return (
                                             <Component 

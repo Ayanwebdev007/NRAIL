@@ -19,6 +19,7 @@ import sunitaNairLeadership from '../assets/Sunita Nair.webp';
 import mahendraGuptaLeadership from '../assets/Mahendra Gupta.webp';
 import rkBakshiLeadership from '../assets/rk_bakshi.webp';
 import redTexture from '../assets/red texture.webp';
+import directorshipPdf from '../assets/11. Other Compliances/Directorship in Other Entities/Directorship in other entity.pdf';
 
 // Panorama Leadership Assets
 import rajanPng from '../assets/panorama/rajan.webp';
@@ -1052,6 +1053,11 @@ const LeadershipPage = () => {
                                     >
                                         <div className="max-w-none text-gray-700 leading-relaxed font-light">
                                             <p className="whitespace-pre-line text-[14px] md:text-[15px] text-justify tracking-tight opacity-90">{selectedLeader.bio}</p>
+                                            <div className="mt-4">
+                                                <a href={directorshipPdf} target="_blank" rel="noopener noreferrer" className="text-[#8b0000] hover:text-[#5a0000] underline font-medium text-[14px] md:text-[15px]">
+                                                    For Details of directorship in other entity
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                     

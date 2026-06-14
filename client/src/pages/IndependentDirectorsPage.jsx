@@ -17,14 +17,11 @@ const IndependentDirectorsPage = () => {
     const allFiles = Object.keys(pdfs)
         .filter(path => {
             const fileName = path.split('/').pop();
-            const blacklistedFiles = [
-                'Appointment Letter of Shri C R Radhakrishnan-new.pdf',
-                'Appointment Letter of Shri Neeraj Golas.pdf',
-                'Appointment Letter of Shri P Kumar-new.pdf',
-                'Appointment Letter of Shri S N Chaturvedi.pdf',
-                'Re-appointment of Independent Director-23.01.2023.pdf'
+            const allowedFiles = [
+                'Terms & Conditions of Appointment of Independent Directors.pdf',
+                'Familiarization Programme for Independent Directors.pdf'
             ];
-            return !path.includes('/.DS_Store') && !blacklistedFiles.includes(fileName);
+            return allowedFiles.includes(fileName);
         })
         .map(path => {
             const fileName = path.split('/').pop();

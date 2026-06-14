@@ -416,9 +416,9 @@ const ProductSpecsSection = ({ specs }) => {
                                                 <Download size={16} />
                                                 <span className="font-bold text-[10px] uppercase tracking-[0.1em]">Download PDF</span>
                                             </a>
-                                            <a href="tel:+916296314040" className="w-full h-[44px] bg-[#8b0000] text-white rounded-full flex items-center justify-center gap-2 hover:bg-[#a30000] transition-all duration-300">
+                                            <a href="tel:+912267317500" className="w-full h-[44px] bg-[#8b0000] text-white rounded-full flex items-center justify-center gap-2 hover:bg-[#a30000] transition-all duration-300">
                                                 <Phone size={16} className="text-white" />
-                                                <span className="font-bold text-[10px] uppercase tracking-[0.1em] text-white">Enquiry: +91 62963 14040</span>
+                                                <span className="font-bold text-[10px] uppercase tracking-[0.1em] text-white">Enquiry: +91 (22) 67317500</span>
                                             </a>
                                         </div>
                                     </div>
@@ -617,3 +617,4 @@ const WritingPrintingPage = () => {
 };
 
 export default WritingPrintingPage;
+
