@@ -471,8 +471,8 @@ const OurStoryPage = () => {
                                     MISSION
                                 </h3>
                                 <div className="w-12 h-[2px] bg-white opacity-40"></div>
-                                <p className="text-lg leading-relaxed text-gray-100 font-light max-w-xl text-justify">
-                                    N R Agarwal Industries Limited remains focused on creating sustained stakeholder value through technology-led innovation, cost-effective operations, and a robust organizational culture.
+                                <p className="text-lg leading-relaxed text-gray-100 font-light max-w-xl text-justify uppercase font-bold text-2xl tracking-widest" style={{ marginTop: '30px' }}>
+                                    TO BECOME A 1 MILLION TPA COMPANY BY 2030
                                 </p>
                             </motion.div>
 
