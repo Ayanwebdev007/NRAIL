@@ -10,11 +10,11 @@ const MediaPage = () => {
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
 
-    // Dynamic asset loading for converted event images (.webp)
-    const eventImages = import.meta.glob('../assets/**/*.webp', { eager: true, query: '?url', import: 'default' });
+    // Dynamic asset loading for event images
+    const eventImages = import.meta.glob('../assets/**/*.{webp,jpg,jpeg,png}', { eager: true, query: '?url', import: 'default' });
 
     // Filter images from specific event folders
-    const eventFolders = ['Cricket Match', 'Republic Day'];
+    const eventFolders = ['Cricket Match', 'Republic Day', 'Environment Day'];
     
     const events = eventFolders.map(folder => {
         const images = Object.keys(eventImages)

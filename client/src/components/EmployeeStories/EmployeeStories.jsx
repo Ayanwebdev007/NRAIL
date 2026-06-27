@@ -11,7 +11,7 @@ import rameshImage from '../../assets/Ramesh Alla.webp';
 import sarvachanChauhanImage from '../../assets/Sarvachan Cahawla Chauhan.webp';
 import aashishImage from '../../assets/Aashish Gulati.webp';
 import rajendraImage from '../../assets/Rajendra More General Manager -Imports.png';
-import deepakImage from '../../assets/Deepak Asopa Vice President -Finance & Accounts.png';
+import deepakImage from '../../assets/deepak asopa 2nd img.png';
 import amandeepImage from '../../assets/Amandeep Singh Sr.Vice President -Procurement & Materials.png';
 import chitranjanImage from '../../assets/Chitranjan Head - Information Technology.png';
 import rasikImage from '../../assets/Rasik Padia GM-Credit Control.png';

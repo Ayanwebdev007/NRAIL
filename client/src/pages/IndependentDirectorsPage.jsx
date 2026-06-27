@@ -10,8 +10,7 @@ const IndependentDirectorsPage = () => {
     const [popupData, setPopupData] = useState(null);
 
     // Dynamic asset loading using Vite's glob import
-    // Note: Path includes "9. Independent Directors" twice due to nested structure in assets
-    const pdfs = import.meta.glob('../assets/9. Independent Directors/9. Independent Directors/**/*.pdf', { eager: true, as: 'url' });
+    const pdfs = import.meta.glob('../assets/11. Other Compliances/Independent Directors/**/*.pdf', { eager: true, as: 'url' });
 
     // Format and sort files
     const allFiles = Object.keys(pdfs)

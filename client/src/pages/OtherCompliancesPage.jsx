@@ -28,7 +28,7 @@ const OtherCompliancesPage = () => {
     }))].sort();
 
     // Import familiarization PDF
-    const familiarizationPdfs = import.meta.glob('../assets/9. Independent Directors/9. Independent Directors/Familiarization Programme for Independent Directors.pdf', { eager: true, as: 'url' });
+    const familiarizationPdfs = import.meta.glob('../assets/11. Other Compliances/Independent Directors/Familiarization Programme for Independent Directors.pdf', { eager: true, as: 'url' });
 
     useEffect(() => {
         if (location.pathname === '/other-compliances/moa-and-aoa') {

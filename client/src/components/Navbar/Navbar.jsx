@@ -60,7 +60,6 @@ const Navbar = () => {
         { label: 'Share Transfer Agents', path: '/share-transfer-agents' },
         { label: 'Newsroom', path: '/newsroom' },
         { label: 'Investor Information', path: '/investor-information' },
-        { label: 'Independent Directors', path: '/independent-directors' },
         { label: 'Policies at NRAIL', path: '/policies' },
         { label: 'Other Compliances', path: '/other-compliances' },
         { label: 'Disclosure under Regulation 46 of SEBI(LODR) Regulations 2015', path: '/sebi-disclosure' }
