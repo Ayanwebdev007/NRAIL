@@ -27,6 +27,10 @@ const OtherCompliancesPage = () => {
         return parts[idx + 1];
     }))].sort();
 
+    if (!categories.includes('Smart ODR')) {
+        categories.push('Smart ODR');
+    }
+
     // Import familiarization PDF
     const familiarizationPdfs = import.meta.glob('../assets/11. Other Compliances/Independent Directors/Familiarization Programme for Independent Directors.pdf', { eager: true, as: 'url' });
 
@@ -57,9 +61,25 @@ const OtherCompliancesPage = () => {
         return Object.keys(allFilesMap)
             .filter(path => {
                 const inCategory = path.includes(`/${category}/`);
+                if (!inCategory) return false;
+                
                 const parts = path.split('/');
                 const catIdx = parts.lastIndexOf(category);
-                return inCategory && parts[catIdx + 1].includes('.');
+                const fileName = parts[catIdx + 1];
+                
+                if (!fileName.includes('.')) return false;
+
+                if (category === 'Independent Directors') {
+                    const allowedFiles = [
+                        'Terms & Conditions of Appointment of Independent Directors.pdf',
+                        'Familiarization Programme for Independent Directors.pdf'
+                    ];
+                    if (!allowedFiles.includes(fileName)) {
+                        return false;
+                    }
+                }
+
+                return true;
             })
             .map(path => {
                 const fileName = path.split('/').pop();
@@ -111,7 +131,13 @@ const OtherCompliancesPage = () => {
                             key={index}
                             title={cat}
                             number={(index + 1).toString().padStart(2, '0')}
-                            onClick={() => handleNavigateCategory(cat)}
+                            onClick={() => {
+                                if (cat === 'Smart ODR') {
+                                    window.open('https://smartodr.in/login', '_blank');
+                                } else {
+                                    handleNavigateCategory(cat);
+                                }
+                            }}
                         />
                     ))}
                 </div>

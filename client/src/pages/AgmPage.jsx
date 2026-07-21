@@ -19,13 +19,20 @@ const AgmPage = () => {
     const allFiles = { ...pdfs, ...excels };
 
     // Extract unique AGM names from folder names
-    const agms = [...new Set(Object.keys(allFiles)
+    const extractedAgms = [...new Set(Object.keys(allFiles)
         .map(path => {
             const parts = path.split('/');
             // Structure: .../4. AGM/4. AGM/[AGM Name]/[File]
             const agmIdx = parts.lastIndexOf('4. AGM');
             return parts[agmIdx + 1];
-        }))].sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
+        }))];
+
+    // Ensure 33RD AGM is always present, even without files yet
+    if (!extractedAgms.includes('33RD AGM (2025-26)') && !extractedAgms.includes('33rd AGM (2025-26)')) {
+        extractedAgms.push('33RD AGM (2025-26)');
+    }
+
+    const agms = extractedAgms.sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
 
     const getFilesForAgm = (agmName) => {
         const files = Object.keys(allFiles)
@@ -71,9 +78,19 @@ const AgmPage = () => {
             );
         }
 
+        const files = getFilesForAgm(selectedAgm);
+
+        if (files.length === 0) {
+            return (
+                <div className="py-12 text-center">
+                    <p className="text-gray-500 text-lg">No documents available yet for this AGM.</p>
+                </div>
+            );
+        }
+
         return (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 investors-card-grid-mobile">
-                {getFilesForAgm(selectedAgm).map((file, index) => (
+                {files.map((file, index) => (
                     <InvestorCard 
                         key={index}
                         title={file.name}
