@@ -4,4 +4,5 @@ node_modules/
 dist/
 build/
 .gemini/
-client/dist.zip
+dist.zip
+*.zip
