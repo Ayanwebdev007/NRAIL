@@ -54,7 +54,7 @@ const NrailAnnualReportsPage = () => {
                         <span className="text-gray-400 font-light mx-0.5">&gt;</span>
                         <span className="text-[#2d6ca2] px-1 pointer-events-none">Investors</span>
                         <span className="text-gray-400 font-light mx-0.5">&gt;</span>
-                        <span className="text-[#800000] font-medium px-1">NRAIL Annual Reports</span>
+                        <span className="text-[#800000] font-medium px-1">Annual Reports</span>
                     </div>
 
                     <div className="h-6 md:h-8"></div>
@@ -65,7 +65,7 @@ const NrailAnnualReportsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        <span className="block text-black">NRAIL Annual</span>
+                        <span className="block text-black">Annual</span>
                         <span className="block text-[#8b0000]">Reports</span>
                     </motion.h1>
 

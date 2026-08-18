@@ -144,7 +144,7 @@ const FinancialReportsPage = () => {
                             className={`${view === 'root' ? 'text-[#800000] font-medium' : 'text-[#2d6ca2] hover:text-[#800000] cursor-pointer'} transition-colors px-1`}
                             onClick={() => setView('root')}
                         >
-                            Financial Reports
+                            Financial Results
                         </span>
                         {view === 'year-details' && selectedYear && (
                             <>
@@ -167,11 +167,11 @@ const FinancialReportsPage = () => {
                         {view === 'root' ? (
                             <>
                                 <span className="block text-black">Financial</span>
-                                <span className="block text-[#8b0000]">Reports</span>
+                                <span className="block text-[#8b0000]">Results</span>
                             </>
                         ) : (
                             <>
-                                <span className="block text-black">Financial Reports</span>
+                                <span className="block text-black">Financial Results</span>
                                 <span className="block text-[#8b0000]">{selectedYear}</span>
                             </>
                         )}

@@ -10,7 +10,7 @@ import db1 from '../assets/db1.webp';
 import db2 from '../assets/db2.webp';
 import db3 from '../assets/db3.webp';
 import db4 from '../assets/Grey back iconic.jpg';
-import nrIconicGreyPdf from '../assets/Specifications - NR Iconic Grey Back.pdf';
+import nrIconicGreyPdf from '../assets/Iconic Grey Board 16.04.2025.pdf';
 import nrIconicWhitePdf from '../assets/Specifications - NR Iconic White Back.pdf';
 import nrLegendGreyPdf from '../assets/Specifications - NR Legend Grey Back.pdf';
 import nrLegendWhitePdf from '../assets/Specifications - NR Legend White Back.pdf';

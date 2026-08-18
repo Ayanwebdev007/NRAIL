@@ -53,8 +53,8 @@ const Navbar = () => {
       title: 'Investors',
       links: [
         { label: 'Shareholder Information', path: '/shareholder-information' },
-        { label: 'Financial Report', path: '/financial-reports' },
-        { label: 'NRAIL Annual Report', path: '/nrail-annual-reports' },
+        { label: 'Financial Results', path: '/financial-reports' },
+        { label: 'Annual Reports', path: '/nrail-annual-reports' },
         { label: 'AGM', path: '/agm' },
         { label: 'Corporate Governance', path: '/corporate-governance' },
         { label: 'Share Transfer Agents', path: '/share-transfer-agents' },
