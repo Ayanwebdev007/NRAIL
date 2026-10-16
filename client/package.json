@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "vite build && node copy_htaccess.cjs",
+    "zip": "node zip_dist.cjs",
+    "build:zip": "npm run build && node zip_dist.cjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

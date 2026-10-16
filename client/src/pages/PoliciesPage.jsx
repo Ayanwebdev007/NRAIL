@@ -7,10 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useSearchParams } from 'react-router-dom';
 
 const PoliciesPage = () => {
-    const [searchParams] = useSearchParams();
-    const [view, setView] = useState('root'); // root, sub-category, files
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    const [selectedSubCategory, setSelectedSubCategory] = useState(null);
     const [popupData, setPopupData] = useState(null);
 
     // Dynamic asset loading using Vite's glob import
@@ -19,47 +15,8 @@ const PoliciesPage = () => {
 
     const allFilesMap = { ...pdfs, ...excels };
 
-    // Structure: .../10. Policies at NRAIL/10. Policies at NRAIL/[Category]/[SubCategory?]/[File]
-    const categories = [...new Set(Object.keys(allFilesMap).map(path => {
-        const parts = path.split('/');
-        const idx = parts.lastIndexOf('10. Policies at NRAIL');
-        return parts[idx + 1];
-    }))].sort();
-
-    useEffect(() => {
-        const catParam = searchParams.get('category');
-        if (catParam && categories.includes(catParam)) {
-            handleNavigateCategory(catParam);
-        }
-    }, [searchParams, categories.length]);
-
-    const getSubCategories = (category) => {
-        if (category !== 'Other Policies') return [];
-        return [...new Set(Object.keys(allFilesMap)
-            .filter(path => path.includes(`/${category}/`))
-            .map(path => {
-                const parts = path.split('/');
-                const catIdx = parts.lastIndexOf(category);
-                const subPart = parts[catIdx + 1];
-                // If it's a file (ends in extension), it's not a subcategory
-                if (subPart.includes('.')) return null;
-                return subPart;
-            })
-            .filter(Boolean))].sort();
-    };
-
-    const getFiles = (category, subCategory = null) => {
+    const getAllFiles = () => {
         return Object.keys(allFilesMap)
-            .filter(path => {
-                const inCategory = path.includes(`/${category}/`);
-                if (subCategory) {
-                    return inCategory && path.includes(`/${subCategory}/`);
-                }
-                // If no subcategory requested, ensure the file is directly in the category
-                const parts = path.split('/');
-                const catIdx = parts.lastIndexOf(category);
-                return inCategory && parts[catIdx + 1].includes('.');
-            })
             .map(path => {
                 const fileName = path.split('/').pop();
                 const extension = fileName.split('.').pop().toLowerCase();
@@ -77,70 +34,10 @@ const PoliciesPage = () => {
             .sort((a, b) => b.originalName.localeCompare(a.originalName, undefined, { numeric: true }));
     };
 
-    const handleNavigateCategory = (category) => {
-        setSelectedCategory(category);
-        const subs = getSubCategories(category);
-        if (subs.length > 0) {
-            setView('sub-category');
-        } else {
-            setView('files');
-        }
-    };
-
-    const handleNavigateSubCategory = (sub) => {
-        setSelectedSubCategory(sub);
-        setView('files');
-    };
-
-    const goBackToRoot = () => {
-        setView('root');
-        setSelectedCategory(null);
-        setSelectedSubCategory(null);
-    };
-
-    const goBackToSub = () => {
-        if (selectedCategory === 'Other Policies') {
-            setView('sub-category');
-            setSelectedSubCategory(null);
-        } else {
-            goBackToRoot();
-        }
-    };
-
     const renderContent = () => {
-        if (view === 'root') {
-            return (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 investors-card-grid-mobile">
-                    {categories.map((cat, index) => (
-                        <InvestorCard 
-                            key={index}
-                            title={cat}
-                            number={(index + 1).toString().padStart(2, '0')}
-                            onClick={() => handleNavigateCategory(cat)}
-                        />
-                    ))}
-                </div>
-            );
-        }
-
-        if (view === 'sub-category') {
-            return (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 investors-card-grid-mobile">
-                    {getSubCategories(selectedCategory).map((sub, index) => (
-                        <InvestorCard 
-                            key={index}
-                            title={sub}
-                            number={(index + 1).toString().padStart(2, '0')}
-                            onClick={() => handleNavigateSubCategory(sub)}
-                        />
-                    ))}
-                </div>
-            );
-        }
-
         return (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 investors-card-grid-mobile">
-                {getFiles(selectedCategory, selectedSubCategory).map((file, index) => (
+                {getAllFiles().map((file, index) => (
                     <InvestorCard 
                         key={index}
                         title={file.name}
@@ -177,31 +74,9 @@ const PoliciesPage = () => {
                         <span className="text-gray-400 font-light mx-0.5">&gt;</span>
                         <span className="text-[#2d6ca2] px-1 pointer-events-none">Investors</span>
                         <span className="text-gray-400 font-light mx-0.5">&gt;</span>
-                        <span 
-                            className={`${view === 'root' ? 'text-[#800000] font-medium' : 'text-[#2d6ca2] hover:text-[#800000] cursor-pointer'} transition-colors px-1`}
-                            onClick={goBackToRoot}
-                        >
+                        <span className="text-[#800000] font-medium transition-colors px-1">
                             Policies
                         </span>
-                        {selectedCategory && (
-                            <>
-                                <span className="text-gray-400 font-light mx-0.5">&gt;</span>
-                                <span 
-                                    className={`${!selectedSubCategory && view === 'files' ? 'text-[#800000] font-medium' : 'text-[#2d6ca2] hover:text-[#800000] cursor-pointer'} transition-colors px-1`}
-                                    onClick={goBackToSub}
-                                >
-                                    {selectedCategory}
-                                </span>
-                            </>
-                        )}
-                        {selectedSubCategory && (
-                            <>
-                                <span className="text-gray-400 font-light mx-0.5">&gt;</span>
-                                <span className="text-[#800000] font-medium px-1 uppercase tracking-wider">
-                                    {selectedSubCategory}
-                                </span>
-                            </>
-                        )}
                     </div>
 
                     <div className="h-6 md:h-8"></div>
@@ -212,24 +87,7 @@ const PoliciesPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        {view === 'root' ? (
-                            <>
-                                <span className="block text-black">Policies at</span>
-                                <span className="block text-[#8b0000]">NRAIL</span>
-                            </>
-                        ) : view === 'sub-category' ? (
-                            <>
-                                <span className="block text-black">{selectedCategory}</span>
-                                <span className="block text-[#8b0000]">Categories</span>
-                            </>
-                        ) : (
-                            <>
-                                <span className="block text-black uppercase tracking-tight">
-                                    {(selectedSubCategory || selectedCategory || '').replace(/\s*documents\s*$/i, '').replace(/\s*policies\s*$/i, '').replace(/\s*policy\s*$/i, '')}
-                                </span>
-                                <span className="block text-[#8b0000]">Documents</span>
-                            </>
-                        )}
+                        <span className="block text-black">Policies</span>
                     </motion.h1>
 
                     <div className="h-8 md:h-12 w-full"></div>
@@ -239,7 +97,6 @@ const PoliciesPage = () => {
             <div className="py-24 md:py-32 bg-[#fafafa]/50 investors-content-mobile">
                 <div className="container mx-auto px-6 md:px-12 max-w-7xl">
                     <motion.div
-                        key={view + (selectedCategory || '') + (selectedSubCategory || '')}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -30 }}

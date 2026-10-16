@@ -584,6 +584,10 @@ const LeadershipPage = () => {
                     <div className="max-w-6xl mx-auto flex flex-col gap-12">
                         {[
                             {
+                                name: "Manoj Chauhan",
+                                designation: "Chief Marketing & Business Transformation Officer"
+                            },
+                            {
                                 name: "Ravi Kumar Sharma",
                                 designation: "Vice President - Marketing Board"
                             },
